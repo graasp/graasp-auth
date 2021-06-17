@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
 import { GRAASP_COMPOSE_HOST } from '../config/constants';
+import { emailValidator } from '../utils/validation';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -21,10 +22,11 @@ const styles = (theme) => ({
   },
   input: {
     margin: theme.spacing(1),
+    width: '250px',
   },
   form: {
     width: '50%',
-    minWidth: '200px',
+    minWidth: '250px',
     margin: 'auto',
   },
   divider: {
@@ -51,6 +53,8 @@ class SignIn extends Component {
   state = {
     email: '',
     isAuthenticated: false,
+    emailError: '',
+    error: false,
   };
 
   async componentDidMount() {
@@ -84,15 +88,25 @@ class SignIn extends Component {
 
   signIn = async () => {
     const { email } = this.state;
-    signIn({ email });
+    const checkingEmail = emailValidator(email);
+    if (checkingEmail === '') {
+      signIn({ email });
+    } else {
+      this.setState({ emailError: checkingEmail, error: true });
+    }
   };
 
   handleOnChange = (e) => {
-    this.setState({ email: e.target.value });
+    const { error } = this.state;
+    const email = e.target.value;
+    this.setState({ email });
+    if (error) {
+      this.setState({ emailError: emailValidator(email) });
+    }
   };
 
   renderSignInForm = () => {
-    const { email } = this.state;
+    const { email, emailError } = this.state;
     const { classes, t } = this.props;
 
     return (
@@ -104,6 +118,8 @@ class SignIn extends Component {
             label={t('Email')}
             variant="outlined"
             value={email}
+            error={emailError !== ''}
+            helperText={emailError}
             onChange={this.handleOnChange}
           />
           <Button variant="contained" color="primary" onClick={this.signIn}>
