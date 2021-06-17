@@ -13,6 +13,11 @@ import { buildSignInPath } from '../config/paths';
 import { getCurrentMember, signUp } from '../actions/authentication';
 import { GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
+import {
+  EMAIL_SIGN_UP_FIELD_ID,
+  NAME_SIGN_UP_FIELD_ID,
+  SIGN_UP_BUTTON_ID,
+} from '../config/selectors';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -126,6 +131,7 @@ class SignUp extends Component {
             error={nameError !== ''}
             helperText={nameError}
             onChange={this.handleNameOnChange}
+            id={NAME_SIGN_UP_FIELD_ID}
           />
         </Grid>
         <Grid item xs={12}>
@@ -138,10 +144,16 @@ class SignUp extends Component {
             error={emailError !== ''}
             helperText={emailError}
             onChange={this.handleEmailOnChange}
+            id={EMAIL_SIGN_UP_FIELD_ID}
           />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={this.register}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.register}
+            id={SIGN_UP_BUTTON_ID}
+          >
             {t('Sign Up')}
           </Button>
         </Grid>

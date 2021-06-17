@@ -14,6 +14,7 @@ import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
 import { GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator } from '../utils/validation';
+import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -121,8 +122,14 @@ class SignIn extends Component {
             error={emailError !== ''}
             helperText={emailError}
             onChange={this.handleOnChange}
+            id={EMAIL_SIGN_IN_FIELD_ID}
           />
-          <Button variant="contained" color="primary" onClick={this.signIn}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.signIn}
+            id={SIGN_IN_BUTTON_ID}
+          >
             {t('Sign In')}
           </Button>
         </FormControl>

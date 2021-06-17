@@ -4,3 +4,4 @@ export const buildSignInPath = (to) =>
   `/signin${qs.stringify({ to }, { addQueryPrefix: true })}`;
 export const SIGN_UP_PATH = '/signup';
 export const HOME_PATH = '/';
+export const SIGN_IN_PATH = '/signin';
