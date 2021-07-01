@@ -11,7 +11,7 @@ export const fillSignUpLayout = ({ name, email }) => {
   cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear().type(email);
 };
 
-export const fillSignInLayout = (email) => {
+export const fillSignInLayout = ({ email }) => {
   cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
 };
 
@@ -21,8 +21,4 @@ export const submitSignIn = () => {
 
 export const submitSignUp = () => {
   cy.get(`#${SIGN_UP_BUTTON_ID}`).click();
-};
-export const checkErrorTextField = (id, flag) => {
-  const existence = flag ? 'exist' : 'not.exist';
-  cy.get(`#${id}-helper-text`).should(existence);
 };

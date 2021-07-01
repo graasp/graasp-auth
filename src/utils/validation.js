@@ -7,15 +7,14 @@ import {
 import { NAME_MAXIMUM_LENGTH, NAME_MINIMUM_LENGTH } from '../config/constants';
 
 export const nameValidator = (name) => {
-  let checkingName = '';
-  if (name.length > NAME_MAXIMUM_LENGTH || name.length < NAME_MINIMUM_LENGTH) {
-    checkingName =
-      name.length > NAME_MAXIMUM_LENGTH
-        ? USERNAME_ERROR_MAXIMUM
-        : USERNAME_ERROR_MINIMUM;
+  if (name.length > NAME_MAXIMUM_LENGTH) {
+    return USERNAME_ERROR_MAXIMUM;
   }
-  return checkingName;
+  if (name.length < NAME_MINIMUM_LENGTH) {
+    return USERNAME_ERROR_MINIMUM;
+  }
+  return null;
 };
 
 export const emailValidator = (email) =>
-  validator.isEmail(email) ? '' : EMAIL_ERROR;
+  validator.isEmail(email) ? null : EMAIL_ERROR;

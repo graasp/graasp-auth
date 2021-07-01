@@ -100,18 +100,18 @@ class SignUp extends Component {
     }
   };
 
-  register = async () => {
+  handleRegister = async () => {
     const { email, name } = this.state;
     const checkingEmail = emailValidator(email);
     const checkingUsername = nameValidator(name);
-    if (checkingEmail === '' && checkingUsername === '') {
-      signUp({ name, email });
-    } else {
+    if (checkingEmail || checkingUsername) {
       this.setState({
         emailError: checkingEmail,
         nameError: checkingUsername,
         error: true,
       });
+    } else {
+      await signUp({ name, email });
     }
   };
 
@@ -128,7 +128,7 @@ class SignUp extends Component {
             label={t('Name')}
             variant="outlined"
             value={name}
-            error={nameError !== ''}
+            error={Boolean(nameError)}
             helperText={nameError}
             onChange={this.handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
@@ -141,7 +141,7 @@ class SignUp extends Component {
             label={t('Email')}
             variant="outlined"
             value={email}
-            error={emailError !== ''}
+            error={Boolean(emailError)}
             helperText={emailError}
             onChange={this.handleEmailOnChange}
             id={EMAIL_SIGN_UP_FIELD_ID}
@@ -151,7 +151,7 @@ class SignUp extends Component {
           <Button
             variant="contained"
             color="primary"
-            onClick={this.register}
+            onClick={this.handleRegister}
             id={SIGN_UP_BUTTON_ID}
           >
             {t('Sign Up')}

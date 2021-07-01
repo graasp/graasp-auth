@@ -80,20 +80,13 @@ class SignIn extends Component {
     }
   };
 
-  handleOnRegister = () => {
-    const {
-      history: { push },
-    } = this.props;
-    push(SIGN_UP_PATH);
-  };
-
-  signIn = async () => {
+  handleSignIn = async () => {
     const { email } = this.state;
     const checkingEmail = emailValidator(email);
-    if (checkingEmail === '') {
-      signIn({ email });
-    } else {
+    if (checkingEmail) {
       this.setState({ emailError: checkingEmail, error: true });
+    } else {
+      await signIn({ email });
     }
   };
 
@@ -119,7 +112,7 @@ class SignIn extends Component {
             label={t('Email')}
             variant="outlined"
             value={email}
-            error={emailError !== ''}
+            error={emailError}
             helperText={emailError}
             onChange={this.handleOnChange}
             id={EMAIL_SIGN_IN_FIELD_ID}
@@ -127,7 +120,7 @@ class SignIn extends Component {
           <Button
             variant="contained"
             color="primary"
-            onClick={this.signIn}
+            onClick={this.handleSignIn}
             id={SIGN_IN_BUTTON_ID}
           >
             {t('Sign In')}
