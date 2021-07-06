@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import FormControl from '@material-ui/core/FormControl';
 import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
-import { GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator } from '../utils/validation';
 import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
 
@@ -23,11 +23,11 @@ const styles = (theme) => ({
   },
   input: {
     margin: theme.spacing(1),
-    width: '250px',
+    width: FIELD_WIDTH,
   },
   form: {
     width: '50%',
-    minWidth: '250px',
+    minWidth: FIELD_WIDTH,
     margin: 'auto',
   },
   divider: {

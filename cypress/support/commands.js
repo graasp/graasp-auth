@@ -27,7 +27,7 @@ Cypress.Commands.add('checkErrorTextField', (id, flag) => {
   cy.get(`#${id}-helper-text`).should(existence);
 });
 
-Cypress.Commands.add('signup', (user) => {
+Cypress.Commands.add('signUpAndCheck', (user) => {
   fillSignUpLayout(user);
   submitSignUp();
 
@@ -35,21 +35,8 @@ Cypress.Commands.add('signup', (user) => {
   cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.emailValid);
 });
 
-Cypress.Commands.add('login', (user) => {
+Cypress.Commands.add('signInAndCheck', (user) => {
   fillSignInLayout(user);
   submitSignIn();
   cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.email);
 });
-
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })

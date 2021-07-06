@@ -5,7 +5,9 @@ describe('Name and Email Validation', () => {
   it('Sign In', () => {
     const { GRAASP, WRONG_EMAIL } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
-    cy.login(WRONG_EMAIL);
-    cy.login(GRAASP);
+    // Signing in with a wrong email format
+    cy.signInAndCheck(WRONG_EMAIL);
+    // Siging in with a valid email
+    cy.signInAndCheck(GRAASP);
   });
 });

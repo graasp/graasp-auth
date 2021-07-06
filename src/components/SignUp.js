@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { buildSignInPath } from '../config/paths';
 import { getCurrentMember, signUp } from '../actions/authentication';
-import { GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
@@ -26,11 +26,11 @@ const styles = (theme) => ({
   },
   input: {
     margin: theme.spacing(1),
-    width: '250px',
+    width: FIELD_WIDTH,
   },
   form: {
     width: '50%',
-    minWidth: '250px',
+    minWidth: FIELD_WIDTH,
     margin: 'auto',
   },
 });
