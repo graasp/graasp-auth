@@ -11,7 +11,13 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { buildSignInPath } from '../config/paths';
 import { getCurrentMember, signUp } from '../actions/authentication';
-import { GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
+import { emailValidator, nameValidator } from '../utils/validation';
+import {
+  EMAIL_SIGN_UP_FIELD_ID,
+  NAME_SIGN_UP_FIELD_ID,
+  SIGN_UP_BUTTON_ID,
+} from '../config/selectors';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -20,10 +26,11 @@ const styles = (theme) => ({
   },
   input: {
     margin: theme.spacing(1),
+    width: FIELD_WIDTH,
   },
   form: {
     width: '50%',
-    minWidth: '200px',
+    minWidth: FIELD_WIDTH,
     margin: 'auto',
   },
 });
@@ -48,6 +55,9 @@ class SignUp extends Component {
   state = {
     email: '',
     name: '',
+    emailError: '',
+    nameError: '',
+    error: false,
   };
 
   async componentDidMount() {
@@ -73,21 +83,41 @@ class SignUp extends Component {
   };
 
   handleEmailOnChange = (e) => {
-    this.setState({ email: e.target.value });
+    const { error } = this.state;
+    const email = e.target.value;
+    this.setState({ email });
+    if (error) {
+      this.setState({ emailError: emailValidator(email) });
+    }
   };
 
   handleNameOnChange = (e) => {
-    this.setState({ name: e.target.value });
+    const { error } = this.state;
+    const name = e.target.value;
+    this.setState({ name });
+    if (error) {
+      this.setState({ nameError: nameValidator(name) });
+    }
   };
 
-  register = async () => {
+  handleRegister = async () => {
     const { email, name } = this.state;
-    signUp({ name, email });
+    const checkingEmail = emailValidator(email);
+    const checkingUsername = nameValidator(name);
+    if (checkingEmail || checkingUsername) {
+      this.setState({
+        emailError: checkingEmail,
+        nameError: checkingUsername,
+        error: true,
+      });
+    } else {
+      await signUp({ name, email });
+    }
   };
 
   renderForm = () => {
     const { classes, t } = this.props;
-    const { email, name } = this.state;
+    const { email, name, emailError, nameError } = this.state;
 
     return (
       <>
@@ -98,7 +128,10 @@ class SignUp extends Component {
             label={t('Name')}
             variant="outlined"
             value={name}
+            error={Boolean(nameError)}
+            helperText={nameError}
             onChange={this.handleNameOnChange}
+            id={NAME_SIGN_UP_FIELD_ID}
           />
         </Grid>
         <Grid item xs={12}>
@@ -108,11 +141,19 @@ class SignUp extends Component {
             label={t('Email')}
             variant="outlined"
             value={email}
+            error={Boolean(emailError)}
+            helperText={emailError}
             onChange={this.handleEmailOnChange}
+            id={EMAIL_SIGN_UP_FIELD_ID}
           />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={this.register}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleRegister}
+            id={SIGN_UP_BUTTON_ID}
+          >
             {t('Sign Up')}
           </Button>
         </Grid>

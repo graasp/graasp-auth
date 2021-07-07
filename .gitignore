@@ -31,3 +31,6 @@ cypress/videos
 
 # jetbrains
 .idea
+
+#yarn lock
+yarn.lock

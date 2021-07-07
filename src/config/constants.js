@@ -20,3 +20,8 @@ export const GRAASP_COMPOSE_HOST =
   ENV_GRAASP_COMPOSE_HOST ||
   process.env.REACT_APP_GRAASP_COMPOSE_HOST ||
   'http://localhost:3111';
+
+export const NAME_MAXIMUM_LENGTH = 300;
+export const NAME_MINIMUM_LENGTH = 2;
+
+export const FIELD_WIDTH = '250px';

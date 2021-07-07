@@ -12,7 +12,9 @@ import { Link } from 'react-router-dom';
 import FormControl from '@material-ui/core/FormControl';
 import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
-import { GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
+import { emailValidator } from '../utils/validation';
+import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -21,10 +23,11 @@ const styles = (theme) => ({
   },
   input: {
     margin: theme.spacing(1),
+    width: FIELD_WIDTH,
   },
   form: {
     width: '50%',
-    minWidth: '200px',
+    minWidth: FIELD_WIDTH,
     margin: 'auto',
   },
   divider: {
@@ -51,6 +54,8 @@ class SignIn extends Component {
   state = {
     email: '',
     isAuthenticated: false,
+    emailError: '',
+    error: false,
   };
 
   async componentDidMount() {
@@ -75,24 +80,27 @@ class SignIn extends Component {
     }
   };
 
-  handleOnRegister = () => {
-    const {
-      history: { push },
-    } = this.props;
-    push(SIGN_UP_PATH);
-  };
-
-  signIn = async () => {
+  handleSignIn = async () => {
     const { email } = this.state;
-    signIn({ email });
+    const checkingEmail = emailValidator(email);
+    if (checkingEmail) {
+      this.setState({ emailError: checkingEmail, error: true });
+    } else {
+      await signIn({ email });
+    }
   };
 
   handleOnChange = (e) => {
-    this.setState({ email: e.target.value });
+    const { error } = this.state;
+    const email = e.target.value;
+    this.setState({ email });
+    if (error) {
+      this.setState({ emailError: emailValidator(email) });
+    }
   };
 
   renderSignInForm = () => {
-    const { email } = this.state;
+    const { email, emailError } = this.state;
     const { classes, t } = this.props;
 
     return (
@@ -104,9 +112,17 @@ class SignIn extends Component {
             label={t('Email')}
             variant="outlined"
             value={email}
+            error={emailError}
+            helperText={emailError}
             onChange={this.handleOnChange}
+            id={EMAIL_SIGN_IN_FIELD_ID}
           />
-          <Button variant="contained" color="primary" onClick={this.signIn}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleSignIn}
+            id={SIGN_IN_BUTTON_ID}
+          >
             {t('Sign In')}
           </Button>
         </FormControl>
