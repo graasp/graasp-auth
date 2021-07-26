@@ -20,6 +20,11 @@ const styles = (theme) => ({
   fullScreen: {
     margin: 'auto',
     textAlign: 'center',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
     margin: theme.spacing(1),
