@@ -7,11 +7,15 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card'
+import FormControl from '@material-ui/core/FormControl';
+import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { buildSignInPath } from '../config/paths';
 import { getCurrentMember, signUp } from '../actions/authentication';
-import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST , GRAASP_LOGO_HEADER_HEIGHT} from '../config/constants';
+import GraaspLogo from "./Logo";
 import { emailValidator, nameValidator } from '../utils/validation';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
@@ -25,13 +29,21 @@ const styles = (theme) => ({
     textAlign: 'center',
   },
   input: {
-    margin: theme.spacing(1),
+    margin: `${theme.spacing(1)}px 0px`,
     width: FIELD_WIDTH,
+  },
+  box:{
+    margin: '5rem',
+    padding: theme.spacing(2),
+    textAlign: 'left',
   },
   form: {
     width: '50%',
     minWidth: FIELD_WIDTH,
     margin: 'auto',
+  },
+  divider: {
+    margin: theme.spacing(2),
   },
 });
 
@@ -40,7 +52,9 @@ class SignUp extends Component {
     classes: PropTypes.shape({
       fullScreen: PropTypes.string.isRequired,
       form: PropTypes.string.isRequired,
+      box: PropTypes.string.isRequired,
       input: PropTypes.string.isRequired,
+      divider: PropTypes.string.isRequired
     }).isRequired,
     history: PropTypes.shape({
       location: PropTypes.shape({
@@ -120,8 +134,13 @@ class SignUp extends Component {
     const { email, name, emailError, nameError } = this.state;
 
     return (
-      <>
-        <Grid item xs={12}>
+      <Card className={classes.box} variant="outlined">
+        <Typography variant="h3" component="h3">
+          <GraaspLogo height={GRAASP_LOGO_HEADER_HEIGHT} />
+          {t('Sign Up')}
+        </Typography>
+
+        <FormControl>
           <TextField
             className={classes.input}
             required
@@ -133,8 +152,6 @@ class SignUp extends Component {
             onChange={this.handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
           />
-        </Grid>
-        <Grid item xs={12}>
           <TextField
             className={classes.input}
             required
@@ -146,8 +163,6 @@ class SignUp extends Component {
             onChange={this.handleEmailOnChange}
             id={EMAIL_SIGN_UP_FIELD_ID}
           />
-        </Grid>
-        <Grid item xs={12}>
           <Button
             variant="contained"
             color="primary"
@@ -156,22 +171,22 @@ class SignUp extends Component {
           >
             {t('Sign Up')}
           </Button>
-        </Grid>
+        </FormControl>
+
+        <Divider variant="middle" className={classes.divider} />
+        {t('Already have an account? ')}
         <Link to={buildSignInPath()}>
-          {t('Already have an account? Click here to sign in')}
+          {t('Sign in')}
         </Link>
-      </>
+      </Card>
     );
   };
 
   render() {
-    const { classes, t } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.fullScreen}>
-        <Typography variant="h2" component="h2">
-          {t('Sign Up')}
-        </Typography>
         <Grid container className={classes.form} justify="center">
           {this.renderForm()}
         </Grid>
