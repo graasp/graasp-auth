@@ -8,12 +8,15 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card'
 import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
-import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
+import { FIELD_WIDTH, GRAASP_COMPOSE_HOST, GRAASP_LOGO_HEADER_HEIGHT } from '../config/constants';
 import { emailValidator } from '../utils/validation';
+import GraaspLogo from "./Logo";
 import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
 
 const styles = (theme) => ({
@@ -22,8 +25,14 @@ const styles = (theme) => ({
     textAlign: 'center',
   },
   input: {
-    margin: theme.spacing(1),
+    margin: `${theme.spacing(1)}px 0px`,
+    padding: 0,
     width: FIELD_WIDTH,
+  },
+  box:{
+    margin: '5em',
+    padding: theme.spacing(2),
+    textAlign: 'left',
   },
   form: {
     width: '50%',
@@ -40,6 +49,7 @@ class SignIn extends Component {
     classes: PropTypes.shape({
       fullScreen: PropTypes.string.isRequired,
       divider: PropTypes.string.isRequired,
+      box: PropTypes.string.isRequired,
       form: PropTypes.string.isRequired,
       input: PropTypes.string.isRequired,
     }).isRequired,
@@ -104,7 +114,12 @@ class SignIn extends Component {
     const { classes, t } = this.props;
 
     return (
-      <>
+      <Card className={classes.box} variant="outlined">
+        <Typography variant="h3" component="h3">
+          <GraaspLogo height={GRAASP_LOGO_HEADER_HEIGHT} />
+          {t('Sign In')}
+        </Typography>
+
         <FormControl>
           <TextField
             className={classes.input}
@@ -128,22 +143,22 @@ class SignIn extends Component {
         </FormControl>
 
         <Divider variant="middle" className={classes.divider} />
+        { t('Need an account? ') }       
         <Link to={SIGN_UP_PATH}>
-          {t('Not registered? Click here to register')}
+          {t('Register')}
         </Link>
-      </>
+      </Card>
     );
   };
 
   render() {
-    const { classes, t } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.fullScreen}>
-        <Typography variant="h2" component="h2">
-          {t('Sign In')}
-        </Typography>
-        {this.renderSignInForm()}
+        <Grid container className={classes.form} justify="center">
+          {this.renderSignInForm()}
+        </Grid>
       </div>
     );
   }

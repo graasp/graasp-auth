@@ -24,4 +24,6 @@ export const GRAASP_COMPOSE_HOST =
 export const NAME_MAXIMUM_LENGTH = 300;
 export const NAME_MINIMUM_LENGTH = 2;
 
+export const GRAASP_LOGO_HEADER_HEIGHT = 40;
+
 export const FIELD_WIDTH = '250px';
