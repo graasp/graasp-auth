@@ -7,31 +7,35 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
+import FormControl from '@material-ui/core/FormControl';
 import { buildSignInPath } from '../config/paths';
 import { getCurrentMember, signUp } from '../actions/authentication';
-import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
 } from '../config/selectors';
+import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 
 const styles = (theme) => ({
   fullScreen: {
     margin: 'auto',
     textAlign: 'center',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
-    margin: theme.spacing(1),
-    width: FIELD_WIDTH,
+    margin: theme.spacing(1, 0),
+    minWidth: FORM_INPUT_MIN_WIDTH,
   },
-  form: {
-    width: '50%',
-    minWidth: FIELD_WIDTH,
-    margin: 'auto',
+  divider: {
+    margin: theme.spacing(2),
   },
 });
 
@@ -39,7 +43,7 @@ class SignUp extends Component {
   static propTypes = {
     classes: PropTypes.shape({
       fullScreen: PropTypes.string.isRequired,
-      form: PropTypes.string.isRequired,
+      divider: PropTypes.string.isRequired,
       input: PropTypes.string.isRequired,
     }).isRequired,
     history: PropTypes.shape({
@@ -121,7 +125,7 @@ class SignUp extends Component {
 
     return (
       <>
-        <Grid item xs={12}>
+        <FormControl>
           <TextField
             className={classes.input}
             required
@@ -133,8 +137,6 @@ class SignUp extends Component {
             onChange={this.handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
           />
-        </Grid>
-        <Grid item xs={12}>
           <TextField
             className={classes.input}
             required
@@ -145,18 +147,20 @@ class SignUp extends Component {
             helperText={emailError}
             onChange={this.handleEmailOnChange}
             id={EMAIL_SIGN_UP_FIELD_ID}
+            type="email"
           />
-        </Grid>
-        <Grid item xs={12}>
           <Button
             variant="contained"
             color="primary"
             onClick={this.handleRegister}
             id={SIGN_UP_BUTTON_ID}
+            fullWidth
           >
             {t('Sign Up')}
           </Button>
-        </Grid>
+        </FormControl>
+
+        <Divider variant="middle" className={classes.divider} />
         <Link to={buildSignInPath()}>
           {t('Already have an account? Click here to sign in')}
         </Link>
@@ -172,9 +176,7 @@ class SignUp extends Component {
         <Typography variant="h2" component="h2">
           {t('Sign Up')}
         </Typography>
-        <Grid container className={classes.form} justify="center">
-          {this.renderForm()}
-        </Grid>
+        {this.renderForm()}
       </div>
     );
   }

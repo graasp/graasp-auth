@@ -27,6 +27,7 @@
     "start:test": "env-cmd -f ./.env.test react-scripts start",
     "start:ci": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
+    "dist": "env-cmd -f ./.env.production react-scripts build",
     "test": "env-cmd -f ./.env.test react-scripts test",
     "test:once": "env-cmd -f ./.env.test react-scripts test --watchAll=false",
     "eject": "react-scripts eject",

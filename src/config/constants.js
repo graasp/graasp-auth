@@ -24,4 +24,4 @@ export const GRAASP_COMPOSE_HOST =
 export const NAME_MAXIMUM_LENGTH = 300;
 export const NAME_MINIMUM_LENGTH = 2;
 
-export const FIELD_WIDTH = '250px';
+export const FORM_INPUT_MIN_WIDTH = 300;

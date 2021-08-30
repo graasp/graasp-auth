@@ -12,23 +12,23 @@ import { Link } from 'react-router-dom';
 import FormControl from '@material-ui/core/FormControl';
 import { SIGN_UP_PATH } from '../config/paths';
 import { getCurrentMember, signIn } from '../actions/authentication';
-import { FIELD_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { emailValidator } from '../utils/validation';
 import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
+import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 
 const styles = (theme) => ({
   fullScreen: {
     margin: 'auto',
     textAlign: 'center',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   input: {
-    margin: theme.spacing(1),
-    width: FIELD_WIDTH,
-  },
-  form: {
-    width: '50%',
-    minWidth: FIELD_WIDTH,
-    margin: 'auto',
+    margin: theme.spacing(1, 0),
+    minWidth: FORM_INPUT_MIN_WIDTH,
   },
   divider: {
     margin: theme.spacing(2),
@@ -40,7 +40,6 @@ class SignIn extends Component {
     classes: PropTypes.shape({
       fullScreen: PropTypes.string.isRequired,
       divider: PropTypes.string.isRequired,
-      form: PropTypes.string.isRequired,
       input: PropTypes.string.isRequired,
     }).isRequired,
     history: PropTypes.shape({
@@ -116,6 +115,7 @@ class SignIn extends Component {
             helperText={emailError}
             onChange={this.handleOnChange}
             id={EMAIL_SIGN_IN_FIELD_ID}
+            type="email"
           />
           <Button
             variant="contained"
