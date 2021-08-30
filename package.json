@@ -37,7 +37,7 @@
     "hooks:uninstall": "node node_modules/husky/husky.js uninstall",
     "hooks:install": "node node_modules/husky/husky.js install",
     "cypress:open": "env-cmd -f ./.env.test cypress open",
-    "cypress": "concurrently \"yarn start:test\" \"wait-on http://localhost:3111 && yarn cypress:run\"",
+    "cypress": "concurrently \"yarn start:test\" \"wait-on http://localhost:3001 && yarn cypress:run\"",
     "cypress:run": "env-cmd -f ./.env.test cypress run --headless --browser chrome"
   },
   "eslintConfig": {
@@ -58,7 +58,7 @@
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@cypress/code-coverage": "3.9.2",
+    "@cypress/code-coverage": "3.9.10",
     "@cypress/instrument-cra": "1.4.0",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
