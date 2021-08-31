@@ -1,3 +1,4 @@
+import { StatusCodes } from 'http-status-codes';
 import * as Api from '../api';
 import {
   SIGN_IN_SUCCESS,
@@ -25,10 +26,11 @@ export const signIn = async (payload) => {
     await Api.signIn(payload);
     notifier.success({ code: SIGN_IN_SUCCESS });
   } catch (error) {
-    if(error.message === 'Not Found')
+    if (error.res.status === StatusCodes.NOT_FOUND) {
       notifier.error({ code: SIGN_IN_INVALID, error });
-    else
+    } else {
       notifier.error({ code: SIGN_IN_ERROR, error });
+    }
   }
 };
 
@@ -38,9 +40,10 @@ export const signUp = async (payload) => {
     await Api.signUp(payload);
     notifier.success({ code: SIGN_UP_SUCCESS });
   } catch (error) {
-    if(error.message === 'Conflict')
+    if (error.res.status === StatusCodes.CONFLICT) {
       notifier.error({ code: SIGN_UP_DUPLICATE, error });
-    else
+    } else {
       notifier.error({ code: SIGN_UP_ERROR, error });
+    }
   }
 };
