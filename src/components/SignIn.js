@@ -81,11 +81,13 @@ class SignIn extends Component {
 
   handleSignIn = async () => {
     const { email } = this.state;
-    const checkingEmail = emailValidator(email);
+    const lowercaseEmail = email.toLowerCase();
+
+    const checkingEmail = emailValidator(lowercaseEmail);
     if (checkingEmail) {
       this.setState({ emailError: checkingEmail, error: true });
     } else {
-      await signIn({ email });
+      await signIn({ email: lowercaseEmail });
     }
   };
 

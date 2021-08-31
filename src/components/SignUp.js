@@ -106,7 +106,9 @@ class SignUp extends Component {
 
   handleRegister = async () => {
     const { email, name } = this.state;
-    const checkingEmail = emailValidator(email);
+    const lowercaseEmail = email.toLowerCase()
+    
+    const checkingEmail = emailValidator(lowercaseEmail);
     const checkingUsername = nameValidator(name);
     if (checkingEmail || checkingUsername) {
       this.setState({
@@ -115,7 +117,7 @@ class SignUp extends Component {
         error: true,
       });
     } else {
-      await signUp({ name, email });
+      await signUp({ name, email: lowercaseEmail });
     }
   };
 
