@@ -26,7 +26,7 @@ export const signIn = async (payload) => {
     await Api.signIn(payload);
     notifier.success({ code: SIGN_IN_SUCCESS });
   } catch (error) {
-    if (error.res.status === StatusCodes.NOT_FOUND) {
+    if (error.response.status === StatusCodes.NOT_FOUND) {
       notifier.error({ code: SIGN_IN_INVALID, error });
     } else {
       notifier.error({ code: SIGN_IN_ERROR, error });
@@ -40,7 +40,7 @@ export const signUp = async (payload) => {
     await Api.signUp(payload);
     notifier.success({ code: SIGN_UP_SUCCESS });
   } catch (error) {
-    if (error.res.status === StatusCodes.CONFLICT) {
+    if (error.response.status === StatusCodes.CONFLICT) {
       notifier.error({ code: SIGN_UP_DUPLICATE, error });
     } else {
       notifier.error({ code: SIGN_UP_ERROR, error });

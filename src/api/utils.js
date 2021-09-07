@@ -27,11 +27,11 @@ export const DEFAULT_PUT = {
 };
 
 export class CustomError extends Error { 
-  res;
+  response;
 
-  constructor(message, res){
+  constructor(message, response){
     super(message);
-    this.res = res;
+    this.response = response;
   }
 }
 
