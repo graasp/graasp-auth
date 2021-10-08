@@ -100,6 +100,13 @@ class SignIn extends Component {
     }
   };
 
+  handleKeypress = (e) => {
+    // sign in by pressing the enter key
+    if (e.key === 'Enter') {
+      this.handleSignIn();
+    }
+  };
+
   renderSignInForm = () => {
     const { email, emailError } = this.state;
     const { classes, t } = this.props;
@@ -118,6 +125,7 @@ class SignIn extends Component {
             onChange={this.handleOnChange}
             id={EMAIL_SIGN_IN_FIELD_ID}
             type="email"
+            onKeyPress={this.handleKeypress}
           />
           <Button
             variant="contained"
