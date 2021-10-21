@@ -15,6 +15,8 @@ import { getCurrentMember, signIn } from '../actions/authentication';
 import { emailValidator } from '../utils/validation';
 import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
 import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
+import { SIGN_IN_ERROR } from '../types/member';
+import notifier from '../utils/notifier';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -48,6 +50,11 @@ class SignIn extends Component {
       replace: PropTypes.func.isRequired,
     }).isRequired,
     t: PropTypes.func.isRequired,
+    location: PropTypes.shape({
+      search: PropTypes.shape({
+        error: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   };
 
   state = {
@@ -60,6 +67,15 @@ class SignIn extends Component {
   async componentDidMount() {
     this.setState({ isAuthenticated: Boolean(await getCurrentMember()) });
     this.checkIsAuthenticated();
+
+    // read url and trigger error notification if backend couldn't authenticate
+    const {
+      location: { search },
+    } = this.props;
+    const { error } = Qs.parse(search, { ignoreQueryPrefix: true });
+    if (error) {
+      notifier.error({ code: SIGN_IN_ERROR });
+    }
   }
 
   componentDidUpdate() {
