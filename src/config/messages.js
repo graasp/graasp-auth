@@ -10,6 +10,7 @@ export const SIGN_UP_DUPLICATE_MESSAGE =
 export const SIGN_UP_SUCCESS_MESSAGE =
   'You successfully signed up. You will receive an email.';
 export const EMAIL_ERROR = 'Please enter a valid email address';
+export const PASSWORD_ERROR = 'Please enter a valid password';
 export const USERNAME_ERROR_MAXIMUM_MESSAGE =
   'Please enter a username under 300 characters';
 export const USERNAME_ERROR_MINIMUM_MESSAGE =
