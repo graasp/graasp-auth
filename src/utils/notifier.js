@@ -4,6 +4,8 @@ import i18n from '../config/i18n';
 import {
   SIGN_IN_ERROR_MESSAGE,
   SIGN_IN_INVALID_MESSAGE,
+  SIGN_IN_INVALID_PASSWORD_MESSAGE,
+  SIGN_IN_SUCCESS_PASSWORD_MESSAGE,
   SIGN_IN_SUCCESS_MESSAGE,
   SIGN_UP_DUPLICATE_MESSAGE,
   SIGN_UP_ERROR_MESSAGE,
@@ -12,6 +14,8 @@ import {
 import {
   SIGN_IN_ERROR,
   SIGN_IN_INVALID,
+  SIGN_IN_PASSWORD_INVALID,
+  SIGN_IN_PASSWORD_SUCCESS,
   SIGN_IN_SUCCESS,
   SIGN_UP_DUPLICATE,
   SIGN_UP_ERROR,
@@ -28,6 +32,14 @@ const notifier = {
     switch (code) {
       case SIGN_IN_INVALID: {
         message = SIGN_IN_INVALID_MESSAGE;
+        break;
+      }
+      case SIGN_IN_PASSWORD_INVALID: {
+        message = SIGN_IN_INVALID_PASSWORD_MESSAGE;
+        break;
+      }
+      case SIGN_IN_PASSWORD_SUCCESS: {
+        message = SIGN_IN_SUCCESS_PASSWORD_MESSAGE;
         break;
       }
       case SIGN_IN_ERROR: {

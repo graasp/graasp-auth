@@ -12,7 +12,11 @@ import { Link } from 'react-router-dom';
 import FormControl from '@material-ui/core/FormControl';
 import { Box } from '@material-ui/core';
 import { SIGN_UP_PATH } from '../config/paths';
-import { getCurrentMember, signIn } from '../actions/authentication';
+import {
+  getCurrentMember,
+  signIn,
+  signInPassword,
+} from '../actions/authentication';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
@@ -131,14 +135,8 @@ class SignIn extends Component {
         this.setState({ passwordError: checkingPassword, error: true });
       }
     } else {
-      // await signIn({ email: lowercaseEmail });
-      this.doSomething();
+      await signInPassword({ email: lowercaseEmail, password });
     }
-  };
-
-  doSomething = () => {
-    /* eslint-disable no-console */
-    console.log('login with password');
   };
 
   handleOnChange = (e) => {
