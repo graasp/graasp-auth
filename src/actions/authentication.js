@@ -41,15 +41,14 @@ export const signInPassword = async (payload) => {
   try {
     const data = await Api.signInPassword(payload);
     notifier.success({ code: SIGN_IN_PASSWORD_SUCCESS });
-    const link = document.createElement('a');
-    link.href = data;
-    link.click();
+    return data;
   } catch (error) {
     if (error.response.status === StatusCodes.UNAUTHORIZED) {
       notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
     } else {
       notifier.error({ code: SIGN_IN_INVALID, error });
     }
+    return false;
   }
 };
 

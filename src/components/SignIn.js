@@ -124,7 +124,7 @@ class SignIn extends Component {
     const { email } = this.state;
     const { password } = this.state;
     const lowercaseEmail = email.toLowerCase();
-
+    /* eslint-disable no-console */
     const checkingEmail = emailValidator(lowercaseEmail);
     const checkingPassword = passwordValidator(password);
     if (checkingEmail || checkingPassword) {
@@ -135,7 +135,10 @@ class SignIn extends Component {
         this.setState({ passwordError: checkingPassword, error: true });
       }
     } else {
-      await signInPassword({ email: lowercaseEmail, password });
+      const link = await signInPassword({ email: lowercaseEmail, password });
+      if (link) {
+        window.location.href = link;
+      }
     }
   };
 
@@ -158,14 +161,21 @@ class SignIn extends Component {
   };
 
   handleKeypress = (e) => {
+    const { signInMethod } = this.state;
+    // signInMethod email when true
     // sign in by pressing the enter key
     if (e.key === 'Enter') {
-      this.handleSignIn();
+      if (signInMethod) {
+        this.handleSignIn();
+      } else {
+        this.handlePasswordSignIn();
+      }
     }
   };
 
   handleSignInMethod = () => {
     const { signInMethod } = this.state;
+    // signInMethod email when true
     if (signInMethod) {
       this.setState({ signInMethod: false });
     } else {
