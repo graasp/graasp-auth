@@ -10,11 +10,13 @@ import {
   SIGN_UP_DUPLICATE_MESSAGE,
   SIGN_UP_ERROR_MESSAGE,
   SIGN_UP_SUCCESS_MESSAGE,
+  SIGN_IN_NON_EXISTENT_PASSWORD_MESSAGE,
 } from '../config/messages';
 import {
   SIGN_IN_ERROR,
   SIGN_IN_INVALID,
   SIGN_IN_PASSWORD_INVALID,
+  SIGN_IN_PASSWORD_NON_EXISTENT,
   SIGN_IN_PASSWORD_SUCCESS,
   SIGN_IN_SUCCESS,
   SIGN_UP_DUPLICATE,
@@ -40,6 +42,10 @@ const notifier = {
       }
       case SIGN_IN_PASSWORD_SUCCESS: {
         message = SIGN_IN_SUCCESS_PASSWORD_MESSAGE;
+        break;
+      }
+      case SIGN_IN_PASSWORD_NON_EXISTENT: {
+        message = SIGN_IN_NON_EXISTENT_PASSWORD_MESSAGE;
         break;
       }
       case SIGN_IN_ERROR: {

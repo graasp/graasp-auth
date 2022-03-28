@@ -10,6 +10,7 @@ import {
   SIGN_UP_DUPLICATE,
   SIGN_IN_PASSWORD_INVALID,
   SIGN_IN_PASSWORD_SUCCESS,
+  SIGN_IN_PASSWORD_NON_EXISTENT,
 } from '../types/member';
 import notifier from '../utils/notifier';
 
@@ -45,6 +46,8 @@ export const signInPassword = async (payload) => {
   } catch (error) {
     if (error.response.status === StatusCodes.UNAUTHORIZED) {
       notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
+    } else if (error.response.status === StatusCodes.NOT_ACCEPTABLE) {
+      notifier.error({ code: SIGN_IN_PASSWORD_NON_EXISTENT, error });
     } else {
       notifier.error({ code: SIGN_IN_INVALID, error });
     }
