@@ -26,10 +26,10 @@ export const DEFAULT_PUT = {
   credentials: 'include',
 };
 
-export class CustomError extends Error { 
+export class CustomError extends Error {
   response;
 
-  constructor(message, response){
+  constructor(message, response) {
     super(message);
     this.response = response;
   }
@@ -37,6 +37,14 @@ export class CustomError extends Error {
 
 export const checkRequest = (res) => {
   if (res.ok) {
+    // res.status >= 200 && res.status < 300
+    return res;
+  }
+
+  throw new CustomError(res.statusText, res);
+};
+export const checkSeeOther = (res) => {
+  if (res.status === 303) {
     // res.status >= 200 && res.status < 300
     return res;
   }

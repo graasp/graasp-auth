@@ -1,5 +1,10 @@
 import { API_HOST } from '../config/constants';
-import { DEFAULT_GET, DEFAULT_POST, checkRequest } from './utils';
+import {
+  DEFAULT_GET,
+  DEFAULT_POST,
+  checkRequest,
+  checkSeeOther,
+} from './utils';
 
 // payload = {email}
 export const signIn = async (payload) => {
@@ -15,7 +20,7 @@ export const signInPassword = async (payload) => {
   const req = await fetch(`${API_HOST}/loginpassword`, {
     ...DEFAULT_POST,
     body: JSON.stringify(payload),
-  }).then(checkRequest);
+  }).then(checkSeeOther);
   const data = await req.json();
   return data.link;
 };
