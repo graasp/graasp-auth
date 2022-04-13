@@ -17,12 +17,12 @@ export const signIn = async (payload) => {
 
 // payload = {email, password}
 export const signInPassword = async (payload) => {
-  const req = await fetch(`${API_HOST}/loginpassword`, {
+  const req = await fetch(`${API_HOST}/login-password`, {
     ...DEFAULT_POST,
     body: JSON.stringify(payload),
   }).then(checkSeeOther);
   const data = await req.json();
-  return data.link;
+  return data.resource;
 };
 
 export const signOut = async () => {
