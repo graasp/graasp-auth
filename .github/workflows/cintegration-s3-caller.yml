@@ -1,4 +1,4 @@
-name: CI S3 caller workflow
+name: CI pipeline for Graasp auth
 
 # Controls when the action will run.
 on:
@@ -15,8 +15,8 @@ on:
 
 jobs:
   call-reusable-workflow:
-    name: CI caller template
-    uses: graasp/graasp-deploy/.github/workflows/cintegration-s3.yml@7ae32139ebc4e9e69f9d522f8a0f47734505ec64
+    name: CI S3 caller workflow
+    uses: graasp/graasp-deploy/.github/workflows/cintegration-s3-apps.yml@33c1d6065fba3b8761b7425d386ca3c4d7af8ceb
     with:
       build-folder: 'build'
     secrets:
