@@ -16,7 +16,7 @@ on:
 jobs:
   call-reusable-workflow:
     name: CI S3 caller workflow
-    uses: graasp/graasp-deploy/.github/workflows/cintegration-s3-apps.yml@33c1d6065fba3b8761b7425d386ca3c4d7af8ceb
+    uses: graasp/graasp-deploy/.github/workflows/cintegration-s3.yml@6fb866ebf9c7369f4c324a3ba64e079ad54f2b49
     with:
       build-folder: 'build'
     secrets:
