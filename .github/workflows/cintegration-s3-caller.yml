@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-reusable-workflow:
+  graasp-deploy-s3-workflow:
     name: Graasp auth
     uses: graasp/graasp-deploy/.github/workflows/cintegration-s3.yml@6fb866ebf9c7369f4c324a3ba64e079ad54f2b49
     with:
