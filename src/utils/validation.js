@@ -23,17 +23,5 @@ export const passwordValidator = (password) => {
   if (validator.isEmpty(password)) {
     return PASSWORD_EMPTY_ERROR;
   }
-  // TODO: check strength of password
-  // if (
-  //   !validator.isStrongPassword(password, {
-  //     minLength: 8,
-  //     minLowercase: 1,
-  //     minUppercase: 1,
-  //     minNumbers: 1,
-  //     minSymbols: 1,
-  //   })
-  // ) {
-  //   return PASSWORD_ERROR;
-  // }
   return null;
 };

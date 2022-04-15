@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes';
+
 export const DEFAULT_GET = {
   credentials: 'include',
   method: 'GET',
@@ -44,8 +46,8 @@ export const checkRequest = (res) => {
   throw new CustomError(res.statusText, res);
 };
 export const checkSeeOther = (res) => {
-  if (res.status === 303) {
-    // res.status >= 200 && res.status < 300
+  if (res.status === StatusCodes.SEE_OTHER) {
+    // res.status = 303
     return res;
   }
 

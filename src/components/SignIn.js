@@ -27,6 +27,7 @@ import {
 import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { SIGN_IN_ERROR } from '../types/member';
 import notifier from '../utils/notifier';
+import { EMAIL, PASSWORD } from '../types/signInMethod';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -74,7 +75,7 @@ class SignIn extends Component {
     emailError: '',
     passwordError: '',
     error: false,
-    signInMethod: true,
+    signInMethod: EMAIL,
   };
 
   async componentDidMount() {
@@ -124,7 +125,6 @@ class SignIn extends Component {
     const { email } = this.state;
     const { password } = this.state;
     const lowercaseEmail = email.toLowerCase();
-    /* eslint-disable no-console */
     const checkingEmail = emailValidator(lowercaseEmail);
     const checkingPassword = passwordValidator(password);
     if (checkingEmail || checkingPassword) {
@@ -165,10 +165,17 @@ class SignIn extends Component {
     // signInMethod email when true
     // sign in by pressing the enter key
     if (e.key === 'Enter') {
-      if (signInMethod) {
-        this.handleSignIn();
-      } else {
-        this.handlePasswordSignIn();
+      switch (signInMethod) {
+        case EMAIL: {
+          this.handleSignIn();
+          break;
+        }
+        case PASSWORD: {
+          this.handlePasswordSignIn();
+          break;
+        }
+        default:
+          break;
       }
     }
   };
@@ -176,10 +183,17 @@ class SignIn extends Component {
   handleSignInMethod = () => {
     const { signInMethod } = this.state;
     // signInMethod email when true
-    if (signInMethod) {
-      this.setState({ signInMethod: false });
-    } else {
-      this.setState({ signInMethod: true });
+    switch (signInMethod) {
+      case EMAIL: {
+        this.setState({ signInMethod: PASSWORD });
+        break;
+      }
+      case PASSWORD: {
+        this.setState({ signInMethod: EMAIL });
+        break;
+      }
+      default:
+        break;
     }
   };
 
@@ -205,7 +219,7 @@ class SignIn extends Component {
             type="email"
             onKeyPress={this.handleKeypress}
           />
-          {signInMethod === false && (
+          {signInMethod === PASSWORD && (
             <>
               <TextField
                 className={classes.input}
@@ -230,7 +244,7 @@ class SignIn extends Component {
               </Button>
             </>
           )}
-          {signInMethod === true && (
+          {signInMethod === EMAIL && (
             <Button
               variant="contained"
               color="primary"
@@ -262,17 +276,15 @@ class SignIn extends Component {
         <Divider variant="middle" className={classes.divider} />
         <Box sx={{ justifyContent: 'center' }}>
           <Button
-            // variant="contained"
             color="primary"
-            disabled={signInMethod}
+            disabled={signInMethod === EMAIL}
             onClick={this.handleSignInMethod}
           >
             {t('Email Sign In')}
           </Button>
           <Button
-            // variant="contained"
             color="primary"
-            disabled={!signInMethod}
+            disabled={signInMethod === PASSWORD}
             onClick={this.handleSignInMethod}
           >
             {t('Password Sign In')}

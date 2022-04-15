@@ -44,12 +44,18 @@ export const signInPassword = async (payload) => {
     notifier.success({ code: SIGN_IN_PASSWORD_SUCCESS });
     return data;
   } catch (error) {
-    if (error.response.status === StatusCodes.UNAUTHORIZED) {
-      notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
-    } else if (error.response.status === StatusCodes.NOT_ACCEPTABLE) {
-      notifier.error({ code: SIGN_IN_PASSWORD_NON_EXISTENT, error });
-    } else {
-      notifier.error({ code: SIGN_IN_INVALID, error });
+    switch (error.response.status) {
+      case StatusCodes.UNAUTHORIZED: {
+        notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
+        break;
+      }
+      case StatusCodes.NOT_ACCEPTABLE: {
+        notifier.error({ code: SIGN_IN_PASSWORD_NON_EXISTENT, error });
+        break;
+      }
+      default:
+        notifier.error({ code: SIGN_IN_INVALID, error });
+        break;
     }
     return false;
   }
