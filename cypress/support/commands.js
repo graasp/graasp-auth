@@ -11,8 +11,11 @@
 //
 // -- This is a parent command --
 import {
+  EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
+  PASSWORD_SIGN_IN_FIELD_ID,
+  PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
 } from '../../src/config/selectors';
 
 const {
@@ -20,6 +23,9 @@ const {
   fillSignUpLayout,
   fillSignInLayout,
   submitSignUp,
+  fillPasswordSignInLayout,
+  submitPasswordSignIn,
+  passwordSignInMethod,
 } = require('../integration/util');
 
 Cypress.Commands.add('checkErrorTextField', (id, flag) => {
@@ -38,5 +44,20 @@ Cypress.Commands.add('signUpAndCheck', (user) => {
 Cypress.Commands.add('signInAndCheck', (user) => {
   fillSignInLayout(user);
   submitSignIn();
-  cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.email);
+  cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
+});
+
+Cypress.Commands.add('signInPasswordMethodAndCheck', () => {
+  passwordSignInMethod();
+  cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).should('be.disabled');
+});
+
+Cypress.Commands.add('signInPasswordAndCheck', (user) => {
+  fillPasswordSignInLayout(user);
+  if (!user.passwordValid) {
+    cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear();
+  }
+  submitPasswordSignIn();
+  cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
+  cy.checkErrorTextField(PASSWORD_SIGN_IN_FIELD_ID, user.passwordValid);
 });

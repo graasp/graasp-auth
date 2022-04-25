@@ -20,8 +20,10 @@ import {
 import { emailValidator, passwordValidator } from '../utils/validation';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
+  EMAIL_SIGN_IN_METHOD_BUTTON_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
+  PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
 } from '../config/selectors';
 import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
@@ -279,6 +281,7 @@ class SignIn extends Component {
             color="primary"
             disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
             onClick={this.handleSignInMethod}
+            id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
           >
             {t('Email Sign In')}
           </Button>
@@ -286,6 +289,7 @@ class SignIn extends Component {
             color="primary"
             disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
             onClick={this.handleSignInMethod}
+            id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
           >
             {t('Password Sign In')}
           </Button>
