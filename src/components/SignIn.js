@@ -27,7 +27,7 @@ import {
 import { FORM_INPUT_MIN_WIDTH, GRAASP_COMPOSE_HOST } from '../config/constants';
 import { SIGN_IN_ERROR } from '../types/member';
 import notifier from '../utils/notifier';
-import { EMAIL, PASSWORD } from '../types/signInMethod';
+import { SIGN_IN_METHODS } from '../types/signInMethod';
 
 const styles = (theme) => ({
   fullScreen: {
@@ -75,7 +75,7 @@ class SignIn extends Component {
     emailError: '',
     passwordError: '',
     error: false,
-    signInMethod: EMAIL,
+    signInMethod: SIGN_IN_METHODS.EMAIL,
   };
 
   async componentDidMount() {
@@ -166,11 +166,11 @@ class SignIn extends Component {
     // sign in by pressing the enter key
     if (e.key === 'Enter') {
       switch (signInMethod) {
-        case EMAIL: {
+        case SIGN_IN_METHODS.EMAIL: {
           this.handleSignIn();
           break;
         }
-        case PASSWORD: {
+        case SIGN_IN_METHODS.PASSWORD: {
           this.handlePasswordSignIn();
           break;
         }
@@ -184,12 +184,12 @@ class SignIn extends Component {
     const { signInMethod } = this.state;
     // signInMethod email when true
     switch (signInMethod) {
-      case EMAIL: {
-        this.setState({ signInMethod: PASSWORD });
+      case SIGN_IN_METHODS.EMAIL: {
+        this.setState({ signInMethod: SIGN_IN_METHODS.PASSWORD });
         break;
       }
-      case PASSWORD: {
-        this.setState({ signInMethod: EMAIL });
+      case SIGN_IN_METHODS.PASSWORD: {
+        this.setState({ signInMethod: SIGN_IN_METHODS.EMAIL });
         break;
       }
       default:
@@ -219,7 +219,7 @@ class SignIn extends Component {
             type="email"
             onKeyPress={this.handleKeypress}
           />
-          {signInMethod === PASSWORD && (
+          {signInMethod === SIGN_IN_METHODS.PASSWORD && (
             <>
               <TextField
                 className={classes.input}
@@ -244,7 +244,7 @@ class SignIn extends Component {
               </Button>
             </>
           )}
-          {signInMethod === EMAIL && (
+          {signInMethod === SIGN_IN_METHODS.EMAIL && (
             <Button
               variant="contained"
               color="primary"
@@ -277,14 +277,14 @@ class SignIn extends Component {
         <Box sx={{ justifyContent: 'center' }}>
           <Button
             color="primary"
-            disabled={signInMethod === EMAIL}
+            disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
             onClick={this.handleSignInMethod}
           >
             {t('Email Sign In')}
           </Button>
           <Button
             color="primary"
-            disabled={signInMethod === PASSWORD}
+            disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
             onClick={this.handleSignInMethod}
           >
             {t('Password Sign In')}
