@@ -8,6 +8,9 @@ import {
   GET_CURRENT_MEMBER_ERROR,
   SIGN_IN_INVALID,
   SIGN_UP_DUPLICATE,
+  SIGN_IN_PASSWORD_INVALID,
+  SIGN_IN_PASSWORD_SUCCESS,
+  SIGN_IN_PASSWORD_NON_EXISTENT,
 } from '../types/member';
 import notifier from '../utils/notifier';
 
@@ -31,6 +34,30 @@ export const signIn = async (payload) => {
     } else {
       notifier.error({ code: SIGN_IN_ERROR, error });
     }
+  }
+};
+
+// payload = {email, password}
+export const signInPassword = async (payload) => {
+  try {
+    const data = await Api.signInPassword(payload);
+    notifier.success({ code: SIGN_IN_PASSWORD_SUCCESS });
+    return data;
+  } catch (error) {
+    switch (error.response.status) {
+      case StatusCodes.UNAUTHORIZED: {
+        notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
+        break;
+      }
+      case StatusCodes.NOT_ACCEPTABLE: {
+        notifier.error({ code: SIGN_IN_PASSWORD_NON_EXISTENT, error });
+        break;
+      }
+      default:
+        notifier.error({ code: SIGN_IN_INVALID, error });
+        break;
+    }
+    return false;
   }
 };
 

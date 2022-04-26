@@ -1,6 +1,7 @@
 import validator from 'validator';
 import {
   EMAIL_ERROR,
+  PASSWORD_EMPTY_ERROR,
   USERNAME_ERROR_MAXIMUM_MESSAGE,
   USERNAME_ERROR_MINIMUM_MESSAGE,
 } from '../config/messages';
@@ -18,3 +19,9 @@ export const nameValidator = (name) => {
 
 export const emailValidator = (email) =>
   validator.isEmail(email) ? null : EMAIL_ERROR;
+export const passwordValidator = (password) => {
+  if (validator.isEmpty(password)) {
+    return PASSWORD_EMPTY_ERROR;
+  }
+  return null;
+};
