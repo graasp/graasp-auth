@@ -39,17 +39,15 @@ export class CustomError extends Error {
 
 export const checkRequest = (res) => {
   if (res.ok) {
-    // res.status >= 200 && res.status < 300
     return res;
   }
 
   throw new CustomError(res.statusText, res);
 };
 export const checkSeeOther = (res) => {
-  if (res.status === StatusCodes.SEE_OTHER) {
-    // res.status = 303
+  if (res?.status === StatusCodes.SEE_OTHER) {
     return res;
   }
 
-  throw new CustomError(res.statusText, res);
+  throw new CustomError(res?.statusText, res);
 };

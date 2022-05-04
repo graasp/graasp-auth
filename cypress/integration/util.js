@@ -14,6 +14,17 @@ export const fillSignUpLayout = ({ name, email }) => {
   cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear().type(email);
 };
 
+export const checkInvitationFields = ({ name, email }) => {
+  if (name) {
+    cy.get(`#${NAME_SIGN_UP_FIELD_ID}`)
+      .should('have.value', name)
+      .should('be.disabled');
+  }
+  cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`)
+    .should('have.value', email)
+    .should('be.disabled');
+};
+
 export const fillSignInLayout = ({ email }) => {
   cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
 };

@@ -12,14 +12,14 @@ import {
   SIGN_IN_PASSWORD_SUCCESS,
   SIGN_IN_PASSWORD_NON_EXISTENT,
 } from '../types/member';
-import notifier from '../utils/notifier';
+import notifier from '../config/notifier';
 
 export const getCurrentMember = async () => {
   try {
     const user = await Api.getCurrentMember();
     return user;
   } catch (error) {
-    return notifier.error({ code: GET_CURRENT_MEMBER_ERROR, error });
+    return notifier({ code: GET_CURRENT_MEMBER_ERROR, payload: { error } });
   }
 };
 
@@ -27,12 +27,12 @@ export const getCurrentMember = async () => {
 export const signIn = async (payload) => {
   try {
     await Api.signIn(payload);
-    notifier.success({ code: SIGN_IN_SUCCESS });
+    notifier({ code: SIGN_IN_SUCCESS });
   } catch (error) {
-    if (error.response.status === StatusCodes.NOT_FOUND) {
-      notifier.error({ code: SIGN_IN_INVALID, error });
+    if (error.response?.status === StatusCodes.NOT_FOUND) {
+      notifier({ code: SIGN_IN_INVALID, payload: { error } });
     } else {
-      notifier.error({ code: SIGN_IN_ERROR, error });
+      notifier({ code: SIGN_IN_ERROR, payload: { error } });
     }
   }
 };
@@ -41,20 +41,20 @@ export const signIn = async (payload) => {
 export const signInPassword = async (payload) => {
   try {
     const data = await Api.signInPassword(payload);
-    notifier.success({ code: SIGN_IN_PASSWORD_SUCCESS });
+    notifier({ code: SIGN_IN_PASSWORD_SUCCESS });
     return data;
   } catch (error) {
-    switch (error.response.status) {
+    switch (error.response?.status) {
       case StatusCodes.UNAUTHORIZED: {
-        notifier.error({ code: SIGN_IN_PASSWORD_INVALID, error });
+        notifier({ code: SIGN_IN_PASSWORD_INVALID, payload: { error } });
         break;
       }
       case StatusCodes.NOT_ACCEPTABLE: {
-        notifier.error({ code: SIGN_IN_PASSWORD_NON_EXISTENT, error });
+        notifier({ code: SIGN_IN_PASSWORD_NON_EXISTENT, payload: { error } });
         break;
       }
       default:
-        notifier.error({ code: SIGN_IN_INVALID, error });
+        notifier({ code: SIGN_IN_INVALID, payload: { error } });
         break;
     }
     return false;
@@ -65,12 +65,12 @@ export const signInPassword = async (payload) => {
 export const signUp = async (payload) => {
   try {
     await Api.signUp(payload);
-    notifier.success({ code: SIGN_UP_SUCCESS });
+    notifier({ code: SIGN_UP_SUCCESS });
   } catch (error) {
-    if (error.response.status === StatusCodes.CONFLICT) {
-      notifier.error({ code: SIGN_UP_DUPLICATE, error });
+    if (error.response?.status === StatusCodes.CONFLICT) {
+      notifier({ code: SIGN_UP_DUPLICATE, payload: { error } });
     } else {
-      notifier.error({ code: SIGN_UP_ERROR, error });
+      notifier({ code: SIGN_UP_ERROR, payload: { error } });
     }
   }
 };
