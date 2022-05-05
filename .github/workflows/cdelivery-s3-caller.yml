@@ -18,5 +18,5 @@ jobs:
       aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_AUTH_PROD }}
       cloudfront-distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_GRAASP_AUTH_PROD }}
       api-host: ${{ secrets.REACT_APP_API_HOST_PROD }}
-      show-notifications: true
+      show-notifications: ${{ secrets.REACT_APP_SHOW_NOTIFICATIONS }}
       graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_PROD }}
