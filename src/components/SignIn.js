@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Button } from '@graasp/ui';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import FormControl from '@material-ui/core/FormControl';
@@ -20,6 +20,7 @@ import {
 } from '../config/selectors';
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
+import EmailInput from './EmailInput';
 
 const useStyles = makeStyles((theme) => ({
   fullScreen: {
@@ -38,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     margin: theme.spacing(2),
   },
+  button: {
+    margin: 0,
+  },
 }));
 
 const SignIn = () => {
@@ -46,18 +50,16 @@ const SignIn = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState(false);
-  const [error, setError] = useState(false);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
+  // enable validation after first click
+  const [shouldValidate, setShouldValidate] = useState(false);
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
-
     const checkingEmail = emailValidator(lowercaseEmail);
     if (checkingEmail) {
-      setEmailError(checkingEmail);
-      setError(true);
+      setShouldValidate(true);
     } else {
       await signIn({ email: lowercaseEmail });
     }
@@ -68,13 +70,9 @@ const SignIn = () => {
     const checkingEmail = emailValidator(lowercaseEmail);
     const checkingPassword = passwordValidator(password);
     if (checkingEmail || checkingPassword) {
-      if (checkingEmail) {
-        setEmailError(checkingEmail);
-        setError(true);
-      }
+      setShouldValidate(true);
       if (checkingPassword) {
         setPasswordError(checkingPassword);
-        setError(true);
       }
     } else {
       const link = await signInPassword({ email: lowercaseEmail, password });
@@ -84,20 +82,10 @@ const SignIn = () => {
     }
   };
 
-  const handleOnChange = (e) => {
-    const newEmail = e.target.value;
-    setEmail(newEmail);
-    if (error) {
-      setEmailError(emailValidator(newEmail));
-    }
-  };
-
   const handleOnChangePassword = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-    if (error) {
-      setPasswordError(passwordValidator(newPassword));
-    }
+    setPasswordError(passwordValidator(newPassword));
   };
 
   const handleKeypress = (e) => {
@@ -138,18 +126,13 @@ const SignIn = () => {
   const renderSignInForm = () => (
     <>
       <FormControl>
-        <TextField
+        <EmailInput
           className={classes.input}
-          required
-          label={t('Email')}
-          variant="outlined"
           value={email}
-          error={emailError}
-          helperText={emailError}
-          onChange={handleOnChange}
+          setValue={setEmail}
           id={EMAIL_SIGN_IN_FIELD_ID}
-          type="email"
           onKeyPress={handleKeypress}
+          shouldValidate={shouldValidate}
         />
         {signInMethod === SIGN_IN_METHODS.PASSWORD && (
           <>
@@ -178,10 +161,9 @@ const SignIn = () => {
         )}
         {signInMethod === SIGN_IN_METHODS.EMAIL && (
           <Button
-            variant="contained"
-            color="primary"
             onClick={handleSignIn}
             id={SIGN_IN_BUTTON_ID}
+            className={classes.button}
           >
             {t('Sign In')}
           </Button>
@@ -203,7 +185,7 @@ const SignIn = () => {
       <Divider variant="middle" className={classes.divider} />
       <Box sx={{ justifyContent: 'center' }}>
         <Button
-          color="primary"
+          variant="text"
           disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
           onClick={handleSignInMethod}
           id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
@@ -211,7 +193,7 @@ const SignIn = () => {
           {t('Email Sign In')}
         </Button>
         <Button
-          color="primary"
+          variant="text"
           disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
           onClick={handleSignInMethod}
           id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}

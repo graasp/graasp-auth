@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
 import { useLocation } from 'react-router';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Button, Loader } from '@graasp/ui';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
@@ -19,6 +19,7 @@ import {
   SIGN_UP_BUTTON_ID,
 } from '../config/selectors';
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import EmailInput from './EmailInput';
 
 const useStyles = makeStyles((theme) => ({
   fullScreen: {
@@ -37,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     margin: theme.spacing(2),
   },
+  button: {
+    margin: 0,
+  },
 }));
 
 const SignUp = () => {
@@ -45,17 +49,19 @@ const SignUp = () => {
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [emailError, setEmailError] = useState('');
   const [nameError, setNameError] = useState(false);
-  const [error, setError] = useState(false);
+  // enable validation after first click
+  const [shouldValidate, setShouldValidate] = useState(false);
 
   const location = useLocation();
   const queryStrings = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
-  const { data: invitation, isSuccess } = hooks.useInvitation(
-    queryStrings?.invitationId,
-  );
+  const {
+    data: invitation,
+    isSuccess,
+    isLoading,
+  } = hooks.useInvitation(queryStrings?.invitationId);
 
   useEffect(async () => {
     if (isSuccess && invitation) {
@@ -64,31 +70,26 @@ const SignUp = () => {
     }
   }, [invitation]);
 
-  const handleEmailOnChange = (e) => {
-    const newEmail = e.target.value;
-    setEmail(newEmail);
-    if (error) {
-      setEmailError(emailValidator(newEmail));
-    }
-  };
+  // loading invitation
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const handleNameOnChange = (e) => {
     const newName = e.target.value;
     setName(newName);
-    if (error) {
+    if (shouldValidate) {
       setNameError(nameValidator(newName));
     }
   };
 
   const handleRegister = async () => {
     const lowercaseEmail = email.toLowerCase();
-
     const checkingEmail = emailValidator(lowercaseEmail);
     const checkingUsername = nameValidator(name);
     if (checkingEmail || checkingUsername) {
-      setEmailError(checkingEmail);
       setNameError(checkingUsername);
-      setError(true);
+      setShouldValidate(true);
     } else {
       await signUp({ name, email: lowercaseEmail });
     }
@@ -109,25 +110,19 @@ const SignUp = () => {
           id={NAME_SIGN_UP_FIELD_ID}
           disabled={Boolean(invitation?.get('name'))}
         />
-        <TextField
+        <EmailInput
           className={classes.input}
-          required
-          label={t('Email')}
-          variant="outlined"
           value={email}
-          error={Boolean(emailError)}
-          helperText={emailError}
-          onChange={handleEmailOnChange}
+          setValue={setEmail}
           id={EMAIL_SIGN_UP_FIELD_ID}
-          type="email"
           disabled={Boolean(invitation?.get('email'))}
+          shouldValidate={shouldValidate}
         />
         <Button
-          variant="contained"
-          color="primary"
           onClick={handleRegister}
           id={SIGN_UP_BUTTON_ID}
           fullWidth
+          className={classes.button}
         >
           {t('Sign Up')}
         </Button>
