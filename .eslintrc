@@ -1,6 +1,15 @@
 {
-  "extends": ["react-app", "airbnb", "prettier"],
-  "plugins": ["import", "jsx-a11y", "react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "plugins":[
+    "import",
+    "jsx-a11y",
+    "react"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -11,14 +20,14 @@
     "cy": true,
     "Cypress": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+       "presets": ["@babel/preset-react"]
+    }
+  },
   "rules": {
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allow": ["_id", "__REDUX_DEVTOOLS_EXTENSION__"]
-      }
-    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
@@ -47,7 +56,7 @@
       }
     ],
     "react/state-in-constructor": ["error", "never"],
-    "no-console": [2, { "allow": ["error"] }],
-    "no-restricted-syntax": "off"
+    "no-console": [1, { "allow": ["error"] }],
+    "no-restricted-syntax": "off",
   }
 }

@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { checkRequest, DEFAULT_GET } from './utils';
 import { API_HOST } from '../config/constants';
 import { GET_CURRENT_MEMBER_ENDPOINT } from './endpoints';
