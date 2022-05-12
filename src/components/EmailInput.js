@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { emailValidator } from '../utils/validation';
 
-function EmailInput({
+const EmailInput = ({
   className,
   setValue,
   onKeyPress,
@@ -13,7 +14,7 @@ function EmailInput({
   id,
   disabled,
   shouldValidate,
-}) {
+}) => {
   const { t } = useTranslation();
   const [error, setError] = useState('');
 
@@ -47,7 +48,7 @@ function EmailInput({
       onKeyPress={onKeyPress}
     />
   );
-}
+};
 
 EmailInput.propTypes = {
   className: PropTypes.string,

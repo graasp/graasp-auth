@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignUp from './SignUp';
-import { SIGN_UP_PATH, buildSignInPath, HOME_PATH } from '../config/paths';
-import SignIn from './SignIn';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+import { HOME_PATH, SIGN_UP_PATH, buildSignInPath } from '../config/paths';
 import Redirection from './Redirection';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 const App = () => (
   <Router>

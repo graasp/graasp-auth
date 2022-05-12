@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import { Box, makeStyles } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@graasp/ui';
-import Divider from '@material-ui/core/Divider';
-import { Link } from 'react-router-dom';
-import FormControl from '@material-ui/core/FormControl';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, makeStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+import { MUTATION_KEYS } from '@graasp/query-client';
+import { Button } from '@graasp/ui';
+
+import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { SIGN_UP_PATH } from '../config/paths';
-import { signIn, signInPassword } from '../actions/authentication';
-import { emailValidator, passwordValidator } from '../utils/validation';
+import { useMutation } from '../config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_IN_METHOD_BUTTON_ID,
@@ -18,8 +21,8 @@ import {
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
 } from '../config/selectors';
-import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
+import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,13 +58,18 @@ const SignIn = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
+  const { mutate: signIn } = useMutation(MUTATION_KEYS.SIGN_IN);
+  const { mutateAsync: signInWithPassword } = useMutation(
+    MUTATION_KEYS.SIGN_IN_WITH_PASSWORD,
+  );
+
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
     const checkingEmail = emailValidator(lowercaseEmail);
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      await signIn({ email: lowercaseEmail });
+      signIn({ email: lowercaseEmail });
     }
   };
 
@@ -75,7 +83,10 @@ const SignIn = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const link = await signInPassword({ email: lowercaseEmail, password });
+      const link = await signInWithPassword({
+        email: lowercaseEmail,
+        password,
+      });
       if (link) {
         window.location.href = link;
       }

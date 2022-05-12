@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import Qs from 'qs';
-import { useTranslation } from 'react-i18next';
-import TextField from '@material-ui/core/TextField';
-import { useLocation } from 'react-router';
-import Typography from '@material-ui/core/Typography';
-import { Button, Loader } from '@graasp/ui';
-import Divider from '@material-ui/core/Divider';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Qs from 'qs';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+
+import { MUTATION_KEYS } from '@graasp/query-client';
+import { Button, Loader } from '@graasp/ui';
+
+import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { buildSignInPath } from '../config/paths';
-import { signUp } from '../actions/authentication';
-import { emailValidator, nameValidator } from '../utils/validation';
-import { hooks } from '../config/queryClient';
+import { hooks, useMutation } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
 } from '../config/selectors';
-import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +54,8 @@ const SignUp = () => {
   const [nameError, setNameError] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
+
+  const { mutate: signUp } = useMutation(MUTATION_KEYS.SIGN_UP);
 
   const location = useLocation();
   const queryStrings = Qs.parse(location.search, {
@@ -91,7 +95,7 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      await signUp({ name, email: lowercaseEmail });
+      signUp({ name, email: lowercaseEmail });
     }
   };
 
