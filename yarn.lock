@@ -2033,7 +2033,7 @@ __metadata:
 
 "@graasp/query-client@github:graasp/graasp-query-client":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=2e9ec85e254d9958075bf783fad71ae733da9833"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=bac21c91be5563dd2c524b5fccd5483d74509e14"
   dependencies:
     "@graasp/translations": "github:graasp/graasp-translations.git"
     axios: 0.27.2
@@ -2046,16 +2046,25 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: 60eea853018f5f24e653d3a3adbe427211fe6a206184de2a022d9ab1e572bae811fad79defa506b6588a3904fd0f8f1386da6084e23000d2ba0015bd897e3f7b
+  checksum: 83e21708ceea28a459d2495f6f47a8985a552531dcbba4ddc5dae53c61baa653aafc511f2f74e40e43d9db198202d7f297b07e00e855e5526dc8ca7f539f7994
   languageName: node
   linkType: hard
 
-"@graasp/translations@github:graasp/graasp-translations, @graasp/translations@github:graasp/graasp-translations.git":
+"@graasp/translations@github:graasp/graasp-translations":
   version: 0.1.0
   resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=4e97fe01b016edd2e99986f354de8f8f819c21fb"
   dependencies:
     i18next: 21.6.11
   checksum: ddf3f034435db297895ddd727028247c37790590cab24f991b4a2205faf08b5009cb751298ff2c89bb8810cff8d57c0fd8dd663970433ef47e1fba107ed1689c
+  languageName: node
+  linkType: hard
+
+"@graasp/translations@github:graasp/graasp-translations.git":
+  version: 0.1.0
+  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=dfca57aabaf689d8c3079b11b3477ce0ebce01d1"
+  dependencies:
+    i18next: 21.6.11
+  checksum: fb6204026909b151f64232c7515d2d9cadfa3cd51e3cc38447ab7738e855e8e090d9b2537f095735e2d050a76c74c6f1361f4d88a0c959ac1827f6e1db0f6448
   languageName: node
   linkType: hard
 
@@ -3326,9 +3335,9 @@ __metadata:
   linkType: hard
 
 "@types/prettier@npm:^2.1.5":
-  version: 2.6.1
-  resolution: "@types/prettier@npm:2.6.1"
-  checksum: b25ec46d18129fa40c1a1f42feb7406e8f19901ba5261ba3c71600ad14996ae07b4f4b727a9b83da673948011e59d870fc519166f05b5d49e9ad39db1aea8c93
+  version: 2.6.0
+  resolution: "@types/prettier@npm:2.6.0"
+  checksum: 946f1f82ce6f31664e023a5d65931c31b7d677b454f528f67dce851d72e7fcfe713076f4251b16c3646eecf1545f5f5b909b4962966341ed9ddf5b80113b3674
   languageName: node
   linkType: hard
 
@@ -4403,9 +4412,9 @@ __metadata:
   linkType: hard
 
 "axe-core@npm:^4.3.5":
-  version: 4.4.2
-  resolution: "axe-core@npm:4.4.2"
-  checksum: 93fbb36c5ac8ab5e67e49678a6f7be0dc799a9f560edd95cca1f0a8183def8c50205972366b9941a3ea2b20224a1fe230e6d87ef38cb6db70472ed1b694febd1
+  version: 4.4.1
+  resolution: "axe-core@npm:4.4.1"
+  checksum: ad14c5b71059dc3d24ef2519b8cd96e98b4a572379396201ce449d1c4262181821d6ca9550df65b22371faf06d28bbe94d391fe5675f2a08e6550f7b5da8416d
   languageName: node
   linkType: hard
 
@@ -7203,9 +7212,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.118":
-  version: 1.4.137
-  resolution: "electron-to-chromium@npm:1.4.137"
-  checksum: 639d7b94906efafcf363519c3698eecc44be46755a6a5cdc9088954329978866cc93fbd57e08b97290599b68d5226243d21de9fa50be416b8a5d3fa8fd42c3a0
+  version: 1.4.132
+  resolution: "electron-to-chromium@npm:1.4.132"
+  checksum: 133be125d1fa9693ce1d2f83d3f03a79ee19059fb95c203af87c4f833e661b7185ddb918fc53e272a7c8ff4169907cf1879790d1681011c6035c5c4f66b2848a
   languageName: node
   linkType: hard
 
@@ -9553,9 +9562,9 @@ __metadata:
   linkType: hard
 
 "ip@npm:^1.1.5":
-  version: 1.1.8
-  resolution: "ip@npm:1.1.8"
-  checksum: a2ade53eb339fb0cbe9e69a44caab10d6e3784662285eb5d2677117ee4facc33a64679051c35e0dfdb1a3983a51ce2f5d2cb36446d52e10d01881789b76e28fb
+  version: 1.1.5
+  resolution: "ip@npm:1.1.5"
+  checksum: 30133981f082a060a32644f6a7746e9ba7ac9e2bc07ecc8bbdda3ee8ca9bec1190724c390e45a1ee7695e7edfd2a8f7dda2c104ec5f7ac5068c00648504c7e5a
   languageName: node
   linkType: hard
 
@@ -12126,12 +12135,12 @@ __metadata:
   linkType: hard
 
 "object.hasown@npm:^1.1.0":
-  version: 1.1.1
-  resolution: "object.hasown@npm:1.1.1"
+  version: 1.1.0
+  resolution: "object.hasown@npm:1.1.0"
   dependencies:
-    define-properties: ^1.1.4
-    es-abstract: ^1.19.5
-  checksum: d8ed4907ce57f48b93e3b53c418fd6787bf226a51e8d698c91e39b78e80fe5b124cb6282f6a9d5be21cf9e2c7829ab10206dcc6112b7748860eefe641880c793
+    define-properties: ^1.1.3
+    es-abstract: ^1.19.1
+  checksum: 5c5d0b1b793514609f7a635f3110fbd346e142c9afd2485b802775e1ef6c90e48ff6e8e8744927933370ba30964e21af9c5fcf782b47f34d650aa6b277565330
   languageName: node
   linkType: hard
 
