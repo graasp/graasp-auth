@@ -5,14 +5,15 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Qs from 'qs';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
+import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
 import { hooks, useMutation } from '../config/queryClient';
 import {
@@ -22,6 +23,9 @@ import {
 } from '../config/selectors';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+
+const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
+  AUTH;
 
 const useStyles = makeStyles((theme) => ({
   fullScreen: {
@@ -46,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignUp = () => {
-  const { t } = useTranslation();
+  const { t } = useAuthTranslation();
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
@@ -67,7 +71,7 @@ const SignUp = () => {
     isLoading,
   } = hooks.useInvitation(queryStrings?.invitationId);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isSuccess && invitation) {
       setEmail(invitation.get('email'));
       setName(invitation.get('name') ?? '');
@@ -105,7 +109,7 @@ const SignUp = () => {
         <TextField
           className={classes.input}
           required
-          label={t('Name')}
+          label={t(NAME_FIELD_LABEL)}
           variant="outlined"
           value={name}
           error={Boolean(nameError)}
@@ -128,21 +132,19 @@ const SignUp = () => {
           fullWidth
           className={classes.button}
         >
-          {t('Sign Up')}
+          {t(SIGN_UP_BUTTON)}
         </Button>
       </FormControl>
 
       <Divider variant="middle" className={classes.divider} />
-      <Link to={buildSignInPath()}>
-        {t('Already have an account? Click here to sign in')}
-      </Link>
+      <Link to={buildSignInPath()}>{t(SIGN_IN_LINK_TEXT)}</Link>
     </>
   );
 
   return (
     <div className={classes.fullScreen}>
       <Typography variant="h2" component="h2">
-        {t('Sign Up')}
+        {t(SIGN_UP_HEADER)}
       </Typography>
       {renderForm()}
     </div>

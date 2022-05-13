@@ -1,8 +1,10 @@
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { AUTH } from '@graasp/translations';
+
+import { useAuthTranslation } from '../config/i18n';
 import { emailValidator } from '../utils/validation';
 
 const EmailInput = ({
@@ -15,7 +17,7 @@ const EmailInput = ({
   disabled,
   shouldValidate,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useAuthTranslation();
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const EmailInput = ({
   return (
     <TextField
       variant="outlined"
-      label={t('Email')}
+      label={t(AUTH.EMAIL_FIELD_TEXT)}
       className={className}
       required={required}
       value={value}
