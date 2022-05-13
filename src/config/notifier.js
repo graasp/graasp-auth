@@ -36,15 +36,6 @@ const notifier = ({ type, payload }) => {
       message = payload?.message ?? 'The operation successfully proceeded';
       break;
     }
-    case signInRoutine.SUCCESS:
-    case signUpRoutine.SUCCESS:
-    case signInWithPasswordRoutine.SUCCESS: {
-      // todo: factor out string
-      message = i18n.t(
-        payload?.message ?? 'The operation successfully proceeded',
-      );
-      break;
-    }
     default:
       break;
   }

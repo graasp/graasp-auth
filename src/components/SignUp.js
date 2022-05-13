@@ -4,9 +4,11 @@ import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
+import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
 import { hooks, useMutation } from '../config/queryClient';
 import {

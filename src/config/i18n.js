@@ -1,6 +1,4 @@
 import { initReactI18next, useTranslation } from 'react-i18next';
-import i18n from 'i18next';
-
 
 import buildI18n from '@graasp/translations';
 
