@@ -2033,7 +2033,7 @@ __metadata:
 
 "@graasp/query-client@github:graasp/graasp-query-client":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=bac21c91be5563dd2c524b5fccd5483d74509e14"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=76dac714fcb5012ba2dd3eb546f1b4f21ac90ea9"
   dependencies:
     "@graasp/translations": "github:graasp/graasp-translations.git"
     axios: 0.27.2
@@ -2046,16 +2046,16 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: 83e21708ceea28a459d2495f6f47a8985a552531dcbba4ddc5dae53c61baa653aafc511f2f74e40e43d9db198202d7f297b07e00e855e5526dc8ca7f539f7994
+  checksum: 7ef9f7c989dfade4cd410894a6120bbedd77aab331ebf24ee4a6e06299d0f0a768e91a1c5116db824cf2f2c6680ad898f35ff0318ca649ced2227cd215837e1f
   languageName: node
   linkType: hard
 
 "@graasp/translations@github:graasp/graasp-translations":
   version: 0.1.0
-  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=e619850fbd511fc69e25869ebee0a31a2cb096d5"
+  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=b407a882daf6f3ce6f1b1fb9e5a83193cd29c7c0"
   dependencies:
     i18next: 21.6.11
-  checksum: 0c35d7b31e6c127e49a91d2b04044c93ffdbbfab2e20b35ea6814cf2e54f117b4c659bf215d486a5ffb880f2958a16cf93f8092c85a53f8b51361961506ed727
+  checksum: ddf3f034435db297895ddd727028247c37790590cab24f991b4a2205faf08b5009cb751298ff2c89bb8810cff8d57c0fd8dd663970433ef47e1fba107ed1689c
   languageName: node
   linkType: hard
 
