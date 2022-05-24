@@ -93,12 +93,12 @@ const SignIn = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const link = await signInWithPassword({
+      const { data } = await signInWithPassword({
         email: lowercaseEmail,
         password,
       });
-      if (link) {
-        window.location.href = link;
+      if (data.resource) {
+        window.location.href = data.resource;
       }
     }
   };

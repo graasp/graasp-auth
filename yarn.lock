@@ -1476,12 +1476,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.17.9
   resolution: "@babel/runtime@npm:7.17.9"
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2":
+  version: 7.18.0
+  resolution: "@babel/runtime@npm:7.18.0"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 9d0caa5fe690623fb6c5df6fb3b3581d227b55ef9f7c35eba0da83d10aa756669a81fe521ac4dbc007e5790716bac40ebe71ff098e2d1a9599dd696a282a3e95
   languageName: node
   linkType: hard
 
@@ -2024,7 +2033,7 @@ __metadata:
 
 "@graasp/query-client@github:graasp/graasp-query-client#80/authEndpoints":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=e89cc07f799fe75ed0ae6e5fe2e83e7247bfada1"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=76dac714fcb5012ba2dd3eb546f1b4f21ac90ea9"
   dependencies:
     "@graasp/translations": "github:graasp/graasp-translations.git#9/graaspAuth"
     axios: 0.27.2
@@ -2037,16 +2046,16 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: e13bdfdf0a8e0365607d628ad3ec6aa05c68ec38001343bfde23d16406d95495afeb8e096740182b489f96a175725ee997cab178463a87cc84d9274b527a9eb9
+  checksum: 7ef9f7c989dfade4cd410894a6120bbedd77aab331ebf24ee4a6e06299d0f0a768e91a1c5116db824cf2f2c6680ad898f35ff0318ca649ced2227cd215837e1f
   languageName: node
   linkType: hard
 
 "@graasp/translations@github:graasp/graasp-translations#9/graaspAuth, @graasp/translations@github:graasp/graasp-translations.git#9/graaspAuth":
   version: 0.1.0
-  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=e619850fbd511fc69e25869ebee0a31a2cb096d5"
+  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=b407a882daf6f3ce6f1b1fb9e5a83193cd29c7c0"
   dependencies:
     i18next: 21.6.11
-  checksum: 0c35d7b31e6c127e49a91d2b04044c93ffdbbfab2e20b35ea6814cf2e54f117b4c659bf215d486a5ffb880f2958a16cf93f8092c85a53f8b51361961506ed727
+  checksum: ddf3f034435db297895ddd727028247c37790590cab24f991b4a2205faf08b5009cb751298ff2c89bb8810cff8d57c0fd8dd663970433ef47e1fba107ed1689c
   languageName: node
   linkType: hard
 
@@ -16188,7 +16197,7 @@ __metadata:
 
 "typescript@patch:typescript@4.6.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
