@@ -2031,11 +2031,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#80/authEndpoints":
+"@graasp/query-client@github:graasp/graasp-query-client":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=76dac714fcb5012ba2dd3eb546f1b4f21ac90ea9"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=2e9ec85e254d9958075bf783fad71ae733da9833"
   dependencies:
-    "@graasp/translations": "github:graasp/graasp-translations.git#9/graaspAuth"
+    "@graasp/translations": "github:graasp/graasp-translations.git"
     axios: 0.27.2
     crypto-js: 4.1.1
     http-status-codes: 2.2.0
@@ -2046,13 +2046,13 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: 7ef9f7c989dfade4cd410894a6120bbedd77aab331ebf24ee4a6e06299d0f0a768e91a1c5116db824cf2f2c6680ad898f35ff0318ca649ced2227cd215837e1f
+  checksum: 60eea853018f5f24e653d3a3adbe427211fe6a206184de2a022d9ab1e572bae811fad79defa506b6588a3904fd0f8f1386da6084e23000d2ba0015bd897e3f7b
   languageName: node
   linkType: hard
 
-"@graasp/translations@github:graasp/graasp-translations#9/graaspAuth, @graasp/translations@github:graasp/graasp-translations.git#9/graaspAuth":
+"@graasp/translations@github:graasp/graasp-translations, @graasp/translations@github:graasp/graasp-translations.git":
   version: 0.1.0
-  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=b407a882daf6f3ce6f1b1fb9e5a83193cd29c7c0"
+  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=4e97fe01b016edd2e99986f354de8f8f819c21fb"
   dependencies:
     i18next: 21.6.11
   checksum: ddf3f034435db297895ddd727028247c37790590cab24f991b4a2205faf08b5009cb751298ff2c89bb8810cff8d57c0fd8dd663970433ef47e1fba107ed1689c
@@ -8817,8 +8817,8 @@ __metadata:
     "@commitlint/config-conventional": 16.2.4
     "@cypress/code-coverage": 3.9.12
     "@cypress/instrument-cra": 1.4.0
-    "@graasp/query-client": "github:graasp/graasp-query-client#80/authEndpoints"
-    "@graasp/translations": "github:graasp/graasp-translations#9/graaspAuth"
+    "@graasp/query-client": "github:graasp/graasp-query-client"
+    "@graasp/translations": "github:graasp/graasp-translations"
     "@graasp/ui": "github:graasp/graasp-ui"
     "@material-ui/core": 4.12.4
     "@material-ui/icons": 4.11.3

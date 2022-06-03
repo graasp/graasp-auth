@@ -1,8 +1,9 @@
-import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { AUTH } from '@graasp/translations';
+
+import TextField from '@material-ui/core/TextField';
 
 import { useAuthTranslation } from '../config/i18n';
 import { emailValidator } from '../utils/validation';

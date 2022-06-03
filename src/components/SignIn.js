@@ -1,14 +1,15 @@
-import { Box, makeStyles } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
 import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
+
+import { Box, makeStyles } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
