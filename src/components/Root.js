@@ -1,16 +1,18 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+
+import { SHOW_NOTIFICATIONS } from '../config/constants';
+import i18nConfig from '../config/i18n';
 import {
   QueryClientProvider,
-  queryClient,
   ReactQueryDevtools,
+  queryClient,
 } from '../config/queryClient';
 import App from './App';
-import i18nConfig from '../config/i18n';
-import { SHOW_NOTIFICATIONS } from '../config/constants';
 
 const theme = createTheme({
   palette: {

@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from 'react';
 import Qs from 'qs';
-import { useTranslation } from 'react-i18next';
-import TextField from '@material-ui/core/TextField';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import Typography from '@material-ui/core/Typography';
-import { Button, Loader } from '@graasp/ui';
-import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
+
+import { MUTATION_KEYS } from '@graasp/query-client';
+import { AUTH } from '@graasp/translations';
+import { Button, Loader } from '@graasp/ui';
+
 import { makeStyles } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
+import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
-import { signUp } from '../actions/authentication';
-import { emailValidator, nameValidator } from '../utils/validation';
-import { hooks } from '../config/queryClient';
+import { hooks, useMutation } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
 } from '../config/selectors';
-import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+
+const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
+  AUTH;
 
 const useStyles = makeStyles((theme) => ({
   fullScreen: {
@@ -44,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignUp = () => {
-  const { t } = useTranslation();
+  const { t } = useAuthTranslation();
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
@@ -52,6 +59,8 @@ const SignUp = () => {
   const [nameError, setNameError] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
+
+  const { mutate: signUp } = useMutation(MUTATION_KEYS.SIGN_UP);
 
   const location = useLocation();
   const queryStrings = Qs.parse(location.search, {
@@ -63,7 +72,7 @@ const SignUp = () => {
     isLoading,
   } = hooks.useInvitation(queryStrings?.invitationId);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isSuccess && invitation) {
       setEmail(invitation.get('email'));
       setName(invitation.get('name') ?? '');
@@ -91,7 +100,7 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      await signUp({ name, email: lowercaseEmail });
+      signUp({ name, email: lowercaseEmail });
     }
   };
 
@@ -101,7 +110,7 @@ const SignUp = () => {
         <TextField
           className={classes.input}
           required
-          label={t('Name')}
+          label={t(NAME_FIELD_LABEL)}
           variant="outlined"
           value={name}
           error={Boolean(nameError)}
@@ -124,21 +133,19 @@ const SignUp = () => {
           fullWidth
           className={classes.button}
         >
-          {t('Sign Up')}
+          {t(SIGN_UP_BUTTON)}
         </Button>
       </FormControl>
 
       <Divider variant="middle" className={classes.divider} />
-      <Link to={buildSignInPath()}>
-        {t('Already have an account? Click here to sign in')}
-      </Link>
+      <Link to={buildSignInPath()}>{t(SIGN_IN_LINK_TEXT)}</Link>
     </>
   );
 
   return (
     <div className={classes.fullScreen}>
       <Typography variant="h2" component="h2">
-        {t('Sign Up')}
+        {t(SIGN_UP_HEADER)}
       </Typography>
       {renderForm()}
     </div>

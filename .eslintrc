@@ -1,8 +1,9 @@
 {
   "extends": [
+    "airbnb",
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
+    "plugin:react/jsx-runtime",
     "prettier"
   ],
   "plugins":[
@@ -22,6 +23,9 @@
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "requireConfigFile": false,
     "babelOptions": {
        "presets": ["@babel/preset-react"]
@@ -58,5 +62,9 @@
     "react/state-in-constructor": ["error", "never"],
     "no-console": [1, { "allow": ["error"] }],
     "no-restricted-syntax": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/function-component-definition":  
+      [2, { "namedComponents": "arrow-function" }]
   }
 }

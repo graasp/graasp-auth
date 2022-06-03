@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { MUTATION_KEYS } from '@graasp/query-client';
+import { AUTH } from '@graasp/translations';
+import { Button } from '@graasp/ui';
+
+import { Box, makeStyles } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@graasp/ui';
-import Divider from '@material-ui/core/Divider';
-import { Link } from 'react-router-dom';
-import FormControl from '@material-ui/core/FormControl';
-import { useTranslation } from 'react-i18next';
-import { Box, makeStyles } from '@material-ui/core';
+
+import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
+import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_PATH } from '../config/paths';
-import { signIn, signInPassword } from '../actions/authentication';
-import { emailValidator, passwordValidator } from '../utils/validation';
+import { useMutation } from '../config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_IN_METHOD_BUTTON_ID,
@@ -18,9 +23,18 @@ import {
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
 } from '../config/selectors';
-import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
+import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+
+const {
+  SIGN_IN_BUTTON,
+  PASSWORD_FIELD_LABEL,
+  SIGN_UP_LINK_TEXT,
+  PASSWORD_SIGN_IN_METHOD,
+  EMAIL_SIGN_IN_METHOD,
+  SIGN_IN_HEADER,
+} = AUTH;
 
 const useStyles = makeStyles((theme) => ({
   fullScreen: {
@@ -45,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignIn = () => {
-  const { t } = useTranslation();
+  const { t } = useAuthTranslation();
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
@@ -55,13 +69,18 @@ const SignIn = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
+  const { mutate: signIn } = useMutation(MUTATION_KEYS.SIGN_IN);
+  const { mutateAsync: signInWithPassword } = useMutation(
+    MUTATION_KEYS.SIGN_IN_WITH_PASSWORD,
+  );
+
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
     const checkingEmail = emailValidator(lowercaseEmail);
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      await signIn({ email: lowercaseEmail });
+      signIn({ email: lowercaseEmail });
     }
   };
 
@@ -75,9 +94,12 @@ const SignIn = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const link = await signInPassword({ email: lowercaseEmail, password });
-      if (link) {
-        window.location.href = link;
+      const { data } = await signInWithPassword({
+        email: lowercaseEmail,
+        password,
+      });
+      if (data.resource) {
+        window.location.href = data.resource;
       }
     }
   };
@@ -139,7 +161,7 @@ const SignIn = () => {
             <TextField
               className={classes.input}
               required
-              label={t('Password')}
+              label={t(PASSWORD_FIELD_LABEL)}
               variant="outlined"
               value={password}
               error={passwordError}
@@ -155,7 +177,7 @@ const SignIn = () => {
               onClick={handlePasswordSignIn}
               id={PASSWORD_SIGN_IN_BUTTON_ID}
             >
-              {t('Sign In')}
+              {t(SIGN_IN_BUTTON)}
             </Button>
           </>
         )}
@@ -165,21 +187,19 @@ const SignIn = () => {
             id={SIGN_IN_BUTTON_ID}
             className={classes.button}
           >
-            {t('Sign In')}
+            {t(SIGN_IN_BUTTON)}
           </Button>
         )}
       </FormControl>
       <Divider variant="middle" className={classes.divider} />
-      <Link to={SIGN_UP_PATH}>
-        {t('Not registered? Click here to register')}
-      </Link>
+      <Link to={SIGN_UP_PATH}>{t(SIGN_UP_LINK_TEXT)}</Link>
     </>
   );
 
   return (
     <div className={classes.fullScreen}>
       <Typography variant="h2" component="h2">
-        {t('Sign In')}
+        {t(SIGN_IN_HEADER)}
       </Typography>
       {renderSignInForm()}
       <Divider variant="middle" className={classes.divider} />
@@ -190,7 +210,7 @@ const SignIn = () => {
           onClick={handleSignInMethod}
           id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
         >
-          {t('Email Sign In')}
+          {t(EMAIL_SIGN_IN_METHOD)}
         </Button>
         <Button
           variant="text"
@@ -198,7 +218,7 @@ const SignIn = () => {
           onClick={handleSignInMethod}
           id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
         >
-          {t('Password Sign In')}
+          {t(PASSWORD_SIGN_IN_METHOD)}
         </Button>
       </Box>
     </div>

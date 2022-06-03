@@ -1,11 +1,12 @@
 import validator from 'validator';
+
+import { NAME_MAXIMUM_LENGTH, NAME_MINIMUM_LENGTH } from '../config/constants';
 import {
   EMAIL_ERROR,
   PASSWORD_EMPTY_ERROR,
   USERNAME_ERROR_MAXIMUM_MESSAGE,
   USERNAME_ERROR_MINIMUM_MESSAGE,
 } from '../config/messages';
-import { NAME_MAXIMUM_LENGTH, NAME_MINIMUM_LENGTH } from '../config/constants';
 
 export const nameValidator = (name) => {
   if (name.length > NAME_MAXIMUM_LENGTH) {
