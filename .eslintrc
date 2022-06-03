@@ -4,12 +4,11 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "react-app",
     "prettier"
   ],
   "plugins":[
-    "import",
-    "jsx-a11y",
-    "react"
+    "import"
   ],
   "env": {
     "browser": true,
@@ -32,14 +31,6 @@
     }
   },
   "rules": {
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["to", "hrefLeft", "hrefRight"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
-      }
-    ],
     "react/jsx-filename-extension": [
       1,
       {

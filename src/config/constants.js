@@ -4,7 +4,10 @@ const {
   GRAASP_COMPOSE_HOST: ENV_GRAASP_COMPOSE_HOST,
   API_HOST: ENV_API_HOST,
   SHOW_NOTIFICATIONS: ENV_SHOW_NOTIFICATIONS,
+  REACT_APP_DOMAIN: ENV_DOMAIN,
 } = env;
+
+export const DOMAIN = ENV_DOMAIN || process.env.REACT_APP_DOMAIN;
 
 export const APP_NAME = 'Graasp Authentication';
 

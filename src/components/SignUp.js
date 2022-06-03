@@ -7,6 +7,14 @@ import { MUTATION_KEYS } from '@graasp/query-client';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
+import {
+  Divider,
+  FormControl,
+  TextField,
+  Typography,
+  makeStyles,
+} from '@material-ui/core';
+
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
@@ -71,7 +79,8 @@ const SignUp = () => {
       setEmail(invitation.get('email'));
       setName(invitation.get('name') ?? '');
     }
-  }, [invitation]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [invitation, isSuccess]);
 
   // loading invitation
   if (isLoading) {

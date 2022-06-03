@@ -21,6 +21,12 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 
-  require('@cypress/code-coverage/task')(on, config);
-  return config;
+  const newConfig = {
+    ...config,
+    env: {
+      API_HOST: process.env.REACT_APP_API_HOST,
+    },
+  };
+  require('@cypress/code-coverage/task')(on, newConfig);
+  return newConfig;
 };
