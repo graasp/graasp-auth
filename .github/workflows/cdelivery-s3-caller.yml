@@ -1,4 +1,4 @@
-name: Continuous Delivery pipeline for Graasp auth
+name: Deploy Graasp auth to staging environment
 
 # Controls when the action will run.
 on:
