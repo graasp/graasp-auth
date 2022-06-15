@@ -1,4 +1,4 @@
-name: Deploy Graasp auth to staging environment
+name: Deploy to staging environment
 
 # Controls when the action will run.
 on:
@@ -23,3 +23,5 @@ jobs:
       api-host: ${{ secrets.REACT_APP_API_HOST_STAGE }}
       show-notifications: ${{ secrets.REACT_APP_SHOW_NOTIFICATIONS }}
       graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_STAGE }}
+      graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_STAGE }}
+      domain: ${{ secrets.REACT_APP_DOMAIN_STAGE }}
