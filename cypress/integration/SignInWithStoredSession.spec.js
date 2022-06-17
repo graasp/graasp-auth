@@ -16,8 +16,6 @@ describe('Sign In With Stored Session', () => {
   });
   it('Sign in with a stored user and redirect to saved url', () => {
     // setup cookies
-    const savedLink = 'http://somelink.com';
-    cy.setCookie(COOKIE_KEYS.REDIRECT_URL_KEY, savedLink);
     cy.setUpApi({ storedSessions: MOCK_SESSIONS });
 
     cy.visit(HOME_PATH);
