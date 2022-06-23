@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@graasp/query-client": "github:graasp/graasp-query-client#165/signOutRedirect",
+    "@graasp/query-client": "github:graasp/graasp-query-client",
     "@graasp/translations": "github:graasp/graasp-translations",
-    "@graasp/ui": "github:graasp/graasp-ui#130/redirect",
-    "@graasp/utils": "github:graasp/graasp-utils#11/redirect",
+    "@graasp/ui": "github:graasp/graasp-ui",
+    "@graasp/utils": "github:graasp/graasp-utils",
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
     "@material-ui/lab": "4.0.0-alpha.61",

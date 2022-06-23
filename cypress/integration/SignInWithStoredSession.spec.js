@@ -14,6 +14,7 @@ describe('Sign In With Stored Session', () => {
     cy.visit(HOME_PATH);
     cy.get(`#${USER_SWITCH_ID}`).should('not.exist');
   });
+
   it('Sign in with a stored user and redirect to saved url', () => {
     // setup cookies
     cy.setUpApi({ storedSessions: MOCK_SESSIONS });
