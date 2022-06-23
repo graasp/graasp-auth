@@ -10,6 +10,8 @@
 //
 //
 // -- This is a parent command --
+import { COOKIE_KEYS } from '@graasp/utils';
+
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
@@ -17,6 +19,8 @@ import {
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
 } from '../../src/config/selectors';
+import MEMBERS from '../fixtures/members';
+import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
 
 const {
   submitSignIn,
@@ -27,6 +31,23 @@ const {
   submitPasswordSignIn,
   passwordSignInMethod,
 } = require('../integration/util');
+
+Cypress.Commands.add(
+  'setUpApi',
+  ({ members = Object.values(MEMBERS), storedSessions = [] } = {}) => {
+    const cachedMembers = JSON.parse(JSON.stringify(members));
+
+    cy.setCookie(
+      COOKIE_KEYS.STORED_SESSIONS_KEY,
+      JSON.stringify(storedSessions),
+    );
+
+    mockGetMember(cachedMembers);
+    mockGetMembers(cachedMembers);
+
+    mockGetCurrentMember();
+  },
+);
 
 Cypress.Commands.add('checkErrorTextField', (id, flag) => {
   const existence = flag ? 'not.exist' : 'exist';

@@ -1,23 +1,25 @@
-import Qs from 'qs';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router';
+import PropTypes from 'prop-types';
+
+import { RedirectionContent } from '@graasp/ui';
+import { getUrlForRedirection, redirectToSavedUrl } from '@graasp/utils';
 
 import { GRAASP_COMPOSE_HOST } from '../config/constants';
 import { hooks } from '../config/queryClient';
 
-function Redirection({ children }) {
+const Redirection = ({ children }) => {
   const { data: member } = hooks.useCurrentMember();
-  const location = useLocation();
 
-  useEffect(() => {
-    if (member?.get('id')) {
-      const queryString = Qs.parse(location.search, {
-        ignoreQueryPrefix: true,
-      });
-      window.location.href = queryString?.to || GRAASP_COMPOSE_HOST;
-    }
-  }, [member]);
+  if (member?.get('id')) {
+    redirectToSavedUrl(GRAASP_COMPOSE_HOST);
+
+    return <RedirectionContent link={getUrlForRedirection()} />;
+  }
+
   return children;
-}
+};
+
+Redirection.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Redirection;

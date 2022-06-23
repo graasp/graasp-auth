@@ -25,6 +25,7 @@ const EmailInput = ({
     if (shouldValidate) {
       setError(emailValidator(value));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldValidate]);
 
   const handleEmailOnChange = (e) => {

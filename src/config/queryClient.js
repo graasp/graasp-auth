@@ -1,6 +1,6 @@
 import { configureQueryClient } from '@graasp/query-client';
 
-import { API_HOST } from './constants';
+import { API_HOST, DOMAIN } from './constants';
 import notifier from './notifier';
 
 const {
@@ -16,6 +16,7 @@ const {
   // avoid refetching when same data are closely fetched
   staleTime: 1000, // ms
   notifier,
+  DOMAIN,
 });
 
 export {

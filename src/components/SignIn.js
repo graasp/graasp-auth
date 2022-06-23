@@ -26,6 +26,7 @@ import {
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+import UserSwitch from './UserSwitch';
 
 const {
   SIGN_IN_BUTTON,
@@ -221,6 +222,8 @@ const SignIn = () => {
           {t(PASSWORD_SIGN_IN_METHOD)}
         </Button>
       </Box>
+      <Divider />
+      <UserSwitch />
     </div>
   );
 };
