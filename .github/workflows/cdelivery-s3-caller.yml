@@ -1,22 +1,27 @@
-name: CDelivery pipeline for S3
+name: Deploy to staging environment
 
 # Controls when the action will run.
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # Triggers the workflow on repository-dispatch event
+  repository_dispatch:
+    types: [staging-deployment]
 
+# This workflow is made up of one job that calls the reusable workflow in graasp-deploy
 jobs:
   graasp-deploy-s3-workflow:
     name: Graasp auth
-    uses: graasp/graasp-deploy/.github/workflows/cdelivery-s3.yml@main
+    uses: graasp/graasp-deploy/.github/workflows/cdelivery-s3.yml@5976045215b3db442504fdfecf3255fcb5d96fab
     with:
       build-folder: 'build'
+      tag: ${{ github.event.client_payload.tag }}
     secrets:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-      aws-region: ${{ secrets.AWS_REGION_PROD }}
-      aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_AUTH_PROD }}
-      cloudfront-distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_GRAASP_AUTH_PROD }}
-      api-host: ${{ secrets.REACT_APP_API_HOST_PROD }}
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STAGE }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}
+      aws-region: ${{ secrets.AWS_REGION_STAGE }}
+      aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_AUTH_STAGE }}
+      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_GRAASP_AUTH_STAGE }}
+      api-host: ${{ secrets.REACT_APP_API_HOST_STAGE }}
       show-notifications: ${{ secrets.REACT_APP_SHOW_NOTIFICATIONS }}
-      graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_PROD }}
+      graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_STAGE }}
+      graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_STAGE }}
+      domain: ${{ secrets.REACT_APP_DOMAIN_STAGE }}
