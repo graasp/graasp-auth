@@ -13,7 +13,7 @@ jobs:
     name: Graasp auth
     # Replace 'main' with the hash of a commit, so it points to an specific version of the reusable workflow that is used
     # Reference reusable workflow file. Using the commit SHA is the safest for stability and security
-    uses: graasp/graasp-deploy/.github/workflows/cdeployment-s3.yml@5976045215b3db442504fdfecf3255fcb5d96fab
+    uses: graasp/graasp-deploy/.github/workflows/cdeployment-s3.yml@7b5dd84304458c3c5ab03cbbde059670f77b1687
     # Replace input build-folder if needed. 
     with:
       build-folder: 'build'
