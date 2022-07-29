@@ -9,12 +9,14 @@ const {
   hooks,
   useMutation,
   ReactQueryDevtools,
-  API_ROUTES,
 } = configureQueryClient({
   API_HOST,
-  keepPreviousData: true,
   // avoid refetching when same data are closely fetched
-  staleTime: 1000, // ms
+  defaultQueryOptions: {
+    keepPreviousData: true,
+    staleTime: 1000, // ms
+    cacheTime: 1000,
+  },
   notifier,
   DOMAIN,
 });
@@ -25,5 +27,4 @@ export {
   hooks,
   useMutation,
   ReactQueryDevtools,
-  API_ROUTES,
 };

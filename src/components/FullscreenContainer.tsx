@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
-
 import Box from '@mui/material/Box';
 
-const FullscreenContainer = ({ children }) => (
+type Props = {
+  children: JSX.Element | JSX.Element[];
+};
+
+const FullscreenContainer = ({ children }: Props): JSX.Element => (
   <Box
     margin="auto"
     textAlign="center"
@@ -15,9 +17,5 @@ const FullscreenContainer = ({ children }) => (
     {children}
   </Box>
 );
-
-FullscreenContainer.propTypes = {
-  children: PropTypes.element.isRequired,
-};
 
 export default FullscreenContainer;

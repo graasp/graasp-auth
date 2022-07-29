@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
@@ -38,23 +38,29 @@ const {
   SIGN_IN_HEADER,
 } = AUTH;
 
-const SignIn = () => {
+const SignIn: FC = () => {
   const { t } = useAuthTranslation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState(false);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signIn, isSuccess: signInSuccess } = useMutation(
-    MUTATION_KEYS.SIGN_IN,
-  );
+  const { mutate: signIn, isSuccess: signInSuccess } = useMutation<
+    unknown,
+    unknown,
+    { email: string }
+  >(MUTATION_KEYS.SIGN_IN);
   const {
     mutateAsync: signInWithPassword,
     isSuccess: signInWithPasswordSuccess,
-  } = useMutation(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
+  } = useMutation<
+    { data: { resource: string } },
+    unknown,
+    { email: string; password: string }
+  >(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
@@ -86,13 +92,13 @@ const SignIn = () => {
     }
   };
 
-  const handleOnChangePassword = (e) => {
+  const handleOnChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
     setPasswordError(passwordValidator(newPassword));
   };
 
-  const handleKeypress = (e) => {
+  const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     // signInMethod email when true
     // sign in by pressing the enter key
     if (e.key === 'Enter') {
@@ -144,7 +150,7 @@ const SignIn = () => {
               label={t(PASSWORD_FIELD_LABEL)}
               variant="outlined"
               value={password}
-              error={passwordError}
+              error={Boolean(passwordError)}
               helperText={passwordError}
               onChange={handleOnChangePassword}
               id={PASSWORD_SIGN_IN_FIELD_ID}

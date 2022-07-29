@@ -8,5 +8,5 @@ export const SIGN_UP_BUTTON_ID = 'signUpButtonId';
 export const EMAIL_SIGN_IN_METHOD_BUTTON_ID = 'emailSignInMethodButton';
 export const PASSWORD_SIGN_IN_METHOD_BUTTON_ID = 'passwordSignInMethodButton';
 export const USER_SWITCH_ID = 'userSwitch';
-export const buildMemberMenuItemId = (id) => `memberMenuItemId-${id}`;
 export const SUCCESS_CONTENT_ID = 'successContent';
+export const buildMemberMenuItemId = (id: string) => `memberMenuItemId-${id}`;

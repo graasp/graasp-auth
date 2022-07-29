@@ -10,7 +10,7 @@
 //
 //
 // -- This is a parent command --
-import { COOKIE_KEYS } from '@graasp/sdk';
+import { COOKIE_KEYS, Member } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
@@ -19,18 +19,51 @@ import {
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
 } from '../../src/config/selectors';
+import {
+  fillPasswordSignInLayout,
+  fillSignInLayout,
+  fillSignUpLayout,
+  passwordSignInMethod,
+  submitPasswordSignIn,
+  submitSignIn,
+  submitSignUp,
+} from '../e2e/util';
 import MEMBERS from '../fixtures/members';
 import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
 
-const {
-  submitSignIn,
-  fillSignUpLayout,
-  fillSignInLayout,
-  submitSignUp,
-  fillPasswordSignInLayout,
-  submitPasswordSignIn,
-  passwordSignInMethod,
-} = require('../integration/util');
+
+// cypress/support/index.ts
+declare global {
+  namespace Cypress {
+    interface Chainable {
+
+      setUpApi(args?: { members?: Member[], storedSessions?: { id: string, token: string, createdAt: string }[] }): Chainable<JQuery<HTMLElement>>
+
+      checkErrorTextField(id: string, flag: unknown): Chainable<JQuery<HTMLElement>>
+
+      signUpAndCheck(member: Member & {
+        nameValid: boolean,
+        emailValid: boolean,
+        passwordValid: boolean
+      }): Chainable<JQuery<HTMLElement>>
+
+      signInAndCheck(value: Partial<Member> & {
+        nameValid: boolean,
+        emailValid: boolean,
+        passwordValid: boolean
+      }): Chainable<JQuery<HTMLElement>>
+
+      signInPasswordMethodAndCheck(): Chainable<JQuery<HTMLElement>>
+
+      signInPasswordAndCheck(member: Member & {
+        nameValid: boolean,
+        emailValid: boolean,
+        passwordValid: boolean
+      }): Chainable<JQuery<HTMLElement>>
+    }
+  }
+}
+
 
 Cypress.Commands.add(
   'setUpApi',

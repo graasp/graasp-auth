@@ -12,7 +12,9 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
-const notifier = ({ type, payload }) => {
+const notifier = (args: { type: string, payload?: { error?: { response?: { data?: { message?: string } } }, message?: string } }) => {
+  const { type, payload } = args
+
   if (!SHOW_NOTIFICATIONS) {
     return;
   }

@@ -27,6 +27,7 @@ module.exports = (on, config) => {
       API_HOST: process.env.REACT_APP_API_HOST,
     },
   };
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   require('@cypress/code-coverage/task')(on, newConfig);
   return newConfig;
 };
