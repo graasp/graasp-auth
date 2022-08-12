@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@graasp/query-client": "github:graasp/graasp-query-client",
+    "@graasp/query-client": "github:graasp/graasp-query-client#191-miragejs",
     "@graasp/translations": "github:graasp/graasp-translations",
     "@graasp/ui": "github:graasp/graasp-ui",
     "@graasp/utils": "github:graasp/graasp-utils",
@@ -16,7 +16,7 @@
     "http-status-codes": "2.2.0",
     "i18next": "21.8.1",
     "prop-types": "15.8.1",
-    "qs": "6.10.3",
+    "qs": "6.11.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-i18next": "11.16.9",

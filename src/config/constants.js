@@ -28,3 +28,5 @@ export const NAME_MAXIMUM_LENGTH = 300;
 export const NAME_MINIMUM_LENGTH = 2;
 
 export const FORM_INPUT_MIN_WIDTH = 300;
+
+export const ENABLE_MOCK_API = process.env.REACT_APP_ENABLE_MOCK_API === 'true';

@@ -10,6 +10,7 @@
 //
 //
 // -- This is a parent command --
+import { buildDatabase } from '@graasp/query-client';
 import { COOKIE_KEYS } from '@graasp/utils';
 
 import {
@@ -20,7 +21,6 @@ import {
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
 } from '../../src/config/selectors';
 import MEMBERS from '../fixtures/members';
-import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
 
 const {
   submitSignIn,
@@ -34,18 +34,26 @@ const {
 
 Cypress.Commands.add(
   'setUpApi',
-  ({ members = Object.values(MEMBERS), storedSessions = [] } = {}) => {
-    const cachedMembers = JSON.parse(JSON.stringify(members));
-
+  ({
+    currentMember = null,
+    members = Object.values(MEMBERS),
+    invitations = [],
+    storedSessions = [],
+  } = {}) => {
     cy.setCookie(
       COOKIE_KEYS.STORED_SESSIONS_KEY,
       JSON.stringify(storedSessions),
     );
 
-    mockGetMember(cachedMembers);
-    mockGetMembers(cachedMembers);
-
-    mockGetCurrentMember();
+    // mock api and database
+    Cypress.on('window:before:load', (win) => {
+      // eslint-disable-next-line no-param-reassign
+      win.database = buildDatabase({
+        members,
+        invitations,
+        currentMember,
+      });
+    });
   },
 );
 
