@@ -22,7 +22,7 @@ describe('Name and Email Validation', () => {
     cy.signUpAndCheck(GRAASP);
   });
 
-  it.only('Sign Up from invitation with name', () => {
+  it('Sign Up from invitation with name', () => {
     const invitation = MOCK_INVITATIONS[0];
     cy.visit(
       `${SIGN_UP_PATH}${qs.stringify(
@@ -34,10 +34,7 @@ describe('Name and Email Validation', () => {
   });
 
   it('Sign Up from invitation without name', () => {
-    const invitation = {
-      id: 'invitation-id',
-      email: 'email',
-    };
+    const invitation = MOCK_INVITATIONS[1];
     cy.visit(
       `${SIGN_UP_PATH}${qs.stringify(
         { invitationId: invitation.id },
@@ -48,14 +45,9 @@ describe('Name and Email Validation', () => {
   });
 
   it('Sign Up with invalid invitation', () => {
-    const invitation = {
-      id: 'invitation-id',
-      email: 'email',
-    };
-
     cy.visit(
       `${SIGN_UP_PATH}${qs.stringify(
-        { invitationId: invitation.id },
+        { invitationId: 'invalid-id' },
         { addQueryPrefix: true },
       )}`,
     );

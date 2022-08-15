@@ -2094,7 +2094,7 @@ __metadata:
 
 "@graasp/query-client@github:graasp/graasp-query-client#191-miragejs":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=312072d05899555ea45cb5727bd7d8849cd3cbcb"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=f5bff6f1df1564318e2c74a4eb49c7fc1f974bfd"
   dependencies:
     "@graasp/translations": "github:graasp/graasp-translations.git"
     "@graasp/utils": "github:graasp/graasp-utils.git"
@@ -2109,7 +2109,7 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: 73681e5d2575270d98dc6aa1f2c97d691d4401281adb6937f3f629f506258e34746ce27b0d700b7f18aece04cfe7cff2c9a7a189eb28c28e7d2300e64fff3290
+  checksum: f504260649a196b3fea4d8bd9bb0b6560af1c0d3f6fb1152fd077a2c2a0e378b04e41fc4789a7a7e968e6cf17c6dbc22be03d588fd0226307e0989f72dcb4a20
   languageName: node
   linkType: hard
 

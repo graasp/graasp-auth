@@ -9,13 +9,12 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 if (ENABLE_MOCK_API) {
-  const db = mockServer({
+  mockServer({
     urlPrefix: API_HOST,
     database: window.Cypress ? window.database : undefined,
     // enable next line to use mock data
     // database: window.Cypress ? window.database : buildDatabase(appContext),
   });
-  console.log(db.db);
 }
 
 const container = document.getElementById('root');
