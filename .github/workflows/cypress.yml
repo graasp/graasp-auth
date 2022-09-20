@@ -23,6 +23,7 @@ jobs:
           REACT_APP_API_HOST: ${{ secrets.REACT_APP_API_HOST }}
           REACT_APP_GRAASP_COMPOSE_HOST: http://localhost:3000
           REACT_APP_NODE_ENV: test
+          REACT_APP_ENABLE_MOCK_API: true
         with:
           install: false
           config: baseUrl=http://localhost:3000

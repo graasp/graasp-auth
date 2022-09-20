@@ -41,7 +41,7 @@ export const passwordSignInMethod = () => {
   cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).click();
 };
 
-export const fillPasswordSignInLayout = ({ email, password }) => {
+export const fillPasswordSignInLayout = ({ email, extra: { password } }) => {
   cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
   cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear().type(password);
 };
