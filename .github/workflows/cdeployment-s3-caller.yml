@@ -20,6 +20,7 @@ jobs:
       tag: ${{ github.event.client_payload.tag }}
     # Insert required secrets based on repository with the following format: ${{ secrets.SECRET_NAME }}
     secrets:
+      ga-measurement-id: ${{ secrets.REACT_APP_GA_MEASUREMENT_ID_PROD }}
       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
       aws-region: ${{ secrets.AWS_REGION_PROD }}
