@@ -46,4 +46,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: graasp/graasp-deploy
           event-type: update-staging-version
-          client-payload: ${{steps.set-tag.outputs.json}}
+          client-payload: ${{ steps.set-tag.outputs.json }}
