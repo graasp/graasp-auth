@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.2](https://github.com/graasp/graasp-auth/compare/v0.1.1...v0.1.2) (2023-01-03)
+
+
+### Bug Fixes
+
+* add ga in prod ([a293627](https://github.com/graasp/graasp-auth/commit/a29362793e1d4896635be4e83bfbbeef0bceaf79))
+* **analytics:** send google analytics when in prod ([b2f90be](https://github.com/graasp/graasp-auth/commit/b2f90bed16ff4007057bee5944268ee2d666eeea))
+* **ci:** add release-please ([80943e6](https://github.com/graasp/graasp-auth/commit/80943e68881733a414b7968548ef099dad5ce16e))
+* **ci:** add release-please ([#51](https://github.com/graasp/graasp-auth/issues/51)) ([80943e6](https://github.com/graasp/graasp-auth/commit/80943e68881733a414b7968548ef099dad5ce16e))
+* **style:** release-please workflow ([80943e6](https://github.com/graasp/graasp-auth/commit/80943e68881733a414b7968548ef099dad5ce16e))
+
 ### 0.1.1 (2022-11-16)
 
 ## 0.1.0 (2022-07-21)
