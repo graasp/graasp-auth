@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { getUrlForRedirection, redirectToSavedUrl } from '@graasp/sdk';
 import { RedirectionContent } from '@graasp/ui';
-import { getUrlForRedirection, redirectToSavedUrl } from '@graasp/utils';
 
 import { GRAASP_COMPOSE_HOST } from '../config/constants';
 import { hooks } from '../config/queryClient';

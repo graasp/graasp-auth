@@ -10,7 +10,7 @@
 //
 //
 // -- This is a parent command --
-import { COOKIE_KEYS } from '@graasp/utils';
+import { COOKIE_KEYS } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
