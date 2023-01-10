@@ -2304,13 +2304,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client":
+"@graasp/query-client@npm:0.1.0":
   version: 0.1.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=dee26d0fd0a4bd932514d59c6aa0a6d2b30d30eb"
+  resolution: "@graasp/query-client@npm:0.1.0"
   dependencies:
     "@graasp/sdk": 0.2.0
     "@graasp/translations": 1.1.0
-    "@graasp/utils": "github:graasp/graasp-utils.git"
+    "@graasp/utils": "github:graasp/graasp-utils"
     axios: 0.27.2
     crypto-js: 4.1.1
     http-status-codes: 2.2.0
@@ -2320,7 +2320,7 @@ __metadata:
     uuid: 8.3.2
   peerDependencies:
     react: ^17.0.0
-  checksum: f3b2ad12abd71aeed20d31f030311790f97b4b3faf0bfee725c6c38ab6eac9ca8bb62875c4d43c5972b1f4ef0ae0d867925dda0f74a07b8a900aa4bf04c25477
+  checksum: 3f2312930e8356d2395a643275590bd69f7b31c15bc86d80b03bbdb56491f4ab1aacf7e4f4cb93f4c4fa299d80bf1462f2ada8db46af399832e8165c37f94072
   languageName: node
   linkType: hard
 
@@ -2341,21 +2341,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/translations@github:graasp/graasp-translations#93-add-missing-auth-translations":
-  version: 1.2.0
-  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=ce578fbd93e01eb01984013796c192ea11516767"
-  dependencies:
-    i18next: 21.8.1
-  checksum: 764316b242ea3a8effcdb83e71a7ca67ebf6af399235762e5b2da91377d4f60f1389980717907c8bfd16bd1deb159e9a795489f4c869a18970f7831acebcf701
-  languageName: node
-  linkType: hard
-
 "@graasp/translations@npm:1.1.0":
   version: 1.1.0
   resolution: "@graasp/translations@npm:1.1.0"
   dependencies:
     i18next: 21.8.1
   checksum: 1d6fabce21ef205146c4f74b9b4b5dafc5969cf13a78cd7c4947a9b882cb22d48f3832ad6e20c21cc905b41b4809a1c2efa7ba629b12cd79bd2067df6ebd2f22
+  languageName: node
+  linkType: hard
+
+"@graasp/translations@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@graasp/translations@npm:1.2.1"
+  dependencies:
+    i18next: 21.8.1
+  checksum: 24e17531b1023b41773bd97dad93031ee7da914ef712b83cfa1ee20da3a16aa7c4fb5784213398ecc4872b3ef9e79b6696f61876ac6c572cb182e6ea564edfef
   languageName: node
   linkType: hard
 
@@ -2398,7 +2398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/utils@github:graasp/graasp-utils.git":
+"@graasp/utils@github:graasp/graasp-utils":
   version: 0.2.0
   resolution: "@graasp/utils@https://github.com/graasp/graasp-utils.git#commit=a82c39b5ccfebb91ac9bfad978b549712ba193da"
   dependencies:
@@ -9178,9 +9178,9 @@ __metadata:
     "@cypress/instrument-cra": 1.4.0
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
-    "@graasp/query-client": "github:graasp/graasp-query-client"
+    "@graasp/query-client": 0.1.0
     "@graasp/sdk": 0.2.0
-    "@graasp/translations": "github:graasp/graasp-translations#93-add-missing-auth-translations"
+    "@graasp/translations": 1.2.1
     "@graasp/ui": 0.7.0
     "@mui/icons-material": 5.11.0
     "@mui/lab": 5.0.0-alpha.115

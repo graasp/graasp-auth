@@ -5,9 +5,9 @@
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@graasp/query-client": "github:graasp/graasp-query-client",
+    "@graasp/query-client": "0.1.0",
     "@graasp/sdk": "0.2.0",
-    "@graasp/translations": "github:graasp/graasp-translations#93-add-missing-auth-translations",
+    "@graasp/translations": "1.2.1",
     "@graasp/ui": "0.7.0",
     "@mui/icons-material": "5.11.0",
     "@mui/lab": "5.0.0-alpha.115",
