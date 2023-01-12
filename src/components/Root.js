@@ -3,7 +3,7 @@ import { I18nextProvider } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import { SHOW_NOTIFICATIONS } from '../config/constants';
 import i18nConfig from '../config/i18n';
@@ -30,10 +30,10 @@ const theme = createTheme({
 const Root = () => (
   <QueryClientProvider client={queryClient}>
     <I18nextProvider i18n={i18nConfig}>
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         {SHOW_NOTIFICATIONS && <ToastContainer />}
         <App />
-      </MuiThemeProvider>
+      </ThemeProvider>
     </I18nextProvider>
     {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
   </QueryClientProvider>

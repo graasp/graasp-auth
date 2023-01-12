@@ -7,15 +7,9 @@ import { MUTATION_KEYS } from '@graasp/query-client';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
-import {
-  Divider,
-  FormControl,
-  TextField,
-  Typography,
-  makeStyles,
-} from '@material-ui/core';
+import FormControl from '@mui/material/FormControl';
+import Typography from '@mui/material/Typography';
 
-import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
 import { hooks, useMutation } from '../config/queryClient';
@@ -26,35 +20,15 @@ import {
 } from '../config/selectors';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+import FullscreenContainer from './FullscreenContainer';
+import StyledDivider from './StyledDivider';
+import StyledTextField from './StyledTextField';
 
 const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
   AUTH;
 
-const useStyles = makeStyles((theme) => ({
-  fullScreen: {
-    margin: 'auto',
-    textAlign: 'center',
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  input: {
-    margin: theme.spacing(1, 0),
-    minWidth: FORM_INPUT_MIN_WIDTH,
-  },
-  divider: {
-    margin: theme.spacing(2),
-  },
-  button: {
-    margin: 0,
-  },
-}));
-
 const SignUp = () => {
   const { t } = useAuthTranslation();
-  const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -110,8 +84,7 @@ const SignUp = () => {
   const renderForm = () => (
     <>
       <FormControl>
-        <TextField
-          className={classes.input}
+        <StyledTextField
           required
           label={t(NAME_FIELD_LABEL)}
           variant="outlined"
@@ -123,35 +96,29 @@ const SignUp = () => {
           disabled={Boolean(invitation?.get('name'))}
         />
         <EmailInput
-          className={classes.input}
           value={email}
           setValue={setEmail}
           id={EMAIL_SIGN_UP_FIELD_ID}
           disabled={Boolean(invitation?.get('email'))}
           shouldValidate={shouldValidate}
         />
-        <Button
-          onClick={handleRegister}
-          id={SIGN_UP_BUTTON_ID}
-          fullWidth
-          className={classes.button}
-        >
+        <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
           {t(SIGN_UP_BUTTON)}
         </Button>
       </FormControl>
 
-      <Divider variant="middle" className={classes.divider} />
+      <StyledDivider />
       <Link to={buildSignInPath()}>{t(SIGN_IN_LINK_TEXT)}</Link>
     </>
   );
 
   return (
-    <div className={classes.fullScreen}>
+    <FullscreenContainer>
       <Typography variant="h2" component="h2">
         {t(SIGN_UP_HEADER)}
       </Typography>
       {renderForm()}
-    </div>
+    </FullscreenContainer>
   );
 };
 

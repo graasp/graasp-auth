@@ -12,7 +12,7 @@ export const DOMAIN = ENV_DOMAIN || process.env.REACT_APP_DOMAIN;
 export const APP_NAME = 'Graasp Authentication';
 
 export const API_HOST =
-  ENV_API_HOST || process.env.REACT_APP_API_HOST || 'http://localhost:3111';
+  ENV_API_HOST || process.env.REACT_APP_API_HOST || 'http://localhost:3000';
 
 export const SHOW_NOTIFICATIONS =
   ENV_SHOW_NOTIFICATIONS ||

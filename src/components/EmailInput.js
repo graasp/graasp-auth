@@ -3,13 +3,11 @@ import React, { useEffect, useState } from 'react';
 
 import { AUTH } from '@graasp/translations';
 
-import TextField from '@material-ui/core/TextField';
-
 import { useAuthTranslation } from '../config/i18n';
 import { emailValidator } from '../utils/validation';
+import StyledTextField from './StyledTextField';
 
 const EmailInput = ({
-  className,
   setValue,
   onKeyPress,
   required,
@@ -37,10 +35,9 @@ const EmailInput = ({
   };
 
   return (
-    <TextField
+    <StyledTextField
       variant="outlined"
       label={t(AUTH.EMAIL_FIELD_TEXT)}
-      className={className}
       required={required}
       value={value}
       error={Boolean(error)}
@@ -55,7 +52,6 @@ const EmailInput = ({
 };
 
 EmailInput.propTypes = {
-  className: PropTypes.string,
   required: PropTypes.bool,
   value: PropTypes.string,
   id: PropTypes.string,
@@ -66,7 +62,6 @@ EmailInput.propTypes = {
 };
 
 EmailInput.defaultProps = {
-  className: null,
   required: true,
   value: '',
   id: null,

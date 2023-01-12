@@ -1,4 +1,4 @@
-import { COOKIE_KEYS, getCurrentSession } from '@graasp/utils';
+import { COOKIE_KEYS, getCurrentSession } from '@graasp/sdk';
 
 import { HOME_PATH } from '../../src/config/paths';
 import {

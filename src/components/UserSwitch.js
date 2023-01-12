@@ -1,17 +1,18 @@
 import React from 'react';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
-import { Button, UserSwitch } from '@graasp/ui';
-import { getStoredSessions } from '@graasp/utils';
+import { getStoredSessions } from '@graasp/sdk';
+import { AUTH } from '@graasp/translations';
+import { Button, UserSwitch as GraaspUserSwitch } from '@graasp/ui';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { DOMAIN } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { hooks, useMutation } from '../config/queryClient';
 import { USER_SWITCH_ID, buildMemberMenuItemId } from '../config/selectors';
 
-const MyUserSwitch = () => {
+const UserSwitch = () => {
   const { t } = useAuthTranslation();
   const sessions = getStoredSessions();
   const { data: members } = hooks.useMembers(sessions.map(({ id }) => id));
@@ -32,20 +33,20 @@ const MyUserSwitch = () => {
       variant="outlined"
       startIcon={<AccountCircleIcon />}
     >
-      {t('Switch to a previous account')}
+      {t(AUTH.SWITCH_ACCOUNT_TEXT)}
     </Button>
   );
 
   return (
-    <UserSwitch
+    <GraaspUserSwitch
       useAvatar={hooks.useAvatar}
-      members={members?.toJS()}
+      members={members}
       onMemberClick={onMemberClick}
-      signedOutTooltipText={t('You are not signed in.')}
+      signedOutTooltipText={t(AUTH.NOT_SIGNED_IN_TOOLTIP)}
       ButtonContent={ButtonContent}
       buildMemberMenuItemId={buildMemberMenuItemId}
     />
   );
 };
 
-export default MyUserSwitch;
+export default UserSwitch;
