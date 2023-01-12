@@ -7,6 +7,9 @@ const {
   REACT_APP_DOMAIN: ENV_DOMAIN,
 } = env;
 
+export const { REACT_APP_GA_MEASUREMENT_ID: GA_MEASUREMENT_ID, NODE_ENV } =
+  process.env;
+
 export const DOMAIN = ENV_DOMAIN || process.env.REACT_APP_DOMAIN;
 
 export const APP_NAME = 'Graasp Authentication';
