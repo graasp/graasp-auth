@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/graasp/graasp-auth/compare/v0.1.2...v0.2.0) (2023-01-13)
+
+
+### Features
+
+* **ui:** use mui5 ([#56](https://github.com/graasp/graasp-auth/issues/56)) ([e5fc0be](https://github.com/graasp/graasp-auth/commit/e5fc0be43ba4e6bd91424d94b833f62066358469))
+
+
+### Bug Fixes
+
+* add ga code ([#59](https://github.com/graasp/graasp-auth/issues/59)) ([c069817](https://github.com/graasp/graasp-auth/commit/c069817245eb9697d8f55ff3593e57735c051fc5))
+* **deps:** use npm dependencies ([e5fc0be](https://github.com/graasp/graasp-auth/commit/e5fc0be43ba4e6bd91424d94b833f62066358469))
+* **translations:** add missing translations ([e5fc0be](https://github.com/graasp/graasp-auth/commit/e5fc0be43ba4e6bd91424d94b833f62066358469))
+* **translations:** change switch to previous account -&gt; switch to another account ([e5fc0be](https://github.com/graasp/graasp-auth/commit/e5fc0be43ba4e6bd91424d94b833f62066358469))
+
 ## [0.1.2](https://github.com/graasp/graasp-auth/compare/v0.1.1...v0.1.2) (2023-01-03)
 
 
