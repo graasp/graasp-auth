@@ -2341,21 +2341,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/translations@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@graasp/translations@npm:1.1.0"
+"@graasp/translations@github:graasp/graasp-translations#99-sign-in-success":
+  version: 1.3.0
+  resolution: "@graasp/translations@https://github.com/graasp/graasp-translations.git#commit=7ab324d232ac4af764179181ababd049b80d1223"
   dependencies:
     i18next: 21.8.1
-  checksum: 1d6fabce21ef205146c4f74b9b4b5dafc5969cf13a78cd7c4947a9b882cb22d48f3832ad6e20c21cc905b41b4809a1c2efa7ba629b12cd79bd2067df6ebd2f22
-  languageName: node
-  linkType: hard
-
-"@graasp/translations@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@graasp/translations@npm:1.2.1"
-  dependencies:
-    i18next: 21.8.1
-  checksum: 24e17531b1023b41773bd97dad93031ee7da914ef712b83cfa1ee20da3a16aa7c4fb5784213398ecc4872b3ef9e79b6696f61876ac6c572cb182e6ea564edfef
+  checksum: 12312633312cdf235e7183d6f6376f2d2b24e07973395c2c3054b9ba671a4bf633e7310aad6a9929f560c42c0b5c933ca8bfb1d84039ae6747f24135bc18b9d5
   languageName: node
   linkType: hard
 
@@ -9180,7 +9171,7 @@ __metadata:
     "@emotion/styled": 11.10.5
     "@graasp/query-client": 0.1.0
     "@graasp/sdk": 0.2.0
-    "@graasp/translations": 1.2.1
+    "@graasp/translations": "github:graasp/graasp-translations#99-sign-in-success"
     "@graasp/ui": 0.7.0
     "@mui/icons-material": 5.11.0
     "@mui/lab": 5.0.0-alpha.115

@@ -26,6 +26,7 @@ import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
+import SuccessContent from './SuccessContent';
 import UserSwitch from './UserSwitch';
 
 const {
@@ -47,10 +48,13 @@ const SignIn = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signIn } = useMutation(MUTATION_KEYS.SIGN_IN);
-  const { mutateAsync: signInWithPassword } = useMutation(
-    MUTATION_KEYS.SIGN_IN_WITH_PASSWORD,
+  const { mutate: signIn, isSuccess: signInSuccess } = useMutation(
+    MUTATION_KEYS.SIGN_IN,
   );
+  const {
+    mutateAsync: signInWithPassword,
+    isSuccess: signInWithPasswordSuccess,
+  } = useMutation(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
@@ -168,35 +172,46 @@ const SignIn = () => {
     </>
   );
 
-  return (
-    <FullscreenContainer>
-      <Typography variant="h2" component="h2">
-        {t(SIGN_IN_HEADER)}
-      </Typography>
-      {renderSignInForm()}
-      <StyledDivider />
-      <Box sx={{ justifyContent: 'center' }}>
-        <Button
-          variant="text"
-          disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
-          onClick={handleSignInMethod}
-          id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
-        >
-          {t(EMAIL_SIGN_IN_METHOD)}
-        </Button>
-        <Button
-          variant="text"
-          disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
-          onClick={handleSignInMethod}
-          id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
-        >
-          {t(PASSWORD_SIGN_IN_METHOD)}
-        </Button>
-      </Box>
-      <StyledDivider />
-      <UserSwitch />
-    </FullscreenContainer>
-  );
+  const renderContent = () => {
+    // eslint-disable-next-line no-constant-condition
+    if (signInSuccess || signInWithPasswordSuccess) {
+      return (
+        <SuccessContent title={t(AUTH.SIGN_IN_SUCCESS_TITLE)} email={email} />
+      );
+    }
+
+    return (
+      <>
+        <Typography variant="h2" component="h2">
+          {t(SIGN_IN_HEADER)}
+        </Typography>
+        {renderSignInForm()}
+        <StyledDivider />
+        <Box sx={{ justifyContent: 'center' }}>
+          <Button
+            variant="text"
+            disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
+            onClick={handleSignInMethod}
+            id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
+          >
+            {t(EMAIL_SIGN_IN_METHOD)}
+          </Button>
+          <Button
+            variant="text"
+            disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
+            onClick={handleSignInMethod}
+            id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
+          >
+            {t(PASSWORD_SIGN_IN_METHOD)}
+          </Button>
+        </Box>
+        <StyledDivider />
+        <UserSwitch />
+      </>
+    );
+  };
+
+  return <FullscreenContainer>{renderContent()}</FullscreenContainer>;
 };
 
 export default SignIn;

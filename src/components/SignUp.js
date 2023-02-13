@@ -23,6 +23,7 @@ import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
+import SuccessContent from './SuccessContent';
 
 const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
   AUTH;
@@ -36,7 +37,9 @@ const SignUp = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signUp } = useMutation(MUTATION_KEYS.SIGN_UP);
+  const { mutate: signUp, isSuccess: signUpSuccess } = useMutation(
+    MUTATION_KEYS.SIGN_UP,
+  );
 
   const location = useLocation();
   const queryStrings = Qs.parse(location.search, {
@@ -112,14 +115,24 @@ const SignUp = () => {
     </>
   );
 
-  return (
-    <FullscreenContainer>
-      <Typography variant="h2" component="h2">
-        {t(SIGN_UP_HEADER)}
-      </Typography>
-      {renderForm()}
-    </FullscreenContainer>
-  );
+  const renderContent = () => {
+    if (signUpSuccess) {
+      return (
+        <SuccessContent title={t(AUTH.SIGN_UP_SUCCESS_TITLE)} email={email} />
+      );
+    }
+
+    return (
+      <>
+        <Typography variant="h2" component="h2">
+          {t(SIGN_UP_HEADER)}
+        </Typography>
+        {renderForm()}
+      </>
+    );
+  };
+
+  return <FullscreenContainer>{renderContent()}</FullscreenContainer>;
 };
 
 export default SignUp;
