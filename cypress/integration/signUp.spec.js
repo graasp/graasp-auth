@@ -1,9 +1,14 @@
 import qs from 'qs';
+
 import { API_ROUTES } from '@graasp/query-client';
+
 import { SIGN_UP_PATH } from '../../src/config/paths';
+import {
+  SIGN_UP_BUTTON_ID,
+  SUCCESS_CONTENT_ID,
+} from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
 import { checkInvitationFields } from './util';
-import { SIGN_UP_BUTTON_ID } from '../../src/config/selectors';
 
 describe('Name and Email Validation', () => {
   it('Sign Up', () => {
@@ -15,6 +20,8 @@ describe('Name and Email Validation', () => {
     cy.signUpAndCheck(WRONG_EMAIL);
     // Signing up with right email and name
     cy.signUpAndCheck(GRAASP);
+
+    cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
   });
 
   it('Sign Up from invitation with name', () => {

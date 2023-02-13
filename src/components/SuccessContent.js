@@ -7,12 +7,13 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { Container, Typography } from '@mui/material';
 
 import { Trans, useAuthTranslation } from '../config/i18n';
+import { SUCCESS_CONTENT_ID } from '../config/selectors';
 
 const SuccessContent = ({ title, email }) => {
   const { t } = useAuthTranslation();
 
   return (
-    <Container>
+    <Container id={SUCCESS_CONTENT_ID}>
       <Typography
         variant="h4"
         display="flex"
@@ -26,7 +27,8 @@ const SuccessContent = ({ title, email }) => {
         <Trans
           ns={namespaces.auth}
           i18nKey={AUTH.SIGN_IN_SUCCESS_TEXT}
-          email={email}
+          values={{ email }}
+          components={{ bold: <strong /> }}
         />
       </Typography>
       <br />

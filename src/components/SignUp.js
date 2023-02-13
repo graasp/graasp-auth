@@ -115,24 +115,20 @@ const SignUp = () => {
     </>
   );
 
-  const renderContent = () => {
-    if (signUpSuccess) {
-      return (
+  return (
+    <FullscreenContainer>
+      {signUpSuccess ? (
         <SuccessContent title={t(AUTH.SIGN_UP_SUCCESS_TITLE)} email={email} />
-      );
-    }
-
-    return (
-      <>
-        <Typography variant="h2" component="h2">
-          {t(SIGN_UP_HEADER)}
-        </Typography>
-        {renderForm()}
-      </>
-    );
-  };
-
-  return <FullscreenContainer>{renderContent()}</FullscreenContainer>;
+      ) : (
+        <>
+          <Typography variant="h2" component="h2">
+            {t(SIGN_UP_HEADER)}
+          </Typography>
+          {renderForm()}
+        </>
+      )}
+    </FullscreenContainer>
+  );
 };
 
 export default SignUp;

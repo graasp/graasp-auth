@@ -172,46 +172,44 @@ const SignIn = () => {
     </>
   );
 
-  const renderContent = () => {
-    // eslint-disable-next-line no-constant-condition
-    if (signInSuccess || signInWithPasswordSuccess) {
-      return (
-        <SuccessContent title={t(AUTH.SIGN_IN_SUCCESS_TITLE)} email={email} />
-      );
-    }
-
-    return (
-      <>
-        <Typography variant="h2" component="h2">
-          {t(SIGN_IN_HEADER)}
-        </Typography>
-        {renderSignInForm()}
-        <StyledDivider />
-        <Box sx={{ justifyContent: 'center' }}>
-          <Button
-            variant="text"
-            disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
-            onClick={handleSignInMethod}
-            id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
-          >
-            {t(EMAIL_SIGN_IN_METHOD)}
-          </Button>
-          <Button
-            variant="text"
-            disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
-            onClick={handleSignInMethod}
-            id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
-          >
-            {t(PASSWORD_SIGN_IN_METHOD)}
-          </Button>
-        </Box>
-        <StyledDivider />
-        <UserSwitch />
-      </>
-    );
-  };
-
-  return <FullscreenContainer>{renderContent()}</FullscreenContainer>;
+  return (
+    <FullscreenContainer>
+      {
+        // eslint-disable-next-line no-constant-condition
+        signInSuccess || signInWithPasswordSuccess ? (
+          <SuccessContent title={t(AUTH.SIGN_IN_SUCCESS_TITLE)} email={email} />
+        ) : (
+          <>
+            <Typography variant="h2" component="h2">
+              {t(SIGN_IN_HEADER)}
+            </Typography>
+            {renderSignInForm()}
+            <StyledDivider />
+            <Box sx={{ justifyContent: 'center' }}>
+              <Button
+                variant="text"
+                disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
+                onClick={handleSignInMethod}
+                id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
+              >
+                {t(EMAIL_SIGN_IN_METHOD)}
+              </Button>
+              <Button
+                variant="text"
+                disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
+                onClick={handleSignInMethod}
+                id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
+              >
+                {t(PASSWORD_SIGN_IN_METHOD)}
+              </Button>
+            </Box>
+            <StyledDivider />
+            <UserSwitch />
+          </>
+        )
+      }
+    </FullscreenContainer>
+  );
 };
 
 export default SignIn;
