@@ -7,7 +7,7 @@
     "@emotion/styled": "11.10.5",
     "@graasp/query-client": "0.1.0",
     "@graasp/sdk": "0.2.0",
-    "@graasp/translations": "github:graasp/graasp-translations#99-sign-in-success",
+    "@graasp/translations": "1.4.0",
     "@graasp/ui": "0.7.0",
     "@mui/icons-material": "5.11.0",
     "@mui/lab": "5.0.0-alpha.115",
