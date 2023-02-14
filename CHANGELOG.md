@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/graasp/graasp-auth/compare/v0.2.0...v0.3.0) (2023-02-14)
+
+
+### Features
+
+* add success screen ([#63](https://github.com/graasp/graasp-auth/issues/63)) ([9732f5b](https://github.com/graasp/graasp-auth/commit/9732f5b4bc418e2b6d5a8fff8d894205fa3059f9))
+
 ## [0.2.0](https://github.com/graasp/graasp-auth/compare/v0.1.2...v0.2.0) (2023-01-13)
 
 
