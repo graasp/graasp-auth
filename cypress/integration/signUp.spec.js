@@ -1,3 +1,4 @@
+import { StatusCodes } from 'http-status-codes';
 import qs from 'qs';
 
 import { API_ROUTES } from '@graasp/query-client';
@@ -14,6 +15,14 @@ describe('Name and Email Validation', () => {
   it('Sign Up', () => {
     const { GRAASP, WRONG_NAME, WRONG_EMAIL } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
+
+    // eslint-disable-next-line arrow-body-style
+    cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
+      return reply({
+        statusCode: StatusCodes.NO_CONTENT,
+      });
+    });
+
     // Signing up with a wrong name and right email
     cy.signUpAndCheck(WRONG_NAME);
     // Signing up with a wrong email and right name
