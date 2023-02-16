@@ -1,6 +1,6 @@
 import { MUTATION_KEYS } from '@graasp/query-client';
-import { MemberRecord } from '@graasp/query-client/dist/types';
 import { getStoredSessions } from '@graasp/sdk';
+import { MemberRecord } from '@graasp/sdk/dist/frontend/types';
 import { BUILDER } from '@graasp/translations';
 import { UserSwitchWrapper } from '@graasp/ui';
 
@@ -47,7 +47,7 @@ const UserSwitch = () => {
       buttonId={USER_SWITCH_ID}
       ButtonContent={ButtonContent}
       signOut={signOut}
-      sCurrentMemberLoading={false}
+      isCurrentMemberLoading={false}
       isCurrentMemberSuccess={false}
       // fix in query client
       switchMember={switchMember as any}

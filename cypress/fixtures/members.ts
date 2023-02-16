@@ -1,4 +1,4 @@
-import { MemberType } from "@graasp/sdk";
+import { MemberType } from '@graasp/sdk';
 
 export const MEMBERS = {
   GRAASP: {
@@ -12,7 +12,7 @@ export const MEMBERS = {
     type: MemberType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    extra: {}
+    extra: {},
   },
   WRONG_NAME: {
     id: 'id1',
@@ -24,7 +24,7 @@ export const MEMBERS = {
     type: MemberType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    extra: {}
+    extra: {},
   },
   WRONG_EMAIL: {
     id: 'id2',
@@ -37,7 +37,7 @@ export const MEMBERS = {
     type: MemberType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    extra: {}
+    extra: {},
   },
   WRONG_PASSWORD: {
     id: 'id3',
@@ -50,7 +50,7 @@ export const MEMBERS = {
     type: MemberType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    extra: {}
+    extra: {},
   },
   BOB: {
     id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
@@ -68,14 +68,18 @@ export const MEMBERS = {
     createdAt: '2021-04-13 14:56:34.749946',
     type: MemberType.Individual,
     updatedAt: new Date().toISOString(),
-    extra: {}
+    extra: {},
   },
 };
 
 export default MEMBERS;
 
 export const MOCK_SESSIONS = [
-  { id: MEMBERS.BOB.id, token: 'bob-token', createdAt: Date.now().toLocaleString() },
+  {
+    id: MEMBERS.BOB.id,
+    token: 'bob-token',
+    createdAt: Date.now().toLocaleString(),
+  },
   {
     id: MEMBERS.CEDRIC.id,
     token: 'cedric-token',

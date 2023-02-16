@@ -1,7 +1,5 @@
 import { buildSignInPath } from '@graasp/sdk';
 
-
-
 export const { REACT_APP_GA_MEASUREMENT_ID: GA_MEASUREMENT_ID, NODE_ENV } =
   process.env;
 
@@ -13,12 +11,10 @@ export const API_HOST =
   process.env.REACT_APP_API_HOST || 'http://localhost:3000';
 
 export const SHOW_NOTIFICATIONS =
-  process.env.REACT_APP_SHOW_NOTIFICATIONS === 'true' ||
-  false;
+  process.env.REACT_APP_SHOW_NOTIFICATIONS === 'true' || false;
 
 export const GRAASP_COMPOSE_HOST =
-  process.env.REACT_APP_GRAASP_COMPOSE_HOST ??
-  'http://localhost:3111';
+  process.env.REACT_APP_GRAASP_COMPOSE_HOST ?? 'http://localhost:3111';
 
 export const AUTHENTICATION_HOST =
   process.env.REACT_APP_AUTHENTICATION_HOST || 'http://localhost:3001';

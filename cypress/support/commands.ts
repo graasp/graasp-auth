@@ -31,39 +31,48 @@ import {
 import MEMBERS from '../fixtures/members';
 import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
 
-
 // cypress/support/index.ts
 declare global {
   namespace Cypress {
     interface Chainable {
+      setUpApi(args?: {
+        members?: Member[];
+        storedSessions?: { id: string; token: string; createdAt: string }[];
+      }): Chainable<JQuery<HTMLElement>>;
 
-      setUpApi(args?: { members?: Member[], storedSessions?: { id: string, token: string, createdAt: string }[] }): Chainable<JQuery<HTMLElement>>
+      checkErrorTextField(
+        id: string,
+        flag: unknown,
+      ): Chainable<JQuery<HTMLElement>>;
 
-      checkErrorTextField(id: string, flag: unknown): Chainable<JQuery<HTMLElement>>
+      signUpAndCheck(
+        member: Member & {
+          nameValid: boolean;
+          emailValid: boolean;
+          passwordValid: boolean;
+        },
+      ): Chainable<JQuery<HTMLElement>>;
 
-      signUpAndCheck(member: Member & {
-        nameValid: boolean,
-        emailValid: boolean,
-        passwordValid: boolean
-      }): Chainable<JQuery<HTMLElement>>
+      signInAndCheck(
+        value: Partial<Member> & {
+          nameValid: boolean;
+          emailValid: boolean;
+          passwordValid: boolean;
+        },
+      ): Chainable<JQuery<HTMLElement>>;
 
-      signInAndCheck(value: Partial<Member> & {
-        nameValid: boolean,
-        emailValid: boolean,
-        passwordValid: boolean
-      }): Chainable<JQuery<HTMLElement>>
+      signInPasswordMethodAndCheck(): Chainable<JQuery<HTMLElement>>;
 
-      signInPasswordMethodAndCheck(): Chainable<JQuery<HTMLElement>>
-
-      signInPasswordAndCheck(member: Member & {
-        nameValid: boolean,
-        emailValid: boolean,
-        passwordValid: boolean
-      }): Chainable<JQuery<HTMLElement>>
+      signInPasswordAndCheck(
+        member: Member & {
+          nameValid: boolean;
+          emailValid: boolean;
+          passwordValid: boolean;
+        },
+      ): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
-
 
 Cypress.Commands.add(
   'setUpApi',

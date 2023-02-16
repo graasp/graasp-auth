@@ -9,12 +9,24 @@ import {
   SIGN_UP_BUTTON_ID,
 } from '../../src/config/selectors';
 
-export const fillSignUpLayout = ({ name, email }: { name: string, email?: string }) => {
+export const fillSignUpLayout = ({
+  name,
+  email,
+}: {
+  name: string;
+  email?: string;
+}) => {
   cy.get(`#${NAME_SIGN_UP_FIELD_ID}`).clear().type(name);
   cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear().type(email);
 };
 
-export const checkInvitationFields = ({ name, email }: { name?: string, email: string }) => {
+export const checkInvitationFields = ({
+  name,
+  email,
+}: {
+  name?: string;
+  email: string;
+}) => {
   if (name) {
     cy.get(`#${NAME_SIGN_UP_FIELD_ID}`)
       .should('have.value', name)
@@ -41,7 +53,13 @@ export const passwordSignInMethod = () => {
   cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).click();
 };
 
-export const fillPasswordSignInLayout = ({ email, password }: { email: string, password?: string }) => {
+export const fillPasswordSignInLayout = ({
+  email,
+  password,
+}: {
+  email: string;
+  password?: string;
+}) => {
   cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
   cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear().type(password);
 };
