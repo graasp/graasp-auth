@@ -40,6 +40,9 @@ const SuccessContent = ({ title, email }) => {
         {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
       </Typography>
       <br />
+      <Button variant="outlined" color="primary" onClick={() => {}}>
+        Resend Email
+      </Button>
       <Button
         variant="outlined"
         color="primary"
