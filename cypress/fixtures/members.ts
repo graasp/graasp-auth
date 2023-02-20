@@ -1,6 +1,12 @@
-import { MemberType } from '@graasp/sdk';
+import { Member, MemberType } from '@graasp/sdk';
 
-export const MEMBERS = {
+export const MEMBERS: {
+  [name: string]: Member & {
+    nameValid?: boolean;
+    emailValid?: boolean;
+    passwordValid?: boolean;
+  };
+} = {
   GRAASP: {
     id: 'graasp-id',
     name: 'graasp',

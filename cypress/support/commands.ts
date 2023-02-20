@@ -7,9 +7,6 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
-// -- This is a parent command --
 import { COOKIE_KEYS, Member } from '@graasp/sdk';
 
 import {
