@@ -18,7 +18,7 @@ jobs:
     uses: graasp/graasp-deploy/.github/workflows/cypress.yml@v1
     with:
       # Test values
-      tsc: false
+      tsc: true
       node-env-test: test
       hidden-item-tag-id-test: 12345678-1234-1234-1234-123456789012
     # Insert required secrets based on repository with the following format: ${{ secrets.SECRET_NAME }}

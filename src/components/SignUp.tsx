@@ -1,7 +1,5 @@
-import Qs from 'qs';
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { ChangeEventHandler, useEffect, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
 import { AUTH } from '@graasp/translations';
@@ -31,30 +29,29 @@ const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
 const SignUp = () => {
   const { t } = useAuthTranslation();
 
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [nameError, setNameError] = useState(false);
+  const [email, setEmail] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [nameError, setNameError] = useState<string | null>(null);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signUp, isSuccess: signUpSuccess } = useMutation(
-    MUTATION_KEYS.SIGN_UP,
-  );
+  const { mutate: signUp, isSuccess: signUpSuccess } = useMutation<
+    unknown,
+    unknown,
+    { email: string; name: string }
+  >(MUTATION_KEYS.SIGN_UP);
+  const [searchParams] = useSearchParams();
 
-  const location = useLocation();
-  const queryStrings = Qs.parse(location.search, {
-    ignoreQueryPrefix: true,
-  });
   const {
     data: invitation,
     isSuccess,
     isLoading,
-  } = hooks.useInvitation(queryStrings?.invitationId);
+  } = hooks.useInvitation(searchParams.get('invitationId') || undefined);
 
   useEffect(() => {
     if (isSuccess && invitation) {
-      setEmail(invitation.get('email'));
-      setName(invitation.get('name') ?? '');
+      setEmail(invitation.email);
+      setName(invitation.name ?? '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [invitation, isSuccess]);
@@ -64,7 +61,7 @@ const SignUp = () => {
     return <Loader />;
   }
 
-  const handleNameOnChange = (e) => {
+  const handleNameOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const newName = e.target.value;
     setName(newName);
     if (shouldValidate) {

@@ -1,12 +1,12 @@
 import propTypes from 'prop-types';
-import React from 'react';
+import { Trans } from 'react-i18next';
 
 import { AUTH, namespaces } from '@graasp/translations';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { Container, Typography } from '@mui/material';
 
-import { Trans, useAuthTranslation } from '../config/i18n';
+import { useAuthTranslation } from '../config/i18n';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
 
 const SuccessContent = ({ title, email }) => {

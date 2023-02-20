@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { AUTH } from '@graasp/translations';
 
@@ -7,17 +6,27 @@ import { useAuthTranslation } from '../config/i18n';
 import { emailValidator } from '../utils/validation';
 import StyledTextField from './StyledTextField';
 
-const EmailInput = ({
+type Props = {
+  required?: boolean;
+  value: string;
+  id?: string;
+  disabled?: boolean;
+  setValue: (str: string) => void;
+  onKeyPress?: React.KeyboardEventHandler<unknown>;
+  shouldValidate: boolean;
+};
+
+const EmailInput: FC<Props> = ({
+  required = true,
+  value = '',
+  id,
+  disabled = false,
   setValue,
   onKeyPress,
-  required,
-  value,
-  id,
-  disabled,
-  shouldValidate,
+  shouldValidate = true,
 }) => {
   const { t } = useAuthTranslation();
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (shouldValidate) {
@@ -26,8 +35,8 @@ const EmailInput = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldValidate]);
 
-  const handleEmailOnChange = (e) => {
-    const newEmail = e.target.value;
+  const handleEmailOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEmail = e?.target?.value;
     setValue?.(newEmail);
     if (shouldValidate) {
       setError(emailValidator(newEmail));
@@ -49,26 +58,6 @@ const EmailInput = ({
       onKeyPress={onKeyPress}
     />
   );
-};
-
-EmailInput.propTypes = {
-  required: PropTypes.bool,
-  value: PropTypes.string,
-  id: PropTypes.string,
-  disabled: PropTypes.bool,
-  setValue: PropTypes.func,
-  onKeyPress: PropTypes.func,
-  shouldValidate: PropTypes.bool,
-};
-
-EmailInput.defaultProps = {
-  required: true,
-  value: '',
-  id: null,
-  disabled: false,
-  setValue: null,
-  onKeyPress: null,
-  shouldValidate: true,
 };
 
 export default EmailInput;

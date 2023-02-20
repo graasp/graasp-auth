@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import qs from 'querystring';
+import qs from 'qs';
 
 import { API_ROUTES } from '@graasp/query-client';
 
@@ -75,7 +75,7 @@ export const mockGetMembers = (members) => {
       if (typeof memberIds === 'string') {
         memberIds = [memberIds];
       }
-      const allMembers = memberIds?.map((id) =>
+      const allMembers = (memberIds as string[])?.map((id) =>
         members.find(({ id: mId }) => mId === id),
       );
       // member does not exist in db
