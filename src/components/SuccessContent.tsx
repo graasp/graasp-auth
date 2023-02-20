@@ -43,6 +43,8 @@ const SuccessContent = ({ title, email }) => {
       <Button variant="outlined" color="primary" onClick={() => {}}>
         Resend Email
       </Button>
+      <br />
+      <br />
       <Button
         variant="outlined"
         color="primary"
