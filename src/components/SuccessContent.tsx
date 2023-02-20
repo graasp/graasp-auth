@@ -16,6 +16,8 @@ const SuccessContent = ({ title, email }) => {
 
   const navigate = useNavigate();
 
+  const handleResendEmail = () => {};
+
   return (
     <Container id={SUCCESS_CONTENT_ID}>
       <Typography
@@ -40,7 +42,7 @@ const SuccessContent = ({ title, email }) => {
         {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
       </Typography>
       <br />
-      <Button variant="outlined" color="primary" onClick={() => {}}>
+      <Button variant="outlined" color="primary" onClick={handleResendEmail}>
         Resend Email
       </Button>
       <br />
