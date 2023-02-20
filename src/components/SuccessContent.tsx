@@ -19,6 +19,10 @@ const SuccessContent = ({ title, email }) => {
 
   const handleResendEmail = () => {};
 
+  const handleBackButtonClick = () => {
+    navigate(-1);
+  };
+
   return (
     <Container id={SUCCESS_CONTENT_ID}>
       <Typography
@@ -56,9 +60,7 @@ const SuccessContent = ({ title, email }) => {
       <Button
         variant="outlined"
         color="primary"
-        onClick={() => {
-          navigate(-1);
-        }}
+        onClick={handleBackButtonClick}
         id={BACK_BUTTON_ID}
       >
         Back
