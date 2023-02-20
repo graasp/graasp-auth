@@ -10,6 +10,7 @@ import { Container, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
+import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
 
 const SuccessContent = ({ title, email }) => {
   const { t } = useAuthTranslation();
@@ -42,7 +43,12 @@ const SuccessContent = ({ title, email }) => {
         {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
       </Typography>
       <br />
-      <Button variant="outlined" color="primary" onClick={handleResendEmail}>
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={handleResendEmail}
+        id={RESEND_EMAIL_BUTTON_ID}
+      >
         Resend Email
       </Button>
       <br />
@@ -53,6 +59,7 @@ const SuccessContent = ({ title, email }) => {
         onClick={() => {
           navigate(-1);
         }}
+        id={BACK_BUTTON_ID}
       >
         Back
       </Button>
