@@ -144,6 +144,7 @@ const SignIn: FC = () => {
   const handleBackButtonClick = () => {
     setSuccessView(false);
     setEmail('');
+    setShouldValidate(false);
   };
 
   const handleResendEmail = () => {
