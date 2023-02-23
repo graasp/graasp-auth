@@ -32,6 +32,7 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
+  const [successView, setSuccessView] = useState(true);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
@@ -78,8 +79,17 @@ const SignUp = () => {
       setShouldValidate(true);
     } else {
       signUp({ name, email: lowercaseEmail });
+      if (signUpSuccess) {
+        setSuccessView(true);
+      }
     }
   };
+
+  const handleBackButtonClick = () => {
+    setSuccessView(false);
+  };
+
+  const handleResendEmail = () => {};
 
   const renderForm = () => (
     <>
@@ -114,8 +124,13 @@ const SignUp = () => {
 
   return (
     <FullscreenContainer>
-      {signUpSuccess ? (
-        <SuccessContent title={t(AUTH.SIGN_UP_SUCCESS_TITLE)} email={email} />
+      {signUpSuccess && successView ? (
+        <SuccessContent
+          title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
+          email={email}
+          handleBackButtonClick={handleBackButtonClick}
+          handleResendEmail={handleResendEmail}
+        />
       ) : (
         <>
           <Typography variant="h2" component="h2">
