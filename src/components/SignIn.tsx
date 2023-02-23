@@ -45,6 +45,8 @@ const SignIn: FC = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
+  const [successView, setSuccessView] = useState(true);
+  const [resendEmail, setResendEmail] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
@@ -69,6 +71,9 @@ const SignIn: FC = () => {
       setShouldValidate(true);
     } else {
       signIn({ email: lowercaseEmail });
+      if (signInSuccess) {
+        setSuccessView(true);
+      }
     }
   };
 
@@ -88,6 +93,9 @@ const SignIn: FC = () => {
       });
       if (data.resource) {
         window.location.href = data.resource;
+      }
+      if (signInWithPasswordSuccess) {
+        setSuccessView(true);
       }
     }
   };
@@ -131,6 +139,16 @@ const SignIn: FC = () => {
       default:
         break;
     }
+  };
+
+  const handleBackButtonClick = () => {
+    setSuccessView(false);
+    setEmail('');
+  };
+
+  const handleResendEmail = () => {
+    setResendEmail(true);
+    handleSignIn();
   };
 
   const renderSignInForm = () => (
@@ -182,8 +200,14 @@ const SignIn: FC = () => {
     <FullscreenContainer>
       {
         // eslint-disable-next-line no-constant-condition
-        signInSuccess || signInWithPasswordSuccess ? (
-          <SuccessContent title={t(AUTH.SIGN_IN_SUCCESS_TITLE)} email={email} />
+        (signInSuccess || signInWithPasswordSuccess || resendEmail) &&
+        successView ? (
+          <SuccessContent
+            title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
+            email={email}
+            handleBackButtonClick={handleBackButtonClick}
+            handleResendEmail={handleResendEmail}
+          />
         ) : (
           <>
             <Typography variant="h2" component="h2">

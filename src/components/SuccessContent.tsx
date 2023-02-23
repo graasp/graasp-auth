@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import { Trans } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 
+// import { useNavigate } from 'react-router-dom';
 import { AUTH, namespaces } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
@@ -12,16 +12,15 @@ import { useAuthTranslation } from '../config/i18n';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
 import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
 
-const SuccessContent = ({ title, email }) => {
+const SuccessContent = ({
+  title,
+  email,
+  handleBackButtonClick = null,
+  handleResendEmail = null,
+}) => {
   const { t } = useAuthTranslation();
 
-  const navigate = useNavigate();
-
-  const handleResendEmail = () => {};
-
-  const handleBackButtonClick = () => {
-    navigate(-1);
-  };
+  // const navigate = useNavigate();
 
   return (
     <Container id={SUCCESS_CONTENT_ID}>
@@ -60,8 +59,8 @@ const SuccessContent = ({ title, email }) => {
       <Button
         variant="outlined"
         color="primary"
-        onClick={handleBackButtonClick}
         id={BACK_BUTTON_ID}
+        onClick={handleBackButtonClick}
       >
         Back
       </Button>
@@ -72,6 +71,8 @@ const SuccessContent = ({ title, email }) => {
 SuccessContent.propTypes = {
   title: propTypes.string.isRequired,
   email: propTypes.string.isRequired,
+  handleBackButtonClick: propTypes.func,
+  handleResendEmail: propTypes.func,
 };
 
 export default SuccessContent;
