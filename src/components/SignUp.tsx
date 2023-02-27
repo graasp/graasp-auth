@@ -32,6 +32,7 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
+  // initilized to true to not block first sign in
   const [successView, setSuccessView] = useState(true);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);

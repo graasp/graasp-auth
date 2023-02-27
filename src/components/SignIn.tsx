@@ -45,7 +45,9 @@ const SignIn: FC = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
+  // initilized to true to not block first sign in
   const [successView, setSuccessView] = useState(true);
+  // to stay on success view entire time email is resent
   const [resendEmail, setResendEmail] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
