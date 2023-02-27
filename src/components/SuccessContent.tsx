@@ -1,4 +1,5 @@
 import propTypes from 'prop-types';
+import { useState } from 'react';
 import { Trans } from 'react-i18next';
 
 // import { useNavigate } from 'react-router-dom';
@@ -19,8 +20,13 @@ const SuccessContent = ({
   handleResendEmail = null,
 }) => {
   const { t } = useAuthTranslation();
-
+  const [clicked, setClicked] = useState(false);
   // const navigate = useNavigate();
+
+  const onClickResendEmail = () => {
+    setClicked(true);
+    handleResendEmail();
+  };
 
   return (
     <Container id={SUCCESS_CONTENT_ID}>
@@ -49,8 +55,9 @@ const SuccessContent = ({
       <Button
         variant="outlined"
         color="primary"
-        onClick={handleResendEmail}
+        onClick={onClickResendEmail}
         id={RESEND_EMAIL_BUTTON_ID}
+        disabled={clicked}
       >
         Resend Email
       </Button>
