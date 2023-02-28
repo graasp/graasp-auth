@@ -19,7 +19,6 @@ import {
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
-  SUCCESS_CONTENT_SIGN_IN_ID,
 } from '../config/selectors';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
@@ -207,7 +206,6 @@ const SignIn: FC = () => {
         (signInSuccess || signInWithPasswordSuccess || resendEmail) &&
         successView ? (
           <SuccessContent
-            id={SUCCESS_CONTENT_SIGN_IN_ID}
             title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
             email={email}
             handleBackButtonClick={handleBackButtonClick}
