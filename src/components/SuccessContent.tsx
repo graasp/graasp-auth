@@ -10,10 +10,11 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { Container, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
-import { SUCCESS_CONTENT_ID } from '../config/selectors';
+// import { SUCCESS_CONTENT_ID } from '../config/selectors';
 import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
 
 const SuccessContent = ({
+  id,
   title,
   email,
   handleBackButtonClick = null,
@@ -29,7 +30,7 @@ const SuccessContent = ({
   };
 
   return (
-    <Container id={SUCCESS_CONTENT_ID}>
+    <Container id={id}>
       <Typography
         variant="h4"
         display="flex"
@@ -76,6 +77,7 @@ const SuccessContent = ({
 };
 
 SuccessContent.propTypes = {
+  id: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   email: propTypes.string.isRequired,
   handleBackButtonClick: propTypes.func,

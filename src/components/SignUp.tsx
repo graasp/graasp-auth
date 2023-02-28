@@ -15,6 +15,7 @@ import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
+  SUCCESS_CONTENT_SIGN_UP_ID,
 } from '../config/selectors';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -127,6 +128,7 @@ const SignUp = () => {
     <FullscreenContainer>
       {signUpSuccess && successView ? (
         <SuccessContent
+          id={SUCCESS_CONTENT_SIGN_UP_ID}
           title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
           email={email}
           handleBackButtonClick={handleBackButtonClick}
