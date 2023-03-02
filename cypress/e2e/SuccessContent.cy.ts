@@ -11,6 +11,12 @@ describe('Success Content Validation', () => {
     const { GRAASP } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
 
+    cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ reply }) => {
+      return reply({
+        statusCode: StatusCodes.NO_CONTENT,
+      });
+    });
+
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
     // Siging in with a valid email
