@@ -3,7 +3,11 @@ import { StatusCodes } from 'http-status-codes';
 import { API_ROUTES } from '@graasp/query-client';
 
 import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../src/config/paths';
-import { BACK_BUTTON_ID, SUCCESS_CONTENT_ID } from '../../src/config/selectors';
+import {
+  BACK_BUTTON_ID,
+  RESEND_EMAIL_BUTTON_ID,
+  SUCCESS_CONTENT_ID,
+} from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
 
 describe('Success Content Validation', () => {
@@ -42,6 +46,27 @@ describe('Success Content Validation', () => {
     cy.url().should('include', SIGN_IN_PATH);
   });
 
+  it('Sign In - Resend email', () => {
+    const { GRAASP } = MEMBERS;
+    cy.visit(SIGN_IN_PATH);
+
+    cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ reply }) => {
+      return reply({
+        statusCode: StatusCodes.NO_CONTENT,
+      });
+    });
+
+    // Siging in with a valid email
+    cy.signInAndCheck(GRAASP);
+
+    // checks so request body contains correct email
+    cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ body }) => {
+      expect(body.email).to.eq(GRAASP.email);
+    });
+
+    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click();
+  });
+
   it('Sign Up - Back Button', () => {
     const { GRAASP } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
@@ -75,5 +100,26 @@ describe('Success Content Validation', () => {
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
     cy.url().should('include', SIGN_UP_PATH);
+  });
+
+  it('Sign Up - Resend email', () => {
+    const { GRAASP } = MEMBERS;
+    cy.visit(SIGN_UP_PATH);
+
+    cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
+      return reply({
+        statusCode: StatusCodes.NO_CONTENT,
+      });
+    });
+
+    // Siging in with a valid email
+    cy.signUpAndCheck(GRAASP);
+
+    // checks so request body contains correct email
+    cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ body }) => {
+      expect(body.email).to.eq(GRAASP.email);
+    });
+
+    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click();
   });
 });
