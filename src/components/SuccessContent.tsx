@@ -59,7 +59,7 @@ const SuccessContent = ({
         id={RESEND_EMAIL_BUTTON_ID}
         disabled={clicked}
       >
-        Resend Email
+        {t(AUTH.RESEND_EMAIL_BUTTON)}
       </Button>
       <br />
       <br />
@@ -69,7 +69,7 @@ const SuccessContent = ({
         id={BACK_BUTTON_ID}
         onClick={handleBackButtonClick}
       >
-        Back
+        {t(AUTH.BACK_BUTTON)}
       </Button>
     </Container>
   );
