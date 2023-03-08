@@ -12,7 +12,7 @@ import { MEMBERS } from '../fixtures/members';
 
 describe('Success Content Validation', () => {
   it('Sign In - Back Button', () => {
-    const { GRAASP } = MEMBERS;
+    const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
 
     cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ reply }) => {
@@ -34,8 +34,8 @@ describe('Success Content Validation', () => {
 
     cy.url().should('include', SIGN_IN_PATH);
 
-    // check if it's possile to sign in and use back button again
-    cy.signInAndCheck(GRAASP);
+    // check if it's possible to sign in and use back button again
+    cy.signInAndCheck(GRAASP_OTHER);
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -47,7 +47,7 @@ describe('Success Content Validation', () => {
   });
 
   it('Sign In - Resend email', () => {
-    const { GRAASP } = MEMBERS;
+    const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
 
     cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ reply }) => {
@@ -56,7 +56,10 @@ describe('Success Content Validation', () => {
       });
     });
 
-    // Siging in with a valid email
+    // Signing in with a valid email
+    cy.signInAndCheck(GRAASP_OTHER);
+    cy.get(`#${BACK_BUTTON_ID}`).click();
+
     cy.signInAndCheck(GRAASP);
 
     // checks so request body contains correct email
@@ -68,7 +71,7 @@ describe('Success Content Validation', () => {
   });
 
   it('Sign Up - Back Button', () => {
-    const { GRAASP } = MEMBERS;
+    const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
 
     cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
@@ -79,7 +82,7 @@ describe('Success Content Validation', () => {
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
-    // Siging in with a valid email
+    // Siging up with a valid email
     cy.signUpAndCheck(GRAASP);
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
@@ -90,8 +93,8 @@ describe('Success Content Validation', () => {
 
     cy.url().should('include', SIGN_UP_PATH);
 
-    // check if it's possile to sign up and use back button again
-    cy.signUpAndCheck(GRAASP);
+    // check if it's possible to sign up and use back button again
+    cy.signUpAndCheck(GRAASP_OTHER);
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -103,7 +106,7 @@ describe('Success Content Validation', () => {
   });
 
   it('Sign Up - Resend email', () => {
-    const { GRAASP } = MEMBERS;
+    const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
 
     cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
@@ -112,7 +115,10 @@ describe('Success Content Validation', () => {
       });
     });
 
-    // Siging in with a valid email
+    // Signing up with a valid email
+    cy.signUpAndCheck(GRAASP_OTHER);
+    cy.get(`#${BACK_BUTTON_ID}`).click();
+
     cy.signUpAndCheck(GRAASP);
 
     // checks so request body contains correct email
