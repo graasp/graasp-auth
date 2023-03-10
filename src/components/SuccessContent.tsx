@@ -70,7 +70,7 @@ const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
       <br />
       <br />
       <Button
-        variant="outlined"
+        variant="text"
         color="primary"
         id={BACK_BUTTON_ID}
         onClick={handleBackButtonClick}
