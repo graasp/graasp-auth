@@ -47,8 +47,6 @@ const SignIn: FC = () => {
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
   // initilized to true to not block first sign in
   const [successView, setSuccessView] = useState(true);
-  // to stay on success view entire time email is resent
-  const [resendEmail, setResendEmail] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
@@ -149,11 +147,6 @@ const SignIn: FC = () => {
     setShouldValidate(false);
   };
 
-  const handleResendEmail = () => {
-    setResendEmail(true);
-    handleSignIn();
-  };
-
   const renderSignInForm = () => (
     <>
       <FormControl>
@@ -203,13 +196,11 @@ const SignIn: FC = () => {
     <FullscreenContainer>
       {
         // eslint-disable-next-line no-constant-condition
-        (signInSuccess || signInWithPasswordSuccess || resendEmail) &&
-        successView ? (
+        (signInSuccess || signInWithPasswordSuccess) && successView ? (
           <SuccessContent
             title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
             email={email}
             handleBackButtonClick={handleBackButtonClick}
-            handleResendEmail={handleResendEmail}
           />
         ) : (
           <>

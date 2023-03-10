@@ -44,22 +44,11 @@ const SignUp = () => {
   >(MUTATION_KEYS.SIGN_UP);
   const [searchParams] = useSearchParams();
 
-  // used for resend email
-  const { mutate: signIn } = useMutation<unknown, unknown, { email: string }>(
-    MUTATION_KEYS.SIGN_IN,
-  );
-
   const {
     data: invitation,
     isSuccess,
     isLoading,
   } = hooks.useInvitation(searchParams.get('invitationId') || undefined);
-
-  // used for resend email
-  const handleSignIn = async () => {
-    const lowercaseEmail = email.toLowerCase();
-    signIn({ email: lowercaseEmail });
-  };
 
   useEffect(() => {
     if (isSuccess && invitation) {
@@ -101,10 +90,6 @@ const SignUp = () => {
     setSuccessView(false);
   };
 
-  const handleResendEmail = () => {
-    handleSignIn();
-  };
-
   const renderForm = () => (
     <>
       <FormControl>
@@ -143,7 +128,6 @@ const SignUp = () => {
           title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
           email={email}
           handleBackButtonClick={handleBackButtonClick}
-          handleResendEmail={handleResendEmail}
         />
       ) : (
         <>
