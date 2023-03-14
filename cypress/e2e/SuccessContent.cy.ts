@@ -5,6 +5,8 @@ import { API_ROUTES } from '@graasp/query-client';
 import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../src/config/paths';
 import {
   BACK_BUTTON_ID,
+  EMAIL_SIGN_IN_FIELD_ID,
+  EMAIL_SIGN_UP_FIELD_ID,
   RESEND_EMAIL_BUTTON_ID,
   SIGN_IN_HEADER_ID,
   SIGN_UP_HEADER_ID,
@@ -35,6 +37,8 @@ describe('Sign In', () => {
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
     cy.url().should('include', SIGN_IN_PATH);
     cy.get(`#${SIGN_IN_HEADER_ID}`).should('be.visible');
+    // checks so email is cleared
+    cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).should('be.empty');
 
     // check if it's possible to sign in and use back button again
     cy.signInAndCheck(GRAASP_OTHER);
@@ -46,6 +50,8 @@ describe('Sign In', () => {
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
     cy.url().should('include', SIGN_IN_PATH);
     cy.get(`#${SIGN_IN_HEADER_ID}`).should('be.visible');
+    // checks so email is cleared
+    cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).should('be.empty');
   });
 
   it('Resend email', () => {
@@ -73,6 +79,7 @@ describe('Sign In', () => {
     cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click().should('be.disabled');
   });
 });
+
 describe('Sign Up', () => {
   it('Back Button', () => {
     const { GRAASP, GRAASP_OTHER } = MEMBERS;
@@ -96,6 +103,8 @@ describe('Sign Up', () => {
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
     cy.url().should('include', SIGN_UP_PATH);
     cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
+    // checks so email is still filled
+    cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).should('have.value', GRAASP.email);
 
     // check if it's possible to sign up and use back button again
     cy.signUpAndCheck(GRAASP_OTHER);
@@ -107,6 +116,11 @@ describe('Sign Up', () => {
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
     cy.url().should('include', SIGN_UP_PATH);
     cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
+    // checks so email is still filled
+    cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).should(
+      'have.value',
+      GRAASP_OTHER.email,
+    );
   });
 
   it('Resend email', () => {
