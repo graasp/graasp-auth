@@ -7,7 +7,7 @@ import { AUTH, namespaces } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { Container, Typography } from '@mui/material';
+import { Container, Stack, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { useMutation } from '../config/queryClient';
@@ -58,25 +58,25 @@ const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
         {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
       </Typography>
       <br />
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={onClickResendEmail}
-        id={RESEND_EMAIL_BUTTON_ID}
-        disabled={clicked}
-        sx={{ mr: 1, ml: 'auto' }}
-      >
-        {t(AUTH.RESEND_EMAIL_BUTTON)}
-      </Button>
-      <Button
-        variant="text"
-        color="primary"
-        id={BACK_BUTTON_ID}
-        onClick={handleBackButtonClick}
-        sx={{ mr: 'auto', ml: 1 }}
-      >
-        {t(AUTH.BACK_BUTTON)}
-      </Button>
+      <Stack direction="row" justifyContent="center" spacing={1}>
+        <Button
+          variant="text"
+          color="primary"
+          id={BACK_BUTTON_ID}
+          onClick={handleBackButtonClick}
+        >
+          {t(AUTH.BACK_BUTTON)}
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={onClickResendEmail}
+          id={RESEND_EMAIL_BUTTON_ID}
+          disabled={clicked}
+        >
+          {t(AUTH.RESEND_EMAIL_BUTTON)}
+        </Button>
+      </Stack>
     </Container>
   );
 };
