@@ -10,8 +10,8 @@ import {
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
 
-describe('Success Content Validation', () => {
-  it('Sign In - Back Button', () => {
+describe('Sign In', () => {
+  it('Back Button', () => {
     const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
 
@@ -46,7 +46,7 @@ describe('Success Content Validation', () => {
     cy.url().should('include', SIGN_IN_PATH);
   });
 
-  it('Sign In - Resend email', () => {
+  it('Resend email', () => {
     const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
 
@@ -69,8 +69,9 @@ describe('Success Content Validation', () => {
 
     cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click();
   });
-
-  it('Sign Up - Back Button', () => {
+});
+describe('Sign Up', () => {
+  it('Back Button', () => {
     const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
 
@@ -105,7 +106,7 @@ describe('Success Content Validation', () => {
     cy.url().should('include', SIGN_UP_PATH);
   });
 
-  it('Sign Up - Resend email', () => {
+  it('Resend email', () => {
     const { GRAASP, GRAASP_OTHER } = MEMBERS;
     cy.visit(SIGN_UP_PATH);
 
