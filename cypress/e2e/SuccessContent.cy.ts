@@ -23,7 +23,7 @@ describe('Sign In', () => {
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
-    // Siging in with a valid email
+    // Signing in with a valid email
     cy.signInAndCheck(GRAASP);
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
@@ -83,7 +83,7 @@ describe('Sign Up', () => {
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
-    // Siging up with a valid email
+    // Signing up with a valid email
     cy.signUpAndCheck(GRAASP);
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
