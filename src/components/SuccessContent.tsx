@@ -64,16 +64,16 @@ const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
         onClick={onClickResendEmail}
         id={RESEND_EMAIL_BUTTON_ID}
         disabled={clicked}
+        sx={{ mr: 1, ml: 'auto' }}
       >
         {t(AUTH.RESEND_EMAIL_BUTTON)}
       </Button>
-      <br />
-      <br />
       <Button
         variant="text"
         color="primary"
         id={BACK_BUTTON_ID}
         onClick={handleBackButtonClick}
+        sx={{ mr: 'auto', ml: 1 }}
       >
         {t(AUTH.BACK_BUTTON)}
       </Button>
