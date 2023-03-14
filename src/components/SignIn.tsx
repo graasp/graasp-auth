@@ -45,12 +45,11 @@ const SignIn: FC = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
-  // initilized to true to not block first sign in
-  const [successView, setSuccessView] = useState(true);
+  const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signIn, isSuccess: signInSuccess } = useMutation<
+  const { mutateAsync: signIn, isSuccess: signInSuccess } = useMutation<
     unknown,
     unknown,
     { email: string }
@@ -70,10 +69,8 @@ const SignIn: FC = () => {
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      signIn({ email: lowercaseEmail });
-      if (signInSuccess) {
-        setSuccessView(true);
-      }
+      await signIn({ email: lowercaseEmail });
+      setSuccessView(true);
     }
   };
 
@@ -94,9 +91,7 @@ const SignIn: FC = () => {
       if (data.resource) {
         window.location.href = data.resource;
       }
-      if (signInWithPasswordSuccess) {
-        setSuccessView(true);
-      }
+      setSuccessView(true);
     }
   };
 

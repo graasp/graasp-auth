@@ -32,12 +32,11 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
-  // initilized to true to not block first sign in
-  const [successView, setSuccessView] = useState(true);
+  const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signUp, isSuccess: signUpSuccess } = useMutation<
+  const { mutateAsync: signUp, isSuccess: signUpSuccess } = useMutation<
     unknown,
     unknown,
     { email: string; name: string }
@@ -79,10 +78,8 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      signUp({ name, email: lowercaseEmail });
-      if (signUpSuccess) {
-        setSuccessView(true);
-      }
+      await signUp({ name, email: lowercaseEmail });
+      setSuccessView(true);
     }
   };
 
