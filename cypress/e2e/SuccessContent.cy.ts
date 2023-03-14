@@ -67,7 +67,8 @@ describe('Sign In', () => {
       expect(body.email).to.eq(GRAASP.email);
     });
 
-    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click();
+    // checks resend email button is disabled after one click
+    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click().should('be.disabled');
   });
 });
 describe('Sign Up', () => {
@@ -127,6 +128,7 @@ describe('Sign Up', () => {
       expect(body.email).to.eq(GRAASP.email);
     });
 
-    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click();
+    // checks resend email button is disabled after one click
+    cy.get(`#${RESEND_EMAIL_BUTTON_ID}`).click().should('be.disabled');
   });
 });
