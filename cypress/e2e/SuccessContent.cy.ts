@@ -6,6 +6,8 @@ import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../src/config/paths';
 import {
   BACK_BUTTON_ID,
   RESEND_EMAIL_BUTTON_ID,
+  SIGN_IN_HEADER_ID,
+  SIGN_UP_HEADER_ID,
   SUCCESS_CONTENT_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
@@ -31,8 +33,8 @@ describe('Sign In', () => {
     cy.get(`#${BACK_BUTTON_ID}`).click();
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
-
     cy.url().should('include', SIGN_IN_PATH);
+    cy.get(`#${SIGN_IN_HEADER_ID}`).should('be.visible');
 
     // check if it's possible to sign in and use back button again
     cy.signInAndCheck(GRAASP_OTHER);
@@ -42,8 +44,8 @@ describe('Sign In', () => {
     cy.get(`#${BACK_BUTTON_ID}`).click();
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
-
     cy.url().should('include', SIGN_IN_PATH);
+    cy.get(`#${SIGN_IN_HEADER_ID}`).should('be.visible');
   });
 
   it('Resend email', () => {
@@ -92,8 +94,8 @@ describe('Sign Up', () => {
     cy.get(`#${BACK_BUTTON_ID}`).click();
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
-
     cy.url().should('include', SIGN_UP_PATH);
+    cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
 
     // check if it's possible to sign up and use back button again
     cy.signUpAndCheck(GRAASP_OTHER);
@@ -103,8 +105,8 @@ describe('Sign Up', () => {
     cy.get(`#${BACK_BUTTON_ID}`).click();
 
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
-
     cy.url().should('include', SIGN_UP_PATH);
+    cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
   });
 
   it('Resend email', () => {

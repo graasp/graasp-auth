@@ -15,6 +15,7 @@ import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
+  SIGN_UP_HEADER_ID,
 } from '../config/selectors';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -128,7 +129,7 @@ const SignUp = () => {
         />
       ) : (
         <>
-          <Typography variant="h2" component="h2">
+          <Typography variant="h2" component="h2" id={SIGN_UP_HEADER_ID}>
             {t(SIGN_UP_HEADER)}
           </Typography>
           {renderForm()}
