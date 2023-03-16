@@ -15,6 +15,7 @@ import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
+  SIGN_UP_HEADER_ID,
 } from '../config/selectors';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -32,10 +33,11 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
+  const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signUp, isSuccess: signUpSuccess } = useMutation<
+  const { mutateAsync: signUp, isSuccess: signUpSuccess } = useMutation<
     unknown,
     unknown,
     { email: string; name: string }
@@ -77,8 +79,13 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      signUp({ name, email: lowercaseEmail });
+      await signUp({ name, email: lowercaseEmail });
+      setSuccessView(true);
     }
+  };
+
+  const handleBackButtonClick = () => {
+    setSuccessView(false);
   };
 
   const renderForm = () => (
@@ -114,11 +121,15 @@ const SignUp = () => {
 
   return (
     <FullscreenContainer>
-      {signUpSuccess ? (
-        <SuccessContent title={t(AUTH.SIGN_UP_SUCCESS_TITLE)} email={email} />
+      {signUpSuccess && successView ? (
+        <SuccessContent
+          title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
+          email={email}
+          handleBackButtonClick={handleBackButtonClick}
+        />
       ) : (
         <>
-          <Typography variant="h2" component="h2">
+          <Typography variant="h2" component="h2" id={SIGN_UP_HEADER_ID}>
             {t(SIGN_UP_HEADER)}
           </Typography>
           {renderForm()}

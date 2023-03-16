@@ -1,16 +1,47 @@
-import propTypes from 'prop-types';
+import { useState } from 'react';
 import { Trans } from 'react-i18next';
 
+import { MUTATION_KEYS } from '@graasp/query-client';
 import { AUTH, namespaces } from '@graasp/translations';
+import { Button } from '@graasp/ui';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { Container, Typography } from '@mui/material';
+import { Container, Stack, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
+import { useMutation } from '../config/queryClient';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
+import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
 
-const SuccessContent = ({ title, email }) => {
+type Props = {
+  title: string;
+  email: string;
+  handleBackButtonClick?: () => void;
+};
+
+const SuccessContent = ({
+  title,
+  email,
+  handleBackButtonClick = null,
+}: Props) => {
   const { t } = useAuthTranslation();
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
+  // used for resend email
+  const { mutate: signIn } = useMutation<unknown, unknown, { email: string }>(
+    MUTATION_KEYS.SIGN_IN,
+  );
+
+  // used for resend email
+  const handleResendEmail = async () => {
+    const lowercaseEmail = email.toLowerCase();
+    signIn({ email: lowercaseEmail });
+  };
+
+  const onClickResendEmail = () => {
+    setIsEmailSent(true);
+    handleResendEmail();
+  };
 
   return (
     <Container id={SUCCESS_CONTENT_ID}>
@@ -35,13 +66,28 @@ const SuccessContent = ({ title, email }) => {
       <Typography variant="body1">
         {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
       </Typography>
+      <br />
+      <Stack direction="row" justifyContent="center" spacing={1}>
+        <Button
+          variant="text"
+          color="primary"
+          id={BACK_BUTTON_ID}
+          onClick={handleBackButtonClick}
+        >
+          {t(AUTH.BACK_BUTTON)}
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={onClickResendEmail}
+          id={RESEND_EMAIL_BUTTON_ID}
+          disabled={isEmailSent}
+        >
+          {t(AUTH.RESEND_EMAIL_BUTTON)}
+        </Button>
+      </Stack>
     </Container>
   );
-};
-
-SuccessContent.propTypes = {
-  title: propTypes.string.isRequired,
-  email: propTypes.string.isRequired,
 };
 
 export default SuccessContent;

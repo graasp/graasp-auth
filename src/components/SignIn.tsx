@@ -19,6 +19,7 @@ import {
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
+  SIGN_IN_HEADER_ID,
 } from '../config/selectors';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
@@ -45,10 +46,11 @@ const SignIn: FC = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [signInMethod, setSignInMethod] = useState(SIGN_IN_METHODS.EMAIL);
+  const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutate: signIn, isSuccess: signInSuccess } = useMutation<
+  const { mutateAsync: signIn, isSuccess: signInSuccess } = useMutation<
     unknown,
     unknown,
     { email: string }
@@ -68,7 +70,8 @@ const SignIn: FC = () => {
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      signIn({ email: lowercaseEmail });
+      await signIn({ email: lowercaseEmail });
+      setSuccessView(true);
     }
   };
 
@@ -89,6 +92,7 @@ const SignIn: FC = () => {
       if (data.resource) {
         window.location.href = data.resource;
       }
+      setSuccessView(true);
     }
   };
 
@@ -131,6 +135,12 @@ const SignIn: FC = () => {
       default:
         break;
     }
+  };
+
+  const handleBackButtonClick = () => {
+    setSuccessView(false);
+    setEmail('');
+    setShouldValidate(false);
   };
 
   const renderSignInForm = () => (
@@ -182,11 +192,15 @@ const SignIn: FC = () => {
     <FullscreenContainer>
       {
         // eslint-disable-next-line no-constant-condition
-        signInSuccess || signInWithPasswordSuccess ? (
-          <SuccessContent title={t(AUTH.SIGN_IN_SUCCESS_TITLE)} email={email} />
+        (signInSuccess || signInWithPasswordSuccess) && successView ? (
+          <SuccessContent
+            title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
+            email={email}
+            handleBackButtonClick={handleBackButtonClick}
+          />
         ) : (
           <>
-            <Typography variant="h2" component="h2">
+            <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
               {t(SIGN_IN_HEADER)}
             </Typography>
             {renderSignInForm()}
