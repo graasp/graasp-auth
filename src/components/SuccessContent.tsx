@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import { useState } from 'react';
 import { Trans } from 'react-i18next';
 
