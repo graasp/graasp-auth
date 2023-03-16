@@ -14,9 +14,19 @@ import { useMutation } from '../config/queryClient';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
 import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
 
-const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
+type Props = {
+  title: string;
+  email: string;
+  handleBackButtonClick?: () => void;
+};
+
+const SuccessContent = ({
+  title,
+  email,
+  handleBackButtonClick = null,
+}: Props) => {
   const { t } = useAuthTranslation();
-  const [clicked, setClicked] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
 
   // used for resend email
   const { mutate: signIn } = useMutation<unknown, unknown, { email: string }>(
@@ -30,7 +40,7 @@ const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
   };
 
   const onClickResendEmail = () => {
-    setClicked(true);
+    setIsEmailSent(true);
     handleResendEmail();
   };
 
@@ -72,20 +82,13 @@ const SuccessContent = ({ title, email, handleBackButtonClick = null }) => {
           color="primary"
           onClick={onClickResendEmail}
           id={RESEND_EMAIL_BUTTON_ID}
-          disabled={clicked}
+          disabled={isEmailSent}
         >
           {t(AUTH.RESEND_EMAIL_BUTTON)}
         </Button>
       </Stack>
     </Container>
   );
-};
-
-SuccessContent.propTypes = {
-  title: propTypes.string.isRequired,
-  email: propTypes.string.isRequired,
-  handleBackButtonClick: propTypes.func,
-  handleResendEmail: propTypes.func,
 };
 
 export default SuccessContent;
