@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/graasp/graasp-auth/compare/v0.3.0...v0.4.0) (2023-03-16)
+
+
+### Features
+
+* adds back and resend email button to success screen ([407491a](https://github.com/graasp/graasp-auth/commit/407491a291afa925d322fab7d5aa6c3375a54290))
+
 ## [0.3.0](https://github.com/graasp/graasp-auth/compare/v0.2.0...v0.3.0) (2023-02-14)
 
 
