@@ -8,6 +8,7 @@ export const SIGN_IN_BUTTON_ID = 'signInButtonId';
 export const SIGN_UP_BUTTON_ID = 'signUpButtonId';
 export const SIGN_IN_HEADER_ID = 'signInHeaderId';
 export const SIGN_UP_HEADER_ID = 'signUpHeaderId';
+export const SIGN_UP_SAVE_ACTIONS_ID = 'signUpSaveActionsId';
 export const EMAIL_SIGN_IN_METHOD_BUTTON_ID = 'emailSignInMethodButton';
 export const PASSWORD_SIGN_IN_METHOD_BUTTON_ID = 'passwordSignInMethodButton';
 export const USER_SWITCH_ID = 'userSwitch';
