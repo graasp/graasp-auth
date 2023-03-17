@@ -6,6 +6,7 @@ import { API_ROUTES } from '@graasp/query-client';
 import { SIGN_UP_PATH } from '../../src/config/paths';
 import {
   SIGN_UP_BUTTON_ID,
+  SIGN_UP_SAVE_ACTIONS_ID,
   SUCCESS_CONTENT_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
@@ -85,5 +86,13 @@ describe('Name and Email Validation', () => {
       )}`,
     );
     cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.visible');
+  });
+
+  it('Enable Analytics switch', () => {
+    cy.visit(SIGN_UP_PATH);
+    cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`)
+      .should('exist')
+      .should('be.disabled')
+      .should('be.checked');
   });
 });

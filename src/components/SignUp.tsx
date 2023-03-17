@@ -5,7 +5,7 @@ import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
-import { Stack } from '@mui/material';
+import { FormControlLabel, Stack, Switch, Tooltip } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
@@ -17,6 +17,7 @@ import {
   NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
   SIGN_UP_HEADER_ID,
+  SIGN_UP_SAVE_ACTIONS_ID,
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
@@ -27,8 +28,14 @@ import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
 
-const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
-  AUTH;
+const {
+  SIGN_IN_LINK_TEXT,
+  SIGN_UP_BUTTON,
+  SIGN_UP_HEADER,
+  NAME_FIELD_LABEL,
+  SIGN_UP_SAVE_ACTIONS_LABEL,
+  SIGN_UP_SAVE_ACTIONS_TOOLTIP,
+} = AUTH;
 
 const SignUp = () => {
   const { t } = useAuthTranslation();
@@ -39,6 +46,7 @@ const SignUp = () => {
 
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
+  const [enableSaveActions, setEnableSaveActions] = useState<boolean>(true);
   const [nameError, setNameError] = useState<string | null>(null);
   const [successView, setSuccessView] = useState(false);
   // enable validation after first click
@@ -76,6 +84,10 @@ const SignUp = () => {
     if (shouldValidate) {
       setNameError(nameValidator(newName));
     }
+  };
+
+  const handleOnToggle: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setEnableSaveActions(e.target.checked);
   };
 
   const handleRegister = async () => {
@@ -131,6 +143,21 @@ const SignUp = () => {
             id={EMAIL_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.get('email'))}
             shouldValidate={shouldValidate}
+          />
+          <FormControlLabel
+            control={
+              <Tooltip title={t(SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="left">
+                <span>
+                  <Switch
+                    id={SIGN_UP_SAVE_ACTIONS_ID}
+                    onChange={handleOnToggle}
+                    checked={enableSaveActions}
+                    disabled
+                  />
+                </span>
+              </Tooltip>
+            }
+            label={t(SIGN_UP_SAVE_ACTIONS_LABEL)}
           />
           <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
             {t(SIGN_UP_BUTTON)}
