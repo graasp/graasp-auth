@@ -2314,6 +2314,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graasp/sdk@github:graasp/graasp-sdk#122-add-actiontype-for-recaptcha":
+  version: 0.9.3
+  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=04af6ccec3fe3bbbde497ddac42741d2f3702d6d"
+  dependencies:
+    "@fastify/secure-session": 5.3.0
+    aws-sdk: 2.1310.0
+    fastify: 3.29.5
+    fluent-json-schema: 3.1.0
+    immutable: 4.2.4
+    js-cookie: 3.0.1
+    qs: 6.11.0
+    slonik: 28.1.1
+    uuid: 9.0.0
+  checksum: 03a1e69dca2ca525b2938b0efbbef9019ba00ee3dbc1fb6c11b5b451f1635655a591fae3c7be13a7fe05b992ed449e61d84b95173a74d881c5ec6b8c20e6a388
+  languageName: node
+  linkType: hard
+
 "@graasp/sdk@npm:0.4.0":
   version: 0.4.0
   resolution: "@graasp/sdk@npm:0.4.0"
@@ -9390,7 +9407,7 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@graasp/query-client": 0.2.0
-    "@graasp/sdk": 0.4.1
+    "@graasp/sdk": "github:graasp/graasp-sdk#122-add-actiontype-for-recaptcha"
     "@graasp/translations": 1.8.0
     "@graasp/ui": 0.11.1
     "@mui/icons-material": 5.11.0

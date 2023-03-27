@@ -19,6 +19,8 @@ export const GRAASP_COMPOSE_HOST =
 export const AUTHENTICATION_HOST =
   process.env.REACT_APP_AUTHENTICATION_HOST || 'http://localhost:3001';
 
+export const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
 export const NAME_MAXIMUM_LENGTH = 300;
 export const NAME_MINIMUM_LENGTH = 2;
 

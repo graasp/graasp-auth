@@ -6,13 +6,14 @@ import { theme } from '@graasp/ui';
 
 import { ThemeProvider } from '@mui/material/styles';
 
-import { SHOW_NOTIFICATIONS } from '../config/constants';
+import { RECAPTCHA_SITE_KEY, SHOW_NOTIFICATIONS } from '../config/constants';
 import i18nConfig from '../config/i18n';
 import {
   QueryClientProvider,
   ReactQueryDevtools,
   queryClient,
 } from '../config/queryClient';
+import { RecaptchaProvider } from '../context/RecaptchaContext';
 import App from './App';
 
 const Root = () => (
@@ -20,7 +21,9 @@ const Root = () => (
     <I18nextProvider i18n={i18nConfig}>
       <ThemeProvider theme={theme}>
         {SHOW_NOTIFICATIONS && <ToastContainer />}
-        <App />
+        <RecaptchaProvider siteKey={RECAPTCHA_SITE_KEY}>
+          <App />
+        </RecaptchaProvider>
       </ThemeProvider>
     </I18nextProvider>
     {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
