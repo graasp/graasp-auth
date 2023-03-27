@@ -56,7 +56,7 @@ const SignIn: FC = () => {
   const { mutateAsync: signIn, isSuccess: signInSuccess } = useMutation<
     unknown,
     unknown,
-    { email: string; token: string }
+    { email: string; captcha: string }
   >(MUTATION_KEYS.SIGN_IN);
   const {
     mutateAsync: signInWithPassword,
@@ -64,7 +64,7 @@ const SignIn: FC = () => {
   } = useMutation<
     { data: { resource: string } },
     unknown,
-    { email: string; password: string; token: string }
+    { email: string; password: string; captcha: string }
   >(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
 
   const handleSignIn = async () => {
@@ -74,7 +74,7 @@ const SignIn: FC = () => {
       setShouldValidate(true);
     } else {
       const token = await executeCaptcha(RecaptchaActionType.SignIn);
-      await signIn({ email: lowercaseEmail, token });
+      await signIn({ email: lowercaseEmail, captcha: token });
       setSuccessView(true);
     }
   };
@@ -95,7 +95,7 @@ const SignIn: FC = () => {
       const { data } = await signInWithPassword({
         email: lowercaseEmail,
         password,
-        token,
+        captcha: token,
       });
       if (data.resource) {
         window.location.href = data.resource;

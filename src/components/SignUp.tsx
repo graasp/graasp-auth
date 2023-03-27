@@ -43,7 +43,7 @@ const SignUp = () => {
   const { mutateAsync: signUp, isSuccess: signUpSuccess } = useMutation<
     unknown,
     unknown,
-    { email: string; name: string; token: string }
+    { email: string; name: string; captcha: string }
   >(MUTATION_KEYS.SIGN_UP);
   const [searchParams] = useSearchParams();
 
@@ -83,7 +83,7 @@ const SignUp = () => {
       setShouldValidate(true);
     } else {
       const token = await executeCaptcha(RecaptchaActionType.SignUp);
-      await signUp({ name, email: lowercaseEmail, token });
+      await signUp({ name, email: lowercaseEmail, captcha: token });
       setSuccessView(true);
     }
   };
