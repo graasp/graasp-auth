@@ -83,7 +83,11 @@ const SignUp = () => {
       setShouldValidate(true);
     } else {
       const token = await executeCaptcha(RecaptchaAction.SignUp);
-      await signUp({ name, email: lowercaseEmail, captcha: token });
+      await signUp({
+        name: name.trim(),
+        email: lowercaseEmail,
+        captcha: token,
+      });
       setSuccessView(true);
     }
   };

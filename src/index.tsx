@@ -23,13 +23,7 @@ if (GA_MEASUREMENT_ID && hasAcceptedCookies() && NODE_ENV !== 'test') {
 
 Sentry.init({
   dsn: SENRY_DSN,
-  integrations: [
-    new BrowserTracing(),
-    new Sentry.Replay({
-      maskAllText: true,
-      blockAllMedia: true,
-    }),
-  ],
+  integrations: [new BrowserTracing(), new Sentry.Replay()],
   release: APP_VERSION,
   environment: DOMAIN,
   tracesSampleRate: 1.0,
