@@ -17,7 +17,7 @@ type RecaptchaContextType = {
 };
 
 const RecaptchaContext = createContext<RecaptchaContextType>({
-  executeCaptcha: () => Promise.resolve(''),
+  executeCaptcha: () => Promise.reject(),
 });
 
 type Props = {
@@ -29,7 +29,7 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
   const executeCaptcha = (action: string): Promise<string> => {
     return new Promise<string>((resolve) => {
       if (!window.grecaptcha) {
-        resolve('');
+        resolve(undefined);
       } else {
         window.grecaptcha.ready(async () => {
           const token = await window.grecaptcha.execute(siteKey, { action });
