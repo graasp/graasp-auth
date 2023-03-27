@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 declare global {
   interface Window {
     grecaptcha: {
-      ready: (callback: () => void) => void;
+      ready?: (callback: () => void) => void;
       execute: (
         siteKey: string,
         { action }: { action: string },
@@ -26,14 +26,16 @@ type Props = {
 };
 
 export const RecaptchaProvider = ({ children, siteKey }: Props) => {
-  // const [isReady, setIsReady] = useState(false);
-
   const executeCaptcha = (action: string): Promise<string> => {
     return new Promise<string>((resolve) => {
-      window.grecaptcha.ready(async () => {
-        const token = await window.grecaptcha.execute(siteKey, { action });
-        resolve(token);
-      });
+      if (!window.grecaptcha) {
+        resolve('');
+      } else {
+        window.grecaptcha.ready(async () => {
+          const token = await window.grecaptcha.execute(siteKey, { action });
+          resolve(token);
+        });
+      }
     });
   };
 
