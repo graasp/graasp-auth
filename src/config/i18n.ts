@@ -8,5 +8,6 @@ i18n.use(initReactI18next);
 export const useAuthTranslation = () => useTranslation(namespaces.auth);
 export const useBuilderTranslation = () => useTranslation(namespaces.builder);
 export const useCommonTranslation = () => useTranslation(namespaces.common);
+export const useMessagesTranslation = () => useTranslation(namespaces.messages);
 
 export default i18n;

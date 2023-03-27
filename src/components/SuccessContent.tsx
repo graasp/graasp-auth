@@ -40,7 +40,7 @@ const SuccessContent = ({
   // used for resend email
   const handleResendEmail = async () => {
     const lowercaseEmail = email.toLowerCase();
-    const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
+    const token = await executeCaptcha(RecaptchaAction.SignIn);
     signIn({ email: lowercaseEmail, captcha: token });
   };
 

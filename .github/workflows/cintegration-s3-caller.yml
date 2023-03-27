@@ -30,4 +30,5 @@ jobs:
       graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_DEV }}
       graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_DEV }}
       recaptcha-site-key: ${{ secrets.REACT_APP_RECAPTCHA_SITE_KEY }}
+      sentry-dsn: ${{ secrets.REACT_APP_SENTRY_DSN }}
       domain: ${{ secrets.REACT_APP_DOMAIN_DEV }}

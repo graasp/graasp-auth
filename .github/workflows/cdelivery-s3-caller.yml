@@ -26,4 +26,5 @@ jobs:
       graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_STAGE }}
       authentication-host: ${{ secrets.REACT_APP_AUTHENTICATION_HOST_STAGE }}
       recaptcha-site-key: ${{ secrets.REACT_APP_RECAPTCHA_SITE_KEY }}
+      sentry-dsn: ${{ secrets.REACT_APP_SENTRY_DSN }}
       domain: ${{ secrets.REACT_APP_DOMAIN_STAGE }}
