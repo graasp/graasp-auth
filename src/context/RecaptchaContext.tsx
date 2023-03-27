@@ -17,7 +17,7 @@ type RecaptchaContextType = {
 };
 
 const RecaptchaContext = createContext<RecaptchaContextType>({
-  executeCaptcha: () => Promise.reject(),
+  executeCaptcha: () => Promise.reject('No Recaptcha context provider found'),
 });
 
 type Props = {
