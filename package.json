@@ -31,8 +31,8 @@
     "validator": "13.7.0"
   },
   "scripts": {
-    "start": "env-cmd -f ./.env.local react-scripts start",
-    "start:test": "env-cmd -f ./.env.test react-scripts start",
+    "start": "env-cmd -f ./.env.local react-scripts -r @cypress/instrument-cra start",
+    "start:test": "env-cmd -f ./.env.test react-scripts -r @cypress/instrument-cra start",
     "start:ci": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "dist:dev": "env-cmd -f ./.env.development react-scripts build",
@@ -46,7 +46,7 @@
     "prettier:write": "prettier --write {src,cypress}/**/*.{js,ts,tsx}",
     "hooks:uninstall": "husky uninstall",
     "hooks:install": "husky install",
-    "cypress:open": "env-cmd -f ./.env.local cypress open",
+    "cypress:open": "env-cmd -f ./.env.test cypress open",
     "cypress": "concurrently \"yarn start:test\" \"wait-on http://localhost:3001 && yarn cypress:run\"",
     "cypress:run": "env-cmd -f ./.env.test cypress run --headless --browser chrome",
     "postinstall": "husky install",

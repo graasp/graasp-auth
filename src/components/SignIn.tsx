@@ -73,9 +73,13 @@ const SignIn: FC = () => {
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      const token = await executeCaptcha(RecaptchaAction.SignIn);
-      await signIn({ email: lowercaseEmail, captcha: token });
-      setSuccessView(true);
+      try {
+        const token = await executeCaptcha(RecaptchaAction.SignIn);
+        await signIn({ email: lowercaseEmail, captcha: token });
+        setSuccessView(true);
+      } catch (e) {
+        console.error(e);
+      }
     }
   };
 
