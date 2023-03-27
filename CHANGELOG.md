@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/graasp/graasp-auth/compare/v0.4.0...v0.5.0) (2023-03-27)
+
+
+### Features
+
+* add recaptcha ([#75](https://github.com/graasp/graasp-auth/issues/75)) ([d34bac0](https://github.com/graasp/graasp-auth/commit/d34bac00e5283b96c66937a7edd4aee449e4f5df))
+* add sentry tracing ([d34bac0](https://github.com/graasp/graasp-auth/commit/d34bac00e5283b96c66937a7edd4aee449e4f5df))
+
+
+### Bug Fixes
+
+* add env variables for auth host ([d34bac0](https://github.com/graasp/graasp-auth/commit/d34bac00e5283b96c66937a7edd4aee449e4f5df))
+* add trim to name field ([d34bac0](https://github.com/graasp/graasp-auth/commit/d34bac00e5283b96c66937a7edd4aee449e4f5df))
+
 ## [0.4.0](https://github.com/graasp/graasp-auth/compare/v0.3.0...v0.4.0) (2023-03-16)
 
 
