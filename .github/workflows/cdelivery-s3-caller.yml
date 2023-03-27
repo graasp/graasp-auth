@@ -24,5 +24,6 @@ jobs:
       show-notifications: ${{ secrets.REACT_APP_SHOW_NOTIFICATIONS }}
       graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_STAGE }}
       graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_STAGE }}
+      authentication-host: ${{ secrets.REACT_APP_AUTHENTICATION_HOST_STAGE }}
       recaptcha-site-key: ${{ secrets.REACT_APP_RECAPTCHA_SITE_KEY }}
       domain: ${{ secrets.REACT_APP_DOMAIN_STAGE }}

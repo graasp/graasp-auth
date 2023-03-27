@@ -2,7 +2,7 @@ import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
-import { RecaptchaActionType } from '@graasp/sdk';
+import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
@@ -82,7 +82,7 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      const token = await executeCaptcha(RecaptchaActionType.SignUp);
+      const token = await executeCaptcha(RecaptchaAction.SignUp);
       await signUp({ name, email: lowercaseEmail, captcha: token });
       setSuccessView(true);
     }

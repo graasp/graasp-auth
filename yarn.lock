@@ -2314,9 +2314,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@github:graasp/graasp-sdk#122-add-actiontype-for-recaptcha":
-  version: 0.9.3
-  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=04af6ccec3fe3bbbde497ddac42741d2f3702d6d"
+"@graasp/sdk@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@graasp/sdk@npm:0.10.0"
   dependencies:
     "@fastify/secure-session": 5.3.0
     aws-sdk: 2.1310.0
@@ -2327,41 +2327,7 @@ __metadata:
     qs: 6.11.0
     slonik: 28.1.1
     uuid: 9.0.0
-  checksum: 03a1e69dca2ca525b2938b0efbbef9019ba00ee3dbc1fb6c11b5b451f1635655a591fae3c7be13a7fe05b992ed449e61d84b95173a74d881c5ec6b8c20e6a388
-  languageName: node
-  linkType: hard
-
-"@graasp/sdk@npm:0.4.0":
-  version: 0.4.0
-  resolution: "@graasp/sdk@npm:0.4.0"
-  dependencies:
-    "@fastify/secure-session": 5.3.0
-    aws-sdk: 2.1310.0
-    fastify: 3.29.5
-    fluent-json-schema: 3.1.0
-    immutable: 4.2.4
-    js-cookie: 3.0.1
-    qs: 6.11.0
-    slonik: 28.1.1
-    uuid: 9.0.0
-  checksum: cf57c9e782b00c6406fbd4563e56b797bd78e8928cc4e1624601968541f6f72b7784c9d9e66bbcc46180030a7ff31f8089d8aca4ae393e57d3d5f1e8e6c614d6
-  languageName: node
-  linkType: hard
-
-"@graasp/sdk@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@graasp/sdk@npm:0.4.1"
-  dependencies:
-    "@fastify/secure-session": 5.3.0
-    aws-sdk: 2.1310.0
-    fastify: 3.29.5
-    fluent-json-schema: 3.1.0
-    immutable: 4.2.4
-    js-cookie: 3.0.1
-    qs: 6.11.0
-    slonik: 28.1.1
-    uuid: 9.0.0
-  checksum: dc65bdad6db5d8647c5753fa03c7d88cd894b3e3dc9da55c19e92da4bbc77cd85b542beb93ec5db46b75a8a7ac65ba8901258a667a3bedccb8fdfa6b4f13df14
+  checksum: 5b7d89d72c12be75d9fcba69c9545be4d5caf38685270f66934c9b0c221968d33f4ee20c4c18573e3ed89641461faa12ae28acfcb9511ca45f50b61bb6068631
   languageName: node
   linkType: hard
 
@@ -9407,7 +9373,7 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@graasp/query-client": 0.2.0
-    "@graasp/sdk": "github:graasp/graasp-sdk#122-add-actiontype-for-recaptcha"
+    "@graasp/sdk": 0.10.0
     "@graasp/translations": 1.8.0
     "@graasp/ui": 0.11.1
     "@mui/icons-material": 5.11.0

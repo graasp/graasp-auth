@@ -25,6 +25,7 @@ jobs:
       aws-s3-bucket-name: ${{ secrets.AWS_S3_BUCKET_NAME_GRAASP_AUTH_DEV }}
       cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_GRAASP_AUTH_DEV }}
       api-host: ${{ secrets.REACT_APP_API_HOST_DEV }}
+      authentication-host: ${{ secrets.REACT_APP_AUTHENTICATION_HOST_DEV }}
       show-notifications: ${{ secrets.REACT_APP_SHOW_NOTIFICATIONS }}
       graasp-compose-host: ${{ secrets.REACT_APP_GRAASP_COMPOSE_HOST_DEV }}
       graasp-explorer-host: ${{ secrets.REACT_APP_GRAASP_EXPLORE_HOST_DEV }}

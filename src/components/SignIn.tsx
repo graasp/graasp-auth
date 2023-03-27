@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
-import { RecaptchaActionType } from '@graasp/sdk';
+import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
@@ -73,7 +73,7 @@ const SignIn: FC = () => {
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      const token = await executeCaptcha(RecaptchaActionType.SignIn);
+      const token = await executeCaptcha(RecaptchaAction.SignIn);
       await signIn({ email: lowercaseEmail, captcha: token });
       setSuccessView(true);
     }
@@ -89,9 +89,7 @@ const SignIn: FC = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const token = await executeCaptcha(
-        RecaptchaActionType.SignInWithPassword,
-      );
+      const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
       const { data } = await signInWithPassword({
         email: lowercaseEmail,
         password,
