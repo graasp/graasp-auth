@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
+import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
@@ -21,6 +22,7 @@ import {
   SIGN_IN_BUTTON_ID,
   SIGN_IN_HEADER_ID,
 } from '../config/selectors';
+import { useRecaptcha } from '../context/RecaptchaContext';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -41,6 +43,7 @@ const {
 
 const SignIn: FC = () => {
   const { t } = useAuthTranslation();
+  const { executeCaptcha } = useRecaptcha();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -53,7 +56,7 @@ const SignIn: FC = () => {
   const { mutateAsync: signIn, isSuccess: signInSuccess } = useMutation<
     unknown,
     unknown,
-    { email: string }
+    { email: string; captcha: string }
   >(MUTATION_KEYS.SIGN_IN);
   const {
     mutateAsync: signInWithPassword,
@@ -61,7 +64,7 @@ const SignIn: FC = () => {
   } = useMutation<
     { data: { resource: string } },
     unknown,
-    { email: string; password: string }
+    { email: string; password: string; captcha: string }
   >(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
 
   const handleSignIn = async () => {
@@ -70,8 +73,13 @@ const SignIn: FC = () => {
     if (checkingEmail) {
       setShouldValidate(true);
     } else {
-      await signIn({ email: lowercaseEmail });
-      setSuccessView(true);
+      try {
+        const token = await executeCaptcha(RecaptchaAction.SignIn);
+        await signIn({ email: lowercaseEmail, captcha: token });
+        setSuccessView(true);
+      } catch (e) {
+        console.error(e);
+      }
     }
   };
 
@@ -85,9 +93,11 @@ const SignIn: FC = () => {
         setPasswordError(checkingPassword);
       }
     } else {
+      const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
       const { data } = await signInWithPassword({
         email: lowercaseEmail,
         password,
+        captcha: token,
       });
       if (data.resource) {
         window.location.href = data.resource;

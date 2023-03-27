@@ -2314,9 +2314,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:0.4.0":
-  version: 0.4.0
-  resolution: "@graasp/sdk@npm:0.4.0"
+"@graasp/sdk@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@graasp/sdk@npm:0.10.0"
   dependencies:
     "@fastify/secure-session": 5.3.0
     aws-sdk: 2.1310.0
@@ -2327,24 +2327,7 @@ __metadata:
     qs: 6.11.0
     slonik: 28.1.1
     uuid: 9.0.0
-  checksum: cf57c9e782b00c6406fbd4563e56b797bd78e8928cc4e1624601968541f6f72b7784c9d9e66bbcc46180030a7ff31f8089d8aca4ae393e57d3d5f1e8e6c614d6
-  languageName: node
-  linkType: hard
-
-"@graasp/sdk@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@graasp/sdk@npm:0.4.1"
-  dependencies:
-    "@fastify/secure-session": 5.3.0
-    aws-sdk: 2.1310.0
-    fastify: 3.29.5
-    fluent-json-schema: 3.1.0
-    immutable: 4.2.4
-    js-cookie: 3.0.1
-    qs: 6.11.0
-    slonik: 28.1.1
-    uuid: 9.0.0
-  checksum: dc65bdad6db5d8647c5753fa03c7d88cd894b3e3dc9da55c19e92da4bbc77cd85b542beb93ec5db46b75a8a7ac65ba8901258a667a3bedccb8fdfa6b4f13df14
+  checksum: 5b7d89d72c12be75d9fcba69c9545be4d5caf38685270f66934c9b0c221968d33f4ee20c4c18573e3ed89641461faa12ae28acfcb9511ca45f50b61bb6068631
   languageName: node
   linkType: hard
 
@@ -3224,6 +3207,95 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry-internal/tracing@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry-internal/tracing@npm:7.45.0"
+  dependencies:
+    "@sentry/core": 7.45.0
+    "@sentry/types": 7.45.0
+    "@sentry/utils": 7.45.0
+    tslib: ^1.9.3
+  checksum: 64cb8ddca80d4c3a8b7d7fab8ebfc38e5eeb56753b72fc7fbcc6003a190f0492fe89075f7e7d7a2621f4746c52613c79eec2695368cc44da134b0be42bd0f71b
+  languageName: node
+  linkType: hard
+
+"@sentry/browser@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/browser@npm:7.45.0"
+  dependencies:
+    "@sentry-internal/tracing": 7.45.0
+    "@sentry/core": 7.45.0
+    "@sentry/replay": 7.45.0
+    "@sentry/types": 7.45.0
+    "@sentry/utils": 7.45.0
+    tslib: ^1.9.3
+  checksum: 6f9328e32fbe92a31e891ec00f6fbd72397d6e6f9a53ec4025da8682bcb484fda49ad05ee73a95b1f0554f9a4543d9d5f40e26273eb9c70617a475939dfd29ad
+  languageName: node
+  linkType: hard
+
+"@sentry/core@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/core@npm:7.45.0"
+  dependencies:
+    "@sentry/types": 7.45.0
+    "@sentry/utils": 7.45.0
+    tslib: ^1.9.3
+  checksum: c0453edf833b7ed86bcde6d341090bd3f4cfdb08b50a5e96cbe9d240d3955ea90c4af5550af37f95e8b987c13fa178cb004dd7bea9071145e63ce0dc7c635ec6
+  languageName: node
+  linkType: hard
+
+"@sentry/react@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/react@npm:7.45.0"
+  dependencies:
+    "@sentry/browser": 7.45.0
+    "@sentry/types": 7.45.0
+    "@sentry/utils": 7.45.0
+    hoist-non-react-statics: ^3.3.2
+    tslib: ^1.9.3
+  peerDependencies:
+    react: 15.x || 16.x || 17.x || 18.x
+  checksum: 2b2a3014f85f693ac8c30af8e86e0fa843805ad123c9093d16bc89a4299f2c9942997145db8350421893e6bac3aaf18bee1633ec7a012ca02e82c07f3ddf4485
+  languageName: node
+  linkType: hard
+
+"@sentry/replay@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/replay@npm:7.45.0"
+  dependencies:
+    "@sentry/core": 7.45.0
+    "@sentry/types": 7.45.0
+    "@sentry/utils": 7.45.0
+  checksum: 6e960f50cb1b3fae97482edfc2458542a254af0060481e369740c1e9f93093ca662f130c400fafff092e75079929c21f59ea78d85a095b59a07250976d478b84
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/tracing@npm:7.45.0"
+  dependencies:
+    "@sentry-internal/tracing": 7.45.0
+  checksum: 21cfa98152f66c588124b368cc2883688e4d12a6a1d3a48519522b4d165ba56f8b72d2154686e278ecedc7b6afe5c6f469d256a31745fa9b8140a1040064e9f5
+  languageName: node
+  linkType: hard
+
+"@sentry/types@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/types@npm:7.45.0"
+  checksum: feb7de474f486f52f8f2594dc0559872c51c770b8511d90383eb4aadac8dffc2ddfb8fd7747cfd1486e629eba47bc7c9fae72fdad28cddaaeaf8dd1a52fabdfa
+  languageName: node
+  linkType: hard
+
+"@sentry/utils@npm:7.45.0":
+  version: 7.45.0
+  resolution: "@sentry/utils@npm:7.45.0"
+  dependencies:
+    "@sentry/types": 7.45.0
+    tslib: ^1.9.3
+  checksum: 5d4d2ab4fe85d7231a35859cbeecc3d0c95368c818f15d8d6332f8c57604a67c0e12d5a81c23e5dcb1c53b4e44faf753028592792eb98e4af1440ee375b2292e
+  languageName: node
+  linkType: hard
+
 "@sideway/address@npm:^4.1.3":
   version: 4.1.4
   resolution: "@sideway/address@npm:4.1.4"
@@ -3933,17 +4005,6 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 265f1c74061556708ffe8d15559e35c60d6c11478c9950d3735575d2c116ca69f461d85effa06d73a613eb8b73c84fd32682feb57cf7c5f9e4284021dbca25b0
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*":
-  version: 18.0.28
-  resolution: "@types/react@npm:18.0.28"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: e752df961105e5127652460504785897ca6e77259e0da8f233f694f9e8f451cde7fa0709d4456ade0ff600c8ce909cfe29f9b08b9c247fa9b734e126ec53edd7
   languageName: node
   linkType: hard
 
@@ -9390,12 +9451,15 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@graasp/query-client": 0.2.0
-    "@graasp/sdk": 0.4.1
+    "@graasp/sdk": 0.10.0
     "@graasp/translations": 1.8.0
     "@graasp/ui": 0.11.1
     "@mui/icons-material": 5.11.0
     "@mui/lab": 5.0.0-alpha.119
     "@mui/material": 5.11.8
+    "@sentry/browser": 7.45.0
+    "@sentry/react": 7.45.0
+    "@sentry/tracing": 7.45.0
     "@testing-library/jest-dom": 5.16.4
     "@testing-library/react": 13.2.0
     "@testing-library/user-event": 14.2.0
@@ -9594,7 +9658,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.1":
+"hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -16873,7 +16937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd

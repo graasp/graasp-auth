@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Trans } from 'react-i18next';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
+import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH, namespaces } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
@@ -12,6 +13,7 @@ import { useAuthTranslation } from '../config/i18n';
 import { useMutation } from '../config/queryClient';
 import { SUCCESS_CONTENT_ID } from '../config/selectors';
 import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
+import { useRecaptcha } from '../context/RecaptchaContext';
 
 type Props = {
   title: string;
@@ -25,17 +27,21 @@ const SuccessContent = ({
   handleBackButtonClick = null,
 }: Props) => {
   const { t } = useAuthTranslation();
+  const { executeCaptcha } = useRecaptcha();
   const [isEmailSent, setIsEmailSent] = useState(false);
 
   // used for resend email
-  const { mutate: signIn } = useMutation<unknown, unknown, { email: string }>(
-    MUTATION_KEYS.SIGN_IN,
-  );
+  const { mutate: signIn } = useMutation<
+    unknown,
+    unknown,
+    { email: string; captcha: string }
+  >(MUTATION_KEYS.SIGN_IN);
 
   // used for resend email
   const handleResendEmail = async () => {
     const lowercaseEmail = email.toLowerCase();
-    signIn({ email: lowercaseEmail });
+    const token = await executeCaptcha(RecaptchaAction.SignIn);
+    signIn({ email: lowercaseEmail, captcha: token });
   };
 
   const onClickResendEmail = () => {

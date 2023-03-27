@@ -2,6 +2,7 @@ import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import { MUTATION_KEYS } from '@graasp/query-client';
+import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
@@ -17,6 +18,7 @@ import {
   SIGN_UP_BUTTON_ID,
   SIGN_UP_HEADER_ID,
 } from '../config/selectors';
+import { useRecaptcha } from '../context/RecaptchaContext';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
@@ -29,6 +31,7 @@ const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
 
 const SignUp = () => {
   const { t } = useAuthTranslation();
+  const { executeCaptcha } = useRecaptcha();
 
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
@@ -40,7 +43,7 @@ const SignUp = () => {
   const { mutateAsync: signUp, isSuccess: signUpSuccess } = useMutation<
     unknown,
     unknown,
-    { email: string; name: string }
+    { email: string; name: string; captcha: string }
   >(MUTATION_KEYS.SIGN_UP);
   const [searchParams] = useSearchParams();
 
@@ -79,7 +82,12 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      await signUp({ name, email: lowercaseEmail });
+      const token = await executeCaptcha(RecaptchaAction.SignUp);
+      await signUp({
+        name: name.trim(),
+        email: lowercaseEmail,
+        captcha: token,
+      });
       setSuccessView(true);
     }
   };
