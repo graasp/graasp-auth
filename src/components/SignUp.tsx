@@ -21,6 +21,7 @@ import {
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+import ErrorBanner from './ErrorBanner';
 import FullscreenContainer from './FullscreenContainer';
 import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
@@ -140,6 +141,7 @@ const SignUp = () => {
           <Typography variant="h2" component="h2" id={SIGN_UP_HEADER_ID}>
             {t(SIGN_UP_HEADER)}
           </Typography>
+          <ErrorBanner />
           {renderForm()}
         </>
       )}

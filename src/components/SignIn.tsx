@@ -26,6 +26,7 @@ import { useRecaptcha } from '../context/RecaptchaContext';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
+import ErrorBanner from './ErrorBanner';
 import FullscreenContainer from './FullscreenContainer';
 import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
@@ -213,6 +214,9 @@ const SignIn: FC = () => {
             <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
               {t(SIGN_IN_HEADER)}
             </Typography>
+
+            {signInMethod !== SIGN_IN_METHODS.PASSWORD && <ErrorBanner />}
+
             {renderSignInForm()}
             <StyledDivider />
             <Box sx={{ justifyContent: 'center' }}>
