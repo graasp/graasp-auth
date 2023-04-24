@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.1](https://github.com/graasp/graasp-auth/compare/v0.5.0...v0.5.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* add release prop to sentry ([#78](https://github.com/graasp/graasp-auth/issues/78)) ([d1660b6](https://github.com/graasp/graasp-auth/commit/d1660b6834ab9ceb2769674b430cdf19c8bea745))
+
 ## [0.5.0](https://github.com/graasp/graasp-auth/compare/v0.4.0...v0.5.0) (2023-03-27)
 
 
