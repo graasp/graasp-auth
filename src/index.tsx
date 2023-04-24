@@ -5,6 +5,7 @@ import ReactGA from 'react-ga4';
 
 import { hasAcceptedCookies } from '@graasp/sdk';
 
+import pkg from '../package.json';
 import Root from './components/Root';
 import {
   APP_VERSION,
@@ -13,7 +14,6 @@ import {
   NODE_ENV,
   SENRY_DSN,
 } from './config/constants';
-import './index.css';
 import './index.css';
 
 if (GA_MEASUREMENT_ID && hasAcceptedCookies() && NODE_ENV !== 'test') {
@@ -24,7 +24,7 @@ if (GA_MEASUREMENT_ID && hasAcceptedCookies() && NODE_ENV !== 'test') {
 Sentry.init({
   dsn: SENRY_DSN,
   integrations: [new BrowserTracing(), new Sentry.Replay()],
-  release: APP_VERSION,
+  release: `${pkg.name}@${APP_VERSION}`,
   environment: DOMAIN,
   tracesSampleRate: 1.0,
 
