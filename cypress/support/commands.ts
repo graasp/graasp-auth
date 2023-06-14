@@ -32,10 +32,7 @@ import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
 declare global {
   namespace Cypress {
     interface Chainable {
-      setUpApi(args?: {
-        members?: Member[];
-        storedSessions?: { id: string; token: string; createdAt: string }[];
-      }): Chainable<JQuery<HTMLElement>>;
+      setUpApi(args?: { members?: Member[] }): Chainable<JQuery<HTMLElement>>;
 
       checkErrorTextField(
         id: string,
@@ -44,17 +41,17 @@ declare global {
 
       signUpAndCheck(
         member: Member & {
-          nameValid: boolean;
-          emailValid: boolean;
-          passwordValid: boolean;
+          nameValid?: boolean;
+          emailValid?: boolean;
+          passwordValid?: boolean;
         },
       ): Chainable<JQuery<HTMLElement>>;
 
       signInAndCheck(
         value: Partial<Member> & {
-          nameValid: boolean;
-          emailValid: boolean;
-          passwordValid: boolean;
+          nameValid?: boolean;
+          emailValid?: boolean;
+          passwordValid?: boolean;
         },
       ): Chainable<JQuery<HTMLElement>>;
 
@@ -62,9 +59,9 @@ declare global {
 
       signInPasswordAndCheck(
         member: Member & {
-          nameValid: boolean;
-          emailValid: boolean;
-          passwordValid: boolean;
+          nameValid?: boolean;
+          emailValid?: boolean;
+          passwordValid?: boolean;
         },
       ): Chainable<JQuery<HTMLElement>>;
     }
@@ -73,13 +70,8 @@ declare global {
 
 Cypress.Commands.add(
   'setUpApi',
-  ({ members = Object.values(MEMBERS), storedSessions = [] } = {}) => {
+  ({ members = Object.values(MEMBERS) } = {}) => {
     const cachedMembers = JSON.parse(JSON.stringify(members));
-
-    cy.setCookie(
-      COOKIE_KEYS.STORED_SESSIONS_KEY,
-      JSON.stringify(storedSessions),
-    );
 
     mockGetMember(cachedMembers);
     mockGetMembers(cachedMembers);

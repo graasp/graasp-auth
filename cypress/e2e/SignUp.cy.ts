@@ -39,7 +39,12 @@ describe('Name and Email Validation', () => {
       name: 'name',
       email: 'email',
     };
-    cy.intercept(API_ROUTES.buildGetInvitationRoute(invitation.id), invitation);
+    cy.intercept(
+      API_ROUTES.buildGetInvitationRoute(invitation.id),
+      ({ reply }) => {
+        reply(invitation);
+      },
+    );
     cy.visit(
       `${SIGN_UP_PATH}${qs.stringify(
         { invitationId: invitation.id },

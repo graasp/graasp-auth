@@ -1,7 +1,6 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { MUTATION_KEYS } from '@graasp/query-client';
 import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
@@ -11,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
 import { buildSignInPath } from '../config/paths';
-import { hooks, useMutation } from '../config/queryClient';
+import { hooks, mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
@@ -40,11 +39,8 @@ const SignUp = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutateAsync: signUp, isSuccess: signUpSuccess } = useMutation<
-    unknown,
-    unknown,
-    { email: string; name: string; captcha: string }
-  >(MUTATION_KEYS.SIGN_UP);
+  const { mutateAsync: signUp, isSuccess: signUpSuccess } =
+    mutations.useSignUp();
   const [searchParams] = useSearchParams();
 
   const {

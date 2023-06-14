@@ -7,8 +7,8 @@ const {
   queryClient,
   QueryClientProvider,
   hooks,
-  useMutation,
   ReactQueryDevtools,
+  mutations,
 } = configureQueryClient({
   API_HOST,
   // avoid refetching when same data are closely fetched
@@ -23,8 +23,8 @@ const {
 
 export {
   queryClient,
+  mutations,
   QueryClientProvider,
   hooks,
-  useMutation,
   ReactQueryDevtools,
 };

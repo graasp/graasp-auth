@@ -15,7 +15,7 @@ const {
 const notifier = (args: {
   type: string;
   payload?: {
-    error?: { response?: { data?: { message?: string } } };
+    error?: Error;
     message?: string;
   };
 }) => {
@@ -32,9 +32,7 @@ const notifier = (args: {
     case signUpRoutine.FAILURE:
     case signInWithPasswordRoutine.FAILURE:
     case getInvitationRoutine.FAILURE: {
-      message =
-        payload?.error?.response?.data?.message ??
-        'An unexpected error occured';
+      message = payload?.error?.message ?? 'An unexpected error occured';
       break;
     }
     case signInRoutine.SUCCESS:
