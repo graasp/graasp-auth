@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.1](https://github.com/graasp/graasp-auth/compare/v0.5.1...v1.0.0-rc.1) (2023-06-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* add renovate, remove switch user ([#83](https://github.com/graasp/graasp-auth/issues/83))
+
+### Features
+
+* add renovate, remove switch user ([#83](https://github.com/graasp/graasp-auth/issues/83)) ([4689d13](https://github.com/graasp/graasp-auth/commit/4689d13470960dc9b487d3dcb414f62ec3e14f0c))
+
+
+### chore
+
+* release 1.0.0-rc.1 ([a7e9c52](https://github.com/graasp/graasp-auth/commit/a7e9c528effeba84294ec78b0d85745491abedfa))
+
 ## [0.5.1](https://github.com/graasp/graasp-auth/compare/v0.5.0...v0.5.1) (2023-04-24)
 
 
