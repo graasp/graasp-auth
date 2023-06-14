@@ -2326,9 +2326,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#captcha-type":
-  version: 1.0.0-rc.2
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=46ffe65d7eedd792719951ca527eab96ef4e2677"
+"@graasp/query-client@npm:1.0.0-rc.3":
+  version: 1.0.0-rc.3
+  resolution: "@graasp/query-client@npm:1.0.0-rc.3"
   dependencies:
     "@graasp/sdk": 1.0.0-rc1
     "@graasp/translations": 1.13.0
@@ -2341,7 +2341,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: ccea591407dde4a911b12a7059433e65dc2929488565bf9a167d5662a4de054ec9c53a9d5f851f31eb12bd236b00e998e45785669b6314617f5878952af6600f
+  checksum: 3daa9521cd0328e26d0ec2757b9554a335c1fa7aeaefcd35c17ca5f7b5e545b3010150c8a9a9bab8949a27b6c13d8fb753c126765fb9c9e87c3839e44fe490d5
   languageName: node
   linkType: hard
 
@@ -9562,7 +9562,7 @@ __metadata:
     "@cypress/instrument-cra": 1.4.0
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
-    "@graasp/query-client": "github:graasp/graasp-query-client#captcha-type"
+    "@graasp/query-client": 1.0.0-rc.3
     "@graasp/sdk": 1.0.0-rc1
     "@graasp/translations": 1.14.0
     "@graasp/ui": 3.0.0-rc.2
