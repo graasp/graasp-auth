@@ -15,10 +15,10 @@ const MemberAvatar: FC<Props> = ({ id }) => {
   const { t } = useCommonTranslation();
   const { data: member, isLoading, isFetching } = hooks.useMember(id);
   const {
-    data: thumbnailBlob,
+    data: url,
     isLoading: isLoadingAvatar,
     isFetching: isFetchingAvatar,
-  } = hooks.useAvatar({
+  } = hooks.useAvatarUrl({
     id,
     size: THUMBNAIL_SIZES.SMALL,
   });
@@ -30,7 +30,7 @@ const MemberAvatar: FC<Props> = ({ id }) => {
       component="avatar"
       maxWidth={AVATAR_ICON_HEIGHT}
       maxHeight={AVATAR_ICON_HEIGHT}
-      blob={thumbnailBlob}
+      url={url}
       sx={{ mx: 1 }}
     />
   );

@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { MUTATION_KEYS } from '@graasp/query-client';
 import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
@@ -12,7 +11,7 @@ import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_PATH } from '../config/paths';
-import { useMutation } from '../config/queryClient';
+import { mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_IN_METHOD_BUTTON_ID,
@@ -53,19 +52,12 @@ const SignIn: FC = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutateAsync: signIn, isSuccess: signInSuccess } = useMutation<
-    unknown,
-    unknown,
-    { email: string; captcha: string }
-  >(MUTATION_KEYS.SIGN_IN);
+  const { mutateAsync: signIn, isSuccess: signInSuccess } =
+    mutations.useSignIn();
   const {
     mutateAsync: signInWithPassword,
     isSuccess: signInWithPasswordSuccess,
-  } = useMutation<
-    { data: { resource: string } },
-    unknown,
-    { email: string; password: string; captcha: string }
-  >(MUTATION_KEYS.SIGN_IN_WITH_PASSWORD);
+  } = mutations.useSignInWithPassword();
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
@@ -94,13 +86,13 @@ const SignIn: FC = () => {
       }
     } else {
       const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
-      const { data } = await signInWithPassword({
+      const { resource } = await signInWithPassword({
         email: lowercaseEmail,
         password,
         captcha: token,
       });
-      if (data.resource) {
-        window.location.href = data.resource;
+      if (resource) {
+        window.location.href = resource;
       }
       setSuccessView(true);
     }

@@ -1,4 +1,3 @@
-import { getStoredSessions } from '@graasp/sdk';
 import { MemberRecord } from '@graasp/sdk/dist/frontend/types';
 import { BUILDER } from '@graasp/translations';
 import { UserSwitchWrapper } from '@graasp/ui';
@@ -14,13 +13,7 @@ import MemberAvatar from './MemberAvatar';
 
 const UserSwitch = () => {
   const { t: translateBuilder } = useBuilderTranslation();
-  const sessions = getStoredSessions();
   const { mutateAsync: signOut } = mutations.useSignOut();
-
-  // hide if no stored session
-  if (!sessions.length) {
-    return null;
-  }
 
   const renderAvatar = (m: MemberRecord) => <MemberAvatar id={m.id} />;
 

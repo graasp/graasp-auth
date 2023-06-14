@@ -11,7 +11,7 @@
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@graasp/query-client": "1.0.0-rc1",
+    "@graasp/query-client": "github:graasp/graasp-query-client#captcha-type",
     "@graasp/sdk": "1.0.0-rc1",
     "@graasp/translations": "1.14.0",
     "@graasp/ui": "3.0.0-rc.2",
@@ -47,6 +47,7 @@
     "pre-commit": "yarn prettier:check && yarn lint",
     "prettier:check": "prettier --check {src,cypress}/**/*.{js,ts,tsx}",
     "prettier:write": "prettier --write {src,cypress}/**/*.{js,ts,tsx}",
+    "type-check": "tsc --noEmit",
     "hooks:uninstall": "husky uninstall",
     "hooks:install": "husky install",
     "cypress:open": "env-cmd -f ./.env.test cypress open",
@@ -110,7 +111,6 @@
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@graasp/sdk": "0.10.0",
     "@types/react": "17.0.30"
   },
   "packageManager": "yarn@3.2.1"

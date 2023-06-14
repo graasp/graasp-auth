@@ -3,8 +3,7 @@ import qs from 'qs';
 
 import { API_ROUTES } from '@graasp/query-client';
 
-const { buildGetMember, GET_CURRENT_MEMBER_ROUTE, buildGetPublicMembersRoute } =
-  API_ROUTES;
+const { buildGetMember, GET_CURRENT_MEMBER_ROUTE } = API_ROUTES;
 
 // use simple id format for tests
 export const ID_FORMAT = '(?=.*[0-9])(?=.*[a-zA-Z])([a-z0-9-]+)';
@@ -68,7 +67,7 @@ export const mockGetMembers = (members) => {
   cy.intercept(
     {
       method: 'get',
-      url: `${API_HOST}/${buildGetPublicMembersRoute([''])}*`,
+      url: `${API_HOST}/members?id=`,
     },
     ({ url, reply }) => {
       let { id: memberIds } = qs.parse(url.slice(url.indexOf('?') + 1));
