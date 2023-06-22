@@ -9706,7 +9706,7 @@ __metadata:
     react-router: 6.8.1
     react-router-dom: 6.8.1
     react-scripts: 5.0.1
-    react-toastify: 9.0.1
+    react-toastify: 9.0.8
     standard-version: 9.5.0
     typescript: 4.9.4
     validator: 13.7.0
@@ -15051,15 +15051,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-toastify@npm:9.0.1":
-  version: 9.0.1
-  resolution: "react-toastify@npm:9.0.1"
+"react-toastify@npm:9.0.8":
+  version: 9.0.8
+  resolution: "react-toastify@npm:9.0.8"
   dependencies:
     clsx: ^1.1.1
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 920603bfd18d26537ad7fcd31899eea1469922176a730a8e597c199447af79cb8dba3bd30e9327aa3f841790737d564880f76c83b60ec34c4b1c5c32e2a79b06
+  checksum: d48fa369b3d19c63f9b6b1ecef076911aa97a43bb84ecdb1532e6f32932e3625c1c3e12a4c63e7eb211d33b8aa962e9b9a81ab6a47fef2c51185ce8c9a780336
   languageName: node
   linkType: hard
 
