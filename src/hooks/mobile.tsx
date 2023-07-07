@@ -13,7 +13,7 @@ export const useMobileLogin = () => {
   const [searchParams] = useSearchParams();
   const challenge = searchParams.get(MobileSearchParams.CHALLENGE);
   return {
-    isMobile: challenge !== undefined,
+    isMobile: challenge !== undefined && challenge !== null,
     challenge,
   };
 };

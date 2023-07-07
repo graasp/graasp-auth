@@ -1,4 +1,4 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   video: false,
@@ -21,4 +21,4 @@ export default defineConfig({
     },
     baseUrl: 'http://localhost:3001',
   },
-})
+});
