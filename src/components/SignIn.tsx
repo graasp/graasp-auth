@@ -5,6 +5,7 @@ import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
+import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
@@ -26,7 +27,6 @@ import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
-import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
 import UserSwitch from './UserSwitch';
@@ -148,44 +148,45 @@ const SignIn: FC = () => {
   const renderSignInForm = () => (
     <>
       <FormControl>
-        <EmailInput
-          value={email}
-          setValue={setEmail}
-          id={EMAIL_SIGN_IN_FIELD_ID}
-          onKeyPress={handleKeypress}
-          shouldValidate={shouldValidate}
-        />
-        {signInMethod === SIGN_IN_METHODS.PASSWORD && (
-          <>
-            <StyledTextField
-              required
-              label={t(PASSWORD_FIELD_LABEL)}
-              variant="outlined"
-              value={password}
-              error={Boolean(passwordError)}
-              helperText={passwordError}
-              onChange={handleOnChangePassword}
-              id={PASSWORD_SIGN_IN_FIELD_ID}
-              type="password"
-              onKeyPress={handleKeypress}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handlePasswordSignIn}
-              id={PASSWORD_SIGN_IN_BUTTON_ID}
-            >
+        <Stack direction="column" spacing={1}>
+          <EmailInput
+            value={email}
+            setValue={setEmail}
+            id={EMAIL_SIGN_IN_FIELD_ID}
+            onKeyPress={handleKeypress}
+            shouldValidate={shouldValidate}
+          />
+          {signInMethod === SIGN_IN_METHODS.PASSWORD && (
+            <>
+              <StyledTextField
+                required
+                label={t(PASSWORD_FIELD_LABEL)}
+                variant="outlined"
+                value={password}
+                error={Boolean(passwordError)}
+                helperText={passwordError}
+                onChange={handleOnChangePassword}
+                id={PASSWORD_SIGN_IN_FIELD_ID}
+                type="password"
+                onKeyPress={handleKeypress}
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handlePasswordSignIn}
+                id={PASSWORD_SIGN_IN_BUTTON_ID}
+              >
+                {t(SIGN_IN_BUTTON)}
+              </Button>
+            </>
+          )}
+          {signInMethod === SIGN_IN_METHODS.EMAIL && (
+            <Button onClick={handleSignIn} id={SIGN_IN_BUTTON_ID}>
               {t(SIGN_IN_BUTTON)}
             </Button>
-          </>
-        )}
-        {signInMethod === SIGN_IN_METHODS.EMAIL && (
-          <Button onClick={handleSignIn} id={SIGN_IN_BUTTON_ID}>
-            {t(SIGN_IN_BUTTON)}
-          </Button>
-        )}
+          )}
+        </Stack>
       </FormControl>
-      <StyledDivider />
       <Link to={SIGN_UP_PATH}>{t(SIGN_UP_LINK_TEXT)}</Link>
     </>
   );
@@ -199,12 +200,11 @@ const SignIn: FC = () => {
           handleBackButtonClick={handleBackButtonClick}
         />
       ) : (
-        <>
+        <Stack direction="column" spacing={2}>
           <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
             {t(SIGN_IN_HEADER)}
           </Typography>
           {renderSignInForm()}
-          <StyledDivider />
           <Box sx={{ justifyContent: 'center' }}>
             <Button
               variant="text"
@@ -223,9 +223,8 @@ const SignIn: FC = () => {
               {t(PASSWORD_SIGN_IN_METHOD)}
             </Button>
           </Box>
-          <StyledDivider />
           <UserSwitch />
-        </>
+        </Stack>
       )}
     </FullscreenContainer>
   );

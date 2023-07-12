@@ -3,8 +3,7 @@ import TextField from '@mui/material/TextField';
 
 import { FORM_INPUT_MIN_WIDTH } from '../config/constants';
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
-  margin: theme.spacing(1, 0),
+const StyledTextField = styled(TextField)(() => ({
   minWidth: FORM_INPUT_MIN_WIDTH,
 }));
 export default StyledTextField;

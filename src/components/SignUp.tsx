@@ -5,6 +5,7 @@ import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
 import { Button, Loader } from '@graasp/ui';
 
+import { Stack } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
@@ -21,7 +22,6 @@ import { useRecaptcha } from '../context/RecaptchaContext';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
-import StyledDivider from './StyledDivider';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
 
@@ -95,30 +95,30 @@ const SignUp = () => {
   const renderForm = () => (
     <>
       <FormControl>
-        <StyledTextField
-          required
-          label={t(NAME_FIELD_LABEL)}
-          variant="outlined"
-          value={name}
-          error={Boolean(nameError)}
-          helperText={nameError}
-          onChange={handleNameOnChange}
-          id={NAME_SIGN_UP_FIELD_ID}
-          disabled={Boolean(invitation?.get('name'))}
-        />
-        <EmailInput
-          value={email}
-          setValue={setEmail}
-          id={EMAIL_SIGN_UP_FIELD_ID}
-          disabled={Boolean(invitation?.get('email'))}
-          shouldValidate={shouldValidate}
-        />
-        <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
-          {t(SIGN_UP_BUTTON)}
-        </Button>
+        <Stack direction="column" spacing={1}>
+          <StyledTextField
+            required
+            label={t(NAME_FIELD_LABEL)}
+            variant="outlined"
+            value={name}
+            error={Boolean(nameError)}
+            helperText={nameError}
+            onChange={handleNameOnChange}
+            id={NAME_SIGN_UP_FIELD_ID}
+            disabled={Boolean(invitation?.get('name'))}
+          />
+          <EmailInput
+            value={email}
+            setValue={setEmail}
+            id={EMAIL_SIGN_UP_FIELD_ID}
+            disabled={Boolean(invitation?.get('email'))}
+            shouldValidate={shouldValidate}
+          />
+          <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
+            {t(SIGN_UP_BUTTON)}
+          </Button>
+        </Stack>
       </FormControl>
-
-      <StyledDivider />
       <Link to={buildSignInPath()}>{t(SIGN_IN_LINK_TEXT)}</Link>
     </>
   );
@@ -132,12 +132,12 @@ const SignUp = () => {
           handleBackButtonClick={handleBackButtonClick}
         />
       ) : (
-        <>
+        <Stack direction="column" spacing={2}>
           <Typography variant="h2" component="h2" id={SIGN_UP_HEADER_ID}>
             {t(SIGN_UP_HEADER)}
           </Typography>
           {renderForm()}
-        </>
+        </Stack>
       )}
     </FullscreenContainer>
   );
