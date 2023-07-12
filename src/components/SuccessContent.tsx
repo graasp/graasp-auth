@@ -45,7 +45,7 @@ const SuccessContent = ({
   };
 
   return (
-    <Container id={SUCCESS_CONTENT_ID}>
+    <Container id={SUCCESS_CONTENT_ID} style={{ border: '1px solid red' }}>
       <Typography
         variant="h4"
         display="flex"
