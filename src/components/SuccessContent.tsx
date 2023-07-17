@@ -45,47 +45,47 @@ const SuccessContent = ({
   };
 
   return (
-    <Container id={SUCCESS_CONTENT_ID}>
-      <Typography
-        variant="h4"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <MailOutlineIcon fontSize="large" sx={{ marginRight: 1 }} />
-        {title}
-      </Typography>
-      <Typography variant="body1">
-        <Trans
-          ns={namespaces.auth}
-          i18nKey={AUTH.SIGN_IN_SUCCESS_TEXT}
-          values={{ email }}
-          components={{ bold: <strong /> }}
-        />
-      </Typography>
-      <br />
-      <Typography variant="body1">
-        {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
-      </Typography>
-      <br />
-      <Stack direction="row" justifyContent="center" spacing={1}>
-        <Button
-          variant="text"
-          color="primary"
-          id={BACK_BUTTON_ID}
-          onClick={handleBackButtonClick}
+    <Container id={SUCCESS_CONTENT_ID} maxWidth="sm">
+      <Stack direction="column" spacing={2}>
+        <Typography
+          variant="h4"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
         >
-          {t(AUTH.BACK_BUTTON)}
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={onClickResendEmail}
-          id={RESEND_EMAIL_BUTTON_ID}
-          disabled={isEmailSent}
-        >
-          {t(AUTH.RESEND_EMAIL_BUTTON)}
-        </Button>
+          <MailOutlineIcon fontSize="large" sx={{ marginRight: 1 }} />
+          {title}
+        </Typography>
+        <Typography variant="body1">
+          <Trans
+            ns={namespaces.auth}
+            i18nKey={AUTH.SIGN_IN_SUCCESS_TEXT}
+            values={{ email }}
+            components={{ bold: <strong /> }}
+          />
+        </Typography>
+        <Typography variant="body1">
+          {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
+        </Typography>
+        <Stack direction="row" justifyContent="center" spacing={1}>
+          <Button
+            variant="text"
+            color="primary"
+            id={BACK_BUTTON_ID}
+            onClick={handleBackButtonClick}
+          >
+            {t(AUTH.BACK_BUTTON)}
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={onClickResendEmail}
+            id={RESEND_EMAIL_BUTTON_ID}
+            disabled={isEmailSent}
+          >
+            {t(AUTH.RESEND_EMAIL_BUTTON)}
+          </Button>
+        </Stack>
       </Stack>
     </Container>
   );
