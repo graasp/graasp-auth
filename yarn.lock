@@ -3544,11 +3544,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:1.0.0-rc.3":
-  version: 1.0.0-rc.3
-  resolution: "@graasp/query-client@npm:1.0.0-rc.3"
+"@graasp/query-client@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@graasp/query-client@npm:1.0.1"
   dependencies:
-    "@graasp/sdk": 1.0.0-rc1
+    "@graasp/sdk": 1.0.0
     "@graasp/translations": 1.13.0
     axios: 0.27.2
     crypto-js: 4.1.1
@@ -3559,7 +3559,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: 3daa9521cd0328e26d0ec2757b9554a335c1fa7aeaefcd35c17ca5f7b5e545b3010150c8a9a9bab8949a27b6c13d8fb753c126765fb9c9e87c3839e44fe490d5
+  checksum: e79aea3001f66a83fc86db78fe63e951ff0a63a349eebeab7dcb4e7d977cd669834b5e40af9ce0399aa56a48f284198279d492453263844b398508c4a15b607b
   languageName: node
   linkType: hard
 
@@ -10911,7 +10911,7 @@ __metadata:
     "@cypress/instrument-cra": 1.4.0
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
-    "@graasp/query-client": 1.0.0-rc.3
+    "@graasp/query-client": 1.0.1
     "@graasp/sdk": 1.0.0
     "@graasp/translations": 1.15.0
     "@graasp/ui": 3.0.0-rc.2
