@@ -29,7 +29,6 @@ import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
-import UserSwitch from './UserSwitch';
 
 const {
   SIGN_IN_BUTTON,
@@ -205,7 +204,7 @@ const SignIn: FC = () => {
             {t(SIGN_IN_HEADER)}
           </Typography>
           {renderSignInForm()}
-          <Box sx={{ justifyContent: 'center' }}>
+          <Box justifyContent="center">
             <Button
               variant="text"
               disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
@@ -223,7 +222,6 @@ const SignIn: FC = () => {
               {t(PASSWORD_SIGN_IN_METHOD)}
             </Button>
           </Box>
-          <UserSwitch />
         </Stack>
       )}
     </FullscreenContainer>
