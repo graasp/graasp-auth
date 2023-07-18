@@ -10837,7 +10837,7 @@ __metadata:
     istanbul-lib-coverage: 3.2.0
     nyc: 15.1.0
     prettier: 2.8.2
-    qs: 6.11.0
+    qs: 6.11.2
     react: 17.0.2
     react-dom: 17.0.2
     react-ga4: 2.1.0
