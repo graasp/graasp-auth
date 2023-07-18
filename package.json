@@ -47,6 +47,7 @@
     "prettier:check": "prettier --check {src,cypress}/**/*.{js,ts,tsx}",
     "prettier:write": "prettier --write {src,cypress}/**/*.{js,ts,tsx}",
     "type-check": "tsc --noEmit",
+    "check": "yarn prettier:check && yarn lint && yarn type-check",
     "hooks:uninstall": "husky uninstall",
     "hooks:install": "husky install",
     "cypress:open": "env-cmd -f ./.env.test cypress open",
