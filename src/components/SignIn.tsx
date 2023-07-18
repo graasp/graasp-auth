@@ -74,7 +74,9 @@ const SignIn: FC = () => {
       setShouldValidate(true);
     } else {
       try {
-        const token = await executeCaptcha(RecaptchaAction.SignIn);
+        const token = await executeCaptcha(
+          isMobile ? RecaptchaAction.SignInMobile : RecaptchaAction.SignIn,
+        );
         await (isMobile
           ? mobileSignIn({ email: lowercaseEmail, captcha: token, challenge })
           : signIn({ email: lowercaseEmail, captcha: token }));
@@ -95,7 +97,11 @@ const SignIn: FC = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
+      const token = await executeCaptcha(
+        isMobile
+          ? RecaptchaAction.SignInWithPasswordMobile
+          : RecaptchaAction.SignInWithPassword,
+      );
       const result = await (isMobile
         ? mobileSignInWithPassword({
             email: lowercaseEmail,
