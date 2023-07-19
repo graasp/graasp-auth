@@ -16,7 +16,7 @@
     "@graasp/translations": "1.15.1",
     "@graasp/ui": "3.2.4",
     "@mui/icons-material": "5.11.16",
-    "@mui/lab": "5.0.0-alpha.136",
+    "@mui/lab": "5.0.0-alpha.137",
     "@mui/material": "5.11.16",
     "@sentry/react": "7.59.2",
     "@sentry/tracing": "7.59.2",
