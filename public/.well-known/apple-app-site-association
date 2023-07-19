@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["66RNQ59XM2.org.graasp.mobile"],
+        "components": [
+          {
+            "/": "/auth/*",
+            "comment": "Matches any URL whose path starts with /auth/"
+          }
+        ]
+      },
+      {
+        "appID": "66RNQ59XM2.org.graasp.mobile",
+        "paths": ["/auth/*"]
+      }
+    ]
+  }
+}
