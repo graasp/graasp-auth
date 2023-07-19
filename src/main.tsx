@@ -1,29 +1,30 @@
-import * as Sentry from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
-import { render } from 'react-dom';
+import { BrowserTracing, Replay, init as SentryInit } from '@sentry/react';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import ReactGA from 'react-ga4';
 
 import { hasAcceptedCookies } from '@graasp/sdk';
 
 import pkg from '../package.json';
-import Root from './components/Root';
+import Root from './Root';
 import {
   APP_VERSION,
   DOMAIN,
   GA_MEASUREMENT_ID,
-  NODE_ENV,
-  SENRY_DSN,
-} from './config/constants';
-import './index.css';
+  SENTRY_DSN,
+} from './config/env';
 
-if (GA_MEASUREMENT_ID && hasAcceptedCookies() && NODE_ENV !== 'test') {
+if (GA_MEASUREMENT_ID && hasAcceptedCookies() && import.meta.env.PROD) {
   ReactGA.initialize(GA_MEASUREMENT_ID);
   ReactGA.send('pageview');
 }
 
-Sentry.init({
-  dsn: SENRY_DSN,
-  integrations: [new BrowserTracing(), new Sentry.Replay()],
+SentryInit({
+  dsn: SENTRY_DSN,
+  integrations: [
+    new BrowserTracing(),
+    new Replay({ maskAllText: false, maskAllInputs: false }),
+  ],
   release: `${pkg.name}@${APP_VERSION}`,
   environment: DOMAIN,
   tracesSampleRate: 1.0,
@@ -37,5 +38,8 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0,
 });
 
-const root = document.getElementById('root');
-render(<Root />, root);
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <Root />
+  </React.StrictMode>,
+);
