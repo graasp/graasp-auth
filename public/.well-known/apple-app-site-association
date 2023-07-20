@@ -2,7 +2,9 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["66RNQ59XM2.org.graasp.mobile"],
+        "appIDs": [
+          "66RNQ59XM2.org.graasp.mobile"
+        ],
         "components": [
           {
             "/": "/auth/*",
@@ -12,7 +14,9 @@
       },
       {
         "appID": "66RNQ59XM2.org.graasp.mobile",
-        "paths": ["/auth/*"]
+        "paths": [
+          "/auth/*"
+        ]
       }
     ]
   }
