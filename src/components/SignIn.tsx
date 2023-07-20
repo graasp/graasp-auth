@@ -23,6 +23,7 @@ import {
   SIGN_IN_HEADER_ID,
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
+import { useMobileLogin } from '../hooks/mobile';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -43,6 +44,8 @@ const SignIn: FC = () => {
   const { t } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
 
+  const { isMobile, challenge } = useMobileLogin();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
@@ -53,10 +56,16 @@ const SignIn: FC = () => {
 
   const { mutateAsync: signIn, isSuccess: signInSuccess } =
     mutations.useSignIn();
+  const { mutateAsync: mobileSignIn, isSuccess: mobileSignInSuccess } =
+    mutations.useMobileSignIn();
   const {
     mutateAsync: signInWithPassword,
     isSuccess: signInWithPasswordSuccess,
   } = mutations.useSignInWithPassword();
+  const {
+    mutateAsync: mobileSignInWithPassword,
+    isSuccess: mobileSignInWithPasswordSuccess,
+  } = mutations.useMobileSignInWithPassword();
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
@@ -65,8 +74,12 @@ const SignIn: FC = () => {
       setShouldValidate(true);
     } else {
       try {
-        const token = await executeCaptcha(RecaptchaAction.SignIn);
-        await signIn({ email: lowercaseEmail, captcha: token });
+        const token = await executeCaptcha(
+          isMobile ? RecaptchaAction.SignInMobile : RecaptchaAction.SignIn,
+        );
+        await (isMobile
+          ? mobileSignIn({ email: lowercaseEmail, captcha: token, challenge })
+          : signIn({ email: lowercaseEmail, captcha: token }));
         setSuccessView(true);
       } catch (e) {
         console.error(e);
@@ -84,14 +97,25 @@ const SignIn: FC = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const token = await executeCaptcha(RecaptchaAction.SignInWithPassword);
-      const { resource } = await signInWithPassword({
-        email: lowercaseEmail,
-        password,
-        captcha: token,
-      });
-      if (resource) {
-        window.location.href = resource;
+      const token = await executeCaptcha(
+        isMobile
+          ? RecaptchaAction.SignInWithPasswordMobile
+          : RecaptchaAction.SignInWithPassword,
+      );
+      const result = await (isMobile
+        ? mobileSignInWithPassword({
+            email: lowercaseEmail,
+            password,
+            captcha: token,
+            challenge,
+          })
+        : signInWithPassword({
+            email: lowercaseEmail,
+            password,
+            captcha: token,
+          }));
+      if (result && result.resource) {
+        window.location.href = result.resource;
       }
       setSuccessView(true);
     }
@@ -192,38 +216,45 @@ const SignIn: FC = () => {
 
   return (
     <FullscreenContainer>
-      {(signInSuccess || signInWithPasswordSuccess) && successView ? (
-        <SuccessContent
-          title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
-          email={email}
-          handleBackButtonClick={handleBackButtonClick}
-        />
-      ) : (
-        <Stack direction="column" spacing={2}>
-          <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
-            {t(SIGN_IN_HEADER)}
-          </Typography>
-          {renderSignInForm()}
-          <Box justifyContent="center">
-            <Button
-              variant="text"
-              disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
-              onClick={handleSignInMethod}
-              id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
-            >
-              {t(EMAIL_SIGN_IN_METHOD)}
-            </Button>
-            <Button
-              variant="text"
-              disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
-              onClick={handleSignInMethod}
-              id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
-            >
-              {t(PASSWORD_SIGN_IN_METHOD)}
-            </Button>
-          </Box>
-        </Stack>
-      )}
+      {
+        // eslint-disable-next-line no-constant-condition
+        (signInSuccess ||
+          signInWithPasswordSuccess ||
+          mobileSignInSuccess ||
+          mobileSignInWithPasswordSuccess) &&
+        successView ? (
+          <SuccessContent
+            title={t(AUTH.SIGN_IN_SUCCESS_TITLE)}
+            email={email}
+            handleBackButtonClick={handleBackButtonClick}
+          />
+        ) : (
+          <Stack direction="column" spacing={2}>
+            <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
+              {t(SIGN_IN_HEADER)}
+            </Typography>
+            {renderSignInForm()}
+            <Box justifyContent="center">
+              <Button
+                variant="text"
+                disabled={signInMethod === SIGN_IN_METHODS.EMAIL}
+                onClick={handleSignInMethod}
+                id={EMAIL_SIGN_IN_METHOD_BUTTON_ID}
+              >
+                {t(EMAIL_SIGN_IN_METHOD)}
+              </Button>
+              <Button
+                variant="text"
+                disabled={signInMethod === SIGN_IN_METHODS.PASSWORD}
+                onClick={handleSignInMethod}
+                id={PASSWORD_SIGN_IN_METHOD_BUTTON_ID}
+              >
+                {t(PASSWORD_SIGN_IN_METHOD)}
+              </Button>
+            </Box>
+          </Stack>
+        )
+      }
     </FullscreenContainer>
   );
 };

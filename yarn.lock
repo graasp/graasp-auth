@@ -3529,12 +3529,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:1.1.5":
-  version: 1.1.5
-  resolution: "@graasp/query-client@npm:1.1.5"
+"@graasp/query-client@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@graasp/query-client@npm:1.2.0"
   dependencies:
     "@graasp/sdk": 1.1.2
-    "@graasp/translations": 1.15.0
+    "@graasp/translations": 1.15.1
     axios: 0.27.2
     crypto-js: 4.1.1
     http-status-codes: 2.2.0
@@ -3544,7 +3544,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: 6e7303043ff731eddd2d2172586c4d8bb425a14bf359285c9f80f036e320aa86777ad8129c516d76f40e760b2963d2af8add7fdba37b970b9146be0c1b1d2cdd
+  checksum: eaf962ccb577c0e38368fd078e4f0a4e5682a3da32df8e7edb00080eafc21902bc760bd850a46242a962154d0164ce4f2710f71c0a5278cee24383607cab6e0b
   languageName: node
   linkType: hard
 
@@ -3564,15 +3564,6 @@ __metadata:
     uuid: 9.0.0
     validator: 13.9.0
   checksum: 57792d9701515f53f7d8c8203e36195c7fa0164b348bf3b95cdbc1876bd8983388d88cde904f7847b94e13de5917c26ec97be1495516e3e736650930f3239a72
-  languageName: node
-  linkType: hard
-
-"@graasp/translations@npm:1.15.0":
-  version: 1.15.0
-  resolution: "@graasp/translations@npm:1.15.0"
-  dependencies:
-    i18next: 22.4.15
-  checksum: e073b83374462f2d108f1d697b7aa14460d05f4ec2e10757db0e0a0a72574bff4721f997851d8e88e871f3704c8bcf887533590dd7acdcbf9d607109bae25c8a
   languageName: node
   linkType: hard
 
@@ -4490,10 +4481,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.3.2":
-  version: 1.3.2
-  resolution: "@remix-run/router@npm:1.3.2"
-  checksum: ee2108b87d4a1241cdea137dd7e1741ee679228bd33fd81e22a6bb2940f81186cefe9a85e26d60cc49bbcc1bdbc57d1954b7d4d62f8a51ef69feddfc899f55fa
+"@remix-run/router@npm:1.7.1":
+  version: 1.7.1
+  resolution: "@remix-run/router@npm:1.7.1"
+  checksum: d13ad7e0b3b35379f8fdec1eec4f515325b618e431915e12fb9f1cd812ee959add0e7045edcb229ba17888ecfc787869b64e6cb4153ae3be148887e234b6ffac
   languageName: node
   linkType: hard
 
@@ -4707,21 +4698,30 @@ __metadata:
   linkType: hard
 
 "@smithy/protocol-http@npm:^1.0.1":
-  version: 1.1.1
-  resolution: "@smithy/protocol-http@npm:1.1.1"
+  version: 1.1.0
+  resolution: "@smithy/protocol-http@npm:1.1.0"
   dependencies:
-    "@smithy/types": ^1.1.1
+    "@smithy/types": ^1.1.0
     tslib: ^2.5.0
-  checksum: 6320e8b010d05a123efef19401b3e2fc0d03efa99082ad0d5fd41a3209a05332acb4b5ee21dcfd4764b6576019884602bd09ede0f7508540baf7ddb1f7eb49f5
+  checksum: f912e085a477664abf38ff4cd0c2ac064ef068afc6cc0a09ce9c2849f07bac8be622edf60f19a91e2701184b63daa85cb2898e243d7a2c6fd1613de705b3152c
   languageName: node
   linkType: hard
 
-"@smithy/types@npm:^1.0.0, @smithy/types@npm:^1.1.1":
+"@smithy/types@npm:^1.0.0":
   version: 1.1.1
   resolution: "@smithy/types@npm:1.1.1"
   dependencies:
     tslib: ^2.5.0
   checksum: bf4b632eb7d668d8b99e99facf514d506868121e24c0adfaaa52f7da4056644fda5cb4324355f1dba16fc43a4c9af9ef7853db2a4895c3fca11ac98cf6d12234
+  languageName: node
+  linkType: hard
+
+"@smithy/types@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@smithy/types@npm:1.1.0"
+  dependencies:
+    tslib: ^2.5.0
+  checksum: 8c0589fa973e5c71cf776c28c43aba04ee07139578fd0174aac0d74c3688e3ffa7075cecd65b223b2a155ad711808b1e4ad58a084ba9f24fcb49679272018387
   languageName: node
   linkType: hard
 
@@ -8641,7 +8641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"define-properties@npm:^1.1.3, define-properties@npm:^1.1.4":
+"define-properties@npm:^1.1.3, define-properties@npm:^1.1.4, define-properties@npm:^1.2.0":
   version: 1.2.0
   resolution: "define-properties@npm:1.2.0"
   dependencies:
@@ -10530,7 +10530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"functions-have-names@npm:^1.2.2":
+"functions-have-names@npm:^1.2.2, functions-have-names@npm:^1.2.3":
   version: 1.2.3
   resolution: "functions-have-names@npm:1.2.3"
   checksum: c3f1f5ba20f4e962efb71344ce0a40722163e85bee2101ce25f88214e78182d2d2476aa85ef37950c579eb6cf6ee811c17b3101bb84004bb75655f3e33f3fdb5
@@ -10901,7 +10901,7 @@ __metadata:
     "@cypress/instrument-cra": 1.4.0
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": 1.1.5
+    "@graasp/query-client": 1.2.0
     "@graasp/sdk": 1.1.2
     "@graasp/translations": 1.15.1
     "@graasp/ui": 3.2.4
@@ -10940,8 +10940,8 @@ __metadata:
     react-dom: 17.0.2
     react-ga4: 2.1.0
     react-i18next: 11.16.11
-    react-router: 6.8.1
-    react-router-dom: 6.8.1
+    react-router: 6.14.1
+    react-router-dom: 6.14.1
     react-scripts: 5.0.1
     react-toastify: 9.0.8
     standard-version: 9.5.0
@@ -16139,27 +16139,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.8.1":
-  version: 6.8.1
-  resolution: "react-router-dom@npm:6.8.1"
+"react-router-dom@npm:6.14.1":
+  version: 6.14.1
+  resolution: "react-router-dom@npm:6.14.1"
   dependencies:
-    "@remix-run/router": 1.3.2
-    react-router: 6.8.1
+    "@remix-run/router": 1.7.1
+    react-router: 6.14.1
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: fb1a9f5c7e4c83536ee7e6493f3c13f6abda66da69f9191fb8b087ab188ecc18a3a32575813a280cbeca67bcb8b0dcb6dbcef7ed599e03f38a44d694f4abcf14
+  checksum: 6ddda481edb2c614671bcaf24b0ca07ca00215f1d0350ede43a03ba24c3401a537dfe4a9f5e108a512c2703e4a8ce99a3301c15caf16012b67b248b1a055d69a
   languageName: node
   linkType: hard
 
-"react-router@npm:6.8.1":
-  version: 6.8.1
-  resolution: "react-router@npm:6.8.1"
+"react-router@npm:6.14.1":
+  version: 6.14.1
+  resolution: "react-router@npm:6.14.1"
   dependencies:
-    "@remix-run/router": 1.3.2
+    "@remix-run/router": 1.7.1
   peerDependencies:
     react: ">=16.8"
-  checksum: 8e7cc7a516adeb6060911861af99d9b512893c15ec732cbf8574872919be4f3fe439ffa8c0876d1bcbced880d081bfeda3c01cb505b5a243565d10500ee0ac36
+  checksum: 16f3d108e0f833bfee447192e3f40bd6731b8b11d42ca6925443ec8aeb157a889fe8ece67baf690f75f0d146d0a212656f9216fcc2df6fd3a2bd263108ed0abb
   languageName: node
   linkType: hard
 
@@ -16450,7 +16450,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexp.prototype.flags@npm:^1.2.0, regexp.prototype.flags@npm:^1.4.3":
+"regexp.prototype.flags@npm:^1.2.0":
+  version: 1.5.0
+  resolution: "regexp.prototype.flags@npm:1.5.0"
+  dependencies:
+    call-bind: ^1.0.2
+    define-properties: ^1.2.0
+    functions-have-names: ^1.2.3
+  checksum: c541687cdbdfff1b9a07f6e44879f82c66bbf07665f9a7544c5fd16acdb3ec8d1436caab01662d2fbcad403f3499d49ab0b77fbc7ef29ef961d98cc4bc9755b4
+  languageName: node
+  linkType: hard
+
+"regexp.prototype.flags@npm:^1.4.3":
   version: 1.4.3
   resolution: "regexp.prototype.flags@npm:1.4.3"
   dependencies:
@@ -17018,13 +17029,13 @@ __metadata:
   linkType: hard
 
 "semver@npm:^7.5.0":
-  version: 7.5.4
-  resolution: "semver@npm:7.5.4"
+  version: 7.5.3
+  resolution: "semver@npm:7.5.3"
   dependencies:
     lru-cache: ^6.0.0
   bin:
     semver: bin/semver.js
-  checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
+  checksum: 9d58db16525e9f749ad0a696a1f27deabaa51f66e91d2fa2b0db3de3e9644e8677de3b7d7a03f4c15bc81521e0c3916d7369e0572dbde250d9bedf5194e2a8a7
   languageName: node
   linkType: hard
 
