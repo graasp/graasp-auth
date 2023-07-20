@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/graasp/graasp-auth/compare/v1.0.0-rc.1...v1.0.0) (2023-07-20)
+
+
+### Features
+
+* **style:** revamp of the login page ([#107](https://github.com/graasp/graasp-auth/issues/107)) ([11f83de](https://github.com/graasp/graasp-auth/commit/11f83de446f7ceffc1f3791358851c6bcc28a276))
+
+
+### Bug Fixes
+
+* add graasp-mobile-builder-app deep-links verification ([#127](https://github.com/graasp/graasp-auth/issues/127)) ([36845f5](https://github.com/graasp/graasp-auth/commit/36845f5e0d84112fd00fc643db3635d131b07ea0))
+* **deps:** update dependency @graasp/sdk to v1.0.0 ([#104](https://github.com/graasp/graasp-auth/issues/104)) ([e34159d](https://github.com/graasp/graasp-auth/commit/e34159dc3642824765d5de82559c8f7cac7319f0))
+* **deps:** update dependency @graasp/translations to v1.15.0 ([#111](https://github.com/graasp/graasp-auth/issues/111)) ([78f5337](https://github.com/graasp/graasp-auth/commit/78f533763336cfc4c6d7d424fb80ac94d719595b))
+* **deps:** update dependency @graasp/translations to v1.15.1 ([#116](https://github.com/graasp/graasp-auth/issues/116)) ([6284a80](https://github.com/graasp/graasp-auth/commit/6284a80228ffea058bd8f2f50b73bb3dbe7f4b77))
+* **deps:** update dependency @graasp/ui to v3.2.4 ([#114](https://github.com/graasp/graasp-auth/issues/114)) ([a8c29aa](https://github.com/graasp/graasp-auth/commit/a8c29aa8e060272db9300cbfcb4cba60bab16eac))
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.136 ([#108](https://github.com/graasp/graasp-auth/issues/108)) ([13caadd](https://github.com/graasp/graasp-auth/commit/13caadd7d82415e39281255bde25510e001dde73))
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.137 ([#120](https://github.com/graasp/graasp-auth/issues/120)) ([10b879d](https://github.com/graasp/graasp-auth/commit/10b879dd485b4b538d935fffe8ae842ff88b14c1))
+* **deps:** update dependency qs to v6.11.2 ([#91](https://github.com/graasp/graasp-auth/issues/91)) ([6fe225c](https://github.com/graasp/graasp-auth/commit/6fe225c1459b77eee943e0207f24b771bb8b0e43))
+* **deps:** update dependency react-ga4 to v2 ([#99](https://github.com/graasp/graasp-auth/issues/99)) ([f10102a](https://github.com/graasp/graasp-auth/commit/f10102add800fc54f5729632e4842f88427fe5a2))
+* **deps:** update dependency react-i18next to v11.16.11 ([#92](https://github.com/graasp/graasp-auth/issues/92)) ([6ebab5d](https://github.com/graasp/graasp-auth/commit/6ebab5d292a41021ead9a2b1f8a777029cd6a9d3))
+* **deps:** update dependency react-toastify to v9.0.8 ([#93](https://github.com/graasp/graasp-auth/issues/93)) ([f0672f3](https://github.com/graasp/graasp-auth/commit/f0672f3ecdd1d35eb45b1e79dc1a0fb7ca6e6766))
+* **deps:** update dependency validator to v13.9.0 ([#129](https://github.com/graasp/graasp-auth/issues/129)) ([bdd3e10](https://github.com/graasp/graasp-auth/commit/bdd3e100ffc32b039dfda240014346f04d387b3e))
+* **deps:** update emotion monorepo ([#130](https://github.com/graasp/graasp-auth/issues/130)) ([50e47cb](https://github.com/graasp/graasp-auth/commit/50e47cb737027b24f10a3db08c03ac77d2ab8d4b))
+* **deps:** update emotion monorepo to v11.10.8 ([#94](https://github.com/graasp/graasp-auth/issues/94)) ([78f2e27](https://github.com/graasp/graasp-auth/commit/78f2e27f428a809f8d84bbc8253a503bd5fb87f2))
+* **deps:** update graasp deps ([#113](https://github.com/graasp/graasp-auth/issues/113)) ([4ebb56f](https://github.com/graasp/graasp-auth/commit/4ebb56fb3fc7ac8d2c0067d5348a309f6c435277))
+* **deps:** update mui (non-major) ([a23faab](https://github.com/graasp/graasp-auth/commit/a23faabdb33b1847530fcf02bc781705b3f7aecc))
+* **deps:** update sentry packages to v7.57.0 ([#98](https://github.com/graasp/graasp-auth/issues/98)) ([92d59d7](https://github.com/graasp/graasp-auth/commit/92d59d773ea8298fbe350cda99ae417e722453a7))
+* **deps:** update sentry packages to v7.59.3 ([#128](https://github.com/graasp/graasp-auth/issues/128)) ([dd275d0](https://github.com/graasp/graasp-auth/commit/dd275d096110ecb69903a0cc75965b87e1aa6c6c))
+* remove postcheckout hook ([#105](https://github.com/graasp/graasp-auth/issues/105)) ([5ac9812](https://github.com/graasp/graasp-auth/commit/5ac9812371a1c107736b752ac12ad1a667d49702))
+* update favicon to use new boxed logo as svg ([#121](https://github.com/graasp/graasp-auth/issues/121)) ([9521c94](https://github.com/graasp/graasp-auth/commit/9521c94e29c207a7ad5eecb7e6cff0f0420b2d66))
+
 ## [1.0.0-rc.1](https://github.com/graasp/graasp-auth/compare/v0.5.1...v1.0.0-rc.1) (2023-06-14)
 
 
