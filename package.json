@@ -9,8 +9,8 @@
     "Alexandre Chau"
   ],
   "dependencies": {
-    "@emotion/react": "11.10.8",
-    "@emotion/styled": "11.10.8",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@graasp/query-client": "1.1.5",
     "@graasp/sdk": "1.1.2",
     "@graasp/translations": "1.15.1",
