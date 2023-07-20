@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.graasp.mobile",
+      "sha256_cert_fingerprints": [
+        "4C:B7:34:EC:44:C6:D9:AD:A3:D7:87:F1:0F:AC:21:10:86:61:DF:AA:E1:64:40:E0:98:06:26:F2:FE:DA:08:9D"
+      ]
+    }
+  }
+]
