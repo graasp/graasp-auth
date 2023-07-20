@@ -9,9 +9,9 @@ import pkg from '../package.json';
 import Root from './Root';
 import {
   APP_VERSION,
-  DOMAIN,
   GA_MEASUREMENT_ID,
   SENTRY_DSN,
+  SENTRY_ENV,
 } from './config/env';
 
 if (GA_MEASUREMENT_ID && hasAcceptedCookies() && import.meta.env.PROD) {
@@ -26,7 +26,7 @@ SentryInit({
     new Replay({ maskAllText: false, maskAllInputs: false }),
   ],
   release: `${pkg.name}@${APP_VERSION}`,
-  environment: DOMAIN,
+  environment: SENTRY_ENV,
   tracesSampleRate: 1.0,
 
   // This sets the sample rate to be 10%. You may want this to be 100% while

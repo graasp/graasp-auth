@@ -9,6 +9,13 @@
       content="Authentication portal for the Graasp ecosystem."
     />
     <meta name="version-info" content="%VITE_VERSION%" />
+
+    <!--
+      This is to load the reCAPTCHA script
+      The VITE_RECAPTCHA_SITE_KEY value is replaced at build time by vite
+    -->
+    <script src="https://www.google.com/recaptcha/api.js?render=%VITE_RECAPTCHA_SITE_KEY%"></script>
+
     <!-- Load Roboto font from Google fonts -->
     <link
       rel="stylesheet"

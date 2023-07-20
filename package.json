@@ -47,7 +47,7 @@
     "hooks:uninstall": "husky uninstall",
     "hooks:install": "husky install",
     "cypress:open": "env-cmd -f ./.env.development cypress open",
-    "cypress": "concurrently \"yarn start:test\" \"yarn cypress:run\"",
+    "cypress": "concurrently -k -s first \"yarn start:test\" \"yarn cypress:run\"",
     "cypress:run": "env-cmd -f ./.env.test cypress run --headless --browser chrome",
     "postinstall": "husky install"
   },
