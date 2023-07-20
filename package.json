@@ -30,7 +30,7 @@
     "react-router-dom": "6.8.1",
     "react-scripts": "5.0.1",
     "react-toastify": "9.0.8",
-    "validator": "13.7.0"
+    "validator": "13.9.0"
   },
   "scripts": {
     "start": "env-cmd -f ./.env.local react-scripts -r @cypress/instrument-cra start",
