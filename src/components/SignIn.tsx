@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
@@ -45,6 +45,7 @@ const SignIn: FC = () => {
   const { executeCaptcha } = useRecaptcha();
 
   const { isMobile, challenge } = useMobileLogin();
+  const { search } = useLocation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -210,7 +211,7 @@ const SignIn: FC = () => {
           )}
         </Stack>
       </FormControl>
-      <Link to={SIGN_UP_PATH}>{t(SIGN_UP_LINK_TEXT)}</Link>
+      <Link to={`${SIGN_UP_PATH}${search}`}>{t(SIGN_UP_LINK_TEXT)}</Link>
     </>
   );
 
