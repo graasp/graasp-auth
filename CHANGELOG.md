@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/graasp/graasp-auth/compare/v1.0.0...v1.1.0) (2023-07-21)
+
+
+### Features
+
+* add mobile auth through 'm' query parameter ([#102](https://github.com/graasp/graasp-auth/issues/102)) ([18dc803](https://github.com/graasp/graasp-auth/commit/18dc80390432a47a8ed9141234ca508476a42a4e))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/sdk to v1.1.3 ([#119](https://github.com/graasp/graasp-auth/issues/119)) ([92ef2f1](https://github.com/graasp/graasp-auth/commit/92ef2f1bdfbd940616a9bf6cb60dc9c0a8d5729a))
+* **deps:** update mui (non-major) to v5.14.1 ([#131](https://github.com/graasp/graasp-auth/issues/131)) ([bbaf397](https://github.com/graasp/graasp-auth/commit/bbaf397574a50bf4aab0da30f13dc4f064576819))
+* **deps:** update react-router monorepo to v6.14.2 ([#115](https://github.com/graasp/graasp-auth/issues/115)) ([bad6211](https://github.com/graasp/graasp-auth/commit/bad6211d18ec82e93218f9a46a271f61f7a92aba))
+
 ## [1.0.0](https://github.com/graasp/graasp-auth/compare/v1.0.0-rc.1...v1.0.0) (2023-07-20)
 
 
