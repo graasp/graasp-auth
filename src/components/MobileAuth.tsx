@@ -6,6 +6,9 @@ import { Button, Stack, Typography } from '@mui/material';
 import { HOME_PATH } from '../config/paths';
 import FullscreenContainer from './FullscreenContainer';
 
+const PLAY_STORE_LINK =
+  'https://play.google.com/store/apps/details?id=org.graasp.mobile';
+
 const MobileAuth = (): JSX.Element => {
   return (
     <FullscreenContainer>
@@ -33,7 +36,7 @@ const MobileAuth = (): JSX.Element => {
             <Typography>Get from the Apple App Store</Typography>
           </Stack>
         </Button>
-        <Button component={Link} to={''} variant="contained">
+        <Button component={Link} to={PLAY_STORE_LINK} variant="contained">
           <Stack
             direction="column"
             alignItems="center"
