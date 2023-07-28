@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.1](https://github.com/graasp/graasp-auth/compare/v1.1.0...v1.1.1) (2023-07-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/ui to v3.2.6 ([#146](https://github.com/graasp/graasp-auth/issues/146)) ([3fb3136](https://github.com/graasp/graasp-auth/commit/3fb3136fdbc50185976cef946ab43146d71a3798))
+* **deps:** update sentry packages to v7.60.1 ([#145](https://github.com/graasp/graasp-auth/issues/145)) ([61ba322](https://github.com/graasp/graasp-auth/commit/61ba322acffcc6f199fe9aa12106ead549425cbd))
+* modify apple-app-site-association with token param ([#149](https://github.com/graasp/graasp-auth/issues/149)) ([de94135](https://github.com/graasp/graasp-auth/commit/de94135888368df7e9a0b1b34cea51be1ed6ef48))
+
 ## [1.1.0](https://github.com/graasp/graasp-auth/compare/v1.0.0...v1.1.0) (2023-07-21)
 
 
