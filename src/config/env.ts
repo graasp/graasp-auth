@@ -2,7 +2,7 @@ export const DOMAIN = import.meta.env.VITE_GRAASP_DOMAIN;
 export const APP_VERSION = import.meta.env.VITE_VERSION;
 
 export const API_HOST =
-  import.meta.env.VITE_GRAASP_AUTH_HOST || 'http://localhost:3000';
+  import.meta.env.VITE_GRAASP_API_HOST || 'http://localhost:3000';
 
 export const GRAASP_BUILDER_HOST =
   import.meta.env.VITE_GRAASP_BUILDER_HOST ?? 'http://localhost:3111';
