@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 
 import { routines } from '@graasp/query-client';
 
-import { SHOW_NOTIFICATIONS } from './constants';
+import { SHOW_NOTIFICATIONS } from './env';
 import i18n from './i18n';
 
 const {

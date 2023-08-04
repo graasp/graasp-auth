@@ -1,15 +1,17 @@
 # graasp-auth
 
-Create an `.env.local` file with:
+Create an `.env.development` file with:
 
 ```sh
-REACT_APP_API_HOST=http://localhost:3000
-PORT=3001
-REACT_APP_DOMAIN=localhost:3001
-REACT_APP_SHOW_NOTIFICATIONS=true
-REACT_APP_AUTHENTICATION_HOST=http://localhost:3001
+VITE_PORT=3001
+VITE_API_HOST=http://localhost:3000
+VITE_VERSION=latest
+VITE_APP_DOMAIN=localhost:3001
+VITE_GRAASP_BUILDER_HOST=http://localhost:3111
+VITE_SHOW_NOTIFICATIONS=true
+VITE_GRAASP_AUT_HOST=http://localhost:3001
 
-REACT_APP_RECAPTCHA_SITE_KEY=
+VITE_RECAPTCHA_SITE_KEY=
 ```
 
 Generate your recaptcha key from [the reCAPTCHA admin console](https://www.google.com/recaptcha/admin/create)
