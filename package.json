@@ -75,17 +75,17 @@
     "@testing-library/user-event": "14.4.3",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jest": "29.5.3",
-    "@types/node": "18.17.1",
+    "@types/node": "18.17.2",
     "@types/qs": "6.9.7",
-    "@types/react": "18.2.15",
+    "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "@types/react-router-dom": "5.3.3",
     "@types/validator": "13.9.0",
     "@typescript-eslint/eslint-plugin": "6.2.1",
     "@typescript-eslint/parser": "6.2.1",
-    "@vitejs/plugin-react": "4.0.3",
+    "@vitejs/plugin-react": "4.0.4",
     "concurrently": "8.2.0",
-    "cypress": "12.17.2",
+    "cypress": "12.17.3",
     "env-cmd": "10.1.0",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "8.10.0",
@@ -98,13 +98,13 @@
     "rollup-plugin-visualizer": "5.9.2",
     "standard-version": "9.5.0",
     "typescript": "5.1.6",
-    "vite": "4.4.4",
+    "vite": "4.4.8",
     "vite-plugin-checker": "0.6.1",
     "vite-plugin-istanbul": "4.1.0",
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@types/react": "17.0.62"
+    "@types/react": "18.2.18"
   },
   "packageManager": "yarn@3.6.1"
 }
