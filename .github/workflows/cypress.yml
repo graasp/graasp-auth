@@ -14,6 +14,7 @@ concurrency:
 jobs:
   cypress:
     name: Cypress
+    environment: ci
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -39,12 +40,14 @@ jobs:
           config-file: cypress.config.ts
           cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
         env:
-          VITE_PORT: 3001
-          VITE_GRAASP_DOMAIN: localhost
-          VITE_GRAASP_API_HOST: http://localhost:3636
-          VITE_GRAASP_AUTH_HOST: http://localhost:3001
-          VITE_GRAASP_BUILDER_HOST: http://localhost:3111
-          VITE_SHOW_NOTIFICATIONS: true
+          VITE_PORT: ${{ vars.VITE_PORT }}
+          VITE_VERSION: ${{ vars.VITE_VERSION }}
+          VITE_GRAASP_DOMAIN: ${{ vars.VITE_GRAASP_DOMAIN }}
+          VITE_GRAASP_API_HOST: ${{ vars.VITE_GRAASP_API_HOST }}
+          VITE_GRAASP_AUTH_HOST: ${{ vars.VITE_GRAASP_AUTH_HOST }}
+          VITE_GRAASP_BUILDER_HOST: ${{ vars.VITE_GRAASP_BUILDER_HOST }}
+          VITE_SHOW_NOTIFICATIONS: ${{ vars.VITE_SHOW_NOTIFICATIONS }}
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
 
       # after the test run completes
       # store any screenshots
