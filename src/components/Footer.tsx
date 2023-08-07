@@ -11,7 +11,7 @@ const Footer = () => {
       bottom={0}
       display="flex"
       justifyContent="end"
-      alignItems="flex-end"
+      alignItems="center"
       flexDirection="column"
       width="100%"
     >

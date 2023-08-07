@@ -2,7 +2,7 @@ import { I18nextProvider } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { COMMON, langs } from '@graasp/translations';
+import { langs } from '@graasp/translations';
 import { ThemeProvider } from '@graasp/ui';
 
 import { CssBaseline } from '@mui/material';
@@ -18,15 +18,14 @@ import {
 import { RecaptchaProvider } from './context/RecaptchaContext';
 
 const Content = () => {
-  const { t, i18n } = useCommonTranslation();
-  const label = t(COMMON.LANGUAGE);
+  const { i18n } = useCommonTranslation();
 
   return (
     <ThemeProvider
       i18n={i18n}
       langs={langs}
       languageSelectSx={{ mb: 2, mr: 2 }}
-      languageSelectLabel={label}
+      languageSelectLabel={null}
     >
       <CssBaseline />
       {SHOW_NOTIFICATIONS && <ToastContainer />}
