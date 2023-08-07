@@ -8,7 +8,7 @@ declare global {
       ready?: (callback: () => void) => void;
       render: (
         name: string,
-        args: { siteKey: string; badge?: string; size?: string },
+        args: { sitekey: string; badge?: string; size?: string },
       ) => number;
       execute: (
         clientId: number,
@@ -39,7 +39,7 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
         resolve(undefined);
       } else {
         const clientId = window.grecaptcha.render('inline-badge', {
-          siteKey,
+          sitekey: siteKey,
           badge: direction === 'rtl' ? 'bottomleft' : 'bottomright',
           size: 'invisible',
         });
@@ -54,6 +54,7 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
   const value = { executeCaptcha };
   return (
     <RecaptchaContext.Provider value={value}>
+      <div id="inline-badge" />
       {children}
     </RecaptchaContext.Provider>
   );
