@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/graasp/graasp-auth/compare/v1.1.1...v1.2.0) (2023-08-07)
+
+
+### Features
+
+* add rtl support including arabic translations ([#81](https://github.com/graasp/graasp-auth/issues/81)) ([49ef193](https://github.com/graasp/graasp-auth/commit/49ef1939639d80c9196ac5f75c2bbc5ce48d9837))
+* extract translations ([eed6a13](https://github.com/graasp/graasp-auth/commit/eed6a136ee044caee8ba3280c74a96279628eb84))
+* move to vitejs ([#157](https://github.com/graasp/graasp-auth/issues/157)) ([7e3d397](https://github.com/graasp/graasp-auth/commit/7e3d397083322172a191ad6f43b9c69a9693c819))
+
+
+### Bug Fixes
+
+* add changes for mobile register ([dc30203](https://github.com/graasp/graasp-auth/commit/dc3020304af2d9cea723f349e52ccc3f6aa26f1f))
+* add play link and update deps ([80402c8](https://github.com/graasp/graasp-auth/commit/80402c8c669542ed35e7d1c4c91d48abdfea3d0d))
+* **deps:** update dependency @graasp/sdk to v1.2.0 ([#160](https://github.com/graasp/graasp-auth/issues/160)) ([3c2aa92](https://github.com/graasp/graasp-auth/commit/3c2aa92e0bb8363c86ba3261f9bce89dbf320e6d))
+* **deps:** update dependency @graasp/ui to v3.2.7 ([#154](https://github.com/graasp/graasp-auth/issues/154)) ([c699cd0](https://github.com/graasp/graasp-auth/commit/c699cd0106e503deb75bb5d79e371453f29e8988))
+* **deps:** update mui (non-major) ([#152](https://github.com/graasp/graasp-auth/issues/152)) ([a7571d5](https://github.com/graasp/graasp-auth/commit/a7571d5dfa6955c839b4c92d0b61795acac1b0bb))
+* env variable ([#159](https://github.com/graasp/graasp-auth/issues/159)) ([ec3d4b4](https://github.com/graasp/graasp-auth/commit/ec3d4b43ba06dc9deb7c32c981347e092dac5c3c))
+
 ## [1.1.1](https://github.com/graasp/graasp-auth/compare/v1.1.0...v1.1.1) (2023-07-28)
 
 
