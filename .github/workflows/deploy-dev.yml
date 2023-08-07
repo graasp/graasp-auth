@@ -25,7 +25,6 @@ jobs:
       - name: Yarn build
         # Set environment variables required to perform the build. These are only available to this step
         env:
-          VITE_PORT: ${{ vars.VITE_PORT }}
           VITE_VERSION: ${{ github.sha }}
           VITE_GRAASP_DOMAIN: ${{ vars.VITE_GRAASP_DOMAIN }}
           VITE_GRAASP_API_HOST: ${{ vars.VITE_GRAASP_API_HOST }}
@@ -34,7 +33,7 @@ jobs:
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
           VITE_SENTRY_ENV: ${{ vars.VITE_SENTRY_ENV }}
           VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
-          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+          # VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
           VITE_SHOW_NOTIFICATIONS: ${{ vars.VITE_SHOW_NOTIFICATIONS }}
         run: yarn build
         shell: bash
