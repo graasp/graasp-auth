@@ -1,5 +1,5 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
 import { AUTH } from '@graasp/translations';
@@ -9,8 +9,8 @@ import { Stack } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
+import { SIGN_IN_PATH } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
-import { buildSignInPath } from '../config/paths';
 import { hooks, mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
@@ -19,6 +19,7 @@ import {
   SIGN_UP_HEADER_ID,
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
+import { useMobileLogin } from '../hooks/mobile';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
@@ -32,6 +33,8 @@ const SignUp = () => {
   const { t } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
 
+  const { isMobile, challenge } = useMobileLogin();
+
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
@@ -41,7 +44,10 @@ const SignUp = () => {
 
   const { mutateAsync: signUp, isSuccess: signUpSuccess } =
     mutations.useSignUp();
+  const { mutateAsync: mobileSignUp, isSuccess: mobileSignUpSuccess } =
+    mutations.useMobileSignUp();
   const [searchParams] = useSearchParams();
+  const { search } = useLocation();
 
   const {
     data: invitation,
@@ -78,12 +84,21 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      const token = await executeCaptcha(RecaptchaAction.SignUp);
-      await signUp({
-        name: name.trim(),
-        email: lowercaseEmail,
-        captcha: token,
-      });
+      const token = await executeCaptcha(
+        isMobile ? RecaptchaAction.SignUpMobile : RecaptchaAction.SignUp,
+      );
+      await (isMobile
+        ? mobileSignUp({
+            name: name.trim(),
+            email: lowercaseEmail,
+            captcha: token,
+            challenge,
+          })
+        : signUp({
+            name: name.trim(),
+            email: lowercaseEmail,
+            captcha: token,
+          }));
       setSuccessView(true);
     }
   };
@@ -119,13 +134,13 @@ const SignUp = () => {
           </Button>
         </Stack>
       </FormControl>
-      <Link to={buildSignInPath()}>{t(SIGN_IN_LINK_TEXT)}</Link>
+      <Link to={`${SIGN_IN_PATH}${search}`}>{t(SIGN_IN_LINK_TEXT)}</Link>
     </>
   );
 
   return (
     <FullscreenContainer>
-      {signUpSuccess && successView ? (
+      {(signUpSuccess || mobileSignUpSuccess) && successView ? (
         <SuccessContent
           title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
           email={email}
