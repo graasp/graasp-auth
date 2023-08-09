@@ -78,9 +78,9 @@
     "@testing-library/user-event": "14.4.3",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jest": "29.5.3",
-    "@types/node": "18.17.2",
+    "@types/node": "18.17.4",
     "@types/qs": "6.9.7",
-    "@types/react": "18.2.18",
+    "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
     "@types/react-router-dom": "5.3.3",
     "@types/validator": "13.9.0",
@@ -101,13 +101,13 @@
     "rollup-plugin-visualizer": "5.9.2",
     "standard-version": "9.5.0",
     "typescript": "5.1.6",
-    "vite": "4.4.8",
+    "vite": "4.4.9",
     "vite-plugin-checker": "0.6.1",
     "vite-plugin-istanbul": "5.0.0",
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@types/react": "18.2.18"
+    "@types/react": "18.2.19"
   },
   "packageManager": "yarn@3.6.1"
 }
