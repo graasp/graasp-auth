@@ -38,7 +38,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         requireEnv: false,
         checkProd: true,
       }),
-      ...(mode === 'dev'
+      ...(mode === 'development'
         ? [
             visualizer({
               template: 'treemap', // or sunburst
