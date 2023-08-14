@@ -19,6 +19,9 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         ignored: ['**/coverage/**'],
       },
     },
+    preview: {
+      port: parseInt(process.env.VITE_PORT || '3001', 10),
+    },
     build: {
       outDir: 'build',
     },

@@ -3118,9 +3118,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:1.4.0":
+"@graasp/query-client@github:graasp/graasp-query-client#prettier-imports":
   version: 1.4.0
-  resolution: "@graasp/query-client@npm:1.4.0"
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=6cd3c1610a489d303f9ff48be696df3383f477df"
   dependencies:
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.1
@@ -3133,7 +3133,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: d5581682e607a3275c05ee351987afe490086c06ef078d50aa8c6e2b4662844f9ae722ec925f3aa9bd91c1a68da8b0dea1c6293d263fbed23939156dfe60f90f
+  checksum: 9558292925c166ea3fc6737c3976350472066644dc077f1bcc9410e87a51d534c8b94e79593849f69a9068655f43c7f73e1fbc32626de4bc9acc2777822a35bb
   languageName: node
   linkType: hard
 
@@ -8608,7 +8608,7 @@ __metadata:
     "@emotion/cache": 11.10.8
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": 1.4.0
+    "@graasp/query-client": "github:graasp/graasp-query-client#prettier-imports"
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.0
     "@graasp/ui": 3.3.0
