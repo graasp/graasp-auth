@@ -78,9 +78,9 @@
     "@testing-library/user-event": "14.4.3",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jest": "29.5.3",
-    "@types/node": "18.17.4",
+    "@types/node": "18.17.5",
     "@types/qs": "6.9.7",
-    "@types/react": "18.2.19",
+    "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@types/react-router-dom": "5.3.3",
     "@types/validator": "13.9.0",
@@ -107,7 +107,7 @@
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@types/react": "18.2.19"
+    "@types/react": "18.2.20"
   },
   "packageManager": "yarn@3.6.1"
 }
