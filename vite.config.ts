@@ -45,7 +45,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
               open: true,
               gzipSize: true,
               brotliSize: true,
-              filename: 'analice.html',
+              filename: 'bundle_analysis.html',
             }) as PluginOption,
           ]
         : []),

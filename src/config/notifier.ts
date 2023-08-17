@@ -1,5 +1,4 @@
 import { AxiosError } from 'axios';
-import { StatusCodes } from 'http-status-codes';
 import { toast } from 'react-toastify';
 
 import { Notifier, routines } from '@graasp/query-client';
@@ -15,6 +14,17 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
+const getErrorMessage = (
+  error: Parameters<Notifier>[0]['payload']['error'],
+) => {
+  if (error instanceof AxiosError) {
+    if (error.isAxiosError) {
+      return error.response.data.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR;
+    }
+  }
+  return FAILURE_MESSAGES.UNEXPECTED_ERROR;
+};
+
 const notifier: Notifier = (args) => {
   const { type, payload } = args;
 
@@ -27,16 +37,9 @@ const notifier: Notifier = (args) => {
   switch (type) {
     case signInRoutine.FAILURE:
     case signUpRoutine.FAILURE:
-    case signInWithPasswordRoutine.FAILURE: {
-      if (
-        payload.error instanceof AxiosError &&
-        payload.error.response?.data.statusCode === StatusCodes.NOT_ACCEPTABLE
-      )
-        message = FAILURE_MESSAGES.MEMBER_WITHOUT_PASSWORD;
-      break;
-    }
+    case signInWithPasswordRoutine.FAILURE:
     case getInvitationRoutine.FAILURE: {
-      message = payload?.error?.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR;
+      message = getErrorMessage(payload.error);
       break;
     }
     case signInRoutine.SUCCESS:

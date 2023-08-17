@@ -3118,9 +3118,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#prettier-imports":
-  version: 1.4.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=6cd3c1610a489d303f9ff48be696df3383f477df"
+"@graasp/query-client@github:graasp/graasp-query-client#392-fix-cryptic-message-on-signinwithpassword":
+  version: 1.4.1
+  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=f662f5e1e9ca1619c8905983b51725a4865fe289"
   dependencies:
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.1
@@ -3133,7 +3133,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: 9558292925c166ea3fc6737c3976350472066644dc077f1bcc9410e87a51d534c8b94e79593849f69a9068655f43c7f73e1fbc32626de4bc9acc2777822a35bb
+  checksum: 0c5dbead3454336b0ce21c7396de3bbe615b7baff6ca39083e4af19fbf0bc393f7138e97acfc431c9af1696a311f9bf969cf266b4800af7f596436119ea14ab6
   languageName: node
   linkType: hard
 
@@ -8608,7 +8608,7 @@ __metadata:
     "@emotion/cache": 11.10.8
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": "github:graasp/graasp-query-client#prettier-imports"
+    "@graasp/query-client": "github:graasp/graasp-query-client#392-fix-cryptic-message-on-signinwithpassword"
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.0
     "@graasp/ui": 3.3.0
