@@ -3118,9 +3118,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#392-fix-cryptic-message-on-signinwithpassword":
+"@graasp/query-client@npm:1.4.1":
   version: 1.4.1
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=f662f5e1e9ca1619c8905983b51725a4865fe289"
+  resolution: "@graasp/query-client@npm:1.4.1"
   dependencies:
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.1
@@ -3133,7 +3133,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: 0c5dbead3454336b0ce21c7396de3bbe615b7baff6ca39083e4af19fbf0bc393f7138e97acfc431c9af1696a311f9bf969cf266b4800af7f596436119ea14ab6
+  checksum: 95d97d12d4d8fee4c06fbce468edd58909e35b63a05e34de4a5cf44d9f5f2246bfae296e97cbef04e72e46160b53059a757aac2118c9074e647f4781efc34705
   languageName: node
   linkType: hard
 
@@ -8608,7 +8608,7 @@ __metadata:
     "@emotion/cache": 11.10.8
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": "github:graasp/graasp-query-client#392-fix-cryptic-message-on-signinwithpassword"
+    "@graasp/query-client": 1.4.1
     "@graasp/sdk": 1.2.0
     "@graasp/translations": 1.18.0
     "@graasp/ui": 3.3.0
