@@ -19,6 +19,9 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         ignored: ['**/coverage/**'],
       },
     },
+    preview: {
+      port: parseInt(process.env.VITE_PORT || '3001', 10),
+    },
     build: {
       outDir: 'build',
     },
@@ -35,14 +38,14 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         requireEnv: false,
         checkProd: true,
       }),
-      ...(mode === 'dev'
+      ...(mode === 'development'
         ? [
             visualizer({
               template: 'treemap', // or sunburst
               open: true,
               gzipSize: true,
               brotliSize: true,
-              filename: 'analice.html',
+              filename: 'bundle_analysis.html',
             }) as PluginOption,
           ]
         : []),

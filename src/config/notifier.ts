@@ -1,6 +1,8 @@
+import { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
-import { routines } from '@graasp/query-client';
+import { Notifier, routines } from '@graasp/query-client';
+import { FAILURE_MESSAGES } from '@graasp/translations';
 
 import { SHOW_NOTIFICATIONS } from './env';
 import i18n from './i18n';
@@ -12,13 +14,18 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
-const notifier = (args: {
-  type: string;
-  payload?: {
-    error?: Error;
-    message?: string;
-  };
-}) => {
+const getErrorMessage = (
+  error: Parameters<Notifier>[0]['payload']['error'],
+) => {
+  if (error instanceof AxiosError) {
+    if (error.isAxiosError) {
+      return error.response.data.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR;
+    }
+  }
+  return FAILURE_MESSAGES.UNEXPECTED_ERROR;
+};
+
+const notifier: Notifier = (args) => {
   const { type, payload } = args;
 
   if (!SHOW_NOTIFICATIONS) {
@@ -32,7 +39,7 @@ const notifier = (args: {
     case signUpRoutine.FAILURE:
     case signInWithPasswordRoutine.FAILURE:
     case getInvitationRoutine.FAILURE: {
-      message = payload?.error?.message ?? 'An unexpected error occured';
+      message = getErrorMessage(payload.error);
       break;
     }
     case signInRoutine.SUCCESS:
