@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://github.com/graasp/graasp-auth/compare/v1.2.0...v1.2.1) (2023-08-22)
+
+
+### Bug Fixes
+
+* cyptic message when no password is set ([#183](https://github.com/graasp/graasp-auth/issues/183)) ([8464b51](https://github.com/graasp/graasp-auth/commit/8464b5185686e02b444f9f7f41121f79e2192157))
+* **deps:** update dependency @emotion/cache to v11.10.8 ([#168](https://github.com/graasp/graasp-auth/issues/168)) ([37ff21f](https://github.com/graasp/graasp-auth/commit/37ff21f532cffece7227b387ccc64e58c31d6253))
+* **deps:** update dependency @emotion/cache to v11.11.0 ([#181](https://github.com/graasp/graasp-auth/issues/181)) ([af7b5cb](https://github.com/graasp/graasp-auth/commit/af7b5cbe4c860c921c12b04e8e1e076b77620e0e))
+* **deps:** update dependency @graasp/query-client to v1.4.0 ([#109](https://github.com/graasp/graasp-auth/issues/109)) ([cdf7e8b](https://github.com/graasp/graasp-auth/commit/cdf7e8bc4c8a7aed41e9cfaeb6c60b644d2eebb7))
+* **deps:** update dependency @graasp/query-client to v1.4.2 ([#187](https://github.com/graasp/graasp-auth/issues/187)) ([ce8e960](https://github.com/graasp/graasp-auth/commit/ce8e96028bb88b4b7ac97056a7ed84a6806a554a))
+* **deps:** update dependency @graasp/query-client to v1.4.3 ([#194](https://github.com/graasp/graasp-auth/issues/194)) ([6a2d305](https://github.com/graasp/graasp-auth/commit/6a2d305a708309e9796b910baa1dbaf623185a38))
+* **deps:** update dependency @graasp/sdk to v1.2.1 ([#188](https://github.com/graasp/graasp-auth/issues/188)) ([fa32433](https://github.com/graasp/graasp-auth/commit/fa3243395e369e2c03970696a8d1990905d48717))
+* **deps:** update dependency @graasp/translations to v1.18.2 ([#172](https://github.com/graasp/graasp-auth/issues/172)) ([e5ee22f](https://github.com/graasp/graasp-auth/commit/e5ee22f12a9ff1025108da802d4ef936249a214f))
+* **deps:** update dependency @graasp/translations to v1.18.3 ([#189](https://github.com/graasp/graasp-auth/issues/189)) ([9261423](https://github.com/graasp/graasp-auth/commit/9261423fdf139b5f125997e67f73df38ceb5b6d1))
+* **deps:** update dependency @graasp/ui to v3.3.2 ([#177](https://github.com/graasp/graasp-auth/issues/177)) ([84c41bb](https://github.com/graasp/graasp-auth/commit/84c41bba674866c100772fe6e0a7a7c6b4e4d50a))
+* **deps:** update dependency react-i18next to v11.18.6 ([#124](https://github.com/graasp/graasp-auth/issues/124)) ([fb8227e](https://github.com/graasp/graasp-auth/commit/fb8227e24d7f2664770b78d138508f5a970f2b18))
+* **deps:** update dependency react-i18next to v13 ([#141](https://github.com/graasp/graasp-auth/issues/141)) ([ca8816e](https://github.com/graasp/graasp-auth/commit/ca8816e61e844ffa89c1a856631b4aff4008c39d))
+* **deps:** update dependency react-toastify to v9.1.3 ([#125](https://github.com/graasp/graasp-auth/issues/125)) ([b68fc9e](https://github.com/graasp/graasp-auth/commit/b68fc9eb6eff7ea518e3365364a0b3998ebb75ac))
+* **deps:** update dependency stylis to v4.3.0 ([#182](https://github.com/graasp/graasp-auth/issues/182)) ([ca6f9e5](https://github.com/graasp/graasp-auth/commit/ca6f9e54ef598e3d6872a4e3471fe3c7e0927c77))
+* **deps:** update dependency validator to v13.11.0 ([#162](https://github.com/graasp/graasp-auth/issues/162)) ([881334e](https://github.com/graasp/graasp-auth/commit/881334ed62777c83aeaecaf13d2fd3b4a8468a8c))
+* **deps:** update mui (non-major) ([#174](https://github.com/graasp/graasp-auth/issues/174)) ([e19b506](https://github.com/graasp/graasp-auth/commit/e19b506a64c8b0f9eac523aa71063c9718de526b))
+* **deps:** update react-router monorepo to v6.15.0 ([#191](https://github.com/graasp/graasp-auth/issues/191)) ([1232649](https://github.com/graasp/graasp-auth/commit/1232649c17336941aca36b387a59199459a73828))
+* **deps:** update sentry packages to v7.62.0 ([#163](https://github.com/graasp/graasp-auth/issues/163)) ([7abcc5a](https://github.com/graasp/graasp-auth/commit/7abcc5a69bd7fc5c20a47dba11a91f10952b6a77))
+* **deps:** update sentry packages to v7.64.0 ([#192](https://github.com/graasp/graasp-auth/issues/192)) ([9fd2cf4](https://github.com/graasp/graasp-auth/commit/9fd2cf48e9e167f584927d673eb75c9ad1ba7db2))
+* remove `ci` env from cypress tests ([#180](https://github.com/graasp/graasp-auth/issues/180)) ([4b4c98c](https://github.com/graasp/graasp-auth/commit/4b4c98c19525471aa7eed91e0071a64f3663daba))
+
 ## [1.2.0](https://github.com/graasp/graasp-auth/compare/v1.1.1...v1.2.0) (2023-08-07)
 
 
