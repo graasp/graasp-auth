@@ -10,9 +10,13 @@ import { Container, Stack, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { mutations } from '../config/queryClient';
-import { SUCCESS_CONTENT_ID } from '../config/selectors';
-import { BACK_BUTTON_ID, RESEND_EMAIL_BUTTON_ID } from '../config/selectors';
+import {
+  BACK_BUTTON_ID,
+  RESEND_EMAIL_BUTTON_ID,
+  SUCCESS_CONTENT_ID,
+} from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
+import { useRedirection } from '../hooks/searchParams';
 
 type Props = {
   title: string;
@@ -30,13 +34,18 @@ const SuccessContent = ({
   const [isEmailSent, setIsEmailSent] = useState(false);
 
   // used for resend email
+  const redirect = useRedirection();
   const { mutate: signIn } = mutations.useSignIn();
 
   // used for resend email
   const handleResendEmail = async () => {
     const lowercaseEmail = email.toLowerCase();
     const token = await executeCaptcha(RecaptchaAction.SignIn);
-    signIn({ email: lowercaseEmail, captcha: token });
+    signIn({
+      email: lowercaseEmail,
+      captcha: token,
+      url: redirect.url,
+    });
   };
 
   const onClickResendEmail = () => {
