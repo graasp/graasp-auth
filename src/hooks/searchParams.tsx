@@ -19,7 +19,7 @@ export const useRedirection = () => {
     url = urlParam ? decodeURIComponent(urlParam) : undefined;
   } catch (error) {
     /* eslint-disable-next-line no-console */
-    console.log(
+    console.error(
       'The redirection URL search parameter could not be parsed and has been ignored',
       error,
     );
