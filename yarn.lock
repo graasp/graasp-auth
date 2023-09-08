@@ -3152,9 +3152,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@github:graasp/graasp-query-client#419-auth-redirect":
-  version: 1.5.0
-  resolution: "@graasp/query-client@https://github.com/graasp/graasp-query-client.git#commit=f17b84f45a6722035b863581802ca0b76cb0825c"
+"@graasp/query-client@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@graasp/query-client@npm:1.6.0"
   dependencies:
     "@graasp/sdk": 1.4.0
     "@graasp/translations": 1.19.0
@@ -3167,7 +3167,7 @@ __metadata:
     uuid: 9.0.0
   peerDependencies:
     react: ^17.0.0
-  checksum: 8ea41facc02c6015601cc53f9f72dc94d5591dda85e4fe9b7c3f49267fc12265041e6fee64ff13f50a4851641c03ffddf7ab2a2657198a54e89e548a9900ceb0
+  checksum: 81c2eb3fb9f471d88fc6ecd039574b648aa1fa06fb600f986bd13cdba529244f8dc301b6e2e01884bcadbbb14fad9529818fb53cea7f6d8d667c5862c1f50a50
   languageName: node
   linkType: hard
 
@@ -8586,7 +8586,7 @@ __metadata:
     "@emotion/cache": 11.11.0
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": "github:graasp/graasp-query-client#419-auth-redirect"
+    "@graasp/query-client": 1.6.0
     "@graasp/sdk": 1.3.0
     "@graasp/translations": 1.18.3
     "@graasp/ui": 3.3.2
