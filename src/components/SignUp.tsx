@@ -19,7 +19,8 @@ import {
   SIGN_UP_HEADER_ID,
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
-import { useMobileLogin } from '../hooks/mobile';
+import { useMobileAppLogin } from '../hooks/mobile';
+import { useRedirection } from '../hooks/searchParams';
 import { emailValidator, nameValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
@@ -33,7 +34,8 @@ const SignUp = () => {
   const { t } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
 
-  const { isMobile, challenge } = useMobileLogin();
+  const { isMobile, challenge } = useMobileAppLogin();
+  const redirect = useRedirection();
 
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
@@ -98,6 +100,7 @@ const SignUp = () => {
             name: name.trim(),
             email: lowercaseEmail,
             captcha: token,
+            url: redirect.url,
           }));
       setSuccessView(true);
     }

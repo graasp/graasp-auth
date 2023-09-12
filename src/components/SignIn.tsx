@@ -23,7 +23,8 @@ import {
   SIGN_IN_HEADER_ID,
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
-import { useMobileLogin } from '../hooks/mobile';
+import { useMobileAppLogin } from '../hooks/mobile';
+import { useRedirection } from '../hooks/searchParams';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
@@ -44,8 +45,9 @@ const SignIn: FC = () => {
   const { t } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
 
-  const { isMobile, challenge } = useMobileLogin();
+  const { isMobile, challenge } = useMobileAppLogin();
   const { search } = useLocation();
+  const redirect = useRedirection();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -80,7 +82,11 @@ const SignIn: FC = () => {
         );
         await (isMobile
           ? mobileSignIn({ email: lowercaseEmail, captcha: token, challenge })
-          : signIn({ email: lowercaseEmail, captcha: token }));
+          : signIn({
+              email: lowercaseEmail,
+              captcha: token,
+              url: redirect.url,
+            }));
         setSuccessView(true);
       } catch (e) {
         console.error(e);
@@ -114,6 +120,7 @@ const SignIn: FC = () => {
             email: lowercaseEmail,
             password,
             captcha: token,
+            url: redirect.url,
           }));
       if (result && result.resource) {
         window.location.href = result.resource;
