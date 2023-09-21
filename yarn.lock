@@ -3190,25 +3190,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@graasp/sdk@npm:1.3.0"
-  dependencies:
-    "@aws-sdk/client-s3": 3.370.0
-    "@fastify/secure-session": 6.1.0
-    "@graasp/etherpad-api": 2.1.1
-    fastify: 4.18.0
-    fluent-json-schema: 4.1.0
-    immutable: 4.3.2
-    js-cookie: 3.0.5
-    qs: 6.11.2
-    typeorm: 0.3.17
-    uuid: 9.0.0
-    validator: 13.11.0
-  checksum: 3b21168a249d77cbbe57d7fe90fb523b9e6abc2b8db147590556ad4901a2c6389ee58e2df3e7570cb1c1feb97037a95a015cb67eacdc0f4a8c8781c274192253
-  languageName: node
-  linkType: hard
-
 "@graasp/sdk@npm:1.4.0":
   version: 1.4.0
   resolution: "@graasp/sdk@npm:1.4.0"
@@ -3225,6 +3206,26 @@ __metadata:
     uuid: 9.0.0
     validator: 13.11.0
   checksum: 224ed990ed7b68fe4b463d2d1e24fc503c5f5434703cb818a54d22ee9aa8e9997c3a02768ceec082bea604853aa4804ac4d454c746e38089e3e327e0ffcd4c27
+  languageName: node
+  linkType: hard
+
+"@graasp/sdk@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@graasp/sdk@npm:1.6.0"
+  dependencies:
+    "@aws-sdk/client-s3": 3.370.0
+    "@fastify/secure-session": 6.1.0
+    "@graasp/etherpad-api": 2.1.1
+    date-fns: 2.30.0
+    fastify: 4.18.0
+    fluent-json-schema: 4.1.0
+    immutable: 4.3.2
+    js-cookie: 3.0.5
+    qs: 6.11.2
+    typeorm: 0.3.17
+    uuid: 9.0.0
+    validator: 13.11.0
+  checksum: 6e115053e1eb3596238fddbe7df9cd453ac042ebbc54051d2dde85a40d31988ce96853b2fdf7e957a18530c788689ab56c4aef08ff2eb5896699022aaf10afcd
   languageName: node
   linkType: hard
 
@@ -6675,7 +6676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.29.3, date-fns@npm:^2.30.0":
+"date-fns@npm:2.30.0, date-fns@npm:^2.29.3, date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
   dependencies:
@@ -8587,7 +8588,7 @@ __metadata:
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
     "@graasp/query-client": 1.6.0
-    "@graasp/sdk": 1.3.0
+    "@graasp/sdk": 1.6.0
     "@graasp/translations": 1.18.3
     "@graasp/ui": 3.3.2
     "@mui/icons-material": 5.14.7
