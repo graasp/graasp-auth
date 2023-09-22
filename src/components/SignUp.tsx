@@ -107,12 +107,14 @@ const SignUp = () => {
             email: lowercaseEmail,
             captcha: token,
             challenge,
+            extra: { enableSaveActions },
           })
         : signUp({
             name: name.trim(),
             email: lowercaseEmail,
             captcha: token,
             url: redirect.url,
+            extra: { enableSaveActions },
           }));
       setSuccessView(true);
     }

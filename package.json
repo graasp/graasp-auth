@@ -12,7 +12,7 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@graasp/query-client": "1.6.0",
+    "@graasp/query-client": "github:graasp/graasp-query-client#436-member-extra-sign-up",
     "@graasp/sdk": "1.6.0",
     "@graasp/translations": "1.18.3",
     "@graasp/ui": "3.4.0",
