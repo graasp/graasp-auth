@@ -1,0 +1,19 @@
+{
+  "EMAIL_FIELD_TEXT": "Email",
+  "EMAIL_SIGN_IN_METHOD": "E-Mail-Anmeldung",
+  "MOBILE_APP_NOT_INSTALLED_MESSAGE": "Sie haben einen mobilen Link angefordert, aber unsere App ist auf diesem Gerät nicht installiert.",
+  "MOBILE_BACK_TO_LOGIN": "Zurück zur Anmeldung",
+  "MOBILE_GET_APP_FROM_APPLE_STORE": "Im Apple App Store herunterladen",
+  "MOBILE_GET_APP_FROM_GOOGLE_PLAY_STORE": "Im Google Play Store herunterladen",
+  "NAME_FIELD_LABEL": "Name",
+  "NOT_SIGNED_IN_TOOLTIP": "Sie sind nicht eingeloggt.",
+  "PASSWORD_FIELD_LABEL": "Passwort",
+  "PASSWORD_SIGN_IN_METHOD": "Passwort-Anmeldung",
+  "SIGN_IN_BUTTON": "Einloggen",
+  "SIGN_IN_HEADER": "Einloggen",
+  "SIGN_IN_LINK_TEXT": "Sie haben bereits ein Konto? Klicken Sie hier, um sich anzumelden",
+  "SIGN_UP_BUTTON": "Anmelden",
+  "SIGN_UP_HEADER": "Anmelden",
+  "SIGN_UP_LINK_TEXT": "Nicht registriert? Klicken Sie hier, um sich zu registrieren",
+  "SWITCH_ACCOUNT_TEXT": "Auf ein anderes Konto wechseln"
+}

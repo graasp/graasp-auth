@@ -146,21 +146,20 @@ const SignUp = () => {
             disabled={Boolean(invitation?.get('email'))}
             shouldValidate={shouldValidate}
           />
-          <FormControlLabel
-            control={
-              <Tooltip title={t(SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="left">
+          <Tooltip title={t(SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="top">
+            <FormControlLabel
+              control={
                 <span>
                   <Switch
                     id={SIGN_UP_SAVE_ACTIONS_ID}
                     onChange={handleOnToggle}
                     checked={enableSaveActions}
-                    disabled
                   />
                 </span>
-              </Tooltip>
-            }
-            label={t(SIGN_UP_SAVE_ACTIONS_LABEL)}
-          />
+              }
+              label={t(SIGN_UP_SAVE_ACTIONS_LABEL)}
+            />
+          </Tooltip>
           <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
             {t(SIGN_UP_BUTTON)}
           </Button>
