@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/graasp/graasp-auth/compare/v1.2.1...v1.3.0) (2023-10-16)
+
+
+### Features
+
+* handle redirection url search param ([#222](https://github.com/graasp/graasp-auth/issues/222)) ([35b23dd](https://github.com/graasp/graasp-auth/commit/35b23dd9828926a7b56151af5e95498c2aa14862))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/sdk to v1.3.0 ([#211](https://github.com/graasp/graasp-auth/issues/211)) ([50edc6d](https://github.com/graasp/graasp-auth/commit/50edc6da1b6538a3b4e51e745584c4620c4644aa))
+* **deps:** update dependency @graasp/sdk to v1.6.0 ([#214](https://github.com/graasp/graasp-auth/issues/214)) ([d873f26](https://github.com/graasp/graasp-auth/commit/d873f269ef6e8fd25131bad3fa1486a5f6d87620))
+* **deps:** update dependency @graasp/ui to v3.4.0 ([#215](https://github.com/graasp/graasp-auth/issues/215)) ([bb2c1b7](https://github.com/graasp/graasp-auth/commit/bb2c1b79fd3362d8b72fe553e7dd427cbe44d483))
+* **deps:** update dependency @graasp/ui to v3.5.4 ([#226](https://github.com/graasp/graasp-auth/issues/226)) ([8d25dc3](https://github.com/graasp/graasp-auth/commit/8d25dc3c199482a68d2da4894653036c16001499))
+* **deps:** update dependency react-i18next to v13.2.0 ([#199](https://github.com/graasp/graasp-auth/issues/199)) ([7e69bae](https://github.com/graasp/graasp-auth/commit/7e69bae9e5321b61f7346fc00ec9b4ab7bf85c24))
+* **deps:** update dependency react-i18next to v13.2.1 ([b5ddd42](https://github.com/graasp/graasp-auth/commit/b5ddd4210716b6213fac696193fbd4570aba4917))
+* **deps:** update mui (non-major) ([be19989](https://github.com/graasp/graasp-auth/commit/be19989395bfc463453b698ef2f5357442d28e48))
+* **deps:** update mui (non-major) ([#201](https://github.com/graasp/graasp-auth/issues/201)) ([3ea6ebe](https://github.com/graasp/graasp-auth/commit/3ea6ebee35b460ff84c230b13f8d5b4f2816c268))
+* **deps:** update sentry packages to v7.66.0 ([#207](https://github.com/graasp/graasp-auth/issues/207)) ([5ff371d](https://github.com/graasp/graasp-auth/commit/5ff371d0a9298b45e745265b8ec146ed08503d38))
+* udpate replay settings ton include network details from the api ([#229](https://github.com/graasp/graasp-auth/issues/229)) ([14de4f3](https://github.com/graasp/graasp-auth/commit/14de4f3119868cdc5335d771b5349e05a40188b8))
+
 ## [1.2.1](https://github.com/graasp/graasp-auth/compare/v1.2.0...v1.2.1) (2023-08-22)
 
 
