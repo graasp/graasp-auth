@@ -8,6 +8,7 @@ import { hasAcceptedCookies } from '@graasp/sdk';
 import pkg from '../package.json';
 import Root from './Root';
 import {
+  API_HOST,
   APP_VERSION,
   GA_MEASUREMENT_ID,
   SENTRY_DSN,
@@ -23,11 +24,16 @@ SentryInit({
   dsn: SENTRY_DSN,
   integrations: [
     new BrowserTracing(),
-    new Replay({ maskAllText: false, maskAllInputs: false }),
+    new Replay({
+      maskAllText: false,
+      maskAllInputs: false,
+      // allows to capture details for requests to the api
+      networkDetailAllowUrls: [API_HOST],
+    }),
   ],
   release: `${pkg.name}@${APP_VERSION}`,
   environment: SENTRY_ENV,
-  tracesSampleRate: 1.0,
+  tracesSampleRate: 0.5,
 
   // This sets the sample rate to be 10%. You may want this to be 100% while
   // in development and sample at a lower rate in production
@@ -35,7 +41,7 @@ SentryInit({
 
   // If the entire session is not sampled, use the below sample rate to sample
   // sessions when an error occurs.
-  replaysOnErrorSampleRate: 1.0,
+  replaysOnErrorSampleRate: 0.5,
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
