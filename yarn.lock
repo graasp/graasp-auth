@@ -3771,11 +3771,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:1.11.0":
-  version: 1.11.0
-  resolution: "@graasp/query-client@npm:1.11.0"
+"@graasp/query-client@npm:1.11.1":
+  version: 1.11.1
+  resolution: "@graasp/query-client@npm:1.11.1"
   dependencies:
-    "@graasp/sdk": 1.8.0
+    "@graasp/sdk": 1.9.2
     "@graasp/translations": 1.19.3
     axios: 0.27.2
     crypto-js: 4.1.1
@@ -3786,7 +3786,7 @@ __metadata:
     uuid: 9.0.1
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: b23d6d030deae25b030993e9494553f33e1828ec5d756ddf0e9d066f63fd56118b8afe7da269ebcee1d9879ba41376f4b2270932b053ecff3b0b07b450ebe821
+  checksum: 3527d3a67a3f891d16f1dd3f8845f49731c619af88497af731b4057a6782abc66f71c550610f70eee2acd22d4aa86fc4782d5d008b215d89dda836417bfb25f9
   languageName: node
   linkType: hard
 
@@ -3807,26 +3807,6 @@ __metadata:
     uuid: 9.0.0
     validator: 13.11.0
   checksum: bcb31ac2b1965739aa63395b9946a6bee53ef575f2f8d9e3e50316c51310dbf2f58bad60ae71d4bec6b477eaa698eb1d6971f100ad95afc36e5d5b1b520d8f69
-  languageName: node
-  linkType: hard
-
-"@graasp/sdk@npm:1.8.0":
-  version: 1.8.0
-  resolution: "@graasp/sdk@npm:1.8.0"
-  dependencies:
-    "@aws-sdk/client-s3": 3.427.0
-    "@fastify/secure-session": 6.1.0
-    "@graasp/etherpad-api": 2.1.1
-    date-fns: 2.30.0
-    fastify: 4.18.0
-    fluent-json-schema: 4.1.0
-    immutable: 4.3.4
-    js-cookie: 3.0.5
-    qs: 6.11.2
-    typeorm: 0.3.17
-    uuid: 9.0.1
-    validator: 13.11.0
-  checksum: 1bcd5a6b6f0c6e153e42ae1ea4db1d6a1a81cef23828868a5ea96ab7753528292d00a841056553617c719e19f7e3940df62c463746e9fd3ff2c326a54bce455d
   languageName: node
   linkType: hard
 
@@ -9783,7 +9763,7 @@ __metadata:
     "@emotion/cache": 11.11.0
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
-    "@graasp/query-client": 1.11.0
+    "@graasp/query-client": 1.11.1
     "@graasp/sdk": 1.9.2
     "@graasp/translations": 1.18.3
     "@graasp/ui": 3.5.4
