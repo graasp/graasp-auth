@@ -15,7 +15,7 @@ const Redirection: FC<Props> = ({ children }) => {
   const { data: member } = hooks.useCurrentMember();
   const redirect = useRedirection();
 
-  if (member?.get('id')) {
+  if (member) {
     redirectToSavedUrl(GRAASP_BUILDER_HOST);
 
     return (
