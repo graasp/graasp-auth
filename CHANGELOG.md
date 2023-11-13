@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/graasp/graasp-auth/compare/v1.3.0...v2.0.0) (2023-11-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade yarn, sdk, query-client and ui ([#248](https://github.com/graasp/graasp-auth/issues/248))
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v1.11.0 ([#233](https://github.com/graasp/graasp-auth/issues/233)) ([d240b4f](https://github.com/graasp/graasp-auth/commit/d240b4fe0335641a4e749f060cc0ec3a54d2d60b))
+* **deps:** update dependency @graasp/query-client to v1.11.1 ([#239](https://github.com/graasp/graasp-auth/issues/239)) ([d8540c7](https://github.com/graasp/graasp-auth/commit/d8540c7a283d4a07e1650a4087e61adb7aa961ff))
+* **deps:** update dependency @graasp/sdk to v1.9.1 ([#236](https://github.com/graasp/graasp-auth/issues/236)) ([c25600b](https://github.com/graasp/graasp-auth/commit/c25600b557f6c661130ba41e55fed74f8779cb4b))
+* **deps:** update dependency @graasp/sdk to v1.9.2 ([#240](https://github.com/graasp/graasp-auth/issues/240)) ([e7250f6](https://github.com/graasp/graasp-auth/commit/e7250f62932cf198aa854f540bb3a2be96956d0d))
+* **deps:** update dependency http-status-codes to v2.3.0 ([#237](https://github.com/graasp/graasp-auth/issues/237)) ([9e36553](https://github.com/graasp/graasp-auth/commit/9e365532d0990cc826debacc90b7317dab0213e5))
+* **deps:** update dependency react-i18next to v13.2.2 ([12c69fd](https://github.com/graasp/graasp-auth/commit/12c69fdf30fd046d2ef265a0ffa46fca4bdff863))
+* **deps:** update mui (non-major) ([7d383af](https://github.com/graasp/graasp-auth/commit/7d383af1fb9aac0cdd241addec900b68f2ac885c))
+* **deps:** update mui (non-major) ([#244](https://github.com/graasp/graasp-auth/issues/244)) ([fa9d818](https://github.com/graasp/graasp-auth/commit/fa9d8184e8e9f9f402226047f217302a7d63db3d))
+* upgrade yarn, sdk, query-client and ui ([#248](https://github.com/graasp/graasp-auth/issues/248)) ([ce271ff](https://github.com/graasp/graasp-auth/commit/ce271ffcb752e84773fa481df4a4745061c2472f))
+* use safe viewport height units (svh) ([#243](https://github.com/graasp/graasp-auth/issues/243)) ([6cbbc16](https://github.com/graasp/graasp-auth/commit/6cbbc1623aa53b4006f590ed079dc384bdbe35e8))
+
 ## [1.3.0](https://github.com/graasp/graasp-auth/compare/v1.2.1...v1.3.0) (2023-10-16)
 
 
