@@ -3550,11 +3550,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@graasp/query-client@npm:2.0.1"
+"@graasp/query-client@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@graasp/query-client@npm:2.0.2"
   dependencies:
-    "@graasp/sdk": "npm:2.0.0"
+    "@graasp/sdk": "npm:2.1.0"
     "@graasp/translations": "npm:1.19.4"
     axios: "npm:0.27.2"
     crypto-js: "npm:4.2.0"
@@ -3564,7 +3564,7 @@ __metadata:
     uuid: "npm:9.0.1"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: a757ae8227cf2237efe13a6e48fb7b5cee4795a7f75b68f04801ea69b7c138bda622939a8d57c765570e708e6493ce104d5dfab7ff462de3ffe6aa83fe008c70
+  checksum: b6ac78d65ab9dceec84f0cfeb8d650508b1b5874af63ab78c81555c92cecc455218f67cd94e5bdc6e32d7a7005bc005a0595a51983fde1f38c69adb017f044d4
   languageName: node
   linkType: hard
 
@@ -8887,7 +8887,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:2.0.1"
+    "@graasp/query-client": "npm:2.0.2"
     "@graasp/sdk": "npm:2.1.0"
     "@graasp/translations": "npm:1.19.4"
     "@graasp/ui": "npm:4.0.0"
