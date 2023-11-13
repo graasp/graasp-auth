@@ -123,13 +123,13 @@ const SignUp = () => {
             helperText={nameError}
             onChange={handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
-            disabled={Boolean(invitation.name)}
+            disabled={Boolean(invitation?.name)}
           />
           <EmailInput
             value={email}
             setValue={setEmail}
             id={EMAIL_SIGN_UP_FIELD_ID}
-            disabled={Boolean(invitation.email)}
+            disabled={Boolean(invitation?.email)}
             shouldValidate={shouldValidate}
           />
           <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
