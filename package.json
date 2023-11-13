@@ -108,7 +108,7 @@
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@types/react": "18.2.28"
+    "@types/react": "18.2.37"
   },
   "packageManager": "yarn@3.6.4"
 }
