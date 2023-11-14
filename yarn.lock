@@ -8407,7 +8407,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-ga4: "npm:2.1.0"
-    react-i18next: "npm:13.4.0"
+    react-i18next: "npm:13.4.1"
     react-router: "npm:6.18.0"
     react-router-dom: "npm:6.18.0"
     react-toastify: "npm:9.1.3"
@@ -11170,9 +11170,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:13.4.0":
-  version: 13.4.0
-  resolution: "react-i18next@npm:13.4.0"
+"react-i18next@npm:13.4.1":
+  version: 13.4.1
+  resolution: "react-i18next@npm:13.4.1"
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
     html-parse-stringify: "npm:^3.0.1"
@@ -11184,7 +11184,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 24e6a5c5f2843b7c9a755665638431634243d4c0a1e10c736ab9a7be1a19c99c973067f8c08bfccb4942a86d3c7aa64e384c8197abac5ac433ab7aff188b8ce2
+  checksum: f563e44a2e6e19a6bbe6bf211392b54c51e85620cf6adecae889917d34cc9b7a8bb73d696b4804f791cddee9b283570ad052e13d3e99685cde502815ecc6eb6f
   languageName: node
   linkType: hard
 
