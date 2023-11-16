@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.1](https://github.com/graasp/graasp-auth/compare/v2.0.0...v2.0.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v2.0.2 ([#249](https://github.com/graasp/graasp-auth/issues/249)) ([92faea1](https://github.com/graasp/graasp-auth/commit/92faea1cbbe6f886a7e87e5f1b5c477c6c999520))
+* **deps:** update dependency @graasp/query-client to v2.0.3 ([#256](https://github.com/graasp/graasp-auth/issues/256)) ([2e402ed](https://github.com/graasp/graasp-auth/commit/2e402eda44439e8f63ae204f8e9cad14d6e32963))
+* **deps:** update dependency @graasp/sdk to v3 ([#257](https://github.com/graasp/graasp-auth/issues/257)) ([252212e](https://github.com/graasp/graasp-auth/commit/252212e004a8e89a2739ffe4d5617f02f36f8953))
+* **deps:** update dependency @graasp/sdk to v3.0.1 ([#258](https://github.com/graasp/graasp-auth/issues/258)) ([6084025](https://github.com/graasp/graasp-auth/commit/6084025ababa812203a9842be7b42001e5a77a57))
+* **deps:** update dependency @graasp/translations to v1.20.0 ([#205](https://github.com/graasp/graasp-auth/issues/205)) ([33fa84d](https://github.com/graasp/graasp-auth/commit/33fa84d9888fffc06caa37972055c8b3e76affa9))
+* **deps:** update dependency @graasp/translations to v1.20.1 ([#259](https://github.com/graasp/graasp-auth/issues/259)) ([0051ab8](https://github.com/graasp/graasp-auth/commit/0051ab8b1bc6f343b2b79a689ac223b303fbf46a))
+* **deps:** update dependency @graasp/ui to v4.0.1 ([#251](https://github.com/graasp/graasp-auth/issues/251)) ([81c1dd2](https://github.com/graasp/graasp-auth/commit/81c1dd21664de941e02bcc418b67b67a552fd236))
+* **deps:** update dependency @graasp/ui to v4.1.0 ([#260](https://github.com/graasp/graasp-auth/issues/260)) ([299e905](https://github.com/graasp/graasp-auth/commit/299e905c74e99783508c03a2ae76bdeaf3e15b97))
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.152 ([#247](https://github.com/graasp/graasp-auth/issues/247)) ([7d78f33](https://github.com/graasp/graasp-auth/commit/7d78f33292f9f469f31793e9d9822ef165f9cc8e))
+* **deps:** update dependency react-i18next to v13.4.1 ([#250](https://github.com/graasp/graasp-auth/issues/250)) ([68a11ba](https://github.com/graasp/graasp-auth/commit/68a11ba77c0ae7d1789fdd3a641c15cdbffc4ecd))
+* **deps:** update dependency react-i18next to v13.5.0 ([#241](https://github.com/graasp/graasp-auth/issues/241)) ([0877c7a](https://github.com/graasp/graasp-auth/commit/0877c7a5f7a1aee08b21e26c8ab2f069061e5535))
+* **deps:** update sentry packages to v7.80.1 ([#255](https://github.com/graasp/graasp-auth/issues/255)) ([aad3488](https://github.com/graasp/graasp-auth/commit/aad34884fc4b9180f14ff271751133332382d552))
+
 ## [2.0.0](https://github.com/graasp/graasp-auth/compare/v1.3.0...v2.0.0) (2023-11-13)
 
 
