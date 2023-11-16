@@ -2535,16 +2535,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:3.12.9":
-  version: 3.12.9
-  resolution: "@cypress/code-coverage@npm:3.12.9"
+"@cypress/code-coverage@npm:3.12.10":
+  version: 3.12.10
+  resolution: "@cypress/code-coverage@npm:3.12.10"
   dependencies:
     "@cypress/webpack-preprocessor": "npm:^6.0.0"
     chalk: "npm:4.1.2"
     dayjs: "npm:1.11.10"
     debug: "npm:4.3.4"
     execa: "npm:4.1.0"
-    globby: "npm:11.0.4"
+    globby: "npm:11.1.0"
     istanbul-lib-coverage: "npm:3.0.0"
     js-yaml: "npm:4.1.0"
     nyc: "npm:15.1.0"
@@ -2554,7 +2554,7 @@ __metadata:
     babel-loader: ^8.3 || ^9
     cypress: "*"
     webpack: ^4 || ^5
-  checksum: aa2c01eb1227481d1e495040beed17bd277ff4f41905bf4a2700d9375b301b1862dfbfb2f3243cf0938095d29f68b141f8a36bb1660b6b56ce5a116f426c24c5
+  checksum: 6ba933c6078090043e779e7760cfd5cafd6037b0b9151cbe477eca2707a2ac641cf4466203bf8b2666c1e13f5a7d2e926ce10160ad0a345a58e2ac2df7a974ba
   languageName: node
   linkType: hard
 
@@ -6373,9 +6373,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.5.0":
-  version: 13.5.0
-  resolution: "cypress@npm:13.5.0"
+"cypress@npm:13.5.1":
+  version: 13.5.1
+  resolution: "cypress@npm:13.5.1"
   dependencies:
     "@cypress/request": "npm:^3.0.0"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -6422,7 +6422,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: b3206079d1118e6734122fdd14a36e4aae09ac65df5d20f7d0b12f980cb83c5d01834372fd41630b91984d66e5707c84ee0a12d62cf60a4866459e54e7accb4e
+  checksum: 3392feb0d3f7aa7b87f2aef46065dad081b2c04fdd3baef38540df6091babb075637e350eda1ec7c2918d5eeed9eab31bebd2651b554c3e1dbaa631fea296eec
   languageName: node
   linkType: hard
 
@@ -7621,7 +7621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.1":
+"fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.1":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
   dependencies:
@@ -8276,21 +8276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:11.0.4":
-  version: 11.0.4
-  resolution: "globby@npm:11.0.4"
-  dependencies:
-    array-union: "npm:^2.1.0"
-    dir-glob: "npm:^3.0.1"
-    fast-glob: "npm:^3.1.1"
-    ignore: "npm:^5.1.4"
-    merge2: "npm:^1.3.0"
-    slash: "npm:^3.0.0"
-  checksum: 118c5ac92c2914342dec05648d217c8f31b0ccbfd3eb24d8722d350aa3003200dd4ae1b573b894cc4759e85156eb3bab35c5873f98ae9301572e22f656641964
-  languageName: node
-  linkType: hard
-
-"globby@npm:^11.1.0":
+"globby@npm:11.1.0, globby@npm:^11.1.0":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -8319,7 +8305,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:18.4.2"
     "@commitlint/config-conventional": "npm:18.4.2"
-    "@cypress/code-coverage": "npm:3.12.9"
+    "@cypress/code-coverage": "npm:3.12.10"
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
@@ -8347,7 +8333,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:6.11.0"
     "@vitejs/plugin-react": "npm:4.1.1"
     concurrently: "npm:8.2.2"
-    cypress: "npm:13.5.0"
+    cypress: "npm:13.5.1"
     env-cmd: "npm:10.1.0"
     eslint: "npm:^8.53.0"
     eslint-config-prettier: "npm:9.0.0"
@@ -8664,7 +8650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.4, ignore@npm:^5.2.0, ignore@npm:^5.2.4":
+"ignore@npm:^5.2.0, ignore@npm:^5.2.4":
   version: 5.2.4
   resolution: "ignore@npm:5.2.4"
   checksum: 4f7caf5d2005da21a382d4bd1d2aa741a3bed51de185c8562dd7f899a81a620ac4fd0619b06f7029a38ae79e4e4c134399db3bd0192c703c3ef54bb82df3086c
