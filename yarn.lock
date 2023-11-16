@@ -3037,12 +3037,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:2.0.2":
-  version: 2.0.2
-  resolution: "@graasp/query-client@npm:2.0.2"
+"@graasp/query-client@npm:2.0.3":
+  version: 2.0.3
+  resolution: "@graasp/query-client@npm:2.0.3"
   dependencies:
     "@graasp/sdk": "npm:2.1.0"
-    "@graasp/translations": "npm:1.19.4"
+    "@graasp/translations": "npm:1.20.0"
     axios: "npm:0.27.2"
     crypto-js: "npm:4.2.0"
     http-status-codes: "npm:2.3.0"
@@ -3051,7 +3051,7 @@ __metadata:
     uuid: "npm:9.0.1"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: b6ac78d65ab9dceec84f0cfeb8d650508b1b5874af63ab78c81555c92cecc455218f67cd94e5bdc6e32d7a7005bc005a0595a51983fde1f38c69adb017f044d4
+  checksum: 4f1bb004ecac0cc4d7ffce59489b62c6e6cdd268b769a9cf9c34dc97313ee17c62adcfb3ed8face962d75fc9ca6c8ba607db91a5f701a3242c1b856cb8741981
   languageName: node
   linkType: hard
 
@@ -3083,12 +3083,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/translations@npm:1.19.4":
-  version: 1.19.4
-  resolution: "@graasp/translations@npm:1.19.4"
+"@graasp/translations@npm:1.20.0":
+  version: 1.20.0
+  resolution: "@graasp/translations@npm:1.20.0"
   dependencies:
-    i18next: "npm:23.6.0"
-  checksum: cc45e92175113a5141bb19de63497847771131ecb3a7924163cf19856b39c4decf2e5ec99320133c7f73da326dc434d3fdbd47c2d3d6e0165ec35ad45f7d2f01
+    i18next: "npm:23.7.6"
+  checksum: 618939887f6492168c05ff10860efb1d016b5bc7097f49ecb1ed89318a571d5d7aeec4a29f449d1cbd978c7b1f7d22a7039d83d252990cfc879c2ba83cd55122
   languageName: node
   linkType: hard
 
@@ -8322,7 +8322,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.1"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:2.0.2"
+    "@graasp/query-client": "npm:2.0.3"
     "@graasp/sdk": "npm:3.0.1"
     "@graasp/translations": "npm:1.20.1"
     "@graasp/ui": "npm:4.0.1"
@@ -8626,15 +8626,6 @@ __metadata:
   bin:
     husky: lib/bin.js
   checksum: b754cf70fdc97c3b60fec5b80056b9c11436464953b1691bf2b5dcf0081fb6685d2c5f47abb8b2b1c49f504aabea5321fdd6496f8b755d9f6e7525a493406abb
-  languageName: node
-  linkType: hard
-
-"i18next@npm:23.6.0":
-  version: 23.6.0
-  resolution: "i18next@npm:23.6.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.22.5"
-  checksum: cf5ad02fdd0805cc92a5ae214818cca10590784dcefa063d9f2b1f1654da7c7842d320c95f2574674e2ac835eed118001b99e214901bb171af20d59c534534cf
   languageName: node
   linkType: hard
 
