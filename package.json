@@ -14,7 +14,7 @@
     "@emotion/styled": "11.11.0",
     "@graasp/query-client": "2.0.2",
     "@graasp/sdk": "3.0.0",
-    "@graasp/translations": "1.20.0",
+    "@graasp/translations": "1.20.1",
     "@graasp/ui": "4.0.1",
     "@mui/icons-material": "5.14.16",
     "@mui/lab": "5.0.0-alpha.152",
