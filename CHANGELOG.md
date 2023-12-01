@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.2](https://github.com/graasp/graasp-auth/compare/v2.0.1...v2.0.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* upgrade deps ([#271](https://github.com/graasp/graasp-auth/issues/271)) ([b95a04b](https://github.com/graasp/graasp-auth/commit/b95a04b036d09fffab8e3a9e628007d8f104c79a))
+
 ## [2.0.1](https://github.com/graasp/graasp-auth/compare/v2.0.0...v2.0.1) (2023-11-16)
 
 
