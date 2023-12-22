@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Trans } from 'react-i18next';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { AUTH, namespaces } from '@graasp/translations';
+import { namespaces } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -17,6 +17,7 @@ import {
 } from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useRedirection } from '../hooks/searchParams';
+import { AUTH } from '../langs/constants';
 
 type Props = {
   title: string;

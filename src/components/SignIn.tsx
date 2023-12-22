@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { AUTH } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import { Stack } from '@mui/material';
@@ -25,6 +24,7 @@ import {
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
 import { useRedirection } from '../hooks/searchParams';
+import { AUTH } from '../langs/constants';
 import { SIGN_IN_METHODS } from '../types/signInMethod';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
