@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 
-import { AUTH } from '@graasp/translations';
-
 import { useAuthTranslation } from '../config/i18n';
+import { AUTH } from '../langs/constants';
 import { emailValidator } from '../utils/validation';
 import StyledTextField from './StyledTextField';
 

@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { AUTH } from '@graasp/translations';
-
 import { Android, Apple, DeviceUnknown } from '@mui/icons-material';
 import { Button, Stack, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { HOME_PATH } from '../config/paths';
+import { AUTH } from '../langs/constants';
 import FullscreenContainer from './FullscreenContainer';
 
 const PLAY_STORE_LINK =
