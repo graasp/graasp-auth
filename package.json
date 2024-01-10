@@ -50,7 +50,7 @@
     "check": "yarn prettier:check && yarn lint && yarn type-check",
     "hooks:uninstall": "husky uninstall",
     "hooks:install": "husky install",
-    "cypress:open": "env-cmd -f ./.env.development cypress open",
+    "cypress:open": "env-cmd -f ./.env.test cypress open",
     "cypress": "concurrently -k -s first \"yarn start:test\" \"yarn cypress:run\"",
     "test": "yarn cypress",
     "cypress:run": "env-cmd -f ./.env.test cypress run --headless --browser chrome",
