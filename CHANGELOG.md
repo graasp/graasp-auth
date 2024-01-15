@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/graasp/graasp-auth/compare/v2.0.2...v2.1.0) (2024-01-15)
+
+
+### Features
+
+* import translations ([#293](https://github.com/graasp/graasp-auth/issues/293)) ([265b8dc](https://github.com/graasp/graasp-auth/commit/265b8dc01203d5270c86b0c6cbe5757a55e0b528))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v2.1.1 ([#277](https://github.com/graasp/graasp-auth/issues/277)) ([52877fe](https://github.com/graasp/graasp-auth/commit/52877fe024244eac6bda250b3f8900f87860d235))
+* **deps:** update dependency @graasp/query-client to v2.2.2 ([#291](https://github.com/graasp/graasp-auth/issues/291)) ([b555365](https://github.com/graasp/graasp-auth/commit/b5553651fe78d0da9efd9f439d432bafc04d3666))
+* **deps:** update dependency @graasp/translations to v1.21.1 ([#275](https://github.com/graasp/graasp-auth/issues/275)) ([7dd2960](https://github.com/graasp/graasp-auth/commit/7dd2960b7de39181f11749ce652c38fc3e2e0545))
+* **deps:** update dependency @graasp/ui to v4.1.1 ([#279](https://github.com/graasp/graasp-auth/issues/279)) ([39591ad](https://github.com/graasp/graasp-auth/commit/39591ad5ba0edcf1e5e3763da50f31bb6178d4b4))
+* **deps:** update dependency @sentry/react to v7.85.0 ([#265](https://github.com/graasp/graasp-auth/issues/265)) ([136738f](https://github.com/graasp/graasp-auth/commit/136738fd5681a79d5a1ae8334be54b34a0653920))
+* **deps:** update dependency @sentry/react to v7.86.0 ([#282](https://github.com/graasp/graasp-auth/issues/282)) ([9c814ac](https://github.com/graasp/graasp-auth/commit/9c814ac9381fc43d79f139c60ebaa97f55f6dd83))
+* **deps:** update dependency @sentry/react to v7.93.0 ([#288](https://github.com/graasp/graasp-auth/issues/288)) ([0292e7f](https://github.com/graasp/graasp-auth/commit/0292e7fbe359fafe9c5181e8dd2b7bfada7c12e9))
+* **deps:** update react-router monorepo to v6.20.1 ([#273](https://github.com/graasp/graasp-auth/issues/273)) ([b392c9f](https://github.com/graasp/graasp-auth/commit/b392c9f57a9dc63df9c4c1d3763dd960fa80b32b))
+* udpate release-please condition ([c825050](https://github.com/graasp/graasp-auth/commit/c825050068fa5aa029aeb451e7e3e8fc6d413b6d))
+* use test env in cypress open ([#294](https://github.com/graasp/graasp-auth/issues/294)) ([bac0c6a](https://github.com/graasp/graasp-auth/commit/bac0c6a3430d69984d51221d7d746ec9c754a9c4))
+
 ## [2.0.2](https://github.com/graasp/graasp-auth/compare/v2.0.1...v2.0.2) (2023-12-01)
 
 
