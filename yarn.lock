@@ -2466,11 +2466,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:2.2.2":
-  version: 2.2.2
-  resolution: "@graasp/query-client@npm:2.2.2"
+"@graasp/query-client@npm:2.2.3":
+  version: 2.2.3
+  resolution: "@graasp/query-client@npm:2.2.3"
   dependencies:
-    "@graasp/sdk": "npm:3.4.0"
+    "@graasp/sdk": "npm:3.4.1"
     "@graasp/translations": "npm:1.22.1"
     axios: "npm:0.27.2"
     crypto-js: "npm:4.2.0"
@@ -2480,7 +2480,7 @@ __metadata:
     uuid: "npm:9.0.1"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: c9cf136645e5f3c57318ecc847aaec3cb2908e86ec06fce96029aa7d6abd7e3cd7b77aa55c3836697b5317ee9c716126b99f80fba754abe61b22f8fd0aba720b
+  checksum: cf7d3ebc8b7098b0c8b2d04d71ed56ff8004d5e892ac12bdb7cb088bdb25db559795e2fb73400410b748a09a17b06e1d3c83f28e02f8a6805669c349a13535fe
   languageName: node
   linkType: hard
 
@@ -2497,16 +2497,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:3.4.0":
-  version: 3.4.0
-  resolution: "@graasp/sdk@npm:3.4.0"
+"@graasp/sdk@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@graasp/sdk@npm:3.4.1"
   dependencies:
-    "@graasp/etherpad-api": "npm:2.1.1"
     date-fns: "npm:3.2.0"
     js-cookie: "npm:3.0.5"
     uuid: "npm:9.0.1"
     validator: "npm:13.11.0"
-  checksum: 00bd8d449e8c1bcb4750ddce9dc0eefc23d917d042d5d7db6c1007c7380904de3bc7e9bde43325736df69f3dc584d15717dac01769e06a9f71e1e1133075f7f7
+  checksum: 6bf2d3fbb28d61a457a534628620982a656258ab2e5c101294da8e7e4327eacff526378983c4e06a85f0115e0547325f9dbece793f7f4bc6129aa8909a42a24b
   languageName: node
   linkType: hard
 
@@ -7250,7 +7249,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.3"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:2.2.2"
+    "@graasp/query-client": "npm:2.2.3"
     "@graasp/sdk": "npm:3.3.0"
     "@graasp/translations": "npm:1.22.1"
     "@graasp/ui": "npm:4.1.1"
