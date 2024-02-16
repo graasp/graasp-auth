@@ -3103,10 +3103,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.13.1":
-  version: 1.13.1
-  resolution: "@remix-run/router@npm:1.13.1"
-  checksum: bf1ff266744352e71fc414f983a9f7772c10ec55cf4b978d851026e6c12b39c0084f99e4e45de706b800a71889ef09f652b8e7c43e21800351cc14c5ada8c834
+"@remix-run/router@npm:1.15.1":
+  version: 1.15.1
+  resolution: "@remix-run/router@npm:1.15.1"
+  checksum: d262285d155f80779894ee1d9ef07e35421986ba2546378dfe0e3b09397ce71becb6a4677e9efcd4155e2bd3f9f7f7ecbc110cd99bacee6dd7d3e5ce51b7caa8
   languageName: node
   linkType: hard
 
@@ -7299,8 +7299,8 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-ga4: "npm:2.1.0"
     react-i18next: "npm:13.5.0"
-    react-router: "npm:6.20.1"
-    react-router-dom: "npm:6.20.1"
+    react-router: "npm:6.22.1"
+    react-router-dom: "npm:6.22.1"
     react-toastify: "npm:9.1.3"
     rollup-plugin-visualizer: "npm:5.12.0"
     standard-version: "npm:9.5.0"
@@ -10052,27 +10052,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.20.1":
-  version: 6.20.1
-  resolution: "react-router-dom@npm:6.20.1"
+"react-router-dom@npm:6.22.1":
+  version: 6.22.1
+  resolution: "react-router-dom@npm:6.22.1"
   dependencies:
-    "@remix-run/router": "npm:1.13.1"
-    react-router: "npm:6.20.1"
+    "@remix-run/router": "npm:1.15.1"
+    react-router: "npm:6.22.1"
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 27efb05af0025bdcd7ecc85d2df2f53ca90bbf4db1dd4319002714b5be4e23c9434f95932d79f14a42d7c347ca882e9a0bba74a4d6331de8f7fb527c21f3f069
+  checksum: 73ab964083bb407773a5c4ca61249ed6b0a1b47fa58c39afca08a361eb25b349be2bcbaf6d89e112b020f6e55e40e62689c9fe2beae524030ce5ccede3c7d9e3
   languageName: node
   linkType: hard
 
-"react-router@npm:6.20.1":
-  version: 6.20.1
-  resolution: "react-router@npm:6.20.1"
+"react-router@npm:6.22.1":
+  version: 6.22.1
+  resolution: "react-router@npm:6.22.1"
   dependencies:
-    "@remix-run/router": "npm:1.13.1"
+    "@remix-run/router": "npm:1.15.1"
   peerDependencies:
     react: ">=16.8"
-  checksum: 96c25c8ca782dfa5b501540b9a491d8dca67c829a90fda237238a22881c695226fd5bbe14fcb2793bd5877aec2514d932c3293bf1f2463606fb3f2326628d766
+  checksum: f6e814b8e3005f16a5fb0e831f0e4352076cde65ab25448d56dba87a43fd3e102f55f9b366bdf1fbd8136fc1dc141bcec8d6b85d45f309e89180fb50f173744d
   languageName: node
   linkType: hard
 
