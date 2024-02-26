@@ -13,7 +13,7 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.3",
     "@emotion/styled": "11.11.0",
-    "@graasp/query-client": "2.7.0",
+    "@graasp/query-client": "github:graasp/graasp-query-client#use-conditional-export",
     "@graasp/sdk": "4.0.1",
     "@graasp/translations": "1.25.2",
     "@graasp/ui": "4.8.2",
@@ -92,6 +92,7 @@
     "@vitejs/plugin-react": "4.2.1",
     "concurrently": "8.2.2",
     "cypress": "13.6.6",
+    "cypress-vite": "1.5.0",
     "env-cmd": "10.1.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -108,5 +109,8 @@
     "vite-plugin-checker": "0.6.4",
     "vite-plugin-istanbul": "5.0.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "resolutions": {
+    "@graasp/query-client": "github:graasp/graasp-query-client#use-conditional-export"
+  },
+  "packageManager": "yarn@4.1.0"
 }
