@@ -1,5 +1,4 @@
 import { StatusCodes } from 'http-status-codes';
-import qs from 'qs';
 
 import { API_ROUTES } from '@graasp/query-client';
 
@@ -45,12 +44,9 @@ describe('Name and Email Validation', () => {
         reply(invitation);
       },
     );
-    cy.visit(
-      `${SIGN_UP_PATH}${qs.stringify(
-        { invitationId: invitation.id },
-        { addQueryPrefix: true },
-      )}`,
-    );
+    const search = new URLSearchParams();
+    search.set('invitationId', invitation.id);
+    cy.visit(`${SIGN_UP_PATH}?${search.toString()}`);
     checkInvitationFields(invitation);
   });
 
@@ -60,12 +56,9 @@ describe('Name and Email Validation', () => {
       email: 'email',
     };
     cy.intercept(API_ROUTES.buildGetInvitationRoute(invitation.id), invitation);
-    cy.visit(
-      `${SIGN_UP_PATH}${qs.stringify(
-        { invitationId: invitation.id },
-        { addQueryPrefix: true },
-      )}`,
-    );
+    const search = new URLSearchParams();
+    search.set('invitationId', invitation.id);
+    cy.visit(`${SIGN_UP_PATH}?${search.toString()}`);
     checkInvitationFields(invitation);
   });
 
@@ -78,12 +71,9 @@ describe('Name and Email Validation', () => {
       statusCode: 404,
       body: '404 Not Found!',
     });
-    cy.visit(
-      `${SIGN_UP_PATH}${qs.stringify(
-        { invitationId: invitation.id },
-        { addQueryPrefix: true },
-      )}`,
-    );
+    const search = new URLSearchParams();
+    search.set('invitationId', invitation.id);
+    cy.visit(`${SIGN_UP_PATH}?${search.toString()}`);
     cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.visible');
   });
 });

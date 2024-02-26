@@ -1,5 +1,4 @@
 import { StatusCodes } from 'http-status-codes';
-import qs from 'qs';
 
 import { API_ROUTES } from '@graasp/query-client';
 
@@ -70,10 +69,7 @@ export const mockGetMembers = (members) => {
       url: `${API_HOST}/members?id=`,
     },
     ({ url, reply }) => {
-      let { id: memberIds } = qs.parse(url.slice(url.indexOf('?') + 1));
-      if (typeof memberIds === 'string') {
-        memberIds = [memberIds];
-      }
+      const memberIds = new URLSearchParams(url).getAll('id');
       const allMembers = (memberIds as string[])?.map((id) =>
         members.find(({ id: mId }) => mId === id),
       );

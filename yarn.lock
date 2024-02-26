@@ -8652,6 +8652,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:3.6.1"
     http-status-codes: "npm:2.3.0"
     husky: "npm:9.0.11"
+    i18next: "npm:23.10.0"
     istanbul-lib-coverage: "npm:3.2.2"
     nyc: "npm:15.1.0"
     prettier: "npm:3.2.5"
@@ -8928,6 +8929,15 @@ __metadata:
   bin:
     husky: bin.mjs
   checksum: 8a9b7cb9dc8494b470b3b47b386e65d579608c6206da80d3cc8b71d10e37947264af3dfe00092368dad9673b51d2a5ee87afb4b2291e77ba9e7ec1ac36e56cd1
+  languageName: node
+  linkType: hard
+
+"i18next@npm:23.10.0":
+  version: 23.10.0
+  resolution: "i18next@npm:23.10.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.23.2"
+  checksum: d32293a40650783ac746ce476d220ac3285133de729b2c1da0e7c91bc396ec6728629e84ea4c06311ae37dc6b7984ca962d5b296deb58cf713ba477a2edbd0ea
   languageName: node
   linkType: hard
 
