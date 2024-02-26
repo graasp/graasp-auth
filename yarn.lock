@@ -2825,20 +2825,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/query-client@npm:2.6.3":
-  version: 2.6.3
-  resolution: "@graasp/query-client@npm:2.6.3"
+"@graasp/query-client@npm:2.7.0":
+  version: 2.7.0
+  resolution: "@graasp/query-client@npm:2.7.0"
   dependencies:
-    axios: "npm:0.27.2"
+    axios: "npm:1.6.7"
     crypto-js: "npm:4.2.0"
     http-status-codes: "npm:2.3.0"
     qs: "npm:6.11.2"
     react-query: "npm:3.39.3"
   peerDependencies:
-    "@graasp/sdk": ^3.8.3
+    "@graasp/sdk": ^4.0.0
     "@graasp/translations": ^1.23.0
-    react: ^17.0.0 || ^18.0.0
-  checksum: 9049da778c2c4090fe0c809fd6ff9fc58500bd0431adfc50f139d2daaea16ddff3d21d401ae6eac176fa6e105f0e4ae232e754b9a7bb0b430441b1504b2d2291
+    react: ^18.0.0
+  checksum: 1149d9690e13c7f639a73b461ebe4072776ffdd8c40d57ab5fe2b6508065769574bda41eb8b863de22d4dd2fbd8e02398b8f376ade791b8320a2db7b092a1c3e
   languageName: node
   linkType: hard
 
@@ -5338,13 +5338,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
+"axios@npm:1.6.7":
+  version: 1.6.7
+  resolution: "axios@npm:1.6.7"
   dependencies:
-    follow-redirects: "npm:^1.14.9"
+    follow-redirects: "npm:^1.15.4"
     form-data: "npm:^4.0.0"
-  checksum: 2efaf18dd0805f7bc772882bc86f004abd92d51007b54c5081f74db0d08ce3593e2c010261896d25a14318eeaa2e966fd825e34f810e8a3339dc64b9d177cf70
+    proxy-from-env: "npm:^1.1.0"
+  checksum: a1932b089ece759cd261f175d9ebf4d41c8994cf0c0767cda86055c7a19bcfdade8ae3464bf4cec4c8b142f4a657dc664fb77a41855e8376cf38b86d7a86518f
   languageName: node
   linkType: hard
 
@@ -8044,13 +8045,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.9":
-  version: 1.15.3
-  resolution: "follow-redirects@npm:1.15.3"
+"follow-redirects@npm:^1.15.4":
+  version: 1.15.5
+  resolution: "follow-redirects@npm:1.15.5"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 60d98693f4976892f8c654b16ef6d1803887a951898857ab0cdc009570b1c06314ad499505b7a040ac5b98144939f8597766e5e6a6859c0945d157b473aa6f5f
+  checksum: d467f13c1c6aa734599b8b369cd7a625b20081af358f6204ff515f6f4116eb440de9c4e0c49f10798eeb0df26c95dd05d5e0d9ddc5786ab1a8a8abefe92929b4
   languageName: node
   linkType: hard
 
@@ -8520,7 +8521,7 @@ __metadata:
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.3"
     "@emotion/styled": "npm:11.11.0"
-    "@graasp/query-client": "npm:2.6.3"
+    "@graasp/query-client": "npm:2.7.0"
     "@graasp/sdk": "npm:4.0.1"
     "@graasp/translations": "npm:1.25.2"
     "@graasp/ui": "npm:4.8.1"
@@ -11279,6 +11280,13 @@ __metadata:
   version: 1.0.0
   resolution: "proxy-from-env@npm:1.0.0"
   checksum: f26b59c0f21dd118c23a0eb1f5250848a23b5029ec5c9f2b4011b6439b19fa83da50858d84e9261da94aa4e67778c1bac5483afce884b7770a96895a4e6b9a19
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
   languageName: node
   linkType: hard
 
