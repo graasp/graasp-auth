@@ -3,7 +3,8 @@
     "esModuleInterop": false,
     "target": "ESNext",
     "lib": ["es5", "dom"],
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
+    "moduleResolution": "Bundler"
   },
   "include": ["**/*.ts"]
 }
