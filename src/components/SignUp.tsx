@@ -54,7 +54,7 @@ const SignUp = () => {
   const {
     data: invitation,
     isSuccess,
-    isLoading,
+    isInitialLoading,
   } = hooks.useInvitation(searchParams.get('invitationId') || undefined);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const SignUp = () => {
   }, [invitation, isSuccess]);
 
   // loading invitation
-  if (isLoading) {
+  if (isInitialLoading) {
     return <Loader />;
   }
 

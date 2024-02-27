@@ -16,7 +16,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       port: parseInt(process.env.VITE_PORT || '3001', 10),
       open: true,
       watch: {
-        ignored: ['**/coverage/**'],
+        ignored: ['**/coverage/**', 'cypress/downloads/**'],
       },
     },
     preview: {

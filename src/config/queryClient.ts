@@ -11,11 +11,8 @@ const {
   mutations,
 } = configureQueryClient({
   API_HOST,
-  // avoid refetching when same data are closely fetched
   defaultQueryOptions: {
     keepPreviousData: true,
-    staleTime: 1000, // ms
-    cacheTime: 1000,
   },
   notifier,
   DOMAIN,

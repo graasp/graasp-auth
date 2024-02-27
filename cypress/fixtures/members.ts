@@ -1,10 +1,11 @@
-import { Member, MemberType } from '@graasp/sdk';
+import { CompleteMember, MemberType, Password } from '@graasp/sdk';
 
 export const MEMBERS: {
-  [name: string]: Member & {
+  [name: string]: CompleteMember & {
     nameValid?: boolean;
     emailValid?: boolean;
     passwordValid?: boolean;
+    password?: Password;
   };
 } = {
   GRAASP: {
