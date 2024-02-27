@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.1](https://github.com/graasp/graasp-auth/compare/v2.1.0...v2.1.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @emotion/react to v11.11.3 ([58af637](https://github.com/graasp/graasp-auth/commit/58af637e07917f3e38048dc6d6862965c412cbd9))
+* **deps:** update dependency @graasp/query-client to v2.4.2 ([#302](https://github.com/graasp/graasp-auth/issues/302)) ([0384731](https://github.com/graasp/graasp-auth/commit/038473135da89e33600365d38da995228288a4cc))
+* **deps:** update dependency @graasp/translations to v1.22.1 ([cbe897f](https://github.com/graasp/graasp-auth/commit/cbe897fd69251557639cdc8819796a16321f8fd5))
+* update esm deps ([#306](https://github.com/graasp/graasp-auth/issues/306)) ([c2512a4](https://github.com/graasp/graasp-auth/commit/c2512a4833cdb7292b2d688de05e6f22f8c6bf87))
+
 ## [2.1.0](https://github.com/graasp/graasp-auth/compare/v2.0.2...v2.1.0) (2024-01-15)
 
 
