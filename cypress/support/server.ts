@@ -62,6 +62,7 @@ export const mockGetMember = (members) => {
     },
   ).as('getMember');
 };
+
 export const mockGetMembers = (members) => {
   cy.intercept(
     {
