@@ -4389,6 +4389,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-google-recaptcha@npm:2.1.9":
+  version: 2.1.9
+  resolution: "@types/react-google-recaptcha@npm:2.1.9"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10/5a90bb50fe0a49f2e2ceb7950859cfdbe019aa0a75261451fb50ad83dcd4aa360a1941ab6c9b3c627f2b7a0dab2c6c09d6297469d3d4d02ebaf36b3fc34429b6
+  languageName: node
+  linkType: hard
+
 "@types/react-router-dom@npm:5.3.3":
   version: 5.3.3
   resolution: "@types/react-router-dom@npm:5.3.3"
@@ -8569,6 +8578,7 @@ __metadata:
     "@types/node": "npm:20.11.20"
     "@types/react": "npm:^18.2.60"
     "@types/react-dom": "npm:18.2.19"
+    "@types/react-google-recaptcha": "npm:2.1.9"
     "@types/react-router-dom": "npm:5.3.3"
     "@types/validator": "npm:13.11.9"
     "@typescript-eslint/eslint-plugin": "npm:7.1.0"
@@ -8591,6 +8601,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-ga4: "npm:2.1.0"
+    react-google-recaptcha: "npm:3.1.0"
     react-i18next: "npm:14.0.5"
     react-router: "npm:6.22.1"
     react-router-dom: "npm:6.22.1"
@@ -8727,7 +8738,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -11297,7 +11308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.6, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.0, prop-types@npm:^15.5.6, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -11474,6 +11485,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-async-script@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "react-async-script@npm:1.2.0"
+  dependencies:
+    hoist-non-react-statics: "npm:^3.3.0"
+    prop-types: "npm:^15.5.0"
+  peerDependencies:
+    react: ">=16.4.1"
+  checksum: 10/40d46772aa2a6291ca3736379122434442a1d65f6529776ec58a9343a5fd42b7867c55adc99503b804d4eb83a34a7f9443e3d77f56612fd978ba4e2dd2647c55
+  languageName: node
+  linkType: hard
+
 "react-cookie-consent@npm:9.0.0":
   version: 9.0.0
   resolution: "react-cookie-consent@npm:9.0.0"
@@ -11555,6 +11578,18 @@ __metadata:
   version: 2.1.0
   resolution: "react-ga4@npm:2.1.0"
   checksum: 10/e47edd040b7a272d35df732e08c4a8b6b14add659db04fb81a3a2cbde59bf34dc6eae9e0b8b4abd8937d11c837954773a6ba86feb2c605e5eb916f4c99e420c7
+  languageName: node
+  linkType: hard
+
+"react-google-recaptcha@npm:3.1.0":
+  version: 3.1.0
+  resolution: "react-google-recaptcha@npm:3.1.0"
+  dependencies:
+    prop-types: "npm:^15.5.0"
+    react-async-script: "npm:^1.2.0"
+  peerDependencies:
+    react: ">=16.4.1"
+  checksum: 10/b06d87f842be43a5d1e32c3746b914746a85d5fa69ac93de567aa71022449c1567ee4c4ebc500b6b17ee94e5ee5ea2d4d39c27848e08537c285bc5499a213cc5
   languageName: node
   linkType: hard
 

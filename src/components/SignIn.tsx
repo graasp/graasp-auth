@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Link, useLocation } from 'react-router-dom';
 
-import { RecaptchaAction } from '@graasp/sdk';
 import { Button } from '@graasp/ui';
 
 import { Stack } from '@mui/material';
@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
+import { RECAPTCHA_SITE_KEY } from '../config/env';
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_PATH } from '../config/paths';
 import { mutations } from '../config/queryClient';
@@ -21,7 +22,6 @@ import {
   SIGN_IN_BUTTON_ID,
   SIGN_IN_HEADER_ID,
 } from '../config/selectors';
-import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
 import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
@@ -42,8 +42,8 @@ const {
 } = AUTH;
 
 const SignIn: FC = () => {
-  const { t } = useAuthTranslation();
-  const { executeCaptcha } = useRecaptcha();
+  const { t, i18n } = useAuthTranslation();
+  const reCAPTCHARef = useRef<ReCAPTCHA>();
 
   const { isMobile, challenge } = useMobileAppLogin();
   const { search } = useLocation();
@@ -77,9 +77,7 @@ const SignIn: FC = () => {
       setShouldValidate(true);
     } else {
       try {
-        const token = await executeCaptcha(
-          isMobile ? RecaptchaAction.SignInMobile : RecaptchaAction.SignIn,
-        );
+        const token = await reCAPTCHARef.current.executeAsync();
         await (isMobile
           ? mobileSignIn({ email: lowercaseEmail, captcha: token, challenge })
           : signIn({
@@ -104,11 +102,7 @@ const SignIn: FC = () => {
         setPasswordError(checkingPassword);
       }
     } else {
-      const token = await executeCaptcha(
-        isMobile
-          ? RecaptchaAction.SignInWithPasswordMobile
-          : RecaptchaAction.SignInWithPassword,
-      );
+      const token = await reCAPTCHARef.current.executeAsync();
       const result = await (isMobile
         ? mobileSignInWithPassword({
             email: lowercaseEmail,
@@ -211,6 +205,15 @@ const SignIn: FC = () => {
               </Button>
             </>
           )}
+          <ReCAPTCHA
+            style={{ display: 'none' }}
+            ref={reCAPTCHARef}
+            sitekey={RECAPTCHA_SITE_KEY}
+            size="invisible"
+            hl={i18n.language}
+            tabIndex={-1}
+            badge="inline"
+          />
           {signInMethod === SIGN_IN_METHODS.EMAIL && (
             <Button onClick={handleSignIn} id={SIGN_IN_BUTTON_ID}>
               {t(SIGN_IN_BUTTON)}

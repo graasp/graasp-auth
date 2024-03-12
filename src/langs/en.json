@@ -23,5 +23,7 @@
   "SIGN_UP_SAVE_ACTIONS_LABEL": "Enable Analytics",
   "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Coming Soon!",
   "SIGN_UP_SUCCESS_TITLE": "Welcome!",
-  "SWITCH_ACCOUNT_TEXT": "Switch to another account"
+  "SWITCH_ACCOUNT_TEXT": "Switch to another account",
+  "SITE_PROTECTED_BY_RECAPTCHA": "This site is protected by reCAPTCHA.",
+  "GOOGLE_PRIVACY_AND_TERMS": "The Google <0>Privacy Policy</0> and <1>Terms of Service</1> apply."
 }
