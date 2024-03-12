@@ -7,7 +7,6 @@ import { Button } from '@graasp/ui';
 import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
-import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import { RECAPTCHA_SITE_KEY } from '../config/env';

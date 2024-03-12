@@ -106,8 +106,7 @@ const SignUp = () => {
             }));
         setSuccessView(true);
       } catch (err) {
-        console.log(err);
-        setNameError('hello I am an error');
+        console.error(err);
       }
     }
   };

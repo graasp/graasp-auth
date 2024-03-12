@@ -1,4 +1,4 @@
-import { Box, Link, Stack, Typography } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 import Footer from './Footer';
 import ReCAPTCHANotice from './ReCAPTCHANotice';
