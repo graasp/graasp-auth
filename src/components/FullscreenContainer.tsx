@@ -1,16 +1,16 @@
-import { Box } from '@mui/material';
+import { Box, Link, Stack, Typography } from '@mui/material';
 
 import Footer from './Footer';
+import ReCAPTCHANotice from './ReCAPTCHANotice';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
 };
 
 const FullscreenContainer = ({ children }: Props): JSX.Element => (
-  <Box
+  <Stack
     margin="auto"
     textAlign="center"
-    display="flex"
     alignItems="center"
     justifyContent="center"
     bgcolor="#f6f7fb"
@@ -30,8 +30,9 @@ const FullscreenContainer = ({ children }: Props): JSX.Element => (
     >
       {children}
     </Box>
+    <ReCAPTCHANotice />
     <Footer />
-  </Box>
+  </Stack>
 );
 
 export default FullscreenContainer;

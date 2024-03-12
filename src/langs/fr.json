@@ -23,5 +23,7 @@
   "SIGN_UP_SAVE_ACTIONS_LABEL": "Activer les statistiques d'utilisation",
   "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Prochainement!",
   "SIGN_UP_SUCCESS_TITLE": "Bienvenue !",
-  "SWITCH_ACCOUNT_TEXT": "Utiliser un autre compte"
+  "SWITCH_ACCOUNT_TEXT": "Utiliser un autre compte",
+  "SITE_PROTECTED_BY_RECAPTCHA": "Ce site est protégé par Google reCAPTCHA.",
+  "GOOGLE_PRIVACY_AND_TERMS": "La <0>Politique de protection des données</0> et les <1>Terms du service</1> de Google s'appliquent."
 }

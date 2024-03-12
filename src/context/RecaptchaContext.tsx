@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+import { RECAPTCHA_SITE_KEY } from '../config/env';
+
 declare global {
   interface Window {
     grecaptcha: {
@@ -48,3 +50,17 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
 };
 
 export const useRecaptcha = () => useContext(RecaptchaContext);
+
+export const RecaptchaComponent = () => {
+  return (
+    <div
+      className="g-recaptcha"
+      data-sitekey={RECAPTCHA_SITE_KEY}
+      // eslint-disable-next-line no-console
+      data-callback={(token) => console.log('got token', token)}
+      data-size="invisible"
+    >
+      hello
+    </div>
+  );
+};

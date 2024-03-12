@@ -1,7 +1,7 @@
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
-import { RecaptchaAction } from '@graasp/sdk';
 import { Button, Loader } from '@graasp/ui';
 
 import { Stack } from '@mui/material';
@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
 import { SIGN_IN_PATH } from '../config/constants';
+import { RECAPTCHA_SITE_KEY } from '../config/env';
 import { useAuthTranslation } from '../config/i18n';
 import { hooks, mutations } from '../config/queryClient';
 import {
@@ -17,7 +18,6 @@ import {
   SIGN_UP_BUTTON_ID,
   SIGN_UP_HEADER_ID,
 } from '../config/selectors';
-import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
 import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
@@ -31,8 +31,8 @@ const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
   AUTH;
 
 const SignUp = () => {
-  const { t } = useAuthTranslation();
-  const { executeCaptcha } = useRecaptcha();
+  const { t, i18n } = useAuthTranslation();
+  const reCAPTCHARef = useRef<ReCAPTCHA>();
 
   const { isMobile, challenge } = useMobileAppLogin();
   const redirect = useRedirection();
@@ -86,23 +86,29 @@ const SignUp = () => {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
-      const token = await executeCaptcha(
-        isMobile ? RecaptchaAction.SignUpMobile : RecaptchaAction.SignUp,
-      );
-      await (isMobile
-        ? mobileSignUp({
-            name: name.trim(),
-            email: lowercaseEmail,
-            captcha: token,
-            challenge,
-          })
-        : signUp({
-            name: name.trim(),
-            email: lowercaseEmail,
-            captcha: token,
-            url: redirect.url,
-          }));
-      setSuccessView(true);
+      try {
+        const token = await reCAPTCHARef.current.executeAsync();
+        // const token = await executeCaptcha(
+        //   isMobile ? RecaptchaAction.SignUpMobile : RecaptchaAction.SignUp,
+        // );
+        await (isMobile
+          ? mobileSignUp({
+              name: name.trim(),
+              email: lowercaseEmail,
+              captcha: token,
+              challenge,
+            })
+          : signUp({
+              name: name.trim(),
+              email: lowercaseEmail,
+              captcha: token,
+              url: redirect.url,
+            }));
+        setSuccessView(true);
+      } catch (err) {
+        console.log(err);
+        setNameError('hello I am an error');
+      }
     }
   };
 
@@ -131,6 +137,14 @@ const SignUp = () => {
             id={EMAIL_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.email)}
             shouldValidate={shouldValidate}
+          />
+          <ReCAPTCHA
+            style={{ display: 'none' }}
+            ref={reCAPTCHARef}
+            sitekey={RECAPTCHA_SITE_KEY}
+            size="invisible"
+            hl={i18n.language}
+            badge="inline"
           />
           <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
             {t(SIGN_UP_BUTTON)}
