@@ -16,7 +16,7 @@ describe('Name and Email Validation', () => {
     cy.visit(SIGN_UP_PATH);
 
     // eslint-disable-next-line arrow-body-style
-    cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
+    cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
       return reply({
         statusCode: StatusCodes.NO_CONTENT,
       });
