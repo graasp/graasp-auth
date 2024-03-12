@@ -1,1 +1,27 @@
-{}
+{
+  "BACK_BUTTON": "Atrás",
+  "EMAIL_FIELD_TEXT": "Correo electrónico",
+  "EMAIL_SIGN_IN_METHOD": "Iniciar sesión por correo electrónico",
+  "MOBILE_APP_NOT_INSTALLED_MESSAGE": "Parece que solicitaste un enlace móvil pero no tienes nuestra aplicación instalada en este dispositivo.",
+  "MOBILE_BACK_TO_LOGIN": "Atrás para iniciar sesión",
+  "MOBILE_GET_APP_FROM_APPLE_STORE": "Obtener de la tienda de aplicaciones de Apple",
+  "MOBILE_GET_APP_FROM_GOOGLE_PLAY_STORE": "Obtener de Google Play Store",
+  "NAME_FIELD_LABEL": "Nombre",
+  "NOT_SIGNED_IN_TOOLTIP": "No has iniciado sesión.",
+  "PASSWORD_FIELD_LABEL": "Contraseña",
+  "PASSWORD_SIGN_IN_METHOD": "Contraseña Iniciar sesión",
+  "RESEND_EMAIL_BUTTON": "Reenviar email",
+  "SIGN_IN_BUTTON": "Iniciar sesión",
+  "SIGN_IN_HEADER": "Iniciar sesión",
+  "SIGN_IN_LINK_TEXT": "¿Ya tienes una cuenta? Clic aquí para ingresar",
+  "SIGN_IN_SUCCESS_EMAIL_PROBLEM": "Si no recibiste ningún correo electrónico, revisa tu spam. Si utilizó un correo electrónico institucional (es decir, escuela, empresa), es posible que haya sido bloqueado y tendrá que esperar hasta que su sistema de spam libere el correo electrónico.",
+  "SIGN_IN_SUCCESS_TEXT": "Revise su bandeja de entrada <bold>{{email}}</bold> para recuperar su enlace de inicio de sesión personal para acceder a Graasp. Esto puede tardar varios minutos.",
+  "SIGN_IN_SUCCESS_TITLE": "¡Bienvenido de nuevo!",
+  "SIGN_UP_BUTTON": "Inscribirse",
+  "SIGN_UP_HEADER": "Inscribirse",
+  "SIGN_UP_LINK_TEXT": "¿No registrado? Pulse aquí para registrarse",
+  "SIGN_UP_SAVE_ACTIONS_LABEL": "Habilitar análisis",
+  "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "¡Muy pronto!",
+  "SIGN_UP_SUCCESS_TITLE": "¡Bienvenido!",
+  "SWITCH_ACCOUNT_TEXT": "Cambiar a otra cuenta"
+}
