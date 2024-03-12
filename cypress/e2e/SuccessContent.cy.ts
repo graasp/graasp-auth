@@ -82,15 +82,16 @@ describe('Success Content', () => {
   });
 
   describe('Sign Up', () => {
-    it('Back Button', () => {
-      const { GRAASP, GRAASP_OTHER } = MEMBERS;
-      cy.visit(SIGN_UP_PATH);
-
-      cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
+    beforeEach(() => {
+      cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
         });
       });
+    });
+    it('Back Button', () => {
+      const { GRAASP, GRAASP_OTHER } = MEMBERS;
+      cy.visit(SIGN_UP_PATH);
 
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
@@ -127,12 +128,6 @@ describe('Success Content', () => {
     it('Resend email', () => {
       const { GRAASP, GRAASP_OTHER } = MEMBERS;
       cy.visit(SIGN_UP_PATH);
-
-      cy.intercept(API_ROUTES.SIGN_UP_ROUTE, ({ reply }) => {
-        return reply({
-          statusCode: StatusCodes.NO_CONTENT,
-        });
-      });
 
       // Signing up with a valid email
       cy.signUpAndCheck(GRAASP_OTHER);
