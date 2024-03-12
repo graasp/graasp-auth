@@ -112,5 +112,5 @@
   "resolutions": {
     "@graasp/query-client": "github:graasp/graasp-query-client#use-conditional-export"
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.1"
 }
