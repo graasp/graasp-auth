@@ -13,7 +13,7 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.3",
     "@emotion/styled": "11.11.0",
-    "@graasp/query-client": "2.7.1",
+    "@graasp/query-client": "2.9.1",
     "@graasp/sdk": "4.1.0",
     "@graasp/translations": "1.25.2",
     "@graasp/ui": "4.8.3",
@@ -109,8 +109,5 @@
     "vite-plugin-checker": "0.6.4",
     "vite-plugin-istanbul": "5.0.0"
   },
-  "resolutions": {
-    "@graasp/query-client": "github:graasp/graasp-query-client#use-conditional-export"
-  },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.1"
 }

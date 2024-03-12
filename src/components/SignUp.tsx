@@ -31,7 +31,7 @@ const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
   AUTH;
 
 const SignUp = () => {
-  const { t } = useAuthTranslation();
+  const { t, i18n } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
 
   const { isMobile, challenge } = useMobileAppLogin();
@@ -95,12 +95,14 @@ const SignUp = () => {
             email: lowercaseEmail,
             captcha: token,
             challenge,
+            lang: i18n.language,
           })
         : signUp({
             name: name.trim(),
             email: lowercaseEmail,
             captcha: token,
             url: redirect.url,
+            lang: i18n.language,
           }));
       setSuccessView(true);
     }
