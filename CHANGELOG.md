@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.2](https://github.com/graasp/graasp-auth/compare/v2.1.1...v2.1.2) (2024-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @emotion/react to v11.11.4 ([#309](https://github.com/graasp/graasp-auth/issues/309)) ([103fbef](https://github.com/graasp/graasp-auth/commit/103fbef70cd106fdf7d74606f00540226af6a260))
+* **deps:** update dependency @graasp/sdk to v4.1.0 ([#314](https://github.com/graasp/graasp-auth/issues/314)) ([8420c60](https://github.com/graasp/graasp-auth/commit/8420c6082445050c7f28f118ea3da02c48bb47e9))
+* **deps:** update dependency @graasp/ui to v4.9.3 ([#316](https://github.com/graasp/graasp-auth/issues/316)) ([05dab67](https://github.com/graasp/graasp-auth/commit/05dab673f2c9fa8e2ae007996bdaec9bb4d30391))
+* **deps:** update dependency @sentry/react to v7.106.1 ([#313](https://github.com/graasp/graasp-auth/issues/313)) ([34b54ed](https://github.com/graasp/graasp-auth/commit/34b54ed0ece940e924b151a5488d081379962564))
+* **deps:** update dependency i18next to v23.10.1 ([#323](https://github.com/graasp/graasp-auth/issues/323)) ([edfadb6](https://github.com/graasp/graasp-auth/commit/edfadb621a9c330e90e8894339ac31f9309b08d6))
+* **deps:** update dependency react-i18next to v14.0.8 ([#324](https://github.com/graasp/graasp-auth/issues/324)) ([57b5e0c](https://github.com/graasp/graasp-auth/commit/57b5e0c45c8d1d11486c564cf6941b3445b4f91c))
+* **deps:** update mui (non-major) ([#254](https://github.com/graasp/graasp-auth/issues/254)) ([a93a0bc](https://github.com/graasp/graasp-auth/commit/a93a0bc93cd8b408a5e82886e8131a413dab5d39))
+* **deps:** update react-router monorepo to v6.22.3 ([#311](https://github.com/graasp/graasp-auth/issues/311)) ([5dfc5bb](https://github.com/graasp/graasp-auth/commit/5dfc5bbb8c30bebb753e2fef7957b2862470c863))
+* **italian:** add translations ([#319](https://github.com/graasp/graasp-auth/issues/319)) ([5010dc7](https://github.com/graasp/graasp-auth/commit/5010dc7b30483f6b3cad2a7cbc554b596a25c987))
+* send language on register ([#321](https://github.com/graasp/graasp-auth/issues/321)) ([54c17a9](https://github.com/graasp/graasp-auth/commit/54c17a9948a825ecfa7c7098f4b7892294417411))
+* **spanish:** add translations ([#320](https://github.com/graasp/graasp-auth/issues/320)) ([103e5b7](https://github.com/graasp/graasp-auth/commit/103e5b7eb0beb7104978063bd03a1a535e010de2))
+
 ## [2.1.1](https://github.com/graasp/graasp-auth/compare/v2.1.0...v2.1.1) (2024-02-27)
 
 
