@@ -4182,6 +4182,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.28.4":
+  version: 5.28.4
+  resolution: "@tanstack/query-core@npm:5.28.4"
+  checksum: 10/ad457f4a4954f40fd83a53c3492b7d85f752a0bfb3f0935f3f3a156acd1a2d34cecc897b910902fa15c52527c3662186476298b4427ae39f646c047de93c3b53
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query-devtools@npm:4.36.1":
   version: 4.36.1
   resolution: "@tanstack/react-query-devtools@npm:4.36.1"
@@ -4213,6 +4220,17 @@ __metadata:
     react-native:
       optional: true
   checksum: 10/764b860c3ac8d254fc6b07e01054a0f58058644d59626c724b213293fbf1e31c198cbb26e4c32c0d16dcaec0353c0ae19147d9c667675b31f8cea1d64f1ff4ac
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:5.28.4":
+  version: 5.28.4
+  resolution: "@tanstack/react-query@npm:5.28.4"
+  dependencies:
+    "@tanstack/query-core": "npm:5.28.4"
+  peerDependencies:
+    react: ^18.0.0
+  checksum: 10/59e799038f96596d695810e2fcdbf79db0aa672802bd7791cc7a575207818adbdbb0f5cc38a70b4c30a2fc71f66dce45179178ef7875c0e5011884055e4d508d
   languageName: node
   linkType: hard
 
@@ -8937,6 +8955,7 @@ __metadata:
     "@mui/lab": "npm:5.0.0-alpha.169"
     "@mui/material": "npm:5.15.14"
     "@sentry/react": "npm:7.108.0"
+    "@tanstack/react-query": "npm:5.28.4"
     "@testing-library/jest-dom": "npm:6.4.2"
     "@testing-library/react": "npm:14.2.2"
     "@testing-library/user-event": "npm:14.5.2"
