@@ -2148,9 +2148,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:3.12.29":
-  version: 3.12.29
-  resolution: "@cypress/code-coverage@npm:3.12.29"
+"@cypress/code-coverage@npm:3.12.30":
+  version: 3.12.30
+  resolution: "@cypress/code-coverage@npm:3.12.30"
   dependencies:
     "@cypress/webpack-preprocessor": "npm:^6.0.0"
     chalk: "npm:4.1.2"
@@ -2167,7 +2167,7 @@ __metadata:
     babel-loader: ^8.3 || ^9
     cypress: "*"
     webpack: ^4 || ^5
-  checksum: 10/e8abfe60ef1fd8323bda169b535102cda8cc48cc1358b2fe300c731927e9e73db70309055990b22ce3b5ba822633a67ff3983f5091e91d86f6b35311bf23f0e9
+  checksum: 10/3ddac4c971e0989df0428175f452211941df922327a7a9ab7827576528e25ce4e9d5a8e9bb745fe98e0ccad6b9ee88ec7c1dd277f25b114db72a0086581c68a2
   languageName: node
   linkType: hard
 
@@ -4119,9 +4119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:14.2.1":
-  version: 14.2.1
-  resolution: "@testing-library/react@npm:14.2.1"
+"@testing-library/react@npm:14.2.2":
+  version: 14.2.2
+  resolution: "@testing-library/react@npm:14.2.2"
   dependencies:
     "@babel/runtime": "npm:^7.12.5"
     "@testing-library/dom": "npm:^9.0.0"
@@ -4129,7 +4129,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 10/e02b2f32ae79665a79fc4d8ee053fd3832bfcd4753aa1dba05cdece1a9f59c72a0fae91e0a9387597dcb686d631a722729f2878e38dc95e6f23b291ad8d09b6c
+  checksum: 10/3605577fda8d5e27b8919f390f749af91494d03e7ba5ccaf6480ed1184248372c5a4e8fe1c8c3ad4c1a7b3536f37144ba4b4626900ed46dc9811312f280eee31
   languageName: node
   linkType: hard
 
@@ -4398,12 +4398,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.26":
-  version: 20.11.26
-  resolution: "@types/node@npm:20.11.26"
+"@types/node@npm:20.11.30":
+  version: 20.11.30
+  resolution: "@types/node@npm:20.11.30"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/37a69017fc0e70bd52e106a7a0de21f78b29a869b2ab7b0539438ee6ce91cb9b49b80d6b68108e88fcc20e24cdc4dc00f6e8e1c28215d93412cb19a303572130
+  checksum: 10/78515bc768d2b878e2e06a1c20eb4f5840072b79b8d28ff3dd0a7feaaf48fd3a2ac03cfa5bc7564da82db5906b43e9ba0e5df9f43d870b7aae2942306e208815
   languageName: node
   linkType: hard
 
@@ -4474,12 +4474,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.21":
-  version: 18.2.21
-  resolution: "@types/react-dom@npm:18.2.21"
+"@types/react-dom@npm:18.2.22":
+  version: 18.2.22
+  resolution: "@types/react-dom@npm:18.2.22"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10/5c714bc69c3cf979dbf3fb8c66fc42b5b740af54d98c1037c593ac9ad54e5107cfc39fcba8c550f8df924670f55b411898d53c6166a2b15b4ed44a248a358590
+  checksum: 10/310da22244c1bb65a7f213f8727bda821dd211cfb2dd62d1f9b28dd50ef1c196d59e908494bd5f25c13a3844343f3a6135f39fb830aca6f79646fa56c1b56c08
   languageName: node
   linkType: hard
 
@@ -4523,13 +4523,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.2.60":
-  version: 18.2.65
-  resolution: "@types/react@npm:18.2.65"
+  version: 18.2.67
+  resolution: "@types/react@npm:18.2.67"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/8022689f6c68e76b5e7b3c95af794fb3d128d5b2ccac408adaa80b117724c48b04dd4a2750e5c2ca29cd70ac7719b4ed5c5b1c12cb739d6f1d52188c09fb3060
+  checksum: 10/d7e248dbe8d9d3b05f0d8e128d615fc9c85aa2c5d15634271d20cb9b343dbeffb0875f31a44e7ac63b42afc25949bd4c3633b7ebee45ee4666591ca934a8dffb
   languageName: node
   linkType: hard
 
@@ -6595,9 +6595,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.7.0":
-  version: 13.7.0
-  resolution: "cypress@npm:13.7.0"
+"cypress@npm:13.7.1":
+  version: 13.7.1
+  resolution: "cypress@npm:13.7.1"
   dependencies:
     "@cypress/request": "npm:^3.0.0"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -6643,7 +6643,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10/012d8a311ba288cfa8b504ce26b7a8b3dc4b81fc5d5be558fbcab4a0253e76102423d4660ce0352197c6db1eaf96b87aa4f28f6ff87e8ad51757538b7bba3757
+  checksum: 10/897abf011156af85fae617b20177ed945fb76c78ac9bfad10af870e62181f9d56fdc886e00602e576cfbc79cc97230dc20c7bd5b4b87a4ada7ed83025fb147d3
   languageName: node
   linkType: hard
 
@@ -8761,7 +8761,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:19.1.0"
     "@commitlint/config-conventional": "npm:19.1.0"
-    "@cypress/code-coverage": "npm:3.12.29"
+    "@cypress/code-coverage": "npm:3.12.30"
     "@emotion/cache": "npm:11.11.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.0"
@@ -8774,19 +8774,19 @@ __metadata:
     "@mui/material": "npm:5.15.14"
     "@sentry/react": "npm:7.106.1"
     "@testing-library/jest-dom": "npm:6.4.2"
-    "@testing-library/react": "npm:14.2.1"
+    "@testing-library/react": "npm:14.2.2"
     "@testing-library/user-event": "npm:14.5.2"
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
-    "@types/node": "npm:20.11.26"
+    "@types/node": "npm:20.11.30"
     "@types/react": "npm:^18.2.60"
-    "@types/react-dom": "npm:18.2.21"
+    "@types/react-dom": "npm:18.2.22"
     "@types/react-router-dom": "npm:5.3.3"
     "@types/validator": "npm:13.11.9"
     "@typescript-eslint/eslint-plugin": "npm:7.3.1"
     "@typescript-eslint/parser": "npm:7.3.1"
     "@vitejs/plugin-react": "npm:4.2.1"
     concurrently: "npm:8.2.2"
-    cypress: "npm:13.7.0"
+    cypress: "npm:13.7.1"
     cypress-vite: "npm:1.5.0"
     env-cmd: "npm:10.1.0"
     eslint: "npm:^8.57.0"
@@ -8812,7 +8812,7 @@ __metadata:
     stylis-plugin-rtl: "npm:2.1.1"
     typescript: "npm:5.4.3"
     validator: "npm:13.11.0"
-    vite: "npm:5.2.2"
+    vite: "npm:5.2.3"
     vite-plugin-checker: "npm:0.6.4"
     vite-plugin-istanbul: "npm:5.0.0"
   languageName: unknown
@@ -13980,9 +13980,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.2.2":
-  version: 5.2.2
-  resolution: "vite@npm:5.2.2"
+"vite@npm:5.2.3":
+  version: 5.2.3
+  resolution: "vite@npm:5.2.3"
   dependencies:
     esbuild: "npm:^0.20.1"
     fsevents: "npm:~2.3.3"
@@ -14016,7 +14016,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/8e7f1e79e00a092b43378565898b5b60f66738d55fdcd2bb3a17b07183d32c3bfda30135490956ad8eb5eb77b0e56d4377655bf9478898616edbb20645477edb
+  checksum: 10/5033a989462bc3127cb937ae5138024af68ec1b67accad07e07e116254b84fc6888a18d7a0358e3d3ce19fe160d72b6622259edc93e7fba47b84d042dcbe1e4e
   languageName: node
   linkType: hard
 
