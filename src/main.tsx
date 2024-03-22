@@ -1,4 +1,8 @@
-import { BrowserTracing, Replay, init as SentryInit } from '@sentry/react';
+import {
+  init as SentryInit,
+  browserTracingIntegration,
+  replayIntegration,
+} from '@sentry/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ReactGA from 'react-ga4';
@@ -23,8 +27,8 @@ if (GA_MEASUREMENT_ID && hasAcceptedCookies() && import.meta.env.PROD) {
 SentryInit({
   dsn: SENTRY_DSN,
   integrations: [
-    new BrowserTracing(),
-    new Replay({
+    browserTracingIntegration(),
+    replayIntegration({
       maskAllText: false,
       maskAllInputs: false,
       // allows to capture details for requests to the api

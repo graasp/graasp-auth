@@ -66,7 +66,7 @@ const SuccessContent = ({
           <MailOutlineIcon fontSize="large" sx={{ marginRight: 1 }} />
           {title}
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" align="justify">
           <Trans
             ns={namespaces.auth}
             i18nKey={AUTH.SIGN_IN_SUCCESS_TEXT}
@@ -74,7 +74,7 @@ const SuccessContent = ({
             components={{ bold: <strong /> }}
           />
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" align="justify">
           {t(AUTH.SIGN_IN_SUCCESS_EMAIL_PROBLEM)}
         </Typography>
         <Stack direction="row" justifyContent="center" spacing={1}>
