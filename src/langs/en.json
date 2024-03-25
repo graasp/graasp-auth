@@ -26,6 +26,6 @@
   "SWITCH_ACCOUNT_TEXT": "Switch to another account",
   "API_UNAVAILABLE_TITLE": "Server Connection Error",
   "API_UNAVAILABLE_EXPLANATION": "The Graasp server seems unreachable for the moment.",
-  "API_UNAVAILABLE_INSTRUCTIONS": "Please try again later, or when this message disappears",
+  "API_UNAVAILABLE_INSTRUCTIONS": "Please try again later.",
   "API_UNAVAILABLE_BUTTON": "Retry"
 }
