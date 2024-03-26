@@ -237,7 +237,7 @@ const SignIn: FC = () => {
             handleBackButtonClick={handleBackButtonClick}
           />
         ) : (
-          <Stack direction="column" spacing={2}>
+          <Stack direction="column" alignItems="center" spacing={2}>
             <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
               {t(SIGN_IN_HEADER)}
             </Typography>

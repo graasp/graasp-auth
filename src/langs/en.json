@@ -23,5 +23,9 @@
   "SIGN_UP_SAVE_ACTIONS_LABEL": "Enable Analytics",
   "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Coming Soon!",
   "SIGN_UP_SUCCESS_TITLE": "Welcome!",
-  "SWITCH_ACCOUNT_TEXT": "Switch to another account"
+  "SWITCH_ACCOUNT_TEXT": "Switch to another account",
+  "API_UNAVAILABLE_TITLE": "Server Connection Error",
+  "API_UNAVAILABLE_EXPLANATION": "The Graasp server seems unreachable for the moment.",
+  "API_UNAVAILABLE_INSTRUCTIONS": "Please try again later.",
+  "API_UNAVAILABLE_BUTTON": "Retry"
 }

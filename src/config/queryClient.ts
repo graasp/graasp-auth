@@ -9,6 +9,9 @@ const {
   hooks,
   ReactQueryDevtools,
   mutations,
+  axios,
+  useQuery,
+  useQueryClient,
 } = configureQueryClient({
   API_HOST,
   defaultQueryOptions: {
@@ -21,7 +24,10 @@ const {
 export {
   queryClient,
   mutations,
+  useQuery,
   QueryClientProvider,
+  useQueryClient,
   hooks,
   ReactQueryDevtools,
+  axios,
 };
