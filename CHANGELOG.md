@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/graasp/graasp-auth/compare/v2.1.2...v2.2.0) (2024-03-26)
+
+
+### Features
+
+* add connection indicator ([#342](https://github.com/graasp/graasp-auth/issues/342)) ([81329f5](https://github.com/graasp/graasp-auth/commit/81329f57cdf3e65b02cf894c0de41125ec36aaca))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v3 ([#334](https://github.com/graasp/graasp-auth/issues/334)) ([3bfd44a](https://github.com/graasp/graasp-auth/commit/3bfd44a3c098f875d184243a1c7656d1cb2aa62a))
+* **deps:** update dependency @graasp/query-client to v3.0.2 ([#343](https://github.com/graasp/graasp-auth/issues/343)) ([d05eac1](https://github.com/graasp/graasp-auth/commit/d05eac14844e200a10c1bdcb593de1bcb14fc802))
+* **deps:** update dependency @graasp/sdk to v4.2.1 ([#332](https://github.com/graasp/graasp-auth/issues/332)) ([fa4ca55](https://github.com/graasp/graasp-auth/commit/fa4ca55025744c33ce9ab7594133f4a7706c506d))
+* **deps:** update dependency @graasp/translations to v1.25.3 ([#335](https://github.com/graasp/graasp-auth/issues/335)) ([8a377d7](https://github.com/graasp/graasp-auth/commit/8a377d76ba599242c4cdd0621e289e310a95cedd))
+* **deps:** update dependency @graasp/ui to v4.11.0 ([#333](https://github.com/graasp/graasp-auth/issues/333)) ([89f25cc](https://github.com/graasp/graasp-auth/commit/89f25cc5ea5ca010940b84ed07ba513ab0b23d35))
+* **deps:** update dependency @sentry/react to v7.108.0 ([#340](https://github.com/graasp/graasp-auth/issues/340)) ([05f00dd](https://github.com/graasp/graasp-auth/commit/05f00dde2a2d74f54f67633802ed0854f3d1fdd8))
+* **deps:** update dependency react-i18next to v14.1.0 ([#328](https://github.com/graasp/graasp-auth/issues/328)) ([620e9ce](https://github.com/graasp/graasp-auth/commit/620e9cedfbc32367652377c81f5a37c2a9d2fc43))
+* **deps:** update dependency react-toastify to v10.0.5 ([#338](https://github.com/graasp/graasp-auth/issues/338)) ([e1978d5](https://github.com/graasp/graasp-auth/commit/e1978d5b826de66c67aded8b224a25f48ae99b64))
+* **deps:** update mui (non-major) ([#331](https://github.com/graasp/graasp-auth/issues/331)) ([19546fb](https://github.com/graasp/graasp-auth/commit/19546fb96798c1a34ec62ad439f8cac74c86cf9c))
+
 ## [2.1.2](https://github.com/graasp/graasp-auth/compare/v2.1.1...v2.1.2) (2024-03-13)
 
 
