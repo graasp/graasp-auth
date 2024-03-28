@@ -28,7 +28,7 @@ const Content = () => {
       languageSelectLabel={null}
     >
       <CssBaseline />
-      {SHOW_NOTIFICATIONS && <ToastContainer />}
+      {SHOW_NOTIFICATIONS && <ToastContainer stacked />}
       <RecaptchaProvider siteKey={RECAPTCHA_SITE_KEY}>
         <App />
       </RecaptchaProvider>
