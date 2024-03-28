@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { Button } from '@graasp/ui';
+import { Button, GraaspLogo } from '@graasp/ui';
 
-import { Stack } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
@@ -44,6 +44,7 @@ const {
 const SignIn: FC = () => {
   const { t } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
+  const theme = useTheme();
 
   const { isMobile, challenge } = useMobileAppLogin();
   const { search } = useLocation();
@@ -199,7 +200,7 @@ const SignIn: FC = () => {
                 onChange={handleOnChangePassword}
                 id={PASSWORD_SIGN_IN_FIELD_ID}
                 type="password"
-                onKeyPress={handleKeypress}
+                onKeyDown={handleKeypress}
               />
               <Button
                 variant="contained"
@@ -238,9 +239,15 @@ const SignIn: FC = () => {
           />
         ) : (
           <Stack direction="column" alignItems="center" spacing={2}>
-            <Typography variant="h2" component="h2" id={SIGN_IN_HEADER_ID}>
-              {t(SIGN_IN_HEADER)}
-            </Typography>
+            <Stack spacing={1}>
+              <GraaspLogo
+                height={90}
+                sx={{ fill: theme.palette.primary.main }}
+              />
+              <Typography variant="h4" component="h2" id={SIGN_IN_HEADER_ID}>
+                {t(SIGN_IN_HEADER)}
+              </Typography>
+            </Stack>
             {renderSignInForm()}
             <Box justifyContent="center">
               <Button
