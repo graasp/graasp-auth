@@ -14,3 +14,6 @@ export const AVATAR_ICON_HEIGHT = 30;
 
 export const MEMBER_PROFILE_PATH = `${GRAASP_BUILDER_HOST}/profile`;
 export const SIGN_IN_PATH = buildSignInPath({ host: AUTHENTICATION_HOST });
+
+export const PRIVACY_POLICY_LINK = 'https://graasp.org/privacy/';
+export const TERMS_OF_SERVICE_LINK = 'https://graasp.org/terms/';

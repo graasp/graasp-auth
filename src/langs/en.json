@@ -27,5 +27,9 @@
   "API_UNAVAILABLE_TITLE": "Server Connection Error",
   "API_UNAVAILABLE_EXPLANATION": "The Graasp server seems unreachable for the moment.",
   "API_UNAVAILABLE_INSTRUCTIONS": "Please try again later.",
-  "API_UNAVAILABLE_BUTTON": "Retry"
+  "API_UNAVAILABLE_BUTTON": "Retry",
+  "PRIVACY_POLICY_CHECKBOX_LABEL": "I read and I accept the",
+  "TERMS_OF_SERVICE_CHECKBOX_LABEL": "I read and I accept the",
+  "PRIVACY_POLICY_LINK_LABEL": "Privacy Policy",
+  "TERMS_OF_SERVICE_LINK_LABEL": "Terms of Service"
 }
