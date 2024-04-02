@@ -3,6 +3,10 @@ export const EMAIL_SIGN_UP_FIELD_ID = 'emailSignUpFieldId';
 export const EMAIL_SIGN_IN_FIELD_ID = 'emailSignInFieldId';
 export const PASSWORD_SIGN_IN_FIELD_ID = 'passwordSignInFieldId';
 export const PASSWORD_SIGN_IN_BUTTON_ID = 'passwordSignInButtonId';
+export const SIGN_UP_PRIVACY_POLICY_CHECKBOX_ID =
+  'signUpPrivacyPolicyCheckboxId';
+export const SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID =
+  'signUpTermOfServiceCheckboxId';
 export const SIGN_IN_BUTTON_ID = 'signInButtonId';
 export const SIGN_UP_BUTTON_ID = 'signUpButtonId';
 export const SIGN_IN_HEADER_ID = 'signInHeaderId';
