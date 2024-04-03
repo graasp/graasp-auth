@@ -11,7 +11,7 @@ interface ImportMetaEnv {
   readonly VITE_SENTRY_DSN: string;
   readonly VITE_GA_MEASUREMENT_ID: string;
   readonly VITE_SHOW_NOTIFICATIONS: string;
-  readonly VITE_GRAASP_LANDING_PAGE_HOST: string;
+  readonly VITE_GRAASP_LANDING_PAGE_ORIGIN: string;
 }
 
 interface ImportMeta {
