@@ -20,4 +20,4 @@ export const SHOW_NOTIFICATIONS =
   import.meta.env.VITE_SHOW_NOTIFICATIONS === 'true' || false;
 
 export const GRAASP_LANDING_PAGE_HOST =
-  import.meta.env.VITE_GRAASP_LANDING_PAGE_HOST || 'https://graasp.org';
+  import.meta.env.VITE_GRAASP_LANDING_PAGE_ORIGIN || 'https://graasp.org';
