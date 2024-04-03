@@ -28,8 +28,8 @@
   "API_UNAVAILABLE_EXPLANATION": "The Graasp server seems unreachable for the moment.",
   "API_UNAVAILABLE_INSTRUCTIONS": "Please try again later.",
   "API_UNAVAILABLE_BUTTON": "Retry",
-  "PRIVACY_POLICY_CHECKBOX_LABEL": "I read and I accept the",
-  "TERMS_OF_SERVICE_CHECKBOX_LABEL": "I read and I accept the",
+  "TERMS_OF_SERVICE_CHECKBOX_LABEL": "I have read and agree to the",
+  "PRIVACY_POLICY_CHECKBOX_LABEL": "By clicking on \"{{SIGN_UP_BUTTON}}\", I agree to the Graasp",
   "PRIVACY_POLICY_LINK_LABEL": "Privacy Policy",
   "TERMS_OF_SERVICE_LINK_LABEL": "Terms of Service"
 }
