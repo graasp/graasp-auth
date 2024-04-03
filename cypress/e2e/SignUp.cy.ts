@@ -5,17 +5,10 @@ import { API_ROUTES } from '@graasp/query-client';
 import { SIGN_UP_PATH } from '../../src/config/paths';
 import {
   SIGN_UP_BUTTON_ID,
-  SIGN_UP_PRIVACY_POLICY_CHECKBOX_ID,
-  SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID,
   SUCCESS_CONTENT_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
 import { checkInvitationFields } from './util';
-
-const acceptPrivacyPolicy = () =>
-  cy.agreeWithTerms(SIGN_UP_PRIVACY_POLICY_CHECKBOX_ID);
-const acceptTermOfService = () =>
-  cy.agreeWithTerms(SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID);
 
 describe('SignUp', () => {
   describe('Must Accept All Terms To Sign Up', () => {
@@ -32,17 +25,8 @@ describe('SignUp', () => {
     it('Cannot Sign Up Without Accepting Terms', () => {
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
     });
-    it('Cannot Sign Up With Accepting Privacy Only', () => {
-      acceptPrivacyPolicy();
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
-    });
-    it('Cannot Sign Up With Accepting Term of Service Only', () => {
-      acceptTermOfService();
-      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
-    });
     it('Sign Up Is Available When Accepting All Terms', () => {
-      acceptPrivacyPolicy();
-      acceptTermOfService();
+      cy.agreeWithAllTerms();
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('not.be.disabled');
     });
   });

@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
-import { SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID } from '../config/selectors';
+import { SIGN_UP_AGREEMENTS_CHECKBOX_ID } from '../config/selectors';
 import { useAgreementForm } from '../hooks/useAgreementForm';
 import { AUTH } from '../langs/constants';
 
@@ -32,10 +32,7 @@ export const AgreementForm = ({ onChange }: Props) => {
         onChange={(_, checked) => handleChanges(checked)}
         required
         control={
-          <Checkbox
-            data-cy={SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID}
-            size="small"
-          />
+          <Checkbox data-cy={SIGN_UP_AGREEMENTS_CHECKBOX_ID} size="small" />
         }
         label={
           <Typography display="inline" fontSize="small">

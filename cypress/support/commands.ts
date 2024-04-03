@@ -15,8 +15,7 @@ import {
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
-  SIGN_UP_PRIVACY_POLICY_CHECKBOX_ID,
-  SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID,
+  SIGN_UP_AGREEMENTS_CHECKBOX_ID,
 } from '../../src/config/selectors';
 import {
   fillPasswordSignInLayout,
@@ -73,7 +72,7 @@ declare global {
         },
       ): Chainable<JQuery<HTMLElement>>;
 
-      agreeWithTerms(termDataCy: string): Chainable<JQuery<HTMLElement>>;
+      agreeWithAllTerms(): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
@@ -96,19 +95,16 @@ Cypress.Commands.add('checkErrorTextField', (id, flag) => {
   cy.get(`#${id}-helper-text`).should(existence);
 });
 
-Cypress.Commands.add('agreeWithTerms', (termDataCy) => {
-  cy.get(`[data-cy="${termDataCy}"] input`).check().should('be.checked');
+Cypress.Commands.add('agreeWithAllTerms', () => {
+  cy.get(`[data-cy="${SIGN_UP_AGREEMENTS_CHECKBOX_ID}"] input`)
+    .check()
+    .should('be.checked');
 });
-
-const agreeWithAllTerms = () => {
-  cy.agreeWithTerms(SIGN_UP_PRIVACY_POLICY_CHECKBOX_ID);
-  cy.agreeWithTerms(SIGN_UP_TERM_OF_SERVICE_CHECKBOX_ID);
-};
 
 Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
   fillSignUpLayout(user);
   if (acceptAllTerms) {
-    agreeWithAllTerms();
+    cy.agreeWithAllTerms();
   }
   submitSignUp();
 
