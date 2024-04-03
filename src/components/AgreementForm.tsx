@@ -9,33 +9,44 @@ import {
 
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_AGREEMENTS_CHECKBOX_ID } from '../config/selectors';
-import { useAgreementForm } from '../hooks/useAgreementForm';
+import { UseAgreementForm } from '../hooks/useAgreementForm';
 import { AUTH } from '../langs/constants';
 
 type Props = {
-  onChange: (areAllChecked: boolean) => void;
+  useAgreementForm: UseAgreementForm;
 };
 
-export const AgreementForm = ({ onChange }: Props) => {
+export const AgreementForm = ({ useAgreementForm }: Props) => {
   const { t } = useAuthTranslation();
   const {
-    areTermsChecked,
-    handleChanges,
+    userHasAcceptAllTerms,
+    updateUserAgreements,
+    hasError,
     privacyPolicyLink,
     termsOfServiceLink,
-  } = useAgreementForm({ onChange });
+  } = useAgreementForm;
+
+  const errorColor = 'error';
 
   return (
     <FormGroup sx={{ maxWidth: '330px' }}>
       <FormControlLabel
-        checked={areTermsChecked}
-        onChange={(_, checked) => handleChanges(checked)}
+        checked={userHasAcceptAllTerms}
+        onChange={(_, checked) => updateUserAgreements(checked)}
         required
         control={
-          <Checkbox data-cy={SIGN_UP_AGREEMENTS_CHECKBOX_ID} size="small" />
+          <Checkbox
+            color={hasError ? errorColor : 'primary'}
+            data-cy={SIGN_UP_AGREEMENTS_CHECKBOX_ID}
+            size="small"
+          />
         }
         label={
-          <Typography display="inline" fontSize="small">
+          <Typography
+            display="inline"
+            fontSize="small"
+            color={hasError ? errorColor : 'default'}
+          >
             <Trans
               i18nKey={AUTH.USER_AGREEMENTS_CHECKBOX_LABEL}
               values={{
