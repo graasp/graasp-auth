@@ -23,13 +23,14 @@ export const AgreementCheckbox = ({
       checked={isChecked}
       onChange={(_, checked) => onChange(checked)}
       required
-      control={<Checkbox data-cy={dataCy} />}
+      control={<Checkbox data-cy={dataCy} size="small" />}
       label={
-        <Typography display="inline">
+        <Typography display="inline" fontSize="small">
           {label}{' '}
           <a href={link} target="_blank" rel="noreferrer">
             {linkLabel}
           </a>
+          .
         </Typography>
       }
     />
