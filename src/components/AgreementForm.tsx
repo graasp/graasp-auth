@@ -26,7 +26,7 @@ export const AgreementForm = ({ onChange }: Props) => {
   } = useAgreementForm({ onChange });
 
   return (
-    <FormGroup>
+    <FormGroup sx={{ maxWidth: '330px' }}>
       <FormControlLabel
         checked={areTermsChecked}
         onChange={(_, checked) => handleChanges(checked)}
