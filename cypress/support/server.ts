@@ -88,3 +88,17 @@ export const mockGetMembers = (members) => {
     },
   ).as('getMembers');
 };
+
+export const mockGetStatus = () => {
+  cy.intercept(
+    {
+      method: 'get',
+      url: `${API_HOST}/status`,
+    },
+    ({ url, reply }) => {
+      return reply({
+        statusCode: StatusCodes.OK,
+      });
+    },
+  ).as('getStatus');
+};

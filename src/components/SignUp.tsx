@@ -2,9 +2,9 @@ import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { Button, Loader } from '@graasp/ui';
+import { Button, GraaspLogo, Loader } from '@graasp/ui';
 
-import { Stack } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 
@@ -33,6 +33,7 @@ const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
 const SignUp = () => {
   const { t, i18n } = useAuthTranslation();
   const { executeCaptcha } = useRecaptcha();
+  const theme = useTheme();
 
   const { isMobile, challenge } = useMobileAppLogin();
   const redirect = useRedirection();
@@ -153,9 +154,17 @@ const SignUp = () => {
         />
       ) : (
         <Stack direction="column" spacing={2}>
-          <Typography variant="h2" component="h2" id={SIGN_UP_HEADER_ID}>
-            {t(SIGN_UP_HEADER)}
-          </Typography>
+          <Stack spacing={1}>
+            <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
+            <Typography
+              variant="h4"
+              component="h2"
+              id={SIGN_UP_HEADER_ID}
+              textAlign="center"
+            >
+              {t(SIGN_UP_HEADER)}
+            </Typography>
+          </Stack>
           {renderForm()}
         </Stack>
       )}

@@ -26,7 +26,12 @@ import {
   submitSignUp,
 } from '../e2e/util';
 import MEMBERS from '../fixtures/members';
-import { mockGetCurrentMember, mockGetMember, mockGetMembers } from './server';
+import {
+  mockGetCurrentMember,
+  mockGetMember,
+  mockGetMembers,
+  mockGetStatus,
+} from './server';
 
 // cypress/support/index.ts
 declare global {
@@ -77,6 +82,7 @@ Cypress.Commands.add(
     mockGetMembers(cachedMembers);
 
     mockGetCurrentMember();
+    mockGetStatus();
   },
 );
 
