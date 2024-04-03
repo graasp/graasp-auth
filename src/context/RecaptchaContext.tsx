@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+const MOCK_RECAPTCHA_TOKEN = 'development-token';
+
 declare global {
   interface Window {
     grecaptcha: {
@@ -29,11 +31,28 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
   const executeCaptcha = (action: string): Promise<string> => {
     return new Promise<string>((resolve) => {
       if (!window.grecaptcha) {
+        if (import.meta.env.DEV) {
+          // in dev we resolve to a mock string
+          console.debug('No recaptcha key set-up, using mock value');
+          resolve(MOCK_RECAPTCHA_TOKEN);
+        }
         resolve(undefined);
       } else {
         window.grecaptcha.ready(async () => {
-          const token = await window.grecaptcha.execute(siteKey, { action });
-          resolve(token);
+          try {
+            const token = await window.grecaptcha.execute(siteKey, { action });
+            resolve(token);
+          } catch (err) {
+            // if we are in dev and the error is that tge client id is not set, we resolve to a mock value
+            if (
+              err.toString().includes('Invalid reCAPTCHA client id') &&
+              import.meta.env.DEV
+            ) {
+              console.debug('No recaptcha key set-up, using mock value');
+              resolve(MOCK_RECAPTCHA_TOKEN);
+            }
+            console.error(err);
+          }
         });
       }
     });
