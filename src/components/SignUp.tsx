@@ -156,7 +156,12 @@ const SignUp = () => {
         <Stack direction="column" spacing={2}>
           <Stack spacing={1}>
             <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
-            <Typography variant="h4" component="h2" id={SIGN_UP_HEADER_ID}>
+            <Typography
+              variant="h4"
+              component="h2"
+              id={SIGN_UP_HEADER_ID}
+              textAlign="center"
+            >
               {t(SIGN_UP_HEADER)}
             </Typography>
           </Stack>

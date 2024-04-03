@@ -12,7 +12,7 @@ const FullscreenContainer = ({ children }: Props): JSX.Element => (
     direction="column"
     margin="auto"
     alignItems="center"
-    justifyContent="center"
+    justifyContent="space-between"
     bgcolor="#f6f7fb"
     minHeight="100svh"
     sx={{
@@ -20,18 +20,20 @@ const FullscreenContainer = ({ children }: Props): JSX.Element => (
     }}
   >
     <APIChecker />
-    <Box
-      alignItems="center"
-      bgcolor="white"
-      border="1px solid #eaeaf7"
-      borderRadius={3}
-      px={{ xs: 2, sm: 8 }}
-      py={{ xs: 2, sm: 6 }}
-      m={4}
-      boxShadow="0px 0px 20px 5px rgba(44, 47, 240, 0.08)"
-    >
-      {children}
-    </Box>
+    <Stack flexGrow={1} justifyContent="center">
+      <Box
+        alignItems="center"
+        bgcolor="white"
+        border="1px solid #eaeaf7"
+        borderRadius={3}
+        px={{ xs: 2, sm: 8 }}
+        py={{ xs: 2, sm: 6 }}
+        m={4}
+        boxShadow="0px 0px 20px 5px rgba(44, 47, 240, 0.08)"
+      >
+        {children}
+      </Box>
+    </Stack>
     <Footer />
   </Stack>
 );

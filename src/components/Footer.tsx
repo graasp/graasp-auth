@@ -7,8 +7,6 @@ const Footer = () => {
 
   return (
     <Box
-      position="absolute"
-      bottom={0}
       display="flex"
       justifyContent="end"
       alignItems="center"
