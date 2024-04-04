@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/graasp/graasp-auth/compare/v2.2.0...v2.3.0) (2024-04-04)
+
+
+### Features
+
+* asks users to read and accept terms of usage and privacy policy ([#358](https://github.com/graasp/graasp-auth/issues/358)) ([e796dac](https://github.com/graasp/graasp-auth/commit/e796dacdda3930160558e0dd235b4b0ccaa0e738))
+* fix styles, show logo, add footer content ([#341](https://github.com/graasp/graasp-auth/issues/341)) ([13a4117](https://github.com/graasp/graasp-auth/commit/13a4117068a2718dbb544c2d0c00954887b61771))
+
+
+### Bug Fixes
+
+* allow no recaptch key in dev ([#356](https://github.com/graasp/graasp-auth/issues/356)) ([600f989](https://github.com/graasp/graasp-auth/commit/600f989d885e90e66527222fab7899557ce4ac07))
+* use stacked notifs ([#350](https://github.com/graasp/graasp-auth/issues/350)) ([3035a17](https://github.com/graasp/graasp-auth/commit/3035a17c921c7f7ed8f29224ade8ba01c8590023))
+
 ## [2.2.0](https://github.com/graasp/graasp-auth/compare/v2.1.2...v2.2.0) (2024-03-26)
 
 
