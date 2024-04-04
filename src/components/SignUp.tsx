@@ -20,8 +20,10 @@ import {
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
 import { useRedirection } from '../hooks/searchParams';
+import { useAgreementForm } from '../hooks/useAgreementForm';
 import { AUTH } from '../langs/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
+import { AgreementForm } from './AgreementForm';
 import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
@@ -44,6 +46,8 @@ const SignUp = () => {
   const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
+  const agreementFormHook = useAgreementForm();
+  const { verifyUserAgreements, userHasAcceptedAllTerms } = agreementFormHook;
 
   const { mutateAsync: signUp, isSuccess: signUpSuccess } =
     mutations.useSignUp();
@@ -83,7 +87,10 @@ const SignUp = () => {
     const lowercaseEmail = email.toLowerCase();
     const checkingEmail = emailValidator(lowercaseEmail);
     const checkingUsername = nameValidator(name);
-    if (checkingEmail || checkingUsername) {
+    if (!verifyUserAgreements()) {
+      // should never happen
+      return;
+    } else if (checkingEmail || checkingUsername) {
       setNameError(checkingUsername);
       setShouldValidate(true);
     } else {
@@ -135,7 +142,13 @@ const SignUp = () => {
             disabled={Boolean(invitation?.email)}
             shouldValidate={shouldValidate}
           />
-          <Button onClick={handleRegister} id={SIGN_UP_BUTTON_ID} fullWidth>
+          <AgreementForm useAgreementForm={agreementFormHook} />
+          <Button
+            onClick={handleRegister}
+            id={SIGN_UP_BUTTON_ID}
+            fullWidth
+            disabled={!userHasAcceptedAllTerms}
+          >
             {t(SIGN_UP_BUTTON)}
           </Button>
         </Stack>

@@ -23,5 +23,10 @@
   "SIGN_UP_SAVE_ACTIONS_LABEL": "Activer les statistiques d'utilisation",
   "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Prochainement!",
   "SIGN_UP_SUCCESS_TITLE": "Bienvenue !",
-  "SWITCH_ACCOUNT_TEXT": "Utiliser un autre compte"
+  "SWITCH_ACCOUNT_TEXT": "Utiliser un autre compte",
+  "USER_AGREEMENTS_TERMS_OF_SERVICE": "conditions d'utilisation",
+  "USER_AGREEMENTS_PRIVACY_POLICY": "politique de confidentialité",
+  "USER_AGREEMENTS_CHECKBOX_LABEL": "En cliquant sur <0>{{sign_up_btn}}</0>, j'accepte les <1>{{terms_of_service}}</1> et la <2>{{privacy_policy}}</2>.",
+  "TERMS_OF_SERVICE_LINK": "/fr/terms",
+  "PRIVACY_POLICY_LINK": "/fr/privacy"
 }

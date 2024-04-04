@@ -96,7 +96,7 @@ describe('Success Content', () => {
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
       // Signing up with a valid email
-      cy.signUpAndCheck(GRAASP);
+      cy.signUpAndCheck(GRAASP, true);
 
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -109,7 +109,7 @@ describe('Success Content', () => {
       cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).should('have.value', GRAASP.email);
 
       // check if it's possible to sign up and use back button again
-      cy.signUpAndCheck(GRAASP_OTHER);
+      cy.signUpAndCheck(GRAASP_OTHER, true);
 
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -130,10 +130,10 @@ describe('Success Content', () => {
       cy.visit(SIGN_UP_PATH);
 
       // Signing up with a valid email
-      cy.signUpAndCheck(GRAASP_OTHER);
+      cy.signUpAndCheck(GRAASP_OTHER, true);
       cy.get(`#${BACK_BUTTON_ID}`).click();
 
-      cy.signUpAndCheck(GRAASP);
+      cy.signUpAndCheck(GRAASP, true);
 
       // checks so request body contains correct email
       cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ body }) => {
