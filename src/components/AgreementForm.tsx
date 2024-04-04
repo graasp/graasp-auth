@@ -19,7 +19,7 @@ type Props = {
 export const AgreementForm = ({ useAgreementForm }: Props) => {
   const { t } = useAuthTranslation();
   const {
-    userHasAcceptAllTerms,
+    userHasAcceptedAllTerms,
     updateUserAgreements,
     hasError,
     privacyPolicyLink,
@@ -31,7 +31,7 @@ export const AgreementForm = ({ useAgreementForm }: Props) => {
   return (
     <FormGroup sx={{ maxWidth: '330px' }}>
       <FormControlLabel
-        checked={userHasAcceptAllTerms}
+        checked={userHasAcceptedAllTerms}
         onChange={(_, checked) => updateUserAgreements(checked)}
         required
         control={

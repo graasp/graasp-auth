@@ -47,7 +47,7 @@ const SignUp = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
   const agreementFormHook = useAgreementForm();
-  const { verifyUserAgreements, userHasAcceptAllTerms } = agreementFormHook;
+  const { verifyUserAgreements, userHasAcceptedAllTerms } = agreementFormHook;
 
   const { mutateAsync: signUp, isSuccess: signUpSuccess } =
     mutations.useSignUp();
@@ -147,7 +147,7 @@ const SignUp = () => {
             onClick={handleRegister}
             id={SIGN_UP_BUTTON_ID}
             fullWidth
-            disabled={!userHasAcceptAllTerms}
+            disabled={!userHasAcceptedAllTerms}
           >
             {t(SIGN_UP_BUTTON)}
           </Button>
