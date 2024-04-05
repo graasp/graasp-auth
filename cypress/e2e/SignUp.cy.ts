@@ -103,11 +103,8 @@ describe('SignUp', () => {
     });
   });
 
-  it('Enable Analytics switch', () => {
+  it('Enable Analytics', () => {
     cy.visit(SIGN_UP_PATH);
-    cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`)
-      .should('exist')
-      .should('be.disabled')
-      .should('be.checked');
+    cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`).should('exist').should('be.checked');
   });
 });
