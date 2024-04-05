@@ -103,8 +103,38 @@ describe('SignUp', () => {
     });
   });
 
-  it('Enable Analytics', () => {
-    cy.visit(SIGN_UP_PATH);
-    cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`).should('exist').should('be.checked');
+  describe('Defining Analytics On Sign Up', () => {
+    const { GRAASP } = MEMBERS;
+
+    beforeEach(() => {
+      cy.visit(SIGN_UP_PATH);
+      // eslint-disable-next-line arrow-body-style
+      cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
+        return reply({
+          statusCode: StatusCodes.NO_CONTENT,
+        });
+      }).as('waitOnRegister');
+    });
+
+    it('Analytics should be visible and checked', () => {
+      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`)
+        .should('exist')
+        .should('be.checked');
+    });
+
+    it('Sign Up with analytics enabled', () => {
+      cy.signUpAndCheck(GRAASP, true);
+      cy.wait('@waitOnRegister')
+        .its('request.body.enableSaveActions')
+        .should('eq', true);
+    });
+
+    it('Sign Up with analytics disabled', () => {
+      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`).click().should('not.be.checked');
+      cy.signUpAndCheck(GRAASP, true);
+      cy.wait('@waitOnRegister')
+        .its('request.body.enableSaveActions')
+        .should('eq', false);
+    });
   });
 });
