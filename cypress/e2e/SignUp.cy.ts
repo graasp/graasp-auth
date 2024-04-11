@@ -15,7 +15,6 @@ describe('SignUp', () => {
   describe('Must Accept All Terms To Sign Up', () => {
     beforeEach(() => {
       cy.visit(SIGN_UP_PATH);
-      // eslint-disable-next-line arrow-body-style
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
@@ -36,8 +35,6 @@ describe('SignUp', () => {
     it('Sign Up', () => {
       const { GRAASP, WRONG_NAME, WRONG_EMAIL } = MEMBERS;
       cy.visit(SIGN_UP_PATH);
-
-      // eslint-disable-next-line arrow-body-style
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
@@ -108,7 +105,6 @@ describe('SignUp', () => {
 
     beforeEach(() => {
       cy.visit(SIGN_UP_PATH);
-      // eslint-disable-next-line arrow-body-style
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
