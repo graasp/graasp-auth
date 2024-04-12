@@ -20,6 +20,7 @@ export const MEMBERS: {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
   GRAASP_OTHER: {
     id: 'graasp_other-id',
@@ -33,6 +34,7 @@ export const MEMBERS: {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
   WRONG_NAME: {
     id: 'id1',
@@ -45,6 +47,7 @@ export const MEMBERS: {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
   WRONG_EMAIL: {
     id: 'id2',
@@ -58,6 +61,7 @@ export const MEMBERS: {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
   WRONG_PASSWORD: {
     id: 'id3',
@@ -71,6 +75,7 @@ export const MEMBERS: {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
   BOB: {
     id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
@@ -80,6 +85,7 @@ export const MEMBERS: {
     extra: { lang: 'en' },
     type: MemberType.Individual,
     updatedAt: new Date().toISOString(),
+    enableSaveActions: true,
   },
   CEDRIC: {
     id: 'ecafbd2a-5642-31fb-ae93-0242ac130006',
@@ -89,6 +95,7 @@ export const MEMBERS: {
     type: MemberType.Individual,
     updatedAt: new Date().toISOString(),
     extra: {},
+    enableSaveActions: true,
   },
 };
 

@@ -3075,7 +3075,7 @@ __metadata:
 
 "@graasp/sdk@github:graasp/graasp-sdk#478-username-validation-constants":
   version: 4.7.1
-  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=032b6e8687f37467712c9b882aaf759cd8ab879e"
+  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=47c7cd962c5d33aa014cf10f77868848aed8b159"
   dependencies:
     "@faker-js/faker": "npm:8.4.1"
     js-cookie: "npm:3.0.5"
@@ -3083,7 +3083,7 @@ __metadata:
   peerDependencies:
     date-fns: ^3
     uuid: ^9
-  checksum: 10/5d633ca63fd0fd417796d784786461b05d46268a46553fe738554775ef788d33f7bffad8d43387acbbda901e67431e02ef63d8d0deddd73688802c676cdb08b0
+  checksum: 10/907ea1ffffe98638b3af85a2a48fb4e1ee35802c9946772d2817add5067fa33fd855633f6d9310a823249354833ba48ad266ed8aae278ef76a3477523c3785f7
   languageName: node
   linkType: hard
 

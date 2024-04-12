@@ -214,7 +214,7 @@ const SignIn: FC = () => {
                 variant="outlined"
                 value={password}
                 error={Boolean(passwordError)}
-                helperText={passwordError}
+                helperText={t(passwordError)}
                 onChange={handleOnChangePassword}
                 id={PASSWORD_SIGN_IN_FIELD_ID}
                 type="password"

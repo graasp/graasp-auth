@@ -1,7 +1,11 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { RecaptchaAction } from '@graasp/sdk';
+import {
+  MAX_USERNAME_LENGTH,
+  MIN_USERNAME_LENGTH,
+  RecaptchaAction,
+} from '@graasp/sdk';
 import { GraaspLogo } from '@graasp/ui';
 
 import { LoadingButton } from '@mui/lab';
@@ -171,7 +175,10 @@ const SignUp = () => {
             variant="outlined"
             value={name}
             error={Boolean(nameError)}
-            helperText={nameError}
+            helperText={t(nameError, {
+              min: MIN_USERNAME_LENGTH,
+              max: MAX_USERNAME_LENGTH,
+            })}
             onChange={handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.name)}
