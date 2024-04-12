@@ -1,6 +1,7 @@
 import validator from 'validator';
 
-import { NAME_MAXIMUM_LENGTH, NAME_MINIMUM_LENGTH } from '../config/constants';
+import { MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH } from '@graasp/sdk';
+
 import {
   EMPTY_EMAIL_ERROR,
   INVALID_EMAIL_ERROR,
@@ -10,10 +11,11 @@ import {
 } from '../config/messages';
 
 export const nameValidator = (name: string) => {
-  if (name.length > NAME_MAXIMUM_LENGTH) {
+  const trimmedName = name.trim();
+  if (trimmedName.length > MAX_USERNAME_LENGTH) {
     return USERNAME_ERROR_MAXIMUM_MESSAGE;
   }
-  if (name.length < NAME_MINIMUM_LENGTH) {
+  if (trimmedName.length < MIN_USERNAME_LENGTH) {
     return USERNAME_ERROR_MINIMUM_MESSAGE;
   }
   return null;

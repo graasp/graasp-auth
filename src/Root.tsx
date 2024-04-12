@@ -7,7 +7,7 @@ import { ThemeProvider } from '@graasp/ui';
 
 import { CssBaseline } from '@mui/material';
 
-import App from './components/App';
+import App from './App';
 import { RECAPTCHA_SITE_KEY, SHOW_NOTIFICATIONS } from './config/env';
 import i18nConfig, { useCommonTranslation } from './config/i18n';
 import {

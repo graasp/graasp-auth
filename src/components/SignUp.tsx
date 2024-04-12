@@ -8,8 +8,8 @@ import { LoadingButton } from '@mui/lab';
 import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import { SIGN_IN_PATH } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
+import { SIGN_IN_PATH } from '../config/paths';
 import { hooks, mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
@@ -150,10 +150,6 @@ const SignUp = () => {
     );
   }
 
-  // link to navigate to the signIn page should tak the same parameters as the signUp page
-  const signInURL = new URL(SIGN_IN_PATH);
-  signInURL.search = searchParams.toString();
-
   return (
     <Stack direction="column" spacing={2}>
       <Stack spacing={1}>
@@ -201,7 +197,9 @@ const SignUp = () => {
           </LoadingButton>
         </Stack>
       </FormControl>
-      <Link to={signInURL}>{t(SIGN_IN_LINK_TEXT)}</Link>
+      <Link to={`${SIGN_IN_PATH}?${searchParams.toString()}`}>
+        {t(SIGN_IN_LINK_TEXT)}
+      </Link>
     </Stack>
   );
 };

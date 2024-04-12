@@ -3073,9 +3073,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:4.2.1":
-  version: 4.2.1
-  resolution: "@graasp/sdk@npm:4.2.1"
+"@graasp/sdk@github:graasp/graasp-sdk#478-username-validation-constants":
+  version: 4.7.1
+  resolution: "@graasp/sdk@https://github.com/graasp/graasp-sdk.git#commit=032b6e8687f37467712c9b882aaf759cd8ab879e"
   dependencies:
     "@faker-js/faker": "npm:8.4.1"
     js-cookie: "npm:3.0.5"
@@ -3083,7 +3083,7 @@ __metadata:
   peerDependencies:
     date-fns: ^3
     uuid: ^9
-  checksum: 10/04e00d13a806ef62183b7314d39345a001981b31754d6ca5f61b80bd919a3de42d3310390bdc5834c0c03f95cf5480fb23d4a06da0a4cd4f3b67f01e067349a0
+  checksum: 10/5d633ca63fd0fd417796d784786461b05d46268a46553fe738554775ef788d33f7bffad8d43387acbbda901e67431e02ef63d8d0deddd73688802c676cdb08b0
   languageName: node
   linkType: hard
 
@@ -8930,7 +8930,7 @@ __metadata:
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.0"
     "@graasp/query-client": "npm:3.0.2"
-    "@graasp/sdk": "npm:4.2.1"
+    "@graasp/sdk": "github:graasp/graasp-sdk#478-username-validation-constants"
     "@graasp/translations": "npm:1.25.3"
     "@graasp/ui": "npm:4.14.2"
     "@mui/icons-material": "npm:5.15.14"
