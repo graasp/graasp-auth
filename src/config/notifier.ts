@@ -14,7 +14,7 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
-const getErrorMessage = (
+export const getErrorMessage = (
   error: Parameters<Notifier>[0]['payload']['error'],
 ) => {
   if (error instanceof AxiosError) {

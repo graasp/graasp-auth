@@ -1,11 +1,11 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { Button, GraaspLogo, Loader } from '@graasp/ui';
+import { GraaspLogo } from '@graasp/ui';
 
-import { Stack, useTheme } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
+import { LoadingButton } from '@mui/lab';
+import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { SIGN_IN_PATH } from '../config/constants';
@@ -28,9 +28,15 @@ import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
+import ErrorDisplay from './common/ErrorDisplay';
 
-const { SIGN_IN_LINK_TEXT, SIGN_UP_BUTTON, SIGN_UP_HEADER, NAME_FIELD_LABEL } =
-  AUTH;
+const {
+  SIGN_IN_LINK_TEXT,
+  SIGN_UP_HEADER,
+  NAME_FIELD_LABEL,
+  SIGN_UP_BUTTON,
+  INVITATIONS_LOADING_MESSAGE,
+} = AUTH;
 
 const SignUp = () => {
   const { t, i18n } = useAuthTranslation();
@@ -49,31 +55,45 @@ const SignUp = () => {
   const agreementFormHook = useAgreementForm();
   const { verifyUserAgreements, userHasAcceptedAllTerms } = agreementFormHook;
 
-  const { mutateAsync: signUp, isSuccess: signUpSuccess } =
-    mutations.useSignUp();
-  const { mutateAsync: mobileSignUp, isSuccess: mobileSignUpSuccess } =
-    mutations.useMobileSignUp();
+  const {
+    mutateAsync: signUp,
+    isSuccess: signUpSuccess,
+    isLoading: isLoadingSignUp,
+    error: webRegisterError,
+  } = mutations.useSignUp();
+  const {
+    mutateAsync: mobileSignUp,
+    isSuccess: mobileSignUpSuccess,
+    isLoading: isLoadingMobileSignUp,
+    error: mobileRegisterError,
+  } = mutations.useMobileSignUp();
   const [searchParams] = useSearchParams();
-  const { search } = useLocation();
 
   const {
     data: invitation,
-    isSuccess,
-    isInitialLoading,
+    isSuccess: isInvitationSuccess,
+    isInitialLoading: isLoadingInvitations,
   } = hooks.useInvitation(searchParams.get('invitationId') || undefined);
 
   useEffect(() => {
-    if (isSuccess && invitation) {
+    if (isInvitationSuccess && invitation) {
       setEmail(invitation.email);
       setName(invitation.name ?? '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [invitation, isSuccess]);
+  }, [invitation, isInvitationSuccess]);
 
   // loading invitation
-  if (isInitialLoading) {
-    return <Loader />;
+  if (isLoadingInvitations) {
+    return (
+      <Stack direction="column" spacing={1}>
+        <Typography>{t(INVITATIONS_LOADING_MESSAGE)}</Typography>
+        <LinearProgress />
+      </Stack>
+    );
   }
+
+  const registerError = webRegisterError || mobileRegisterError;
 
   const handleNameOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const newName = e.target.value;
@@ -120,8 +140,33 @@ const SignUp = () => {
     setSuccessView(false);
   };
 
-  const renderForm = () => (
-    <>
+  if ((signUpSuccess || mobileSignUpSuccess) && successView) {
+    return (
+      <SuccessContent
+        title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
+        email={email}
+        handleBackButtonClick={handleBackButtonClick}
+      />
+    );
+  }
+
+  // link to navigate to the signIn page should tak the same parameters as the signUp page
+  const signInURL = new URL(SIGN_IN_PATH);
+  signInURL.search = searchParams.toString();
+
+  return (
+    <Stack direction="column" spacing={2}>
+      <Stack spacing={1}>
+        <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
+        <Typography
+          variant="h4"
+          component="h2"
+          id={SIGN_UP_HEADER_ID}
+          textAlign="center"
+        >
+          {t(SIGN_UP_HEADER)}
+        </Typography>
+      </Stack>
       <FormControl>
         <Stack direction="column" spacing={1}>
           <StyledTextField
@@ -143,46 +188,28 @@ const SignUp = () => {
             shouldValidate={shouldValidate}
           />
           <AgreementForm useAgreementForm={agreementFormHook} />
-          <Button
-            onClick={handleRegister}
+          <ErrorDisplay error={registerError} />
+          <LoadingButton
+            variant="contained"
             id={SIGN_UP_BUTTON_ID}
+            loading={isLoadingSignUp || isLoadingMobileSignUp}
+            onClick={handleRegister}
             fullWidth
             disabled={!userHasAcceptedAllTerms}
           >
             {t(SIGN_UP_BUTTON)}
-          </Button>
+          </LoadingButton>
         </Stack>
       </FormControl>
-      <Link to={`${SIGN_IN_PATH}${search}`}>{t(SIGN_IN_LINK_TEXT)}</Link>
-    </>
-  );
-
-  return (
-    <FullscreenContainer>
-      {(signUpSuccess || mobileSignUpSuccess) && successView ? (
-        <SuccessContent
-          title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
-          email={email}
-          handleBackButtonClick={handleBackButtonClick}
-        />
-      ) : (
-        <Stack direction="column" spacing={2}>
-          <Stack spacing={1}>
-            <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
-            <Typography
-              variant="h4"
-              component="h2"
-              id={SIGN_UP_HEADER_ID}
-              textAlign="center"
-            >
-              {t(SIGN_UP_HEADER)}
-            </Typography>
-          </Stack>
-          {renderForm()}
-        </Stack>
-      )}
-    </FullscreenContainer>
+      <Link to={signInURL}>{t(SIGN_IN_LINK_TEXT)}</Link>
+    </Stack>
   );
 };
 
-export default SignUp;
+const SignUpScreenWrapper = () => (
+  <FullscreenContainer>
+    <SignUp />
+  </FullscreenContainer>
+);
+
+export default SignUpScreenWrapper;

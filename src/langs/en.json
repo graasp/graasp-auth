@@ -32,5 +32,6 @@
   "USER_AGREEMENTS_PRIVACY_POLICY": "privacy policy",
   "USER_AGREEMENTS_CHECKBOX_LABEL": "By clicking on <0>{{sign_up_btn}}</0>, I agree to the <1>{{terms_of_service}}</1> and the <2>{{privacy_policy}}</2>.",
   "TERMS_OF_SERVICE_LINK": "/terms",
-  "PRIVACY_POLICY_LINK": "/privacy"
+  "PRIVACY_POLICY_LINK": "/privacy",
+  "INVITATIONS_LOADING_MESSAGE": "We are looking for your invitation, please stand by"
 }
