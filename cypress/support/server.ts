@@ -7,7 +7,7 @@ const { buildGetMember, GET_CURRENT_MEMBER_ROUTE } = API_ROUTES;
 // use simple id format for tests
 export const ID_FORMAT = '(?=.*[0-9])(?=.*[a-zA-Z])([a-z0-9-]+)';
 
-const API_HOST = Cypress.env('API_HOST');
+const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
 export const redirectionReply = {
   headers: { 'content-type': 'application/json' },
@@ -89,16 +89,17 @@ export const mockGetMembers = (members) => {
   ).as('getMembers');
 };
 
-export const mockGetStatus = () => {
+export const mockGetStatus = (shouldThrowServerError = false) => {
   cy.intercept(
     {
       method: 'get',
       url: `${API_HOST}/status`,
     },
-    ({ url, reply }) => {
-      return reply({
-        statusCode: StatusCodes.OK,
-      });
+    ({ reply }) => {
+      if (shouldThrowServerError) {
+        return reply({ statusCode: StatusCodes.INTERNAL_SERVER_ERROR });
+      }
+      return reply({ statusCode: StatusCodes.OK });
     },
   ).as('getStatus');
 };

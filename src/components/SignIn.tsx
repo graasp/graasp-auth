@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { RecaptchaAction } from '@graasp/sdk';
 import { Button, GraaspLogo } from '@graasp/ui';
 
+import { LoadingButton } from '@mui/lab';
 import { Stack, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
@@ -31,6 +32,7 @@ import EmailInput from './EmailInput';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
+import ErrorDisplay from './common/ErrorDisplay';
 
 const {
   SIGN_IN_BUTTON,
@@ -58,18 +60,34 @@ const SignIn: FC = () => {
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
 
-  const { mutateAsync: signIn, isSuccess: signInSuccess } =
-    mutations.useSignIn();
-  const { mutateAsync: mobileSignIn, isSuccess: mobileSignInSuccess } =
-    mutations.useMobileSignIn();
+  const {
+    mutateAsync: signIn,
+    isSuccess: signInSuccess,
+    isLoading: isLoadingSignIn,
+    error: webSignInError,
+  } = mutations.useSignIn();
+  const {
+    mutateAsync: mobileSignIn,
+    isSuccess: mobileSignInSuccess,
+    isLoading: isLoadingMobileSignIn,
+    error: mobileSignInError,
+  } = mutations.useMobileSignIn();
   const {
     mutateAsync: signInWithPassword,
     isSuccess: signInWithPasswordSuccess,
+    isLoading: isLoadingPasswordSignIn,
+    error: webPasswordSignInError,
   } = mutations.useSignInWithPassword();
   const {
     mutateAsync: mobileSignInWithPassword,
     isSuccess: mobileSignInWithPasswordSuccess,
+    isLoading: isLoadingMobilePasswordSignIn,
+    error: mobilePasswordSignInError,
   } = mutations.useMobileSignInWithPassword();
+
+  const signInError = webSignInError || mobileSignInError;
+  const passwordSignInError =
+    webPasswordSignInError || mobilePasswordSignInError;
 
   const handleSignIn = async () => {
     const lowercaseEmail = email.toLowerCase();
@@ -196,26 +214,38 @@ const SignIn: FC = () => {
                 variant="outlined"
                 value={password}
                 error={Boolean(passwordError)}
-                helperText={passwordError}
+                helperText={t(passwordError)}
                 onChange={handleOnChangePassword}
                 id={PASSWORD_SIGN_IN_FIELD_ID}
                 type="password"
                 onKeyDown={handleKeypress}
               />
-              <Button
+              <ErrorDisplay error={passwordSignInError} />
+              <LoadingButton
+                id={PASSWORD_SIGN_IN_BUTTON_ID}
                 variant="contained"
                 color="primary"
                 onClick={handlePasswordSignIn}
-                id={PASSWORD_SIGN_IN_BUTTON_ID}
+                loading={
+                  isLoadingMobilePasswordSignIn || isLoadingPasswordSignIn
+                }
               >
                 {t(SIGN_IN_BUTTON)}
-              </Button>
+              </LoadingButton>
             </>
           )}
           {signInMethod === SIGN_IN_METHODS.EMAIL && (
-            <Button onClick={handleSignIn} id={SIGN_IN_BUTTON_ID}>
-              {t(SIGN_IN_BUTTON)}
-            </Button>
+            <>
+              <ErrorDisplay error={signInError} />
+              <LoadingButton
+                id={SIGN_IN_BUTTON_ID}
+                variant="contained"
+                onClick={handleSignIn}
+                loading={isLoadingMobileSignIn || isLoadingSignIn}
+              >
+                {t(SIGN_IN_BUTTON)}
+              </LoadingButton>
+            </>
           )}
         </Stack>
       </FormControl>

@@ -14,12 +14,20 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
-const getErrorMessage = (
+export const getErrorMessage = (
   error: Parameters<Notifier>[0]['payload']['error'],
 ) => {
+  // eslint-disable-next-line no-console
+  console.log(error);
   if (error instanceof AxiosError) {
     if (error.isAxiosError) {
-      return error.response.data.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR;
+      // response might not be present if there is a network error
+      const { response } = error;
+      if (response) {
+        return response?.data?.message ?? FAILURE_MESSAGES.UNEXPECTED_ERROR;
+      } else {
+        return error.message;
+      }
     }
   }
   return FAILURE_MESSAGES.UNEXPECTED_ERROR;

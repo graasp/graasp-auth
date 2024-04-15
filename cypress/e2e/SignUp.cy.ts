@@ -93,7 +93,7 @@ describe('SignUp', () => {
       };
       cy.intercept(API_ROUTES.buildGetInvitationRoute(invitation.id), {
         statusCode: 404,
-        body: '404 Not Found!',
+        body: { message: '404 Not Found!' },
       });
       const search = new URLSearchParams();
       search.set('invitationId', invitation.id);

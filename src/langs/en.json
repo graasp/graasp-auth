@@ -32,5 +32,11 @@
   "USER_AGREEMENTS_PRIVACY_POLICY": "privacy policy",
   "USER_AGREEMENTS_CHECKBOX_LABEL": "By clicking on <0>{{sign_up_btn}}</0>, I agree to the <1>{{terms_of_service}}</1> and the <2>{{privacy_policy}}</2>.",
   "TERMS_OF_SERVICE_LINK": "/terms",
-  "PRIVACY_POLICY_LINK": "/privacy"
+  "PRIVACY_POLICY_LINK": "/privacy",
+  "INVITATIONS_LOADING_MESSAGE": "We are looking for your invitation, please stand by…",
+  "USERNAME_TOO_SHORT_ERROR": "Please enter a username with more than {{min}} characters",
+  "USERNAME_TOO_LONG_ERROR": "Please enter a username under {{max}} characters",
+  "INVALID_EMAIL_ERROR": "This does not look like a valid email address",
+  "EMPTY_EMAIL_ERROR": "An email address is required, this field can not be empty",
+  "PASSWORD_EMPTY_ERROR": "The password can not be empty"
 }
