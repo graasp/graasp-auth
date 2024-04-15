@@ -13,7 +13,7 @@ export default defineConfig({
       const newConfig = {
         ...config,
         env: {
-          API_HOST: process.env.REACT_APP_API_HOST,
+          VITE_GRAASP_API_HOST: process.env.VITE_GRAASP_API_HOST,
         },
       };
       setupEvents(on, newConfig);

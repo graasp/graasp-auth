@@ -6,7 +6,7 @@ Create an `.env.development` file with:
 
 ```sh
 VITE_PORT=3001
-VITE_API_HOST=http://localhost:3000
+VITE_GRAASP_API_HOST=http://localhost:3000
 VITE_VERSION=latest
 VITE_GRAASP_BUILDER_HOST=http://localhost:3111
 VITE_SHOW_NOTIFICATIONS=true
@@ -22,7 +22,7 @@ For running tests locally create a `.env.test` file:
 
 ```sh
 VITE_PORT=3002
-VITE_API_HOST=http://localhost:3636
+VITE_GRAASP_API_HOST=http://localhost:3636
 VITE_VERSION=latest
 VITE_GRAASP_BUILDER_HOST=http://localhost:3111
 VITE_SHOW_NOTIFICATIONS=true
