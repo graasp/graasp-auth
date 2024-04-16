@@ -29,6 +29,7 @@ import { AUTH } from '../langs/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
 import { AgreementForm } from './AgreementForm';
 import EmailInput from './EmailInput';
+import { EnableAnalyticsForm } from './EnableAnalyticsForm';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
 import SuccessContent from './SuccessContent';
@@ -56,6 +57,8 @@ const SignUp = () => {
   const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
+  const [enableSaveActions, setEnableSaveActions] = useState<boolean>(true);
+
   const agreementFormHook = useAgreementForm();
   const { verifyUserAgreements, userHasAcceptedAllTerms } = agreementFormHook;
 
@@ -128,6 +131,7 @@ const SignUp = () => {
             captcha: token,
             challenge,
             lang: i18n.language,
+            enableSaveActions,
           })
         : signUp({
             name: name.trim(),
@@ -135,6 +139,7 @@ const SignUp = () => {
             captcha: token,
             url: redirect.url,
             lang: i18n.language,
+            enableSaveActions,
           }));
       setSuccessView(true);
     }
@@ -189,6 +194,10 @@ const SignUp = () => {
             id={EMAIL_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.email)}
             shouldValidate={shouldValidate}
+          />
+          <EnableAnalyticsForm
+            enableSaveActions={enableSaveActions}
+            onUpdateSaveActions={(enabled) => setEnableSaveActions(enabled)}
           />
           <AgreementForm useAgreementForm={agreementFormHook} />
           <ErrorDisplay error={registerError} />

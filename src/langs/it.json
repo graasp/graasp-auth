@@ -20,8 +20,8 @@
   "SIGN_UP_BUTTON": "Iscrizione",
   "SIGN_UP_HEADER": "Iscrizione",
   "SIGN_UP_LINK_TEXT": "Non registrato? Clicca qui per registrarti",
-  "SIGN_UP_SAVE_ACTIONS_LABEL": "Abilita Analisi",
-  "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Prossimamente!",
+  "SIGN_UP_SAVE_ACTIONS_LABEL": "Attivare il salvataggio degli insight guidati dai dati per migliorare i cruscotti analitici",
+  "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Raccogliamo dati analitici per migliorare l'esperienza dell'utente durante la navigazione su Graasp.",
   "SIGN_UP_SUCCESS_TITLE": "Benvenuto!",
   "SWITCH_ACCOUNT_TEXT": "Passa a un altro account"
 }

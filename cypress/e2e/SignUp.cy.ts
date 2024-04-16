@@ -5,6 +5,7 @@ import { API_ROUTES } from '@graasp/query-client';
 import { SIGN_UP_PATH } from '../../src/config/paths';
 import {
   SIGN_UP_BUTTON_ID,
+  SIGN_UP_SAVE_ACTIONS_ID,
   SUCCESS_CONTENT_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
@@ -14,7 +15,6 @@ describe('SignUp', () => {
   describe('Must Accept All Terms To Sign Up', () => {
     beforeEach(() => {
       cy.visit(SIGN_UP_PATH);
-      // eslint-disable-next-line arrow-body-style
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
@@ -35,8 +35,6 @@ describe('SignUp', () => {
     it('Sign Up', () => {
       const { GRAASP, WRONG_NAME, WRONG_EMAIL } = MEMBERS;
       cy.visit(SIGN_UP_PATH);
-
-      // eslint-disable-next-line arrow-body-style
       cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
         return reply({
           statusCode: StatusCodes.NO_CONTENT,
@@ -99,6 +97,40 @@ describe('SignUp', () => {
       search.set('invitationId', invitation.id);
       cy.visit(`${SIGN_UP_PATH}?${search.toString()}`);
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.visible');
+    });
+  });
+
+  describe('Defining Analytics On Sign Up', () => {
+    const { GRAASP } = MEMBERS;
+
+    beforeEach(() => {
+      cy.visit(SIGN_UP_PATH);
+      cy.intercept({ method: 'post', pathname: '/register' }, ({ reply }) => {
+        return reply({
+          statusCode: StatusCodes.NO_CONTENT,
+        });
+      }).as('waitOnRegister');
+    });
+
+    it('Analytics should be visible and checked', () => {
+      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`)
+        .should('exist')
+        .should('be.checked');
+    });
+
+    it('Sign Up with analytics enabled', () => {
+      cy.signUpAndCheck(GRAASP, true);
+      cy.wait('@waitOnRegister')
+        .its('request.body.enableSaveActions')
+        .should('eq', true);
+    });
+
+    it('Sign Up with analytics disabled', () => {
+      cy.get(`#${SIGN_UP_SAVE_ACTIONS_ID}`).click().should('not.be.checked');
+      cy.signUpAndCheck(GRAASP, true);
+      cy.wait('@waitOnRegister')
+        .its('request.body.enableSaveActions')
+        .should('eq', false);
     });
   });
 });
