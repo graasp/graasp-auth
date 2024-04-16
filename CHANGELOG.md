@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/graasp/graasp-auth/compare/v2.3.1...v2.4.0) (2024-04-16)
+
+
+### Features
+
+* add enable analytics checkbox for signup ([#361](https://github.com/graasp/graasp-auth/issues/361)) ([201c445](https://github.com/graasp/graasp-auth/commit/201c4452471161557c0175c38aa50618bdc90e16))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @emotion/styled to v11.11.5 ([#353](https://github.com/graasp/graasp-auth/issues/353)) ([ae7b1c4](https://github.com/graasp/graasp-auth/commit/ae7b1c430d4593c71d083c902e90d1ca87089360))
+* **deps:** update dependency @graasp/translations to v1.26.0 ([#368](https://github.com/graasp/graasp-auth/issues/368)) ([3d62b32](https://github.com/graasp/graasp-auth/commit/3d62b32cc076b1ecc12ad0c094ad9491ca6c76fe))
+* **deps:** update dependency @sentry/react to v7.110.1 ([#352](https://github.com/graasp/graasp-auth/issues/352)) ([03d5e98](https://github.com/graasp/graasp-auth/commit/03d5e98f96b5b350d2bffe05dac23da39445b9b1))
+* **deps:** update mui (non-major) ([#360](https://github.com/graasp/graasp-auth/issues/360)) ([053bb0e](https://github.com/graasp/graasp-auth/commit/053bb0ea53356ddc4eea5b075ec07bb7406dc240))
+
 ## [2.3.1](https://github.com/graasp/graasp-auth/compare/v2.3.0...v2.3.1) (2024-04-15)
 
 
