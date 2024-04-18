@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/graasp/graasp-auth/compare/v2.4.0...v2.5.0) (2024-04-18)
+
+
+### Features
+
+* regroup the API Alert with the Form container ([#373](https://github.com/graasp/graasp-auth/issues/373)) ([277d491](https://github.com/graasp/graasp-auth/commit/277d491b4742b63c811fbd6fb41ba43aefc11075))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/ui to v4.15.0 ([#348](https://github.com/graasp/graasp-auth/issues/348)) ([3fd67aa](https://github.com/graasp/graasp-auth/commit/3fd67aadc141d09bf56f658e4ba82cbec46b4336))
+* **deps:** update dependency i18next to v23.11.2 ([#369](https://github.com/graasp/graasp-auth/issues/369)) ([988f020](https://github.com/graasp/graasp-auth/commit/988f020e82304d324ec66e8419cd49b6ebbb131d))
+
 ## [2.4.0](https://github.com/graasp/graasp-auth/compare/v2.3.1...v2.4.0) (2024-04-16)
 
 
