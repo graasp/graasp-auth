@@ -1,8 +1,7 @@
 /// <reference types="./src/env.d.ts"/>
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { visualizer } from 'rollup-plugin-visualizer';
-import { PluginOption, UserConfigExport, defineConfig, loadEnv } from 'vite';
+import { UserConfigExport, defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
 import istanbul from 'vite-plugin-istanbul';
 
@@ -10,26 +9,32 @@ import istanbul from 'vite-plugin-istanbul';
 const config = ({ mode }: { mode: string }): UserConfigExport => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
+  // this defines if we should automatically open the browser
+  const shouldOpen = process.env.BROWSER && process.env.BROWSER !== 'none';
+
   return defineConfig({
     base: '',
     server: {
       port: parseInt(process.env.VITE_PORT || '3001', 10),
-      open: true,
+      open: shouldOpen,
       watch: {
         ignored: ['**/coverage/**', 'cypress/downloads/**'],
       },
     },
     preview: {
       port: parseInt(process.env.VITE_PORT || '3001', 10),
+      open: shouldOpen,
     },
     build: {
       outDir: 'build',
     },
     plugins: [
-      checker({
-        typescript: true,
-        eslint: { lintCommand: 'eslint "./**/*.{ts,tsx}"' },
-      }),
+      mode !== 'test'
+        ? checker({
+            typescript: true,
+            eslint: { lintCommand: 'eslint "./**/*.{ts,tsx}"' },
+          })
+        : undefined,
       react(),
       istanbul({
         include: 'src/*',
@@ -38,17 +43,6 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
         requireEnv: false,
         checkProd: true,
       }),
-      ...(mode === 'development'
-        ? [
-            visualizer({
-              template: 'treemap', // or sunburst
-              open: true,
-              gzipSize: true,
-              brotliSize: true,
-              filename: 'bundle_analysis.html',
-            }) as PluginOption,
-          ]
-        : []),
     ],
     resolve: {
       alias: {
