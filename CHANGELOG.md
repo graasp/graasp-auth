@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.1](https://github.com/graasp/graasp-auth/compare/v2.5.0...v2.5.1) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v3.4.2 ([#374](https://github.com/graasp/graasp-auth/issues/374)) ([593109f](https://github.com/graasp/graasp-auth/commit/593109ffc6c98dd405ed46e44d70fd311a6b2cd4))
+* **deps:** update dependency @graasp/query-client to v3.6.0 ([#346](https://github.com/graasp/graasp-auth/issues/346)) ([c8f9194](https://github.com/graasp/graasp-auth/commit/c8f9194ede7b4eb5b04489bfd64b365a80b9fd02))
+* **deps:** update dependency @graasp/sdk to v4.7.3 ([#375](https://github.com/graasp/graasp-auth/issues/375)) ([a98de21](https://github.com/graasp/graasp-auth/commit/a98de21e33a37844f7f394f63db6704b3e787863))
+* **deps:** update dependency @graasp/sdk to v4.9.0 ([#390](https://github.com/graasp/graasp-auth/issues/390)) ([7dcf92d](https://github.com/graasp/graasp-auth/commit/7dcf92dcd90b0b435c521f15b668440ec0690b84))
+* **deps:** update dependency @graasp/translations to v1.28.0 ([#381](https://github.com/graasp/graasp-auth/issues/381)) ([b238dbb](https://github.com/graasp/graasp-auth/commit/b238dbb984d2cd827ee728a3bab701ad9dcb1e1e))
+* **deps:** update dependency @graasp/ui to v4.15.3 ([#383](https://github.com/graasp/graasp-auth/issues/383)) ([0c8647b](https://github.com/graasp/graasp-auth/commit/0c8647bc7bf6ab509aeaccb432bfbfffac831f79))
+* **deps:** update dependency @graasp/ui to v4.17.1 ([#391](https://github.com/graasp/graasp-auth/issues/391)) ([1ce3678](https://github.com/graasp/graasp-auth/commit/1ce3678630ab710c9e6fc7ad682329731adc4c0c))
+* **deps:** update dependency @sentry/react to v7.111.0 ([#376](https://github.com/graasp/graasp-auth/issues/376)) ([3634bb5](https://github.com/graasp/graasp-auth/commit/3634bb5aa0b2b54680fdbe4a4fea70652f350f9f))
+* **deps:** update dependency @sentry/react to v7.113.0 ([#392](https://github.com/graasp/graasp-auth/issues/392)) ([ecd2702](https://github.com/graasp/graasp-auth/commit/ecd27029661fabb38e91ee94caf9ad83b39f9cb4))
+* **deps:** update dependency i18next to v23.11.3 ([#387](https://github.com/graasp/graasp-auth/issues/387)) ([f31da14](https://github.com/graasp/graasp-auth/commit/f31da1460bc6918690f8a7a55bf188dde9ede582))
+* **deps:** update dependency react-i18next to v14.1.1 ([#386](https://github.com/graasp/graasp-auth/issues/386)) ([28eaa01](https://github.com/graasp/graasp-auth/commit/28eaa0192908a174bbe68948c6002b5d516ff870))
+* **deps:** update dependency stylis to v4.3.2 ([#388](https://github.com/graasp/graasp-auth/issues/388)) ([bd2b6d7](https://github.com/graasp/graasp-auth/commit/bd2b6d7aa8e1e5daa074b82e5c7c8c3ac2b05ccf))
+* **deps:** update mui (non-major) to v5.15.16 ([#394](https://github.com/graasp/graasp-auth/issues/394)) ([0210a21](https://github.com/graasp/graasp-auth/commit/0210a21671bd19985f5c48f2a3e16764ac7e8987))
+* **deps:** update react monorepo to v18.3.1 ([#397](https://github.com/graasp/graasp-auth/issues/397)) ([6dd6678](https://github.com/graasp/graasp-auth/commit/6dd66783f910e9a8791d8092bd543e7780602a04))
+* **deps:** update react-router monorepo to v6.23.0 ([#398](https://github.com/graasp/graasp-auth/issues/398)) ([e71eb04](https://github.com/graasp/graasp-auth/commit/e71eb04b65a9269d93ae5ab13df827da36b364c0))
+* vite config ([#378](https://github.com/graasp/graasp-auth/issues/378)) ([5042d35](https://github.com/graasp/graasp-auth/commit/5042d359adeff5cf2d3a9e6ca26a0cb11e0e104c))
+
 ## [2.5.0](https://github.com/graasp/graasp-auth/compare/v2.4.0...v2.5.0) (2024-04-18)
 
 
