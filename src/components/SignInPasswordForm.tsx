@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
 
 import { Alert, LoadingButton } from '@mui/lab';
 
 import { useAuthTranslation } from '../config/i18n';
+import { FORGOT_PASSWORD_PATH } from '../config/paths';
 import { mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
@@ -134,6 +136,9 @@ const SignInPasswordForm = () => {
       >
         {t(SIGN_IN_PASSWORD_BUTTON)}
       </LoadingButton>
+      <Link to={`${FORGOT_PASSWORD_PATH}`}>
+        {t(AUTH.PASSWORD_RESET_REQUEST_LINK)}
+      </Link>
       {(signInWithPasswordSuccess || mobileSignInWithPasswordSuccess) && (
         <Alert severity="success" id={PASSWORD_SUCCESS_ALERT}>
           {t(AUTH.PASSWORD_SUCCESS_ALERT)}

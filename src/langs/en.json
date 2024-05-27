@@ -50,5 +50,11 @@
   "LIBRARY_BACKGROUND_TEXT": "Discover and share Open Educational Resources in our",
   "LIBRARY_BACKGROUND_TEXT_PLATFORM": "Library",
   "ANALYTICS_BACKGROUND_TEXT": "Gain valuable insights and explore dashboards with",
-  "ANALYTICS_BACKGROUND_TEXT_PLATFORM": "Analytics"
+  "ANALYTICS_BACKGROUND_TEXT_PLATFORM": "Analytics",
+  "PASSWORD_RESET_REQUEST_LINK": "Forgot your password? Click here to reset",
+  "PASSWORD_RESET_REQUEST_TITLE": "Request new password",
+  "PASSWORD_RESET_REQUEST_BUTTON": "Reset",
+  "PASSWORD_RESET_REQUEST_BACK_BUTTON": "Back to sign in",
+  "PASSWORD_RESET_REQUEST_UPDATE_TITLE": "Reset your password",
+  "PASSWORD_RESET_REQUEST_CONFIRM_PASSWORD_TITLE": "Confirm password"
 }
