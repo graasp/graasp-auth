@@ -1,5 +1,5 @@
 import { ChangeEventHandler, useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 import {
   MAX_USERNAME_LENGTH,
@@ -13,7 +13,7 @@ import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
-import { SIGN_IN_PATH } from '../config/paths';
+import { SIGN_IN_MAGIC_LINK_SUCCESS_PATH, SIGN_IN_PATH } from '../config/paths';
 import { hooks, mutations } from '../config/queryClient';
 import {
   EMAIL_SIGN_UP_FIELD_ID,
@@ -32,7 +32,6 @@ import EmailInput from './EmailInput';
 import { EnableAnalyticsForm } from './EnableAnalyticsForm';
 import FullscreenContainer from './FullscreenContainer';
 import StyledTextField from './StyledTextField';
-import SuccessContent from './SuccessContent';
 import ErrorDisplay from './common/ErrorDisplay';
 
 const {
@@ -45,6 +44,7 @@ const {
 
 const SignUp = () => {
   const { t, i18n } = useAuthTranslation();
+  const navigate = useNavigate();
   const { executeCaptcha } = useRecaptcha();
   const theme = useTheme();
 
@@ -54,7 +54,6 @@ const SignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
-  const [successView, setSuccessView] = useState(false);
   // enable validation after first click
   const [shouldValidate, setShouldValidate] = useState(false);
   const [enableSaveActions, setEnableSaveActions] = useState<boolean>(true);
@@ -64,13 +63,11 @@ const SignUp = () => {
 
   const {
     mutateAsync: signUp,
-    isSuccess: signUpSuccess,
     isLoading: isLoadingSignUp,
     error: webRegisterError,
   } = mutations.useSignUp();
   const {
     mutateAsync: mobileSignUp,
-    isSuccess: mobileSignUpSuccess,
     isLoading: isLoadingMobileSignUp,
     error: mobileRegisterError,
   } = mutations.useMobileSignUp();
@@ -141,23 +138,14 @@ const SignUp = () => {
             lang: i18n.language,
             enableSaveActions,
           }));
-      setSuccessView(true);
+
+      // navigate to success path
+      navigate({
+        pathname: SIGN_IN_MAGIC_LINK_SUCCESS_PATH,
+        search: `email=${email}`,
+      });
     }
   };
-
-  const handleBackButtonClick = () => {
-    setSuccessView(false);
-  };
-
-  if ((signUpSuccess || mobileSignUpSuccess) && successView) {
-    return (
-      <SuccessContent
-        title={t(AUTH.SIGN_UP_SUCCESS_TITLE)}
-        email={email}
-        handleBackButtonClick={handleBackButtonClick}
-      />
-    );
-  }
 
   return (
     <Stack direction="column" spacing={2}>
