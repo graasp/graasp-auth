@@ -41,7 +41,7 @@ const SignIn = () => {
           <Divider sx={{ width: '100%' }}>or</Divider>
           <SignInPasswordForm />
 
-          <Divider sx={{ width: '100%' }}>or</Divider>
+          <Divider flexItem>or</Divider>
           <Link to={`${SIGN_UP_PATH}${search}`}>{t(SIGN_UP_LINK_TEXT)}</Link>
         </Stack>
       }
