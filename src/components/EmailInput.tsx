@@ -1,9 +1,14 @@
+import { Mail } from 'lucide-react';
 import React, { FC, useEffect, useState } from 'react';
+
+import { InputAdornment } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { AUTH } from '../langs/constants';
 import { emailValidator } from '../utils/validation';
 import StyledTextField from './StyledTextField';
+
+const { EMAIL_INPUT_PLACEHOLDER } = AUTH;
 
 type Props = {
   required?: boolean;
@@ -16,7 +21,7 @@ type Props = {
 };
 
 const EmailInput: FC<Props> = ({
-  required = true,
+  required = false,
   value = '',
   id,
   disabled = false,
@@ -44,12 +49,20 @@ const EmailInput: FC<Props> = ({
 
   return (
     <StyledTextField
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <Mail />
+          </InputAdornment>
+        ),
+      }}
       variant="outlined"
-      label={t(AUTH.EMAIL_FIELD_TEXT)}
-      required={required}
       value={value}
       error={Boolean(error)}
       helperText={t(error)}
+      placeholder={t(
+        `${EMAIL_INPUT_PLACEHOLDER}${required ? '_REQUIRED' : ''}`,
+      )}
       onChange={handleEmailOnChange}
       id={id}
       type="email"

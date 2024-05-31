@@ -1,3 +1,4 @@
+import { UserRound } from 'lucide-react';
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -9,7 +10,13 @@ import {
 import { GraaspLogo } from '@graasp/ui';
 
 import { LoadingButton } from '@mui/lab';
-import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
+import {
+  FormControl,
+  InputAdornment,
+  LinearProgress,
+  Stack,
+  useTheme,
+} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
@@ -30,7 +37,7 @@ import { emailValidator, nameValidator } from '../utils/validation';
 import { AgreementForm } from './AgreementForm';
 import EmailInput from './EmailInput';
 import { EnableAnalyticsForm } from './EnableAnalyticsForm';
-import FullscreenContainer from './FullscreenContainer';
+import LeftContentContainer from './LeftContentContainer';
 import StyledTextField from './StyledTextField';
 import ErrorDisplay from './common/ErrorDisplay';
 
@@ -163,8 +170,15 @@ const SignUp = () => {
       <FormControl>
         <Stack direction="column" spacing={1}>
           <StyledTextField
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <UserRound />
+                </InputAdornment>
+              ),
+            }}
             required
-            label={t(NAME_FIELD_LABEL)}
+            placeholder={t(NAME_FIELD_LABEL)}
             variant="outlined"
             value={name}
             error={Boolean(nameError)}
@@ -177,17 +191,21 @@ const SignUp = () => {
             disabled={Boolean(invitation?.name)}
           />
           <EmailInput
+            required
             value={email}
             setValue={setEmail}
             id={EMAIL_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.email)}
             shouldValidate={shouldValidate}
           />
-          <EnableAnalyticsForm
-            enableSaveActions={enableSaveActions}
-            onUpdateSaveActions={(enabled) => setEnableSaveActions(enabled)}
-          />
-          <AgreementForm useAgreementForm={agreementFormHook} />
+          <Stack>
+            <EnableAnalyticsForm
+              enableSaveActions={enableSaveActions}
+              onUpdateSaveActions={(enabled) => setEnableSaveActions(enabled)}
+            />
+
+            <AgreementForm useAgreementForm={agreementFormHook} />
+          </Stack>
           <ErrorDisplay error={registerError} />
           <LoadingButton
             variant="contained"
@@ -209,9 +227,9 @@ const SignUp = () => {
 };
 
 const SignUpScreenWrapper = () => (
-  <FullscreenContainer>
+  <LeftContentContainer>
     <SignUp />
-  </FullscreenContainer>
+  </LeftContentContainer>
 );
 
 export default SignUpScreenWrapper;

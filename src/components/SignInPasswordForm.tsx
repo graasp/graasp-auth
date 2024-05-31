@@ -18,10 +18,10 @@ import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
 import { emailValidator, passwordValidator } from '../utils/validation';
 import EmailInput from './EmailInput';
-import StyledTextField from './StyledTextField';
 import ErrorDisplay from './common/ErrorDisplay';
+import PasswordInput from './common/PasswordInput';
 
-const { SIGN_IN_BUTTON, PASSWORD_FIELD_LABEL } = AUTH;
+const { SIGN_IN_PASSWORD_BUTTON } = AUTH;
 
 const SignInPasswordForm = () => {
   const { t } = useAuthTranslation();
@@ -109,16 +109,11 @@ const SignInPasswordForm = () => {
         onKeyPress={handleKeypress}
         shouldValidate={shouldValidate}
       />
-      <StyledTextField
-        required
-        label={t(PASSWORD_FIELD_LABEL)}
-        variant="outlined"
+      <PasswordInput
         value={password}
-        error={Boolean(passwordError)}
-        helperText={t(passwordError)}
+        error={passwordError}
         onChange={handleOnChangePassword}
         id={PASSWORD_SIGN_IN_FIELD_ID}
-        type="password"
         onKeyDown={handleKeypress}
       />
       <ErrorDisplay error={passwordSignInError} />
@@ -127,9 +122,11 @@ const SignInPasswordForm = () => {
         variant="contained"
         color="primary"
         onClick={handlePasswordSignIn}
+        sx={{ textTransform: 'none' }}
+        fullWidth
         loading={isLoadingMobilePasswordSignIn || isLoadingPasswordSignIn}
       >
-        {t(SIGN_IN_BUTTON)}
+        {t(SIGN_IN_PASSWORD_BUTTON)}
       </LoadingButton>
       {(signInWithPasswordSuccess || mobileSignInWithPasswordSuccess) && (
         <Alert severity="success" id={PASSWORD_SUCCESS_ALERT}>

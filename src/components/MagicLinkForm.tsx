@@ -96,6 +96,8 @@ const MagicLinkForm = () => {
         id={SIGN_IN_BUTTON_ID}
         variant="contained"
         onClick={handleSignIn}
+        sx={{ textTransform: 'none' }}
+        fullWidth
         loading={isLoadingMobileSignIn || isLoadingSignIn}
       >
         {t(SIGN_IN_BUTTON)}
