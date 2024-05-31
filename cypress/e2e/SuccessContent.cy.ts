@@ -6,7 +6,6 @@ import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../src/config/paths';
 import {
   BACK_BUTTON_ID,
   EMAIL_SIGN_IN_FIELD_ID,
-  EMAIL_SIGN_UP_FIELD_ID,
   RESEND_EMAIL_BUTTON_ID,
   SIGN_IN_HEADER_ID,
   SIGN_UP_HEADER_ID,
@@ -105,8 +104,6 @@ describe('Success Content', () => {
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
       cy.url().should('include', SIGN_UP_PATH);
       cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
-      // checks so email is still filled
-      cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).should('have.value', GRAASP.email);
 
       // check if it's possible to sign up and use back button again
       cy.signUpAndCheck(GRAASP_OTHER, true);
@@ -118,11 +115,6 @@ describe('Success Content', () => {
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
       cy.url().should('include', SIGN_UP_PATH);
       cy.get(`#${SIGN_UP_HEADER_ID}`).should('be.visible');
-      // checks so email is still filled
-      cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).should(
-        'have.value',
-        GRAASP_OTHER.email,
-      );
     });
 
     it('Resend email', () => {

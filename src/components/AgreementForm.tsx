@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material';
 
-import { MAX_CHECKBOX_LABEL_WITH_PX_SIGN_UP } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_AGREEMENTS_CHECKBOX_ID } from '../config/selectors';
 import { UseAgreementForm } from '../hooks/useAgreementForm';
@@ -30,7 +29,7 @@ export const AgreementForm = ({ useAgreementForm }: Props) => {
   const errorColor = 'error';
 
   return (
-    <FormGroup sx={{ maxWidth: `${MAX_CHECKBOX_LABEL_WITH_PX_SIGN_UP}px` }}>
+    <FormGroup>
       <FormControlLabel
         checked={userHasAcceptedAllTerms}
         onChange={(_, checked) => updateUserAgreements(checked)}

@@ -6,7 +6,6 @@ import {
   Typography,
 } from '@mui/material';
 
-import { MAX_CHECKBOX_LABEL_WITH_PX_SIGN_UP } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_UP_SAVE_ACTIONS_ID } from '../config/selectors';
 import { AUTH } from '../langs/constants';
@@ -25,7 +24,7 @@ export const EnableAnalyticsForm = ({
 
   return (
     <Tooltip title={t(SIGN_UP_SAVE_ACTIONS_TOOLTIP)} placement="right">
-      <FormGroup sx={{ maxWidth: `${MAX_CHECKBOX_LABEL_WITH_PX_SIGN_UP}px` }}>
+      <FormGroup>
         <FormControlLabel
           control={
             <Checkbox
