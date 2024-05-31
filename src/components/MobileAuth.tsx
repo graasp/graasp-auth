@@ -6,7 +6,7 @@ import { Button, Stack, Typography } from '@mui/material';
 import { useAuthTranslation } from '../config/i18n';
 import { HOME_PATH } from '../config/paths';
 import { AUTH } from '../langs/constants';
-import FullscreenContainer from './FullscreenContainer';
+import LeftContentContainer from './LeftContentContainer';
 
 const PLAY_STORE_LINK =
   'https://play.google.com/store/apps/details?id=org.graasp.mobile';
@@ -15,7 +15,7 @@ const MobileAuth = (): JSX.Element => {
   const { t } = useAuthTranslation();
 
   return (
-    <FullscreenContainer>
+    <LeftContentContainer>
       <Stack
         justifyContent="center"
         alignItems="center"
@@ -56,7 +56,7 @@ const MobileAuth = (): JSX.Element => {
           {t(AUTH.MOBILE_BACK_TO_LOGIN)}
         </Typography>
       </Stack>
-    </FullscreenContainer>
+    </LeftContentContainer>
   );
 };
 export default MobileAuth;

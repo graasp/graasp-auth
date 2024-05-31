@@ -19,7 +19,7 @@ import {
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
-import FullscreenContainer from './FullscreenContainer';
+import LeftContentContainer from './LeftContentContainer';
 
 const MagicLinkSuccessContent = () => {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const MagicLinkSuccessContent = () => {
   };
 
   return (
-    <FullscreenContainer>
+    <LeftContentContainer>
       <Container id={SUCCESS_CONTENT_ID} maxWidth="sm">
         <Stack direction="column" spacing={2}>
           <Typography
@@ -99,7 +99,7 @@ const MagicLinkSuccessContent = () => {
           </Stack>
         </Stack>
       </Container>
-    </FullscreenContainer>
+    </LeftContentContainer>
   );
 };
 
