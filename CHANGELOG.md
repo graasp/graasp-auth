@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.2](https://github.com/graasp/graasp-auth/compare/v2.5.1...v2.5.2) (2024-06-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/query-client to v3.8.0 ([#400](https://github.com/graasp/graasp-auth/issues/400)) ([2e6f086](https://github.com/graasp/graasp-auth/commit/2e6f0867bad41ffede844fcf370a6a60913f1114))
+* **deps:** update mui (non-major) to v5.15.20 ([#404](https://github.com/graasp/graasp-auth/issues/404)) ([d8e38ac](https://github.com/graasp/graasp-auth/commit/d8e38ace3f2248bd191b0b92b2dd21774df64e49))
+* update deps ([8633318](https://github.com/graasp/graasp-auth/commit/8633318599a51d50fee6ce24a957bd614099f743))
+* update deps ([#416](https://github.com/graasp/graasp-auth/issues/416)) ([32e49ea](https://github.com/graasp/graasp-auth/commit/32e49ea1dff76be6795cbb8fdde9638470eeab17))
+
 ## [2.5.1](https://github.com/graasp/graasp-auth/compare/v2.5.0...v2.5.1) (2024-05-04)
 
 
