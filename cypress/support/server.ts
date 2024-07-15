@@ -4,9 +4,6 @@ import { API_ROUTES } from '@graasp/query-client';
 
 const { buildGetCurrentMemberRoute } = API_ROUTES;
 
-// use simple id format for tests
-export const ID_FORMAT = '(?=.*[0-9])(?=.*[a-zA-Z])([a-z0-9-]+)';
-
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
 
 export const redirectionReply = {
