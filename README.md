@@ -1,6 +1,6 @@
 # Graasp Auth
 
-[gitlocalized](https://gitlocalize.com/repo/9425/whole_project/badge.svg)](<https://gitlocalize.com/repo/9425?utm_source=badge>)
+[![gitlocalized](https://gitlocalize.com/repo/9425/whole_project/badge.svg)](https://gitlocalize.com/repo/9425?utm_source=badge)
 
 Create an `.env.development` file with:
 
