@@ -27,12 +27,7 @@ import {
   submitSignUp,
 } from '../e2e/util';
 import MEMBERS from '../fixtures/members';
-import {
-  mockGetCurrentMember,
-  mockGetMember,
-  mockGetMembers,
-  mockGetStatus,
-} from './server';
+import { mockGetCurrentMember, mockGetStatus } from './server';
 
 // cypress/support/index.ts
 declare global {
@@ -80,11 +75,6 @@ declare global {
 Cypress.Commands.add(
   'setUpApi',
   ({ members = Object.values(MEMBERS) } = {}) => {
-    const cachedMembers = JSON.parse(JSON.stringify(members));
-
-    mockGetMember(cachedMembers);
-    mockGetMembers(cachedMembers);
-
     mockGetCurrentMember();
     mockGetStatus();
   },
