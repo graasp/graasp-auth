@@ -38,5 +38,12 @@
   "USERNAME_TOO_LONG_ERROR": "Please enter a username under {{max}} characters",
   "INVALID_EMAIL_ERROR": "This does not look like a valid email address",
   "EMPTY_EMAIL_ERROR": "An email address is required, this field can not be empty",
-  "PASSWORD_EMPTY_ERROR": "The password can not be empty"
+  "PASSWORD_EMPTY_ERROR": "The password can not be empty",
+  "PASSWORD_SUCCESS_ALERT": "You successfully signed in. You will be redirected soon.",
+  "FORGOT_PASSWORD_LINK": "Forgot your password? Click here to reset",
+  "FORGOT_PASSWORD_TITLE": "Request new password",
+  "FORGOT_PASSWORD_BUTTON": "Reset",
+  "FORGOT_PASSWORD_BACK_BUTTON": "Back to sign in",
+  "RESET_PASSWORD_TITLE": "Reset your password",
+  "CONFIRM_PASSWORD_FIELD_LABEL": "Confirm password"
 }

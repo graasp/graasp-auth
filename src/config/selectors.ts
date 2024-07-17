@@ -16,3 +16,4 @@ export const SUCCESS_CONTENT_ID = 'successContent';
 export const BACK_BUTTON_ID = 'backButtonId';
 export const RESEND_EMAIL_BUTTON_ID = 'resendEmailButtonId';
 export const buildMemberMenuItemId = (id: string) => `memberMenuItemId-${id}`;
+export const PASSWORD_SUCCESS_ALERT = 'passwordSuccessAlert';
