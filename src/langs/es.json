@@ -23,5 +23,20 @@
   "SIGN_UP_SAVE_ACTIONS_LABEL": "Activar el ahorro de información basada en datos para mejorar los paneles de análisis",
   "SIGN_UP_SAVE_ACTIONS_TOOLTIP": "Recopilamos datos analíticos para mejorar su experiencia de usuario mientras navega por Graasp.",
   "SIGN_UP_SUCCESS_TITLE": "¡Bienvenido!",
-  "SWITCH_ACCOUNT_TEXT": "Cambiar a otra cuenta"
+  "SWITCH_ACCOUNT_TEXT": "Cambiar a otra cuenta",
+  "API_UNAVAILABLE_TITLE": "Error de conexión del servidor",
+  "API_UNAVAILABLE_EXPLANATION": "El servidor Graasp parece inaccesible por el momento.",
+  "API_UNAVAILABLE_INSTRUCTIONS": "Por favor, inténtelo de nuevo más tarde.",
+  "API_UNAVAILABLE_BUTTON": "Rever",
+  "USER_AGREEMENTS_TERMS_OF_SERVICE": "términos de servicio",
+  "USER_AGREEMENTS_PRIVACY_POLICY": "política de privacidad",
+  "USER_AGREEMENTS_CHECKBOX_LABEL": "Al hacer clic en <0>{{sign_up_btn}}</0>, acepto los <1>{{terms_of_service}}</1> y los <2>{{privacy_policy}}</2>.",
+  "TERMS_OF_SERVICE_LINK": "/términos",
+  "PRIVACY_POLICY_LINK": "/privacidad",
+  "INVITATIONS_LOADING_MESSAGE": "Estamos esperando su invitación, por favor esperen...",
+  "USERNAME_TOO_SHORT_ERROR": "Por favor ingrese un nombre de usuario con más de {{min}} caracteres",
+  "USERNAME_TOO_LONG_ERROR": "Por favor ingrese un nombre de usuario con menos de {{max}} caracteres",
+  "INVALID_EMAIL_ERROR": "Esto no parece una dirección de correo electrónico válida.",
+  "EMPTY_EMAIL_ERROR": "Se requiere una dirección de correo electrónico, este campo no puede estar vacío",
+  "PASSWORD_EMPTY_ERROR": "La contraseña no puede estar vacía"
 }
