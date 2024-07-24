@@ -31,6 +31,8 @@
   "USER_AGREEMENTS_TERMS_OF_SERVICE": "شروط الخدمة",
   "USER_AGREEMENTS_PRIVACY_POLICY": "سياسة الخصوصية",
   "USER_AGREEMENTS_CHECKBOX_LABEL": "بالنقر على <0>{{sign_up_btn}}</0>، فإنني أوافق على <1>{{terms_of_service}}</1> و<2>{{privacy_policy}}</2>.",
+  "TERMS_OF_SERVICE_LINK": "/terms",
+  "PRIVACY_POLICY_LINK": "/privacy",
   "INVITATIONS_LOADING_MESSAGE": "نحن في انتظار دعوتك، يرجى الاستعداد…",
   "USERNAME_TOO_SHORT_ERROR": "الرجاء إدخال اسم مستخدم يحتوي على أكثر من {{min}} حرفًا",
   "USERNAME_TOO_LONG_ERROR": "الرجاء إدخال اسم مستخدم تحت {{max}} من الأحرف",
