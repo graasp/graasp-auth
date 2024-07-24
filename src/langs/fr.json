@@ -33,6 +33,9 @@
   "USER_AGREEMENTS_CHECKBOX_LABEL": "En cliquant sur <0>{{sign_up_btn}}</0>, j'accepte les <1>{{terms_of_service}}</1> et la <2>{{privacy_policy}}</2>.",
   "TERMS_OF_SERVICE_LINK": "/fr/terms",
   "PRIVACY_POLICY_LINK": "/fr/privacy",
+  "INVITATIONS_LOADING_MESSAGE": "Nous recherchons votre invitation, veuillez patienter quelques instants…",
+  "USERNAME_TOO_SHORT_ERROR": "Veuillez saisir un nom d'utilisateur comportant au moins {{min}} caractères",
+  "USERNAME_TOO_LONG_ERROR": "Veuillez saisir un nom d'utilisateur de moins de {{max}} caractères",
   "INVALID_EMAIL_ERROR": "Cela ne ressemble pas à une adresse e-mail valide",
   "EMPTY_EMAIL_ERROR": "Une adresse email est obligatoire, ce champ ne peut pas être vide",
   "PASSWORD_EMPTY_ERROR": "Le mot de passe ne peut pas être vide"
