@@ -22,7 +22,7 @@
     "@mui/material": "5.16.1",
     "@sentry/react": "7.118.0",
     "http-status-codes": "2.3.0",
-    "i18next": "23.12.1",
+    "i18next": "23.12.7",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-ga4": "2.1.0",
