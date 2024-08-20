@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.2](https://github.com/graasp/graasp-auth/compare/v2.5.1...v2.5.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **arabic:** update translations ([#441](https://github.com/graasp/graasp-auth/issues/441)) ([d53d7fc](https://github.com/graasp/graasp-auth/commit/d53d7fc0f13e06b786b7a4faab1d7ed37dcc216c))
+* **deps:** update dependency @graasp/query-client to v3.8.0 ([#400](https://github.com/graasp/graasp-auth/issues/400)) ([2e6f086](https://github.com/graasp/graasp-auth/commit/2e6f0867bad41ffede844fcf370a6a60913f1114))
+* **deps:** update dependency i18next to v23.12.1 ([#431](https://github.com/graasp/graasp-auth/issues/431)) ([b1c706c](https://github.com/graasp/graasp-auth/commit/b1c706c96c546ad6807fe10537044fbfdbe4d86e))
+* **deps:** update dependency react-i18next to v15 ([#436](https://github.com/graasp/graasp-auth/issues/436)) ([f27120a](https://github.com/graasp/graasp-auth/commit/f27120a62473ad12decdb73ef0a1cac172bd7b17))
+* **deps:** update graasp packages ([#419](https://github.com/graasp/graasp-auth/issues/419)) ([ab9f8b4](https://github.com/graasp/graasp-auth/commit/ab9f8b4f569c5041e594fdba029986c3ff931a0e))
+* **deps:** update mui (non-major) to v5.15.20 ([#404](https://github.com/graasp/graasp-auth/issues/404)) ([d8e38ac](https://github.com/graasp/graasp-auth/commit/d8e38ace3f2248bd191b0b92b2dd21774df64e49))
+* **deps:** update mui (non-major) to v5.16.1 ([#430](https://github.com/graasp/graasp-auth/issues/430)) ([9633872](https://github.com/graasp/graasp-auth/commit/9633872510ee44369581a1a52af71a6926e5c6d9))
+* **french:** update translations ([#438](https://github.com/graasp/graasp-auth/issues/438)) ([6712674](https://github.com/graasp/graasp-auth/commit/6712674bd124a08b83da49d5511e355ded1c3e1f))
+* **german:** update translations ([#440](https://github.com/graasp/graasp-auth/issues/440)) ([d5bc52b](https://github.com/graasp/graasp-auth/commit/d5bc52b057a4466dc188775b72d234988e0ab44f))
+* **spanish:** update translations ([#439](https://github.com/graasp/graasp-auth/issues/439)) ([41c752a](https://github.com/graasp/graasp-auth/commit/41c752affaa540ebf6d5b7e245dada4e43bcadeb))
+* update deps ([285a414](https://github.com/graasp/graasp-auth/commit/285a414a23ec9c87c2532b060407a4fc84b35cf0))
+* update deps ([8633318](https://github.com/graasp/graasp-auth/commit/8633318599a51d50fee6ce24a957bd614099f743))
+* update deps ([#416](https://github.com/graasp/graasp-auth/issues/416)) ([32e49ea](https://github.com/graasp/graasp-auth/commit/32e49ea1dff76be6795cbb8fdde9638470eeab17))
+* update release-please workflow ([73a2906](https://github.com/graasp/graasp-auth/commit/73a290618bb6884369ea7ce88a644fccb7938c1a))
+
 ## [2.5.1](https://github.com/graasp/graasp-auth/compare/v2.5.0...v2.5.1) (2024-05-04)
 
 
