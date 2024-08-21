@@ -21,6 +21,8 @@ import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
 import LeftContentContainer from './LeftContentContainer';
 
+const NAVIGATE_BACK = -1;
+
 const MagicLinkSuccessContent = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -51,7 +53,7 @@ const MagicLinkSuccessContent = () => {
   };
 
   const handleBackButtonClick = () => {
-    navigate(-1);
+    navigate(NAVIGATE_BACK);
   };
 
   return (

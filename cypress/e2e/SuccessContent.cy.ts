@@ -28,7 +28,7 @@ describe('Success Content', () => {
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('not.exist');
 
       // Signing in with a valid email
-      cy.signInAndCheck(GRAASP);
+      cy.signInByMailAndCheck(GRAASP);
 
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -41,7 +41,7 @@ describe('Success Content', () => {
       cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).should('be.empty');
 
       // check if it's possible to sign in and use back button again
-      cy.signInAndCheck(GRAASP_OTHER);
+      cy.signInByMailAndCheck(GRAASP_OTHER);
 
       cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
 
@@ -65,10 +65,10 @@ describe('Success Content', () => {
       });
 
       // Signing in with a valid email
-      cy.signInAndCheck(GRAASP_OTHER);
+      cy.signInByMailAndCheck(GRAASP_OTHER);
       cy.get(`#${BACK_BUTTON_ID}`).click();
 
-      cy.signInAndCheck(GRAASP);
+      cy.signInByMailAndCheck(GRAASP);
 
       // checks so request body contains correct email
       cy.intercept(API_ROUTES.SIGN_IN_ROUTE, ({ body }) => {

@@ -37,7 +37,7 @@ export const checkInvitationFields = ({
     .should('be.disabled');
 };
 
-export const fillSignInLayout = ({ email }: { email?: string }) => {
+export const fillSignInByMailLayout = ({ email }: { email?: string }) => {
   cy.get(`#${EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}`).clear().type(email);
 };
 

@@ -19,7 +19,7 @@ import {
 } from '../../src/config/selectors';
 import {
   fillPasswordSignInLayout,
-  fillSignInLayout,
+  fillSignInByMailLayout,
   fillSignUpLayout,
   submitPasswordSignIn,
   submitSignIn,
@@ -53,7 +53,7 @@ declare global {
         acceptAllTerms?: boolean,
       ): Chainable<JQuery<HTMLElement>>;
 
-      signInAndCheck(
+      signInByMailAndCheck(
         value: Partial<Member> & {
           nameValid?: boolean;
           emailValid?: boolean;
@@ -109,8 +109,8 @@ Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
   cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.emailValid);
 });
 
-Cypress.Commands.add('signInAndCheck', (user) => {
-  fillSignInLayout(user);
+Cypress.Commands.add('signInByMailAndCheck', (user) => {
+  fillSignInByMailLayout(user);
   submitSignIn();
   cy.checkErrorTextField(EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID, user.emailValid);
 });
