@@ -11,17 +11,16 @@ import { Member } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
+  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
-  PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_UP_AGREEMENTS_CHECKBOX_ID,
 } from '../../src/config/selectors';
 import {
   fillPasswordSignInLayout,
   fillSignInLayout,
   fillSignUpLayout,
-  passwordSignInMethod,
   submitPasswordSignIn,
   submitSignIn,
   submitSignUp,
@@ -61,8 +60,6 @@ declare global {
           passwordValid?: boolean;
         },
       ): Chainable<JQuery<HTMLElement>>;
-
-      signInPasswordMethodAndCheck(): Chainable<JQuery<HTMLElement>>;
 
       signInPasswordAndCheck(
         member: Member & {
@@ -115,12 +112,7 @@ Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
 Cypress.Commands.add('signInAndCheck', (user) => {
   fillSignInLayout(user);
   submitSignIn();
-  cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
-});
-
-Cypress.Commands.add('signInPasswordMethodAndCheck', () => {
-  passwordSignInMethod();
-  cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).should('be.disabled');
+  cy.checkErrorTextField(EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID, user.emailValid);
 });
 
 Cypress.Commands.add('signInPasswordAndCheck', (user) => {

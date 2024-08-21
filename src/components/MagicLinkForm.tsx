@@ -8,7 +8,10 @@ import { LoadingButton } from '@mui/lab';
 import { useAuthTranslation } from '../config/i18n';
 import { SIGN_IN_MAGIC_LINK_SUCCESS_PATH } from '../config/paths';
 import { mutations } from '../config/queryClient';
-import { EMAIL_SIGN_IN_FIELD_ID, SIGN_IN_BUTTON_ID } from '../config/selectors';
+import {
+  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
+  SIGN_IN_BUTTON_ID,
+} from '../config/selectors';
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useMobileAppLogin } from '../hooks/mobile';
 import { useRedirection } from '../hooks/searchParams';
@@ -87,7 +90,7 @@ const MagicLinkForm = () => {
       <EmailInput
         value={email}
         setValue={setEmail}
-        id={EMAIL_SIGN_IN_FIELD_ID}
+        id={EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}
         onKeyPress={handleKeypress}
         shouldValidate={shouldValidate}
       />

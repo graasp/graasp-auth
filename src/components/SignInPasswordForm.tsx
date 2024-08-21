@@ -80,7 +80,7 @@ const SignInPasswordForm = () => {
             url: redirect.url,
           }));
       // successful redirect
-      if (result && result.resource) {
+      if (result?.resource) {
         window.location.href = result.resource;
       }
     }

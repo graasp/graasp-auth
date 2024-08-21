@@ -18,8 +18,6 @@ describe('Email and Password Validation', () => {
 
     const { WRONG_EMAIL, WRONG_PASSWORD, GRAASP } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
-    // Select sign in method
-    cy.signInPasswordMethodAndCheck();
     // Signing in with wrong email
     cy.signInPasswordAndCheck(WRONG_EMAIL);
     // Signing in with a valid email but empty password
@@ -42,8 +40,6 @@ describe('Email and Password Validation', () => {
 
     const { WRONG_EMAIL, WRONG_PASSWORD, GRAASP } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
-    // Select sign in method
-    cy.signInPasswordMethodAndCheck();
     // Signing in with wrong email
     cy.signInPasswordAndCheck(WRONG_EMAIL);
     // Signing in with a valid email but empty password

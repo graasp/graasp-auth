@@ -1,10 +1,10 @@
 import {
   EMAIL_SIGN_IN_FIELD_ID,
+  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
-  PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_IN_BUTTON_ID,
   SIGN_UP_BUTTON_ID,
 } from '../../src/config/selectors';
@@ -38,7 +38,7 @@ export const checkInvitationFields = ({
 };
 
 export const fillSignInLayout = ({ email }: { email?: string }) => {
-  cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
+  cy.get(`#${EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}`).clear().type(email);
 };
 
 export const submitSignIn = () => {
@@ -47,10 +47,6 @@ export const submitSignIn = () => {
 
 export const submitSignUp = () => {
   cy.get(`#${SIGN_UP_BUTTON_ID}`).click();
-};
-
-export const passwordSignInMethod = () => {
-  cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).click();
 };
 
 export const fillPasswordSignInLayout = ({
