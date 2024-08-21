@@ -2,7 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 
 import { API_ROUTES } from '@graasp/query-client';
 
-const { buildGetMember, GET_CURRENT_MEMBER_ROUTE } = API_ROUTES;
+const { buildGetMemberRoute, buildGetCurrentMemberRoute } = API_ROUTES;
 
 // use simple id format for tests
 export const ID_FORMAT = '(?=.*[0-9])(?=.*[a-zA-Z])([a-z0-9-]+)';
@@ -22,7 +22,7 @@ export const mockGetCurrentMember = (
   cy.intercept(
     {
       method: 'get',
-      url: `${API_HOST}/${GET_CURRENT_MEMBER_ROUTE}`,
+      url: `${API_HOST}/${buildGetCurrentMemberRoute()}`,
     },
     ({ reply }) => {
       if (shouldThrowError) {
@@ -42,7 +42,7 @@ export const mockGetMember = (members) => {
   cy.intercept(
     {
       method: 'get',
-      url: new RegExp(`${API_HOST}/${buildGetMember(ID_FORMAT)}$`),
+      url: new RegExp(`${API_HOST}/${buildGetMemberRoute(ID_FORMAT)}$`),
     },
     ({ url, reply }) => {
       const memberId = url.slice(API_HOST.length).split('/')[2];
