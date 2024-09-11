@@ -7,7 +7,7 @@ import { namespaces } from '@graasp/translations';
 import { Button } from '@graasp/ui';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { Container, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { mutations } from '../config/queryClient';
@@ -58,7 +58,7 @@ const MagicLinkSuccessContent = () => {
 
   return (
     <LeftContentContainer>
-      <Container id={SUCCESS_CONTENT_ID} maxWidth="sm">
+      <Box id={SUCCESS_CONTENT_ID} maxWidth="sm">
         <Stack direction="column" spacing={2}>
           <Typography
             variant="h4"
@@ -100,7 +100,7 @@ const MagicLinkSuccessContent = () => {
             </Button>
           </Stack>
         </Stack>
-      </Container>
+      </Box>
     </LeftContentContainer>
   );
 };
