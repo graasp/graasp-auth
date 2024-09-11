@@ -27,7 +27,7 @@
   "API_UNAVAILABLE_TITLE": "Erreur de connexion au serveur",
   "API_UNAVAILABLE_EXPLANATION": "Le serveur Graasp semble injoignable pour le moment.",
   "API_UNAVAILABLE_INSTRUCTIONS": "Veuillez réessayer plus tard.",
-  "API_UNAVAILABLE_BUTTON": "Recommencez",
+  "API_UNAVAILABLE_BUTTON": "Réessayer",
   "USER_AGREEMENTS_TERMS_OF_SERVICE": "conditions d'utilisation",
   "USER_AGREEMENTS_PRIVACY_POLICY": "politique de confidentialité",
   "USER_AGREEMENTS_CHECKBOX_LABEL": "En cliquant sur <0>{{sign_up_btn}}</0>, j'accepte les <1>{{terms_of_service}}</1> et la <2>{{privacy_policy}}</2>.",
@@ -38,5 +38,13 @@
   "USERNAME_TOO_LONG_ERROR": "Veuillez saisir un nom d'utilisateur de moins de {{max}} caractères",
   "INVALID_EMAIL_ERROR": "Cela ne ressemble pas à une adresse e-mail valide",
   "EMPTY_EMAIL_ERROR": "Une adresse email est obligatoire, ce champ ne peut pas être vide",
-  "PASSWORD_EMPTY_ERROR": "Le mot de passe ne peut pas être vide"
+  "PASSWORD_EMPTY_ERROR": "Le mot de passe ne peut pas être vide",
+  "BUILDER_BACKGROUND_TEXT": "Créez des activités éducatives avec",
+  "BUILDER_BACKGROUND_TEXT_PLATFORM": "Graasp Builder",
+  "PLAYER_BACKGROUND_TEXT": "Apprenez avec des contenus interactifs dans",
+  "PLAYER_BACKGROUND_TEXT_PLATFORM": "Graasp Player",
+  "LIBRARY_BACKGROUND_TEXT": "Publiez et Explorez des Ressources Educatives Libres dans",
+  "LIBRARY_BACKGROUND_TEXT_PLATFORM": "Graasp Library",
+  "ANALYTICS_BACKGROUND_TEXT": "Analysez l'activités de vos ressources dans",
+  "ANALYTICS_BACKGROUND_TEXT_PLATFORM": "Graasp Analytics"
 }

@@ -25,7 +25,7 @@ const APIChecker = (): JSX.Element | false => {
   if (isError) {
     return (
       <Box maxWidth="48ch">
-        <Alert severity="error">
+        <Alert variant="outlined" sx={{ background: 'white' }} severity="error">
           <AlertTitle>{t(AUTH.API_UNAVAILABLE_TITLE)}</AlertTitle>
           <Stack direction="column" alignItems="center" spacing={1}>
             <Typography>{t(AUTH.API_UNAVAILABLE_EXPLANATION)}</Typography>

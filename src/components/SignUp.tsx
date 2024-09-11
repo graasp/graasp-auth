@@ -189,6 +189,7 @@ const SignUp = () => {
             onChange={handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.name)}
+            autoFocus
           />
           <EmailInput
             required

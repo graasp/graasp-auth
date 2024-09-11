@@ -43,5 +43,13 @@
   "EMPTY_EMAIL_ERROR": "An email address is required, this field can not be empty",
   "PASSWORD_EMPTY_ERROR": "The password can not be empty",
   "PASSWORD_SUCCESS_ALERT": "You successfully signed in. You will be redirected soon.",
-  "PASSWORD_INPUT_PLACEHOLDER": "Password"
+  "PASSWORD_INPUT_PLACEHOLDER": "Password",
+  "BUILDER_BACKGROUND_TEXT": "Create your own learning activities with",
+  "BUILDER_BACKGROUND_TEXT_PLATFORM": "Graasp Builder",
+  "PLAYER_BACKGROUND_TEXT": "Learn with interactive content in",
+  "PLAYER_BACKGROUND_TEXT_PLATFORM": "Graasp Player",
+  "LIBRARY_BACKGROUND_TEXT": "Publish and Explore Open Educational Resources in",
+  "LIBRARY_BACKGROUND_TEXT_PLATFORM": "Graasp Library",
+  "ANALYTICS_BACKGROUND_TEXT": "Get insights of the activity in your resources in",
+  "ANALYTICS_BACKGROUND_TEXT_PLATFORM": "Graasp Analytics"
 }

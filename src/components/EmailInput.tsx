@@ -18,6 +18,7 @@ type Props = {
   setValue: (str: string) => void;
   onKeyPress?: React.KeyboardEventHandler<unknown>;
   shouldValidate: boolean;
+  autoFocus?: boolean;
 };
 
 const EmailInput: FC<Props> = ({
@@ -28,6 +29,7 @@ const EmailInput: FC<Props> = ({
   setValue,
   onKeyPress,
   shouldValidate = true,
+  autoFocus = false,
 }) => {
   const { t } = useAuthTranslation();
   const [error, setError] = useState<string | null>(null);
@@ -63,6 +65,7 @@ const EmailInput: FC<Props> = ({
       placeholder={t(
         `${EMAIL_INPUT_PLACEHOLDER}${required ? '_REQUIRED' : ''}`,
       )}
+      autoFocus={autoFocus}
       onChange={handleEmailOnChange}
       id={id}
       type="email"

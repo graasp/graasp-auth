@@ -93,6 +93,7 @@ const MagicLinkForm = () => {
         id={EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}
         onKeyPress={handleKeypress}
         shouldValidate={shouldValidate}
+        autoFocus
       />
       <ErrorDisplay error={signInError} />
       <LoadingButton

@@ -118,6 +118,7 @@ const SignInPasswordForm = () => {
       />
       <ErrorDisplay error={passwordSignInError} />
       <LoadingButton
+        disabled={!(password && email)}
         id={PASSWORD_SIGN_IN_BUTTON_ID}
         variant="contained"
         color="primary"
