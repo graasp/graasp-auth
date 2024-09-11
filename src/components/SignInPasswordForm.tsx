@@ -66,22 +66,27 @@ const SignInPasswordForm = () => {
           ? RecaptchaAction.SignInWithPasswordMobile
           : RecaptchaAction.SignInWithPassword,
       );
-      const result = await (isMobile
-        ? mobileSignInWithPassword({
-            email: lowercaseEmail,
-            password,
-            captcha: token,
-            challenge,
-          })
-        : signInWithPassword({
-            email: lowercaseEmail,
-            password,
-            captcha: token,
-            url: redirect.url,
-          }));
-      // successful redirect
-      if (result?.resource) {
-        window.location.href = result.resource;
+      try {
+        const result = await (isMobile
+          ? mobileSignInWithPassword({
+              email: lowercaseEmail,
+              password,
+              captcha: token,
+              challenge,
+            })
+          : signInWithPassword({
+              email: lowercaseEmail,
+              password,
+              captcha: token,
+              url: redirect.url,
+            }));
+        // successful redirect
+        if (result?.resource) {
+          window.location.href = result.resource;
+        }
+      } catch (e) {
+        // show error from react-query's error
+        console.error(e);
       }
     }
   };

@@ -66,6 +66,7 @@ declare global {
           nameValid?: boolean;
           emailValid?: boolean;
           passwordValid?: boolean;
+          password?: string;
         },
       ): Chainable<JQuery<HTMLElement>>;
 
@@ -117,10 +118,12 @@ Cypress.Commands.add('signInByMailAndCheck', (user) => {
 
 Cypress.Commands.add('signInPasswordAndCheck', (user) => {
   fillPasswordSignInLayout(user);
+  if (user.password) {
+    submitPasswordSignIn();
+  }
   if (!user.passwordValid) {
     cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear();
   }
-  submitPasswordSignIn();
   cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
   cy.checkErrorTextField(PASSWORD_SIGN_IN_FIELD_ID, user.passwordValid);
 });

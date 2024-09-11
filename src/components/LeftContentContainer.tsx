@@ -11,7 +11,7 @@ type Props = {
   children: JSX.Element | JSX.Element[];
 };
 
-const PLATOFRMS = [
+const PLATFORMS = [
   { content: <BuilderContent /> },
   { content: <PlayerContent /> },
   { content: <LibraryContent /> },
@@ -19,7 +19,7 @@ const PLATOFRMS = [
 ];
 
 const LeftContentContainer = ({ children }: Props): JSX.Element => {
-  const platform = PLATOFRMS[Math.floor(Math.random() * 4)];
+  const platform = PLATFORMS[Math.floor(Math.random() * PLATFORMS.length)];
 
   return (
     <Stack direction="row" margin="auto" minHeight="100svh">

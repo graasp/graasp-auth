@@ -16,16 +16,32 @@ describe('Email and Password Validation', () => {
       },
     ).as('signInWithPassword');
 
-    const { WRONG_EMAIL, WRONG_PASSWORD, GRAASP } = MEMBERS;
+    const { WRONG_EMAIL, GRAASP } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
     // Signing in with wrong email
     cy.signInPasswordAndCheck(WRONG_EMAIL);
-    // Signing in with a valid email but empty password
-    cy.signInPasswordAndCheck(WRONG_PASSWORD);
+
     // Signing in with a valid email and password
     cy.signInPasswordAndCheck(GRAASP);
 
     cy.url().should('contain', redirectionLink);
+  });
+
+  it('Sign In With Wrong Password', () => {
+    cy.intercept(
+      {
+        pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
+      },
+      (req) => {
+        req.reply({ statusCode: 500 });
+      },
+    ).as('signInWithPassword');
+
+    const { WRONG_PASSWORD } = MEMBERS;
+    cy.visit(SIGN_IN_PATH);
+
+    // Signing in with a valid email but empty password
+    cy.signInPasswordAndCheck(WRONG_PASSWORD);
   });
 
   it('Sign In With Password shows success message if no redirect', () => {

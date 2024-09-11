@@ -46,7 +46,6 @@ const PasswordInput = ({ id, value, error, onKeyDown, onChange }: Props) => {
         ),
       }}
       required
-      //   label={t(PASSWORD_FIELD_LABEL)}
       variant="outlined"
       value={value}
       error={Boolean(error)}
