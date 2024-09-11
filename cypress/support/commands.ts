@@ -11,17 +11,16 @@ import { Member } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
+  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
-  PASSWORD_SIGN_IN_METHOD_BUTTON_ID,
   SIGN_UP_AGREEMENTS_CHECKBOX_ID,
 } from '../../src/config/selectors';
 import {
   fillPasswordSignInLayout,
-  fillSignInLayout,
+  fillSignInByMailLayout,
   fillSignUpLayout,
-  passwordSignInMethod,
   submitPasswordSignIn,
   submitSignIn,
   submitSignUp,
@@ -54,7 +53,7 @@ declare global {
         acceptAllTerms?: boolean,
       ): Chainable<JQuery<HTMLElement>>;
 
-      signInAndCheck(
+      signInByMailAndCheck(
         value: Partial<Member> & {
           nameValid?: boolean;
           emailValid?: boolean;
@@ -62,13 +61,12 @@ declare global {
         },
       ): Chainable<JQuery<HTMLElement>>;
 
-      signInPasswordMethodAndCheck(): Chainable<JQuery<HTMLElement>>;
-
       signInPasswordAndCheck(
         member: Member & {
           nameValid?: boolean;
           emailValid?: boolean;
           passwordValid?: boolean;
+          password?: string;
         },
       ): Chainable<JQuery<HTMLElement>>;
 
@@ -112,23 +110,20 @@ Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
   cy.checkErrorTextField(EMAIL_SIGN_UP_FIELD_ID, user.emailValid);
 });
 
-Cypress.Commands.add('signInAndCheck', (user) => {
-  fillSignInLayout(user);
+Cypress.Commands.add('signInByMailAndCheck', (user) => {
+  fillSignInByMailLayout(user);
   submitSignIn();
-  cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
-});
-
-Cypress.Commands.add('signInPasswordMethodAndCheck', () => {
-  passwordSignInMethod();
-  cy.get(`#${PASSWORD_SIGN_IN_METHOD_BUTTON_ID}`).should('be.disabled');
+  cy.checkErrorTextField(EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID, user.emailValid);
 });
 
 Cypress.Commands.add('signInPasswordAndCheck', (user) => {
   fillPasswordSignInLayout(user);
+  if (user.password) {
+    submitPasswordSignIn();
+  }
   if (!user.passwordValid) {
     cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear();
   }
-  submitPasswordSignIn();
   cy.checkErrorTextField(EMAIL_SIGN_IN_FIELD_ID, user.emailValid);
   cy.checkErrorTextField(PASSWORD_SIGN_IN_FIELD_ID, user.passwordValid);
 });
