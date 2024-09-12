@@ -1,30 +1,23 @@
-import { AnalyticsIcon } from '@graasp/ui';
-
 import { Stack, Typography } from '@mui/material';
 
-import { useAuthTranslation } from '../../config/i18n';
-import { AUTH } from '../../langs/constants';
+type Props = {
+  Icon: (args: { size: number; primaryColor: string }) => JSX.Element;
+  name: string;
+  text: string;
+  color: string;
+};
 
-export const AnalyticsContent = () => {
-  const { t } = useAuthTranslation();
-
+export const PlatformContent = ({ Icon, name, text, color }: Props) => {
   return (
-    <Stack
-      flexGrow={1}
-      width="100%"
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      p={5}
-    >
-      <AnalyticsIcon primaryColor="rgb(250, 91, 125)" size={180} />
+    <Stack width="100%" direction="row" alignItems="center">
+      <Icon primaryColor={color} size={110} />
       <p>
-        <Typography variant="h4" textAlign="left">
-          {t(AUTH.ANALYTICS_BACKGROUND_TEXT)}
+        <Typography variant="h5" textAlign="left">
+          {text}
         </Typography>
 
-        <Typography variant="h1" component="h2" textAlign="left">
-          {t(AUTH.ANALYTICS_BACKGROUND_TEXT_PLATFORM)}
+        <Typography variant="h2" component="h2" color={color} width="100%">
+          {name}
         </Typography>
       </p>
     </Stack>

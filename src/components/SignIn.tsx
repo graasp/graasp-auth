@@ -27,7 +27,12 @@ const SignIn = () => {
         <Stack direction="column" alignItems="center" spacing={2}>
           <Stack spacing={1}>
             <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
-            <Typography variant="h4" component="h2" id={SIGN_IN_HEADER_ID}>
+            <Typography
+              textAlign="center"
+              variant="h4"
+              component="h2"
+              id={SIGN_IN_HEADER_ID}
+            >
               {t(SIGN_IN_HEADER)}
             </Typography>
           </Stack>

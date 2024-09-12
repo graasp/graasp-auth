@@ -15,14 +15,14 @@ export const BuilderContent = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      p={5}
+      // p={5}
     >
       <BuildIcon primaryColor="#1ECAA5" size={180} />
       <p>
-        <Typography variant="h4" textAlign="left">
+        <Typography variant="h5" textAlign="left">
           {t(AUTH.BUILDER_BACKGROUND_TEXT)}
         </Typography>
-        <Typography variant="h1" component="h2" textAlign="left">
+        <Typography variant="h2" component="h2" textAlign="left">
           {t(AUTH.BUILDER_BACKGROUND_TEXT_PLATFORM)}
         </Typography>
       </p>

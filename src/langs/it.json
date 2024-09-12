@@ -1,12 +1,11 @@
 {
   "BACK_BUTTON": "Indietro",
-  "EMAIL_FIELD_TEXT": "E-mail",
   "EMAIL_SIGN_IN_METHOD": "Accedi via e-mail",
   "MOBILE_APP_NOT_INSTALLED_MESSAGE": "Sembra che tu abbia richiesto un collegamento mobile ma non hai la nostra app installata su questo dispositivo.",
   "MOBILE_BACK_TO_LOGIN": "Torna al login",
   "MOBILE_GET_APP_FROM_APPLE_STORE": "Ottieni dall'App Store di Apple",
   "MOBILE_GET_APP_FROM_GOOGLE_PLAY_STORE": "Ottieni dal Google Play Store",
-  "NAME_FIELD_LABEL": "Nome",
+  "NAME_FIELD_LABEL": "Nome*",
   "NOT_SIGNED_IN_TOOLTIP": "Non sei registrato.",
   "PASSWORD_FIELD_LABEL": "Parola d'ordine",
   "PASSWORD_SIGN_IN_METHOD": "Accedi con password",

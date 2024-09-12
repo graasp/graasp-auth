@@ -214,7 +214,7 @@ const SignUp = () => {
             loading={isLoadingSignUp || isLoadingMobileSignUp}
             onClick={handleRegister}
             fullWidth
-            disabled={!userHasAcceptedAllTerms}
+            disabled={!userHasAcceptedAllTerms || !email.length || !name.length}
           >
             {t(SIGN_UP_BUTTON)}
           </LoadingButton>
