@@ -7,7 +7,7 @@ import { AUTH } from '../langs/constants';
 import APIChecker from './APIChecker';
 import { BrandingLogo } from './BrandingLogo';
 import Footer from './Footer';
-import { PlatformContent } from './leftContent/AnalyticsContent';
+import { PlatformContent } from './leftContent/PlatformContent';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
