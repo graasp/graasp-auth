@@ -1,12 +1,11 @@
 {
   "BACK_BUTTON": "Atrás",
-  "EMAIL_FIELD_TEXT": "Correo electrónico",
   "EMAIL_SIGN_IN_METHOD": "Iniciar sesión por correo electrónico",
   "MOBILE_APP_NOT_INSTALLED_MESSAGE": "Parece que solicitaste un enlace móvil pero no tienes nuestra aplicación instalada en este dispositivo.",
   "MOBILE_BACK_TO_LOGIN": "Atrás para iniciar sesión",
   "MOBILE_GET_APP_FROM_APPLE_STORE": "Obtener de la tienda de aplicaciones de Apple",
   "MOBILE_GET_APP_FROM_GOOGLE_PLAY_STORE": "Obtener de Google Play Store",
-  "NAME_FIELD_LABEL": "Nombre",
+  "NAME_FIELD_LABEL": "Nombre*",
   "NOT_SIGNED_IN_TOOLTIP": "No has iniciado sesión.",
   "PASSWORD_FIELD_LABEL": "Contraseña",
   "PASSWORD_SIGN_IN_METHOD": "Contraseña Iniciar sesión",

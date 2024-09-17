@@ -1,12 +1,10 @@
 {
   "BACK_BUTTON": "إلى الخلف",
-  "EMAIL_FIELD_TEXT": "بريد إلكتروني",
   "EMAIL_SIGN_IN_METHOD": "تسجيل الدخول عبر البريد الإلكتروني",
   "MOBILE_APP_NOT_INSTALLED_MESSAGE": "يبدو أنك طلبت رابطًا للهاتف المحمول ولكن لم يتم تثبيت تطبيقنا على هذا الجهاز.",
   "MOBILE_BACK_TO_LOGIN": "العودة لتسجيل الدخول",
   "MOBILE_GET_APP_FROM_APPLE_STORE": "احصل عليه من متجر تطبيقات أبل",
   "MOBILE_GET_APP_FROM_GOOGLE_PLAY_STORE": "احصل عليه من متجر Google Play",
-  "NAME_FIELD_LABEL": "الأسم",
   "NOT_SIGNED_IN_TOOLTIP": "أنت غير مسجل الدخول.",
   "PASSWORD_FIELD_LABEL": "كلمة المرور",
   "PASSWORD_SIGN_IN_METHOD": "تسجيل الدخول عبر كلمة المرور",

@@ -9,7 +9,7 @@ import {
   SUCCESS_CONTENT_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
-import { checkInvitationFields } from './util';
+import { checkInvitationFields, fillSignUpLayout } from './util';
 
 describe('SignUp', () => {
   describe('Must Accept All Terms To Sign Up', () => {
@@ -26,6 +26,9 @@ describe('SignUp', () => {
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
     });
     it('Sign Up Is Available When Accepting All Terms', () => {
+      fillSignUpLayout({ name: 'name', email: 'email' });
+      cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
+
       cy.agreeWithAllTerms();
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('not.be.disabled');
     });
