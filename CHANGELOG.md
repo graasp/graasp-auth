@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/graasp/graasp-auth/compare/v2.5.2...v2.6.0) (2024-09-17)
+
+
+### Features
+
+* add graasp branding and show all platforms ([#450](https://github.com/graasp/graasp-auth/issues/450)) ([08d5d83](https://github.com/graasp/graasp-auth/commit/08d5d838ed5ae5be73870ef44072676d01d6ad7a))
+* show different success message for password on success, refactor ([#413](https://github.com/graasp/graasp-auth/issues/413)) ([606cc7a](https://github.com/graasp/graasp-auth/commit/606cc7a0615d5c8b1bbebbd84944babaecf4669b))
+
+
+### Bug Fixes
+
+* update ui to use ts build ([#442](https://github.com/graasp/graasp-auth/issues/442)) ([fed4476](https://github.com/graasp/graasp-auth/commit/fed447695244c1407514c88cf47c5d1416b2b36c))
+
 ## [2.5.2](https://github.com/graasp/graasp-auth/compare/v2.5.1...v2.5.2) (2024-08-20)
 
 
