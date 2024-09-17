@@ -6,7 +6,7 @@ export const BrandingLogo = () => {
   const theme = useTheme();
 
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0 }}>
+    <div style={{ position: 'absolute', top: 10, left: 10 }}>
       <Stack m={1} direction="row" justifyContent="center" alignItems="center">
         <GraaspLogo height={50} sx={{ fill: theme.palette.primary.main }} />
         <Typography variant="h2" color="primary">

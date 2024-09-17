@@ -25,7 +25,7 @@ describe('SignUp', () => {
     it('Cannot Sign Up Without Accepting Terms', () => {
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
     });
-    it.only('Sign Up Is Available When Accepting All Terms', () => {
+    it('Sign Up Is Available When Accepting All Terms', () => {
       fillSignUpLayout({ name: 'name', email: 'email' });
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.disabled');
 
