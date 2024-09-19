@@ -1,4 +1,4 @@
-import { CompleteMember, MemberType, Password } from '@graasp/sdk';
+import { AccountType, CompleteMember, Password } from '@graasp/sdk';
 
 export const MEMBERS: {
   [name: string]: CompleteMember & {
@@ -16,11 +16,12 @@ export const MEMBERS: {
     nameValid: true,
     emailValid: true,
     passwordValid: true,
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
   GRAASP_OTHER: {
     id: 'graasp_other-id',
@@ -30,11 +31,12 @@ export const MEMBERS: {
     nameValid: true,
     emailValid: true,
     passwordValid: true,
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
   WRONG_NAME: {
     id: 'id1',
@@ -43,11 +45,12 @@ export const MEMBERS: {
     nameValid: false,
     emailValid: true,
     passwordValid: false,
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
   WRONG_EMAIL: {
     id: 'id2',
@@ -57,11 +60,12 @@ export const MEMBERS: {
     nameValid: true,
     emailValid: false,
     passwordValid: true,
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
   WRONG_PASSWORD: {
     id: 'id3',
@@ -71,11 +75,12 @@ export const MEMBERS: {
     nameValid: true,
     emailValid: true,
     passwordValid: false,
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
   BOB: {
     id: 'ecafbd2a-5642-31fb-ae93-0242ac130004',
@@ -83,19 +88,21 @@ export const MEMBERS: {
     email: 'bob@email.com',
     createdAt: '2021-04-13 14:56:34.749946',
     extra: { lang: 'en' },
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     updatedAt: new Date().toISOString(),
     enableSaveActions: true,
+    isValidated: true,
   },
   CEDRIC: {
     id: 'ecafbd2a-5642-31fb-ae93-0242ac130006',
     name: 'cedric',
     email: 'cedric@email.com',
     createdAt: '2021-04-13 14:56:34.749946',
-    type: MemberType.Individual,
+    type: AccountType.Individual,
     updatedAt: new Date().toISOString(),
     extra: {},
     enableSaveActions: true,
+    isValidated: true,
   },
 };
 
