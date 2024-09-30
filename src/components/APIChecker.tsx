@@ -7,7 +7,7 @@ import { useAuthTranslation } from '../config/i18n';
 import { axios, useQuery } from '../config/queryClient';
 import { AUTH } from '../langs/constants';
 
-const APIChecker = (): JSX.Element | false => {
+const APIChecker = (): JSX.Element | null => {
   const { t } = useAuthTranslation();
   const { isSuccess, isLoading, refetch, isError } = useQuery({
     queryKey: ['apiStatus'],
@@ -19,7 +19,7 @@ const APIChecker = (): JSX.Element | false => {
   });
 
   if (isSuccess) {
-    return false;
+    return null;
   }
 
   if (isError) {
@@ -44,6 +44,7 @@ const APIChecker = (): JSX.Element | false => {
     );
   }
 
-  return false;
+  // everything all right, we render nothing if connection is ok.
+  return null;
 };
 export default APIChecker;

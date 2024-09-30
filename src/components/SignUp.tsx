@@ -34,12 +34,12 @@ import { useRedirection } from '../hooks/searchParams';
 import { useAgreementForm } from '../hooks/useAgreementForm';
 import { AUTH } from '../langs/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
-import { AgreementForm } from './AgreementForm';
-import EmailInput from './EmailInput';
-import { EnableAnalyticsForm } from './EnableAnalyticsForm';
+import { EmailInput } from './EmailInput';
 import LeftContentContainer from './LeftContentContainer';
-import StyledTextField from './StyledTextField';
 import ErrorDisplay from './common/ErrorDisplay';
+import StyledTextField from './common/StyledTextField';
+import { AgreementForm } from './register/AgreementForm';
+import { EnableAnalyticsForm } from './register/EnableAnalyticsForm';
 
 const {
   SIGN_IN_LINK_TEXT,

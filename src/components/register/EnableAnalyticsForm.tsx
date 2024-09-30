@@ -6,9 +6,9 @@ import {
   Typography,
 } from '@mui/material';
 
-import { useAuthTranslation } from '../config/i18n';
-import { SIGN_UP_SAVE_ACTIONS_ID } from '../config/selectors';
-import { AUTH } from '../langs/constants';
+import { useAuthTranslation } from '../../config/i18n';
+import { SIGN_UP_SAVE_ACTIONS_ID } from '../../config/selectors';
+import { AUTH } from '../../langs/constants';
 
 type Props = {
   enableSaveActions: boolean;

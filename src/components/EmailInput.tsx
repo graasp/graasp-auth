@@ -6,7 +6,7 @@ import { InputAdornment } from '@mui/material';
 import { useAuthTranslation } from '../config/i18n';
 import { AUTH } from '../langs/constants';
 import { emailValidator } from '../utils/validation';
-import StyledTextField from './StyledTextField';
+import StyledTextField from './common/StyledTextField';
 
 const { EMAIL_INPUT_PLACEHOLDER } = AUTH;
 
@@ -21,7 +21,7 @@ type Props = {
   autoFocus?: boolean;
 };
 
-const EmailInput: FC<Props> = ({
+export const EmailInput: FC<Props> = ({
   required = false,
   value = '',
   id,
@@ -32,7 +32,7 @@ const EmailInput: FC<Props> = ({
   autoFocus = false,
 }) => {
   const { t } = useAuthTranslation();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | false>(false);
 
   useEffect(() => {
     if (shouldValidate) {
@@ -74,5 +74,3 @@ const EmailInput: FC<Props> = ({
     />
   );
 };
-
-export default EmailInput;

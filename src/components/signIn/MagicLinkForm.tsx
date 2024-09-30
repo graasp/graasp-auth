@@ -4,21 +4,22 @@ import { useNavigate } from 'react-router';
 import { RecaptchaAction } from '@graasp/sdk';
 
 import { LoadingButton } from '@mui/lab';
+import { Stack } from '@mui/material';
 
-import { useAuthTranslation } from '../config/i18n';
-import { SIGN_IN_MAGIC_LINK_SUCCESS_PATH } from '../config/paths';
-import { mutations } from '../config/queryClient';
+import { useAuthTranslation } from '../../config/i18n';
+import { SIGN_IN_MAGIC_LINK_SUCCESS_PATH } from '../../config/paths';
+import { mutations } from '../../config/queryClient';
 import {
   EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   SIGN_IN_BUTTON_ID,
-} from '../config/selectors';
-import { useRecaptcha } from '../context/RecaptchaContext';
-import { useMobileAppLogin } from '../hooks/mobile';
-import { useRedirection } from '../hooks/searchParams';
-import { AUTH } from '../langs/constants';
-import { emailValidator } from '../utils/validation';
-import EmailInput from './EmailInput';
-import ErrorDisplay from './common/ErrorDisplay';
+} from '../../config/selectors';
+import { useRecaptcha } from '../../context/RecaptchaContext';
+import { useMobileAppLogin } from '../../hooks/mobile';
+import { useRedirection } from '../../hooks/searchParams';
+import { AUTH } from '../../langs/constants';
+import { emailValidator } from '../../utils/validation';
+import { EmailInput } from '../EmailInput';
+import ErrorDisplay from '../common/ErrorDisplay';
 
 const { SIGN_IN_BUTTON } = AUTH;
 
@@ -86,7 +87,7 @@ const MagicLinkForm = () => {
   };
 
   return (
-    <>
+    <Stack component="form" direction="column" spacing={1} alignItems="center">
       <EmailInput
         value={email}
         setValue={setEmail}
@@ -97,6 +98,7 @@ const MagicLinkForm = () => {
       />
       <ErrorDisplay error={signInError} />
       <LoadingButton
+        role="submit"
         id={SIGN_IN_BUTTON_ID}
         variant="contained"
         onClick={handleSignIn}
@@ -106,7 +108,7 @@ const MagicLinkForm = () => {
       >
         {t(SIGN_IN_BUTTON)}
       </LoadingButton>
-    </>
+    </Stack>
   );
 };
 
