@@ -1,112 +1,208 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { Button } from '@graasp/ui';
+import { isPasswordStrong } from '@graasp/sdk';
 
-import { Stack } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import {
+  Alert,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Stack,
+  TextField,
+} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../../config/i18n';
 import { SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
+import {
+  RESET_PASSWORD_ERROR_MESSAGE_ID,
+  RESET_PASSWORD_ERROR_MISSING_TOKEN_ID,
+  RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
+  RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID,
+  RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
+  RESET_PASSWORD_NEW_PASSWORD_FIELD_ID,
+  RESET_PASSWORD_SUBMIT_BUTTON_ID,
+  RESET_PASSWORD_SUCCESS_MESSAGE_ID,
+} from '../../config/selectors';
 import { AUTH } from '../../langs/constants';
-import { passwordValidator, passwordsMatch } from '../../utils/validation';
-import StyledTextField from '../common/StyledTextField';
+import { getValidationMessage } from '../../utils/validation';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 
 const { useResolvePasswordResetRequest } = mutations;
 
+type Inputs = {
+  password: string;
+  confirmPassword: string;
+};
 const ResetPassword = () => {
   const { t } = useAuthTranslation();
   const [searchParams] = useSearchParams();
   const token = searchParams.get('t');
+  const [showPasswords, setShowPasswords] = useState(false);
 
-  const { mutate: resolveRequestPasswordReset } =
-    useResolvePasswordResetRequest();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
-  // enable validation after first click
-  const [passwordError, setPasswordError] = useState<string | null>(null);
-  const [confirmPasswordError, setConfirmPasswordError] = useState<
-    string | null
-  >(null);
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const {
+    mutate: resolveRequestPasswordReset,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useResolvePasswordResetRequest();
 
-  const resetPassword = () => {
-    const checkingPassword = passwordValidator(password);
-    const checkingConfirmPassword = passwordValidator(confirmPassword);
-    // passwords need to be the same
-    const checkPasswordsAreTheSame = passwordsMatch(password, confirmPassword);
-    if (
-      checkingPassword ||
-      checkingConfirmPassword ||
-      checkPasswordsAreTheSame
-    ) {
-      if (checkingPassword) {
-        setPasswordError(checkingPassword);
-      }
-      if (checkingConfirmPassword) {
-        setConfirmPasswordError(checkingConfirmPassword);
-      }
-    } else {
-      if (token) {
-        resolveRequestPasswordReset({ password, token });
-        setPasswordError(null);
-        setConfirmPasswordError(null);
-      }
-    }
+  if (!token) {
+    return (
+      <Alert id={RESET_PASSWORD_ERROR_MISSING_TOKEN_ID} severity="error">
+        {t(AUTH.RESET_PASSWORD_MISSING_TOKEN)}
+      </Alert>
+    );
+  }
+
+  const resetPassword = ({ password }: Inputs) => {
+    resolveRequestPasswordReset({ password, token });
   };
 
-  const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      resetPassword();
-    }
-  };
+  const passwordErrorMessage = getValidationMessage(errors.password);
+  const confirmPasswordErrorMessage = getValidationMessage(
+    errors.confirmPassword,
+  );
+  const hasErrors = Boolean(
+    passwordErrorMessage || confirmPasswordErrorMessage,
+  );
 
   return (
     <CenteredContent
-      header={<DialogHeader title={t(AUTH.RESET_PASSWORD_TITLE)} />}
+      header={
+        <DialogHeader
+          title={t(AUTH.RESET_PASSWORD_TITLE)}
+          description={
+            <Stack gap={1} width="100%">
+              {t(AUTH.RESET_PASSWORD_DESCRIPTION)}
+              <Typography>
+                Password requirements:
+                <ul style={{ margin: 0 }}>
+                  <li>At least 8 characters long</li>
+                  <li>Contain at least one lowercase letter</li>
+                  <li>Contain at least one uppercase letter</li>
+                  <li>Contain at least one number</li>
+                </ul>
+              </Typography>
+            </Stack>
+          }
+        />
+      }
     >
-      <Stack direction="column" alignItems="center" spacing={2}>
-        <StyledTextField
-          required
+      <Stack
+        component="form"
+        onSubmit={handleSubmit(resetPassword)}
+        direction="column"
+        alignItems="center"
+        spacing={1}
+        width="100%"
+      >
+        <TextField
+          id={RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}
+          {...register('password', {
+            required: true,
+            validate: (value) =>
+              isPasswordStrong(value) || AUTH.PASSWORD_WEAK_ERROR,
+          })}
+          FormHelperTextProps={{
+            id: RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
+          }}
           label={t(AUTH.RESET_PASSWORD_NEW_PASSWORD_FIELD_LABEL)}
           variant="outlined"
-          value={password}
-          error={Boolean(passwordError)}
-          helperText={passwordError && t(passwordError)}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          type="password"
+          error={Boolean(passwordErrorMessage)}
+          helperText={passwordErrorMessage && t(passwordErrorMessage)}
+          type={showPasswords ? '' : 'password'}
+          fullWidth
+          disabled={isSuccess || isError}
         />
-        <StyledTextField
-          required
+        <TextField
+          id={RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID}
+          {...register('confirmPassword', {
+            required: true,
+            validate: {
+              strong: (value) =>
+                isPasswordStrong(value) || AUTH.PASSWORD_WEAK_ERROR,
+              match: (confirmPassword, formState) =>
+                confirmPassword === formState.password ||
+                AUTH.PASSWORD_DO_NOT_MATCH_ERROR,
+            },
+          })}
+          FormHelperTextProps={{
+            id: RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
+          }}
           label={t(AUTH.RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_LABEL)}
           variant="outlined"
-          value={confirmPassword}
-          error={Boolean(confirmPasswordError)}
-          helperText={confirmPasswordError && t(confirmPasswordError)}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-          }}
-          type="password"
-          onKeyDown={handleKeypress}
+          error={Boolean(confirmPasswordErrorMessage)}
+          helperText={
+            confirmPasswordErrorMessage && t(confirmPasswordErrorMessage)
+          }
+          type={showPasswords ? '' : 'password'}
+          fullWidth
+          disabled={isSuccess || isError}
         />
-
-        <Button fullWidth onClick={resetPassword}>
-          {t(AUTH.RESET_PASSWORD_BUTTON)}
-        </Button>
+        <FormControlLabel
+          sx={{ width: '100%' }}
+          control={
+            <Checkbox
+              value={showPasswords}
+              onChange={() => setShowPasswords((v) => !v)}
+            />
+          }
+          label={t(AUTH.SHOW_PASSWORD)}
+        />
+        {isError && (
+          <Alert id={RESET_PASSWORD_ERROR_MESSAGE_ID} severity="error">
+            {t(AUTH.RESET_PASSWORD_ERROR_MESSAGE)}
+          </Alert>
+        )}
+        {isSuccess ? (
+          <>
+            <Alert id={RESET_PASSWORD_SUCCESS_MESSAGE_ID} severity="success">
+              {t(AUTH.RESET_PASSWORD_SUCCESS_MESSAGE)}
+            </Alert>
+            <Button
+              variant="contained"
+              fullWidth
+              component={Link}
+              to={SIGN_IN_PATH}
+            >
+              {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
+            </Button>
+          </>
+        ) : (
+          <LoadingButton
+            id={RESET_PASSWORD_SUBMIT_BUTTON_ID}
+            variant="contained"
+            loading={isLoading}
+            fullWidth
+            type="submit"
+            disabled={hasErrors}
+          >
+            {t(AUTH.RESET_PASSWORD_BUTTON)}
+          </LoadingButton>
+        )}
       </Stack>
-      <Typography
-        component={Link}
-        to={SIGN_IN_PATH}
-        color="textSecondary"
-        sx={{ textDecoration: 'none' }}
-      >
-        {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
-      </Typography>
+      {isSuccess ? null : (
+        <Typography
+          component={Link}
+          to={SIGN_IN_PATH}
+          color="textSecondary"
+          sx={{ textDecoration: 'none' }}
+        >
+          {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
+        </Typography>
+      )}
     </CenteredContent>
   );
 };

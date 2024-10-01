@@ -14,10 +14,19 @@ export const REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID =
 export const REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID =
   'passwordResetErrorMessage';
 
+export const RESET_PASSWORD_ERROR_MISSING_TOKEN_ID =
+  'resetPasswordErrorMissingToken';
+export const RESET_PASSWORD_ERROR_MESSAGE_ID = 'resetPasswordErrorMessage';
 export const RESET_PASSWORD_NEW_PASSWORD_FIELD_ID =
   'resetPasswordNewPasswordField';
 export const RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID =
   'resetPasswordNewPasswordConfirmationField';
+export const RESET_PASSWORD_SUBMIT_BUTTON_ID = 'resetPasswordSubmitButton';
+export const RESET_PASSWORD_SUCCESS_MESSAGE_ID = 'resetPasswordSuccessMessage';
+export const RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID =
+  'resetPasswordNewPasswordErrorText';
+export const RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID =
+  'resetPasswordNewPasswordConfirmationErrorText';
 
 export const PASSWORD_SIGN_IN_FIELD_ID = 'passwordSignInField';
 export const PASSWORD_SIGN_IN_BUTTON_ID = 'passwordSignInButton';

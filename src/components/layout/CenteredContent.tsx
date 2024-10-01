@@ -4,6 +4,7 @@ import { Stack } from '@mui/material';
 
 import { BACKGROUND_PATTERN } from '../../config/constants';
 import APIChecker from '../APIChecker';
+import Footer from '../Footer';
 import { styledBox } from '../styles';
 
 export const CenteredContent = ({
@@ -33,6 +34,7 @@ export const CenteredContent = ({
           {children}
         </Stack>
       </Stack>
+      <Footer />
     </Stack>
   );
 };

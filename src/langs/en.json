@@ -43,7 +43,8 @@
   "EMPTY_EMAIL_ERROR": "An email address is required, this field can not be empty",
   "REQUIRED_FIELD_ERROR": "This field is required",
   "PASSWORD_EMPTY_ERROR": "The password can not be empty",
-  "PASSWORD_DO_NOT_MATCH_ERROR": "The passwords do not match",
+  "PASSWORD_WEAK_ERROR": "This password is too weak, please follow the password requirements above.",
+  "PASSWORD_DO_NOT_MATCH_ERROR": "The passwords do not match.",
   "PASSWORD_SUCCESS_ALERT": "You successfully signed in. You will be redirected soon.",
   "PASSWORD_INPUT_PLACEHOLDER": "Password",
   "BUILDER_BACKGROUND_TEXT": "Create your own learning activities with the",
@@ -65,7 +66,12 @@
   "REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE": "Request successfully sent, please check your email.",
   "REQUEST_PASSWORD_RESET_ERROR_MESSAGE": "There was an error making your request, but it is likely not your fault. Reload this page and try again in a few moments. If the issue persists please contact us: help@graasp.org",
   "RESET_PASSWORD_TITLE": "Reset password",
+  "RESET_PASSWORD_DESCRIPTION": "You can now set a new password to use with your account.",
   "RESET_PASSWORD_NEW_PASSWORD_FIELD_LABEL": "New password",
   "RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_LABEL": "Confirm new password",
-  "RESET_PASSWORD_BUTTON": "Reset Password"
+  "RESET_PASSWORD_BUTTON": "Reset Password",
+  "RESET_PASSWORD_MISSING_TOKEN": "Error: The current page is missing some required information.",
+  "RESET_PASSWORD_SUCCESS_MESSAGE": "The password was successfully set. You can now log in with this new password.",
+  "RESET_PASSWORD_ERROR_MESSAGE": "An error prevented the password reset operation. Ensure you used a fresh link (links are valid for 24h only) and that you followed the password requirements. Please retry the forgot password procedure again. If the issue persists contact us: help@graasp.org",
+  "SHOW_PASSWORD": "Show passwords"
 }
