@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 
 import { API_ROUTES } from '@graasp/query-client';
-import { CompleteMember } from '@graasp/sdk';
+import { CompleteMember, HttpMethod } from '@graasp/sdk';
 
 const { buildGetCurrentMemberRoute } = API_ROUTES;
 
@@ -19,7 +19,7 @@ export const mockGetCurrentMember = (
 ) => {
   cy.intercept(
     {
-      method: 'get',
+      method: HttpMethod.Get,
       url: `${API_HOST}/${buildGetCurrentMemberRoute()}`,
     },
     ({ reply }) => {
@@ -39,7 +39,7 @@ export const mockGetCurrentMember = (
 export const mockGetStatus = (shouldThrowServerError = false) => {
   cy.intercept(
     {
-      method: 'get',
+      method: HttpMethod.Get,
       url: `${API_HOST}/status`,
     },
     ({ reply }) => {
@@ -49,4 +49,20 @@ export const mockGetStatus = (shouldThrowServerError = false) => {
       return reply({ statusCode: StatusCodes.OK });
     },
   ).as('getStatus');
+};
+
+export const mockRequestPasswordReset = (shouldThrowServerError = false) => {
+  cy.intercept(
+    {
+      method: HttpMethod.Post,
+      url: `${API_HOST}/password/reset`,
+    },
+    ({ reply }) => {
+      if (shouldThrowServerError) {
+        // member email was not found
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+      return reply({ statusCode: StatusCodes.NO_CONTENT });
+    },
+  ).as('requestPasswordReset');
 };

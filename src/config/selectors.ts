@@ -2,6 +2,15 @@ export const NAME_SIGN_UP_FIELD_ID = 'nameSignUpFieldId';
 export const EMAIL_SIGN_UP_FIELD_ID = 'emailSignUpFieldId';
 export const EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID = 'emailSignInMagicLinkFieldId';
 export const EMAIL_SIGN_IN_FIELD_ID = 'emailSignInFieldId';
+export const REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID = 'passwordResetEmailField';
+export const REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID =
+  'passwordResetEmailFieldHelper';
+export const REQUEST_PASSWORD_RESET_SUBMIT_BUTTON_ID =
+  'passwordResetSubmitButton';
+export const REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID =
+  'passwordResetSuccessMessage';
+export const REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID =
+  'passwordResetErrorMessage';
 export const PASSWORD_SIGN_IN_FIELD_ID = 'passwordSignInFieldId';
 export const PASSWORD_SIGN_IN_BUTTON_ID = 'passwordSignInButtonId';
 export const SIGN_UP_AGREEMENTS_CHECKBOX_ID = 'signUpAgreementsCheckboxId';

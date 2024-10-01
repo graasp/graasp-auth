@@ -1,13 +1,6 @@
 import { AccountType, CompleteMember, Password } from '@graasp/sdk';
 
-export const MEMBERS: {
-  [name: string]: CompleteMember & {
-    nameValid?: boolean;
-    emailValid?: boolean;
-    passwordValid?: boolean;
-    password?: Password;
-  };
-} = {
+export const MEMBERS = {
   GRAASP: {
     id: 'graasp-id',
     name: 'graasp',
@@ -104,6 +97,13 @@ export const MEMBERS: {
     enableSaveActions: true,
     isValidated: true,
   },
+} satisfies {
+  [name: string]: CompleteMember & {
+    nameValid?: boolean;
+    emailValid?: boolean;
+    passwordValid?: boolean;
+    password?: Password;
+  };
 };
 
 export default MEMBERS;

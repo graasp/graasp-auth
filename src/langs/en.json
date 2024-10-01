@@ -61,5 +61,7 @@
   "PASSWORD_RESET_REQUEST_BACK_BUTTON": "Back to sign in",
   "PASSWORD_RESET_REQUEST_UPDATE_TITLE": "Reset your password",
   "PASSWORD_RESET_REQUEST_CONFIRM_PASSWORD_TITLE": "Confirm password",
+  "REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE": "Request successfully sent, please check your email.",
+  "REQUEST_PASSWORD_RESET_ERROR_MESSAGE": "There was an error making your request, but it is likely not your fault. Reload this page and try again in a few moments. If the issue persists please contact us: help@graasp.org",
   "LOGIN_METHODS_DIVIDER": "or"
 }

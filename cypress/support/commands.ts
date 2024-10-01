@@ -25,7 +25,11 @@ import {
   submitSignIn,
   submitSignUp,
 } from '../e2e/util';
-import { mockGetCurrentMember, mockGetStatus } from './server';
+import {
+  mockGetCurrentMember,
+  mockGetStatus,
+  mockRequestPasswordReset,
+} from './server';
 
 // cypress/support/index.ts
 declare global {
@@ -33,6 +37,7 @@ declare global {
     interface Chainable {
       setUpApi(args?: {
         currentMember?: CompleteMember | null;
+        shouldFailRequestPasswordReset?: boolean;
       }): Chainable<JQuery<HTMLElement>>;
 
       checkErrorTextField(
@@ -71,10 +76,14 @@ declare global {
   }
 }
 
-Cypress.Commands.add('setUpApi', ({ currentMember = null } = {}) => {
-  mockGetCurrentMember(currentMember);
-  mockGetStatus();
-});
+Cypress.Commands.add(
+  'setUpApi',
+  ({ currentMember = null, shouldFailRequestPasswordReset = false } = {}) => {
+    mockGetCurrentMember(currentMember);
+    mockGetStatus();
+    mockRequestPasswordReset(shouldFailRequestPasswordReset);
+  },
+);
 
 Cypress.Commands.add('checkErrorTextField', (id, flag) => {
   const existence = flag ? 'not.exist' : 'exist';

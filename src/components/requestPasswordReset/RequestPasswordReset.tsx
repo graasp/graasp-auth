@@ -3,19 +3,32 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
-import { Button, GraaspLogo } from '@graasp/ui';
+import { GraaspLogo } from '@graasp/ui';
 
-import { InputAdornment, Stack, TextField, useTheme } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import {
+  Alert,
+  InputAdornment,
+  Stack,
+  TextField,
+  useTheme,
+} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { BACKGROUND_PATTERN } from '../../config/constants';
 import { useAuthTranslation } from '../../config/i18n';
 import { SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
-import { EMAIL_SIGN_IN_FIELD_ID } from '../../config/selectors';
+import {
+  REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
+  REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID,
+  REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID,
+  REQUEST_PASSWORD_RESET_SUBMIT_BUTTON_ID,
+  REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID,
+} from '../../config/selectors';
 import { useRecaptcha } from '../../context/RecaptchaContext';
 import { AUTH } from '../../langs/constants';
-import { emailValidator, getValidationMessage } from '../../utils/validation';
+import { getValidationMessage, isEmailValid } from '../../utils/validation';
 import { styledBox } from '../styles';
 
 const { useCreatePasswordResetRequest } = mutations;
@@ -34,7 +47,12 @@ export const RequestPasswordReset = () => {
   } = useForm<Inputs>();
   const { executeCaptcha } = useRecaptcha();
 
-  const { mutate: requestPasswordReset } = useCreatePasswordResetRequest();
+  const {
+    mutate: requestPasswordReset,
+    isError,
+    isSuccess,
+    isLoading,
+  } = useCreatePasswordResetRequest();
 
   // enable validation after first click
 
@@ -43,8 +61,8 @@ export const RequestPasswordReset = () => {
     requestPasswordReset({ email, captcha });
   };
 
-  const hasErrors = !!errors.email;
   const errorMessage = getValidationMessage(errors.email);
+  const hasErrors = !!errorMessage;
 
   return (
     <Stack
@@ -59,7 +77,12 @@ export const RequestPasswordReset = () => {
     >
       <Stack {...styledBox} borderRadius={2} p={2}>
         {
-          <Stack direction="column" alignItems="center" spacing={3}>
+          <Stack
+            direction="column"
+            alignItems="center"
+            spacing={3}
+            maxWidth="50ch"
+          >
             <Stack direction="column" alignItems="center" spacing={1}>
               <GraaspLogo
                 height={90}
@@ -68,9 +91,7 @@ export const RequestPasswordReset = () => {
               <Typography variant="h4" component="h2">
                 {t(AUTH.PASSWORD_RESET_REQUEST_TITLE)}
               </Typography>
-              <Typography maxWidth="50ch">
-                {t(AUTH.PASSWORD_RESET_REQUEST_TEXT)}
-              </Typography>
+              <Typography>{t(AUTH.PASSWORD_RESET_REQUEST_TEXT)}</Typography>
             </Stack>
             <Stack
               width="100%"
@@ -79,10 +100,14 @@ export const RequestPasswordReset = () => {
               gap={1}
             >
               <TextField
+                id={REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}
                 {...register('email', {
                   required: true,
-                  validate: (email) => emailValidator(email),
+                  validate: isEmailValid,
                 })}
+                FormHelperTextProps={{
+                  id: REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
+                }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -92,11 +117,36 @@ export const RequestPasswordReset = () => {
                 }}
                 helperText={errorMessage && t(errorMessage)}
                 error={hasErrors}
-                id={EMAIL_SIGN_IN_FIELD_ID}
+                // once the request is sent disable the input
+                disabled={isSuccess || isError}
               />
-              <Button fullWidth type="submit" disabled={hasErrors}>
-                {t(AUTH.PASSWORD_RESET_REQUEST_BUTTON)}
-              </Button>
+              {isError && (
+                <Alert
+                  id={REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID}
+                  severity="error"
+                >
+                  {t(AUTH.REQUEST_PASSWORD_RESET_ERROR_MESSAGE)}
+                </Alert>
+              )}
+              {isSuccess ? (
+                <Alert
+                  id={REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID}
+                  severity="success"
+                >
+                  {t(AUTH.REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE)}
+                </Alert>
+              ) : (
+                <LoadingButton
+                  variant="contained"
+                  loading={isLoading}
+                  id={REQUEST_PASSWORD_RESET_SUBMIT_BUTTON_ID}
+                  fullWidth
+                  type="submit"
+                  disabled={hasErrors}
+                >
+                  {t(AUTH.PASSWORD_RESET_REQUEST_BUTTON)}
+                </LoadingButton>
+              )}
             </Stack>
             <Typography
               component={Link}

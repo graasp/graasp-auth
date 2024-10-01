@@ -29,7 +29,14 @@ export const emailValidator = (email?: string) => {
   if (!email) {
     return EMPTY_EMAIL_ERROR;
   }
-  return validator.isEmail(email) ? false : INVALID_EMAIL_ERROR;
+  return validator.isEmail(email) ? null : INVALID_EMAIL_ERROR;
+};
+
+export const isEmailValid = (email?: string) => {
+  if (!email) {
+    return EMPTY_EMAIL_ERROR;
+  }
+  return validator.isEmail(email) ? true : INVALID_EMAIL_ERROR;
 };
 
 export const passwordValidator = (password?: string) => {
