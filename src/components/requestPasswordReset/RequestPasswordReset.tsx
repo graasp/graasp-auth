@@ -29,6 +29,7 @@ import {
 import { useRecaptcha } from '../../context/RecaptchaContext';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage, isEmailValid } from '../../utils/validation';
+import APIChecker from '../APIChecker';
 import { styledBox } from '../styles';
 
 const { useCreatePasswordResetRequest } = mutations;
@@ -66,16 +67,19 @@ export const RequestPasswordReset = () => {
 
   return (
     <Stack
-      direction="row"
+      direction="column"
       margin="auto"
-      height="100svh"
+      minHeight="100svh"
       justifyContent="center"
       alignItems="center"
       sx={{
         backgroundImage: BACKGROUND_PATTERN,
       }}
+      gap={5}
+      p={2}
     >
-      <Stack {...styledBox} borderRadius={2} p={2}>
+      <APIChecker />
+      <Stack {...styledBox} borderRadius={2} p={{ xs: 2, sm: 4 }}>
         {
           <Stack
             direction="column"
@@ -89,9 +93,9 @@ export const RequestPasswordReset = () => {
                 sx={{ fill: theme.palette.primary.main }}
               />
               <Typography variant="h4" component="h2">
-                {t(AUTH.PASSWORD_RESET_REQUEST_TITLE)}
+                {t(AUTH.REQUEST_PASSWORD_RESET_TITLE)}
               </Typography>
-              <Typography>{t(AUTH.PASSWORD_RESET_REQUEST_TEXT)}</Typography>
+              <Typography>{t(AUTH.REQUEST_PASSWORD_RESET_TEXT)}</Typography>
             </Stack>
             <Stack
               width="100%"
@@ -144,7 +148,7 @@ export const RequestPasswordReset = () => {
                   type="submit"
                   disabled={hasErrors}
                 >
-                  {t(AUTH.PASSWORD_RESET_REQUEST_BUTTON)}
+                  {t(AUTH.REQUEST_PASSWORD_RESET_BUTTON)}
                 </LoadingButton>
               )}
             </Stack>
@@ -154,7 +158,7 @@ export const RequestPasswordReset = () => {
               sx={{ textDecoration: 'none' }}
               to={SIGN_IN_PATH}
             >
-              {t(AUTH.PASSWORD_RESET_REQUEST_BACK_BUTTON)}
+              {t(AUTH.REQUEST_PASSWORD_RESET_BACK_BUTTON)}
             </Typography>
           </Stack>
         }
