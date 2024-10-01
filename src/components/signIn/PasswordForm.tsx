@@ -132,7 +132,7 @@ const SignInPasswordForm = () => {
           sx={{ textDecoration: 'none' }}
           to={REQUEST_PASSWORD_RESET_PATH}
         >
-          {t(AUTH.PASSWORD_RESET_REQUEST_LINK)}
+          {t(AUTH.REQUEST_PASSWORD_RESET_LINK)}
         </Typography>
       </Stack>
       <ErrorDisplay error={passwordSignInError} />

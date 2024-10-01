@@ -32,7 +32,7 @@ export const EmailInput: FC<Props> = ({
   autoFocus = false,
 }) => {
   const { t } = useAuthTranslation();
-  const [error, setError] = useState<string | false>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (shouldValidate) {

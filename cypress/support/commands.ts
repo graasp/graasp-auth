@@ -29,6 +29,7 @@ import {
   mockGetCurrentMember,
   mockGetStatus,
   mockRequestPasswordReset,
+  mockResetPassword,
 } from './server';
 
 // cypress/support/index.ts
@@ -38,6 +39,7 @@ declare global {
       setUpApi(args?: {
         currentMember?: CompleteMember | null;
         shouldFailRequestPasswordReset?: boolean;
+        shouldFailResetPassword?: boolean;
       }): Chainable<JQuery<HTMLElement>>;
 
       checkErrorTextField(
@@ -78,10 +80,15 @@ declare global {
 
 Cypress.Commands.add(
   'setUpApi',
-  ({ currentMember = null, shouldFailRequestPasswordReset = false } = {}) => {
+  ({
+    currentMember = null,
+    shouldFailRequestPasswordReset = false,
+    shouldFailResetPassword = false,
+  } = {}) => {
     mockGetCurrentMember(currentMember);
     mockGetStatus();
     mockRequestPasswordReset(shouldFailRequestPasswordReset);
+    mockResetPassword(shouldFailResetPassword);
   },
 );
 

@@ -1,5 +1,6 @@
 {
   "BACK_BUTTON": "Back",
+  "BACK_TO_SIGN_IN_BUTTON": "Back to sign in",
   "EMAIL_SIGN_IN_METHOD": "Email Sign In",
   "MOBILE_APP_NOT_INSTALLED_MESSAGE": "It looks like you requested a mobile link but you do not have our app installed on this device.",
   "MOBILE_BACK_TO_LOGIN": "Back to login",
@@ -58,10 +59,13 @@
   "REQUEST_PASSWORD_RESET_TITLE": "Request password reset",
   "REQUEST_PASSWORD_RESET_TEXT": "To reset your password, please enter the email you use for your account. We will send you a link to reset your password. The link will be valid for 24h.",
   "REQUEST_PASSWORD_RESET_BUTTON": "Reset",
-  "RESET_PASSWORD_TITLE": "Reset password",
   "REQUEST_PASSWORD_RESET_BACK_BUTTON": "Back to sign in",
   "REQUEST_PASSWORD_RESET_UPDATE_TITLE": "Reset your password",
   "REQUEST_PASSWORD_RESET_CONFIRM_PASSWORD_TITLE": "Confirm password",
   "REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE": "Request successfully sent, please check your email.",
-  "REQUEST_PASSWORD_RESET_ERROR_MESSAGE": "There was an error making your request, but it is likely not your fault. Reload this page and try again in a few moments. If the issue persists please contact us: help@graasp.org"
+  "REQUEST_PASSWORD_RESET_ERROR_MESSAGE": "There was an error making your request, but it is likely not your fault. Reload this page and try again in a few moments. If the issue persists please contact us: help@graasp.org",
+  "RESET_PASSWORD_TITLE": "Reset password",
+  "RESET_PASSWORD_NEW_PASSWORD_FIELD_LABEL": "New password",
+  "RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_LABEL": "Confirm new password",
+  "RESET_PASSWORD_BUTTON": "Reset Password"
 }

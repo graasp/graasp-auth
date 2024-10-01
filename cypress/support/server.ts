@@ -66,3 +66,19 @@ export const mockRequestPasswordReset = (shouldThrowServerError = false) => {
     },
   ).as('requestPasswordReset');
 };
+
+export const mockResetPassword = (shouldThrowServerError = false) => {
+  cy.intercept(
+    {
+      method: HttpMethod.Patch,
+      url: `${API_HOST}/password/reset`,
+    },
+    ({ reply }) => {
+      if (shouldThrowServerError) {
+        // token is not present or password is too weak
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+      return reply({ statusCode: StatusCodes.NO_CONTENT });
+    },
+  ).as('resetPassword');
+};
