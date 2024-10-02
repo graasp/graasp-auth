@@ -16,7 +16,7 @@ import {
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../../config/i18n';
-import { SIGN_IN_PATH } from '../../config/paths';
+import { REQUEST_PASSWORD_RESET_PATH, SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
 import {
   RESET_PASSWORD_ERROR_MESSAGE_ID,
@@ -162,9 +162,20 @@ const ResetPassword = () => {
           label={t(AUTH.SHOW_PASSWORD)}
         />
         {isError && (
-          <Alert id={RESET_PASSWORD_ERROR_MESSAGE_ID} severity="error">
-            {t(AUTH.RESET_PASSWORD_ERROR_MESSAGE)}
-          </Alert>
+          <>
+            <Alert id={RESET_PASSWORD_ERROR_MESSAGE_ID} severity="error">
+              {t(AUTH.RESET_PASSWORD_ERROR_MESSAGE)}
+            </Alert>
+            <Button
+              variant="contained"
+              fullWidth
+              component={Link}
+              to={REQUEST_PASSWORD_RESET_PATH}
+              sx={{ textDecoration: 'none' }}
+            >
+              {t(AUTH.REQUEST_PASSWORD_RESET_TITLE)}
+            </Button>
+          </>
         )}
         {isSuccess ? (
           <>
@@ -177,7 +188,7 @@ const ResetPassword = () => {
               component={Link}
               to={SIGN_IN_PATH}
             >
-              {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
+              {t(AUTH.RESET_PASSWORD_ERROR_TRY_AGAIN)}
             </Button>
           </>
         ) : (
@@ -187,7 +198,7 @@ const ResetPassword = () => {
             loading={isLoading}
             fullWidth
             type="submit"
-            disabled={hasErrors}
+            disabled={hasErrors || isError}
           >
             {t(AUTH.RESET_PASSWORD_BUTTON)}
           </LoadingButton>
