@@ -27,6 +27,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     },
     build: {
       outDir: 'build',
+      sourcemap: true,
     },
     plugins: [
       mode === 'test'
@@ -35,7 +36,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
             include: 'src/*',
             exclude: ['node_modules', 'test/'],
             extension: ['.js', '.ts', '.tsx'],
-            requireEnv: false,
+            cypress: true,
           })
         : // in dev mode we run the checker
           checker({
