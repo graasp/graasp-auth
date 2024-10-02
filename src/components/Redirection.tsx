@@ -16,8 +16,6 @@ const Redirection: FC<Props> = ({ children }) => {
   const redirect = useRedirection();
 
   if (member) {
-    redirectToSavedUrl(window, GRAASP_BUILDER_HOST);
-
     return (
       <RedirectionContent link={redirect.url ?? getUrlForRedirection() ?? ''} />
     );
