@@ -12,7 +12,7 @@ const enum MobileSearchParams {
 export const useMobileAppLogin = () => {
   const [searchParams] = useSearchParams();
   const challenge = searchParams.get(MobileSearchParams.CHALLENGE);
-  if (challenge !== undefined && challenge !== null) {
+  if (challenge) {
     return {
       isMobile: true as const,
       challenge,
