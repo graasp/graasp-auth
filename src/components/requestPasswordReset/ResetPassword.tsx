@@ -20,7 +20,6 @@ import { REQUEST_PASSWORD_RESET_PATH, SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
 import {
   RESET_PASSWORD_ERROR_MESSAGE_ID,
-  RESET_PASSWORD_ERROR_MISSING_TOKEN_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID,
   RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
@@ -28,10 +27,12 @@ import {
   RESET_PASSWORD_SUBMIT_BUTTON_ID,
   RESET_PASSWORD_SUCCESS_MESSAGE_ID,
 } from '../../config/selectors';
+import { useValidateJWTToken } from '../../hooks/jwtToken';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage } from '../../utils/validation';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
+import { InvalidTokenScreen } from './InvalidTokenScreen';
 
 const { useResolvePasswordResetRequest } = mutations;
 
@@ -42,7 +43,8 @@ type Inputs = {
 const ResetPassword = () => {
   const { t } = useAuthTranslation();
   const [searchParams] = useSearchParams();
-  const token = searchParams.get('t');
+  const { isValid, token } = useValidateJWTToken(searchParams.get('t'));
+
   const [showPasswords, setShowPasswords] = useState(false);
 
   const {
@@ -58,12 +60,8 @@ const ResetPassword = () => {
     isSuccess,
   } = useResolvePasswordResetRequest();
 
-  if (!token) {
-    return (
-      <Alert id={RESET_PASSWORD_ERROR_MISSING_TOKEN_ID} severity="error">
-        {t(AUTH.RESET_PASSWORD_MISSING_TOKEN)}
-      </Alert>
-    );
+  if (!isValid) {
+    return <InvalidTokenScreen />;
   }
 
   const resetPassword = ({ password }: Inputs) => {

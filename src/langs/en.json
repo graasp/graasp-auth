@@ -74,5 +74,7 @@
   "RESET_PASSWORD_SUCCESS_MESSAGE": "The password was successfully set. You can now log in with this new password.",
   "RESET_PASSWORD_ERROR_MESSAGE": "An error prevented the password reset operation. Ensure you used a fresh link (links are valid for 24h only) and that you followed the password requirements. Please retry the forgot password procedure again. If the issue persists contact us: help@graasp.org",
   "RESET_PASSWORD_ERROR_TRY_AGAIN": "Try requesting the password reset again",
-  "SHOW_PASSWORD": "Show passwords"
+  "SHOW_PASSWORD": "Show passwords",
+  "INVALID_TOKEN_PROVIDED_TITLE": "Invalid token provided",
+  "INVALID_TOKEN_PROVIDED_DESCRIPTION": "No token was provided or the provided token is expired. Click the button below to generate a request to reset your password."
 }
