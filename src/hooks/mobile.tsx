@@ -20,6 +20,6 @@ export const useMobileAppLogin = () => {
   }
   return {
     isMobile: false as const,
-    challenge,
+    challenge: null,
   };
 };
