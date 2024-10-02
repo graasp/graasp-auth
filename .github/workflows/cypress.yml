@@ -33,7 +33,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install: false
-          start: yarn dev
+          build: yarn build --mode test
+          start: yarn preview --mode test
           browser: chrome
           quiet: true
           config-file: cypress.config.ts

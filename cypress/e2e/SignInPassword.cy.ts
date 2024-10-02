@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes';
+
 import { API_ROUTES } from '@graasp/query-client';
 
 import { SIGN_IN_PATH } from '../../src/config/paths';
@@ -11,10 +13,22 @@ describe('Email and Password Validation', () => {
       {
         pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
       },
-      (req) => {
-        req.reply({ statusCode: 303, body: { resource: redirectionLink } });
+      ({ reply }) => {
+        reply({ statusCode: 303, body: { resource: redirectionLink } });
       },
     ).as('signInWithPassword');
+    cy.intercept(
+      {
+        url: redirectionLink,
+      },
+      ({ reply }) => {
+        reply({
+          headers: { 'content-type': 'text/html' },
+          statusCode: StatusCodes.OK,
+          body: '<h1>Mock Auth Page</h1>',
+        });
+      },
+    ).as('redirectionPage');
 
     const { WRONG_EMAIL, GRAASP } = MEMBERS;
     cy.visit(SIGN_IN_PATH);
@@ -23,9 +37,7 @@ describe('Email and Password Validation', () => {
 
     // Signing in with a valid email and password
     cy.signInPasswordAndCheck(GRAASP);
-    cy.wait('@signInWithPassword').then(({ response }) => {
-      expect(response?.body.resource).contains(redirectionLink);
-    });
+    cy.wait('@signInWithPassword');
     cy.url().should('contain', redirectionLink);
   });
 
