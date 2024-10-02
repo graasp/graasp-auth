@@ -37,6 +37,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
             exclude: ['node_modules', 'test/'],
             extension: ['.js', '.ts', '.tsx'],
             cypress: true,
+            forceBuildInstrument: true,
           })
         : // in dev mode we run the checker
           checker({

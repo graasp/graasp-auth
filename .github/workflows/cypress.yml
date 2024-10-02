@@ -25,8 +25,8 @@ jobs:
           cypress: true
 
       # type check
-      - name: Type-check code
-        run: tsc --noEmit
+      - name: Check code
+        run: yarn check
 
       #  use the Cypress GitHub Action to run Cypress tests within the chrome browser
       - name: Cypress run
