@@ -29,20 +29,20 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       outDir: 'build',
     },
     plugins: [
-      mode !== 'test'
-        ? checker({
+      mode === 'test'
+        ? // in test mode we instrument the code
+          istanbul({
+            include: 'src/*',
+            exclude: ['node_modules', 'test/'],
+            extension: ['.js', '.ts', '.tsx'],
+            requireEnv: false,
+          })
+        : // in dev mode we run the checker
+          checker({
             typescript: true,
             eslint: { lintCommand: 'eslint "./**/*.{ts,tsx}"' },
-          })
-        : undefined,
+          }),
       react(),
-      istanbul({
-        include: 'src/*',
-        exclude: ['node_modules', 'test/'],
-        extension: ['.js', '.ts', '.tsx'],
-        requireEnv: false,
-        checkProd: true,
-      }),
     ],
     resolve: {
       alias: {
