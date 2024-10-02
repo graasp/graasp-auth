@@ -14,11 +14,8 @@ const {
   signInWithPasswordRoutine,
 } = routines;
 
-export const getErrorMessage = (
-  error: Parameters<Notifier>[0]['payload']['error'],
-) => {
-  // eslint-disable-next-line no-console
-  console.log(error);
+type PayloadError = NonNullable<Parameters<Notifier>[0]['payload']>['error'];
+export const getErrorMessage = (error: PayloadError) => {
   if (error instanceof AxiosError) {
     if (error.isAxiosError) {
       // response might not be present if there is a network error
@@ -47,7 +44,7 @@ const notifier: Notifier = (args) => {
     case signUpRoutine.FAILURE:
     case signInWithPasswordRoutine.FAILURE:
     case getInvitationRoutine.FAILURE: {
-      message = getErrorMessage(payload.error);
+      message = getErrorMessage(payload?.error);
       break;
     }
     case signInRoutine.SUCCESS:

@@ -36,6 +36,11 @@ const MagicLinkSuccessContent = () => {
 
   const email = searchParams.get('email');
 
+  if (!email) {
+    console.error('Missing email query param');
+    return null;
+  }
+
   // used for resend email
   const handleResendEmail = async () => {
     const lowercaseEmail = email.toLowerCase();

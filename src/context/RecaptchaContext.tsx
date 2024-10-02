@@ -36,16 +36,18 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
           console.debug('No recaptcha key set-up, using mock value');
           resolve(MOCK_RECAPTCHA_TOKEN);
         }
-        resolve(undefined);
+        resolve('error-recaptcha-not-present');
       } else {
-        window.grecaptcha.ready(async () => {
+        window.grecaptcha.ready?.(async () => {
           try {
             const token = await window.grecaptcha.execute(siteKey, { action });
             resolve(token);
           } catch (err) {
-            // if we are in dev and the error is that tge client id is not set, we resolve to a mock value
+            // if we are in dev and the error is that the client id is not set, we resolve to a mock value
             if (
-              err.toString().includes('Invalid reCAPTCHA client id') &&
+              err instanceof Error &&
+              (err.toString().includes('Invalid reCAPTCHA client id') ||
+                err.toString().includes('No reCAPTCHA clients exist')) &&
               import.meta.env.DEV
             ) {
               console.debug('No recaptcha key set-up, using mock value');

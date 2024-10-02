@@ -7,7 +7,7 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-import { Member } from '@graasp/sdk';
+import { CompleteMember, Member } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
@@ -25,19 +25,15 @@ import {
   submitSignIn,
   submitSignUp,
 } from '../e2e/util';
-import MEMBERS from '../fixtures/members';
-import {
-  mockGetCurrentMember,
-  mockGetMember,
-  mockGetMembers,
-  mockGetStatus,
-} from './server';
+import { mockGetCurrentMember, mockGetStatus } from './server';
 
 // cypress/support/index.ts
 declare global {
   namespace Cypress {
     interface Chainable {
-      setUpApi(args?: { members?: Member[] }): Chainable<JQuery<HTMLElement>>;
+      setUpApi(args?: {
+        currentMember?: CompleteMember | null;
+      }): Chainable<JQuery<HTMLElement>>;
 
       checkErrorTextField(
         id: string,
@@ -75,18 +71,10 @@ declare global {
   }
 }
 
-Cypress.Commands.add(
-  'setUpApi',
-  ({ members = Object.values(MEMBERS) } = {}) => {
-    const cachedMembers = JSON.parse(JSON.stringify(members));
-
-    mockGetMember(cachedMembers);
-    mockGetMembers(cachedMembers);
-
-    mockGetCurrentMember();
-    mockGetStatus();
-  },
-);
+Cypress.Commands.add('setUpApi', ({ currentMember = null } = {}) => {
+  mockGetCurrentMember(currentMember);
+  mockGetStatus();
+});
 
 Cypress.Commands.add('checkErrorTextField', (id, flag) => {
   const existence = flag ? 'not.exist' : 'exist';

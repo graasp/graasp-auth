@@ -61,7 +61,7 @@ const EmailInput: FC<Props> = ({
       variant="outlined"
       value={value}
       error={Boolean(error)}
-      helperText={t(error)}
+      helperText={error && t(error)}
       placeholder={t(
         `${EMAIL_INPUT_PLACEHOLDER}${required ? '_REQUIRED' : ''}`,
       )}
