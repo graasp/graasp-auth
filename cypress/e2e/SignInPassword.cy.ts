@@ -23,7 +23,9 @@ describe('Email and Password Validation', () => {
 
     // Signing in with a valid email and password
     cy.signInPasswordAndCheck(GRAASP);
-
+    cy.wait('@signInWithPassword').then(({ response }) => {
+      expect(response?.body.resource).contains(redirectionLink);
+    });
     cy.url().should('contain', redirectionLink);
   });
 
