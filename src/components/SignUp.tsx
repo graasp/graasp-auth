@@ -182,10 +182,13 @@ const SignUp = () => {
             variant="outlined"
             value={name}
             error={Boolean(nameError)}
-            helperText={t(nameError, {
-              min: MIN_USERNAME_LENGTH,
-              max: MAX_USERNAME_LENGTH,
-            })}
+            helperText={
+              nameError &&
+              t(nameError, {
+                min: MIN_USERNAME_LENGTH,
+                max: MAX_USERNAME_LENGTH,
+              })
+            }
             onChange={handleNameOnChange}
             id={NAME_SIGN_UP_FIELD_ID}
             disabled={Boolean(invitation?.name)}

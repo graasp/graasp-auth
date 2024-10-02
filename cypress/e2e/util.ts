@@ -17,7 +17,9 @@ export const fillSignUpLayout = ({
   email?: string;
 }) => {
   cy.get(`#${NAME_SIGN_UP_FIELD_ID}`).clear().type(name);
-  cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear().type(email);
+  if (email) {
+    cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear().type(email);
+  }
 };
 
 export const checkInvitationFields = ({
@@ -38,7 +40,9 @@ export const checkInvitationFields = ({
 };
 
 export const fillSignInByMailLayout = ({ email }: { email?: string }) => {
-  cy.get(`#${EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}`).clear().type(email);
+  if (email) {
+    cy.get(`#${EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}`).clear().type(email);
+  }
 };
 
 export const submitSignIn = () => {
@@ -57,7 +61,9 @@ export const fillPasswordSignInLayout = ({
   password?: string;
 }) => {
   cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}`).clear().type(email);
-  cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear().type(password);
+  if (password) {
+    cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}`).clear().type(password);
+  }
 };
 
 export const submitPasswordSignIn = () => {

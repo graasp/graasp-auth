@@ -25,7 +25,6 @@ const Content = () => {
       i18n={i18n}
       langs={langs}
       languageSelectSx={{ mb: 2, mr: 2 }}
-      languageSelectLabel={null}
     >
       <CssBaseline />
       {SHOW_NOTIFICATIONS && <ToastContainer stacked />}

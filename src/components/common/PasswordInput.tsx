@@ -13,7 +13,7 @@ const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
 type Props = {
   id: string;
   value: string;
-  error: string;
+  error: string | null;
   onKeyDown: (e: any) => void;
   onChange: (e: any) => void;
 };
@@ -49,7 +49,7 @@ const PasswordInput = ({ id, value, error, onKeyDown, onChange }: Props) => {
       variant="outlined"
       value={value}
       error={Boolean(error)}
-      helperText={t(error)}
+      helperText={error && t(error)}
       placeholder={t(PASSWORD_INPUT_PLACEHOLDER)}
       onChange={onChange}
       id={id}
