@@ -1,4 +1,3 @@
-import { Lock } from 'lucide-react';
 import { useState } from 'react';
 
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -7,6 +6,7 @@ import { IconButton, InputAdornment } from '@mui/material';
 import { useAuthTranslation } from '../../config/i18n';
 import { AUTH } from '../../langs/constants';
 import StyledTextField from './StyledTextField';
+import { EmailAdornment } from './styles';
 
 const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
 
@@ -27,11 +27,7 @@ const PasswordInput = ({ id, value, error, onKeyDown, onChange }: Props) => {
   return (
     <StyledTextField
       InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Lock />
-          </InputAdornment>
-        ),
+        startAdornment: EmailAdornment,
         endAdornment: (
           <InputAdornment position="end">
             <IconButton

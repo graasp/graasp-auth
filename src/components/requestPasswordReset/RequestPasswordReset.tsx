@@ -1,11 +1,10 @@
-import { MailIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
 
 import { LoadingButton } from '@mui/lab';
-import { Alert, InputAdornment, Stack, TextField } from '@mui/material';
+import { Alert, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../../config/i18n';
@@ -21,6 +20,7 @@ import {
 import { useRecaptcha } from '../../context/RecaptchaContext';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage, isEmailValid } from '../../utils/validation';
+import { EmailAdornment } from '../common/styles';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 
@@ -71,6 +71,7 @@ export const RequestPasswordReset = () => {
       >
         <TextField
           id={REQUEST_PASSWORD_RESET_EMAIL_FIELD_ID}
+          autoFocus
           {...register('email', {
             required: true,
             validate: isEmailValid,
@@ -79,12 +80,9 @@ export const RequestPasswordReset = () => {
             id: REQUEST_PASSWORD_RESET_EMAIL_FIELD_HELPER_ID,
           }}
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <MailIcon />
-              </InputAdornment>
-            ),
+            startAdornment: EmailAdornment,
           }}
+          placeholder={t(AUTH.EMAIL_INPUT_PLACEHOLDER)}
           helperText={errorMessage && t(errorMessage)}
           error={hasErrors}
           // once the request is sent disable the input

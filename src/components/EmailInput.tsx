@@ -1,12 +1,10 @@
-import { Mail } from 'lucide-react';
 import React, { FC, useEffect, useState } from 'react';
-
-import { InputAdornment } from '@mui/material';
 
 import { useAuthTranslation } from '../config/i18n';
 import { AUTH } from '../langs/constants';
 import { emailValidator } from '../utils/validation';
 import StyledTextField from './common/StyledTextField';
+import { EmailAdornment } from './common/styles';
 
 const { EMAIL_INPUT_PLACEHOLDER } = AUTH;
 
@@ -52,11 +50,7 @@ export const EmailInput: FC<Props> = ({
   return (
     <StyledTextField
       InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Mail />
-          </InputAdornment>
-        ),
+        startAdornment: EmailAdornment,
       }}
       variant="outlined"
       value={value}

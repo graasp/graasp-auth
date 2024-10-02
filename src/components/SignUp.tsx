@@ -1,4 +1,3 @@
-import { UserRound } from 'lucide-react';
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -10,13 +9,7 @@ import {
 import { GraaspLogo } from '@graasp/ui';
 
 import { LoadingButton } from '@mui/lab';
-import {
-  FormControl,
-  InputAdornment,
-  LinearProgress,
-  Stack,
-  useTheme,
-} from '@mui/material';
+import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
@@ -38,6 +31,7 @@ import { EmailInput } from './EmailInput';
 import LeftContentContainer from './LeftContentContainer';
 import ErrorDisplay from './common/ErrorDisplay';
 import StyledTextField from './common/StyledTextField';
+import { EmailAdornment } from './common/styles';
 import { AgreementForm } from './register/AgreementForm';
 import { EnableAnalyticsForm } from './register/EnableAnalyticsForm';
 
@@ -171,11 +165,7 @@ const SignUp = () => {
         <Stack direction="column" spacing={1}>
           <StyledTextField
             InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <UserRound />
-                </InputAdornment>
-              ),
+              startAdornment: EmailAdornment,
             }}
             required
             placeholder={t(NAME_FIELD_LABEL)}
