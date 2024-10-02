@@ -6,7 +6,7 @@ import { MEMBERS } from '../fixtures/members';
 
 describe('Email and Password Validation', () => {
   it('Sign In With Password', () => {
-    const redirectionLink = 'mylink';
+    const redirectionLink = 'http://localhost:3005/mylink';
     cy.intercept(
       {
         pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
