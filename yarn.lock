@@ -6962,6 +6962,7 @@ __metadata:
     husky: "npm:9.1.6"
     i18next: "npm:23.15.1"
     istanbul-lib-coverage: "npm:3.2.2"
+    jose: "npm:5.9.3"
     jwt-decode: "npm:4.0.0"
     lucide-react: "npm:0.447.0"
     nyc: "npm:17.1.0"
@@ -7858,6 +7859,13 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 10/289b124cea411c130a14ffe88e3d38376ab44b6695616dfa0a1f32176a8f20ec90cdd6d2b9d81450fc6467cfa4d865f04f49b98452bff0f812bc400fd0ae78d6
+  languageName: node
+  linkType: hard
+
+"jose@npm:5.9.3":
+  version: 5.9.3
+  resolution: "jose@npm:5.9.3"
+  checksum: 10/9daf5511b8bfa184f1d6c265cdaf0a2b19e46f251d90703c6a5229ba76e5ac5fbd34626f263819569eb69a3f2cd2c37dab3b4fab9604258f468d343a784a9385
   languageName: node
   linkType: hard
 

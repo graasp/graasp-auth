@@ -1,3 +1,5 @@
+import { SignJWT } from 'jose/jwt/sign';
+
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
@@ -68,4 +70,20 @@ export const fillPasswordSignInLayout = ({
 
 export const submitPasswordSignIn = () => {
   cy.get(`#${PASSWORD_SIGN_IN_BUTTON_ID}`).click();
+};
+
+export const generateJWT = async (
+  payload: string,
+  expiresAt: string = '24h',
+) => {
+  const jwt = await new SignJWT({ payload })
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime(expiresAt)
+    .sign(
+      new TextEncoder().encode(
+        'cc7e0d44fd473002f1c42167459001140ec6389b7353f8088f4d9a95f2f596f2',
+      ),
+    );
+  return jwt;
 };

@@ -1,22 +1,27 @@
 import { RESET_PASSWORD_PATH } from '../../src/config/paths';
 import {
   RESET_PASSWORD_ERROR_MESSAGE_ID,
-  RESET_PASSWORD_ERROR_MISSING_TOKEN_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID,
   RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
   RESET_PASSWORD_NEW_PASSWORD_FIELD_ID,
   RESET_PASSWORD_SUBMIT_BUTTON_ID,
   RESET_PASSWORD_SUCCESS_MESSAGE_ID,
+  RESET_PASSWORD_TOKEN_ERROR_ID,
 } from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
+import { generateJWT } from './util';
 
 describe('Reset password', () => {
   describe('With valid token', () => {
     it('With strong password', () => {
       cy.setUpApi();
-      const token = '1234';
-      cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+
+      // this allows to run async code in cypress
+      cy.wrap(null).then(async () => {
+        const token = await generateJWT('1234');
+        cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+      });
 
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}`).type(
         MEMBERS.GRAASP.password,
@@ -30,9 +35,12 @@ describe('Reset password', () => {
 
     it('With weak password', () => {
       cy.setUpApi();
-      const token = '1234';
-      cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
 
+      // this allows to run async code in cypress
+      cy.wrap(null).then(async () => {
+        const token = await generateJWT('1234');
+        cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+      });
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}`).type('weak');
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID}`).type(
         'weak',
@@ -52,8 +60,12 @@ describe('Reset password', () => {
 
     it('Without matching passwords', () => {
       cy.setUpApi();
-      const token = '1234';
-      cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+
+      // this allows to run async code in cypress
+      cy.wrap(null).then(async () => {
+        const token = await generateJWT('1234');
+        cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+      });
 
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}`).type('aPassword1');
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID}`).type(
@@ -69,8 +81,12 @@ describe('Reset password', () => {
 
     it('With server error', () => {
       cy.setUpApi({ shouldFailResetPassword: true });
-      const token = '1234';
-      cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+
+      // this allows to run async code in cypress
+      cy.wrap(null).then(async () => {
+        const token = await generateJWT('1234');
+        cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+      });
 
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}`).type('aPassword1');
       cy.get(`#${RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID}`).type(
@@ -87,15 +103,34 @@ describe('Reset password', () => {
     });
   });
 
-  it('Without token', () => {
-    cy.setUpApi();
-    cy.visit(RESET_PASSWORD_PATH);
+  describe('Invalid token', () => {
+    it('Without token', () => {
+      cy.setUpApi();
+      cy.visit(RESET_PASSWORD_PATH);
 
-    // a rough error message is displayed when the url does not
-    // contain the required query string argument `t` containing the token
-    cy.get(`#${RESET_PASSWORD_ERROR_MISSING_TOKEN_ID}`).should(
-      'contain.text',
-      'Error: The current page is missing some required information.',
-    );
+      // a rough error message is displayed when the url does not
+      // contain the required query string argument `t` containing the token
+      cy.get(`#${RESET_PASSWORD_TOKEN_ERROR_ID}`).should(
+        'contain.text',
+        'No token was provided or the provided token is expired.',
+      );
+    });
+
+    it('Expired token', () => {
+      cy.setUpApi();
+
+      // this allows to run async code in cypress
+      cy.wrap(null).then(async () => {
+        const token = await generateJWT('1234', '25h ago');
+        cy.visit(`${RESET_PASSWORD_PATH}?t=${token}`);
+      });
+
+      // a rough error message is displayed when the url does not
+      // contain the required query string argument `t` containing the token
+      cy.get(`#${RESET_PASSWORD_TOKEN_ERROR_ID}`).should(
+        'contain.text',
+        'No token was provided or the provided token is expired.',
+      );
+    });
   });
 });

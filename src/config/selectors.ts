@@ -14,8 +14,7 @@ export const REQUEST_PASSWORD_RESET_SUCCESS_MESSAGE_ID =
 export const REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID =
   'passwordResetErrorMessage';
 
-export const RESET_PASSWORD_ERROR_MISSING_TOKEN_ID =
-  'resetPasswordErrorMissingToken';
+export const RESET_PASSWORD_TOKEN_ERROR_ID = 'resetPasswordTokenError';
 export const RESET_PASSWORD_ERROR_MESSAGE_ID = 'resetPasswordErrorMessage';
 export const RESET_PASSWORD_NEW_PASSWORD_FIELD_ID =
   'resetPasswordNewPasswordField';
