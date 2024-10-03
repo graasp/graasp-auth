@@ -21,7 +21,7 @@ import {
 import { useRecaptcha } from '../../context/RecaptchaContext';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage, isEmailValid } from '../../utils/validation';
-import { EmailAdornment } from '../common/styles';
+import { EmailAdornment } from '../common/EmailAdornment';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 

@@ -5,8 +5,8 @@ import { IconButton, InputAdornment } from '@mui/material';
 
 import { useAuthTranslation } from '../../config/i18n';
 import { AUTH } from '../../langs/constants';
+import { EmailAdornment } from './EmailAdornment';
 import StyledTextField from './StyledTextField';
-import { EmailAdornment } from './styles';
 
 const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
 

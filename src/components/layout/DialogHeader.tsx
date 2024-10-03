@@ -17,13 +17,12 @@ export const DialogHeader = ({ title, description }: DialogHeaderProps) => {
       <Typography variant="h4" component="h2">
         {title}
       </Typography>
-      {description ? (
-        typeof description === 'string' ? (
+      {description &&
+        (typeof description === 'string' ? (
           <Typography pt={2}>{description}</Typography>
         ) : (
           description
-        )
-      ) : null}
+        ))}
     </Stack>
   );
 };

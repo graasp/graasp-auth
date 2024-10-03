@@ -29,9 +29,9 @@ import { AUTH } from '../langs/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
 import { EmailInput } from './EmailInput';
 import LeftContentContainer from './LeftContentContainer';
+import { EmailAdornment } from './common/EmailAdornment';
 import ErrorDisplay from './common/ErrorDisplay';
 import StyledTextField from './common/StyledTextField';
-import { EmailAdornment } from './common/styles';
 import { AgreementForm } from './register/AgreementForm';
 import { EnableAnalyticsForm } from './register/EnableAnalyticsForm';
 
