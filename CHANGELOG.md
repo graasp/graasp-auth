@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/graasp/graasp-auth/compare/v2.6.0...v2.7.0) (2024-10-03)
+
+
+### Features
+
+* add reset password forms ([#414](https://github.com/graasp/graasp-auth/issues/414)) ([4dd2baf](https://github.com/graasp/graasp-auth/commit/4dd2baff218041fedc12e84d375f1dfefee9084f))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @graasp/translations to v1.37.1 ([#456](https://github.com/graasp/graasp-auth/issues/456)) ([06c8908](https://github.com/graasp/graasp-auth/commit/06c8908facd426c38c22731c35eba79a44373f9f))
+* **deps:** update dependency lucide-react to v0.446.0 ([#458](https://github.com/graasp/graasp-auth/issues/458)) ([718747b](https://github.com/graasp/graasp-auth/commit/718747b1fed34ea5224aa721903ebbb8a7fe2ac4))
+* **deps:** update dependency lucide-react to v0.447.0 ([#461](https://github.com/graasp/graasp-auth/issues/461)) ([bf96912](https://github.com/graasp/graasp-auth/commit/bf9691233e2cfe4835c3404979b81282eb5840e8))
+* enable TS strict mode ([#462](https://github.com/graasp/graasp-auth/issues/462)) ([a0ac38b](https://github.com/graasp/graasp-auth/commit/a0ac38b6aef738d6c623a86e1182d256ddacd3ad))
+* update dependencies ([#463](https://github.com/graasp/graasp-auth/issues/463)) ([5317367](https://github.com/graasp/graasp-auth/commit/5317367b28f5b0ca79d6c5014b2d9f5e0cdc1061))
+* update dependencies and yarn version ([#452](https://github.com/graasp/graasp-auth/issues/452)) ([11963d8](https://github.com/graasp/graasp-auth/commit/11963d8aeaf96c096983ae07a4c86b1bb82b749c))
+
 ## [2.6.0](https://github.com/graasp/graasp-auth/compare/v2.5.2...v2.6.0) (2024-09-17)
 
 
