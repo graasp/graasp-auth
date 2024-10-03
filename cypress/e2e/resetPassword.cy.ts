@@ -116,6 +116,18 @@ describe('Reset password', () => {
       );
     });
 
+    it('Not a JWT token', () => {
+      cy.setUpApi();
+      cy.visit(`${RESET_PASSWORD_PATH}t=${'1234'}`);
+
+      // a rough error message is displayed when the url does not
+      // contain the required query string argument `t` containing the token
+      cy.get(`#${RESET_PASSWORD_TOKEN_ERROR_ID}`).should(
+        'contain.text',
+        'No token was provided or the provided token is expired.',
+      );
+    });
+
     it('Expired token', () => {
       cy.setUpApi();
 
