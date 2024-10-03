@@ -28,7 +28,7 @@ import {
   RESET_PASSWORD_SUBMIT_BUTTON_ID,
   RESET_PASSWORD_SUCCESS_MESSAGE_ID,
 } from '../../config/selectors';
-import { useValidateJWTToken } from '../../hooks/jwtToken';
+import { useValidateJWTToken } from '../../hooks/useValidateJWTToken';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage } from '../../utils/validation';
 import { CenteredContent } from '../layout/CenteredContent';
