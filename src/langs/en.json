@@ -74,6 +74,11 @@
   "RESET_PASSWORD_SUCCESS_MESSAGE": "The password was successfully set. You can now log in with this new password.",
   "RESET_PASSWORD_ERROR_MESSAGE": "An error prevented the password reset operation. Ensure you used a fresh link (links are valid for 24h only) and that you followed the password requirements. Please retry the forgot password procedure again. If the issue persists contact us: {{email}}",
   "RESET_PASSWORD_ERROR_TRY_AGAIN": "Try requesting the password reset again",
+  "RESET_PASSWORD_REQUIREMENTS_TITLE": "Password requirements:",
+  "RESET_PASSWORD_REQUIREMENTS_LENGTH": "At least {{length}} characters long",
+  "RESET_PASSWORD_REQUIREMENTS_LOWERCASE": "Contain at least {{count}} lowercase letter",
+  "RESET_PASSWORD_REQUIREMENTS_UPPERCASE": "Contain at least {{count}} uppercase letter",
+  "RESET_PASSWORD_REQUIREMENTS_NUMBER": "Contain at least {{count}} number",
   "SHOW_PASSWORD": "Show passwords",
   "INVALID_TOKEN_PROVIDED_TITLE": "Invalid token provided",
   "INVALID_TOKEN_PROVIDED_DESCRIPTION": "No token was provided or the provided token is expired. Click the button below to generate a request to reset your password."

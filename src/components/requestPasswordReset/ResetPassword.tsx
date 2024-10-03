@@ -86,12 +86,26 @@ const ResetPassword = () => {
             <Stack gap={1} width="100%">
               {t(AUTH.RESET_PASSWORD_DESCRIPTION)}
               <Typography>
-                Password requirements:
+                {t(AUTH.RESET_PASSWORD_REQUIREMENTS_TITLE)}
                 <ul style={{ margin: 0 }}>
-                  <li>At least 8 characters long</li>
-                  <li>Contain at least one lowercase letter</li>
-                  <li>Contain at least one uppercase letter</li>
-                  <li>Contain at least one number</li>
+                  <li>
+                    {t(AUTH.RESET_PASSWORD_REQUIREMENTS_LENGTH, { length: 8 })}
+                  </li>
+                  <li>
+                    {t(AUTH.RESET_PASSWORD_REQUIREMENTS_LOWERCASE, {
+                      count: 1,
+                    })}
+                  </li>
+                  <li>
+                    {t(AUTH.RESET_PASSWORD_REQUIREMENTS_UPPERCASE, {
+                      count: 1,
+                    })}
+                  </li>
+                  <li>
+                    {t(AUTH.RESET_PASSWORD_REQUIREMENTS_NUMBER, {
+                      count: 1,
+                    })}
+                  </li>
                 </ul>
               </Typography>
             </Stack>
