@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
+import { HELP_EMAIL } from '../../config/constants';
 import { useAuthTranslation } from '../../config/i18n';
 import { REQUEST_PASSWORD_RESET_PATH, SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
@@ -162,7 +163,7 @@ const ResetPassword = () => {
         {isError && (
           <>
             <Alert id={RESET_PASSWORD_ERROR_MESSAGE_ID} severity="error">
-              {t(AUTH.RESET_PASSWORD_ERROR_MESSAGE)}
+              {t(AUTH.RESET_PASSWORD_ERROR_MESSAGE, { email: HELP_EMAIL })}
             </Alert>
             <Button
               variant="contained"
@@ -202,16 +203,19 @@ const ResetPassword = () => {
           </LoadingButton>
         )}
       </Stack>
-      {isSuccess ? null : (
-        <Typography
-          component={Link}
-          to={SIGN_IN_PATH}
-          color="textSecondary"
-          sx={{ textDecoration: 'none' }}
-        >
-          {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
-        </Typography>
-      )}
+      {
+        // only show this when `isSuccess` is false
+        !isSuccess && (
+          <Typography
+            component={Link}
+            to={SIGN_IN_PATH}
+            color="textSecondary"
+            sx={{ textDecoration: 'none' }}
+          >
+            {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
+          </Typography>
+        )
+      }
     </CenteredContent>
   );
 };

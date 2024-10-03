@@ -7,6 +7,7 @@ import { LoadingButton } from '@mui/lab';
 import { Alert, Stack, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
+import { HELP_EMAIL } from '../../config/constants';
 import { useAuthTranslation } from '../../config/i18n';
 import { SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
@@ -90,7 +91,9 @@ export const RequestPasswordReset = () => {
         />
         {isError && (
           <Alert id={REQUEST_PASSWORD_RESET_ERROR_MESSAGE_ID} severity="error">
-            {t(AUTH.REQUEST_PASSWORD_RESET_ERROR_MESSAGE)}
+            {t(AUTH.REQUEST_PASSWORD_RESET_ERROR_MESSAGE, {
+              email: HELP_EMAIL,
+            })}
           </Alert>
         )}
         {isSuccess ? (
