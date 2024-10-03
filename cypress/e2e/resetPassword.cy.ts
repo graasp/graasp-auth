@@ -118,7 +118,7 @@ describe('Reset password', () => {
 
     it('Not a JWT token', () => {
       cy.setUpApi();
-      cy.visit(`${RESET_PASSWORD_PATH}t=${'1234'}`);
+      cy.visit(`${RESET_PASSWORD_PATH}?t=${'1234'}`);
 
       // a rough error message is displayed when the url does not
       // contain the required query string argument `t` containing the token
