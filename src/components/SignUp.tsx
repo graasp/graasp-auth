@@ -64,12 +64,12 @@ const SignUp = () => {
 
   const {
     mutateAsync: signUp,
-    isLoading: isLoadingSignUp,
+    isPending: isLoadingSignUp,
     error: webRegisterError,
   } = mutations.useSignUp();
   const {
     mutateAsync: mobileSignUp,
-    isLoading: isLoadingMobileSignUp,
+    isPending: isLoadingMobileSignUp,
     error: mobileRegisterError,
   } = mutations.useMobileSignUp();
   const [searchParams] = useSearchParams();
@@ -77,7 +77,7 @@ const SignUp = () => {
   const {
     data: invitation,
     isSuccess: isInvitationSuccess,
-    isInitialLoading: isLoadingInvitations,
+    isLoading: isLoadingInvitations,
   } = hooks.useInvitation(searchParams.get('invitationId') || undefined);
 
   useEffect(() => {

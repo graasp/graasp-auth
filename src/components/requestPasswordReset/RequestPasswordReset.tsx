@@ -44,7 +44,7 @@ export const RequestPasswordReset = () => {
     mutate: requestPasswordReset,
     isError,
     isSuccess,
-    isLoading,
+    isPending: isLoading,
   } = useCreatePasswordResetRequest();
 
   const resetPassword = async ({ email }: Inputs) => {

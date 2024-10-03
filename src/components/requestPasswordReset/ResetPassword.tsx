@@ -56,7 +56,7 @@ const ResetPassword = () => {
 
   const {
     mutate: resolveRequestPasswordReset,
-    isLoading,
+    isPending: isLoading,
     isError,
     isSuccess,
   } = useResolvePasswordResetRequest();
