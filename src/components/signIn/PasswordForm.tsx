@@ -41,13 +41,13 @@ const SignInPasswordForm = () => {
   const {
     mutateAsync: signInWithPassword,
     isSuccess: signInWithPasswordSuccess,
-    isLoading: isLoadingPasswordSignIn,
+    isPending: isLoadingPasswordSignIn,
     error: webPasswordSignInError,
   } = mutations.useSignInWithPassword();
   const {
     mutateAsync: mobileSignInWithPassword,
     isSuccess: mobileSignInWithPasswordSuccess,
-    isLoading: isLoadingMobilePasswordSignIn,
+    isPending: isLoadingMobilePasswordSignIn,
     error: mobilePasswordSignInError,
   } = mutations.useMobileSignInWithPassword();
 

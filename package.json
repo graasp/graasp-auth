@@ -56,13 +56,12 @@
     "prettier:write": "prettier --write {src,cypress}/**/*.{js,ts,tsx}",
     "type-check": "tsc --noEmit",
     "check": "yarn prettier:check && yarn lint && yarn type-check",
-    "hooks:uninstall": "husky uninstall",
-    "hooks:install": "husky install",
+    "hooks:install": "husky",
     "cypress:open": "env-cmd -f ./.env.test cypress open",
     "cypress": "yarn build:test && concurrently -k -s first \"yarn preview:test\" \"yarn cypress:run\"",
     "test": "yarn cypress",
     "cypress:run": "env-cmd -f ./.env.test cypress run --headless --browser chrome",
-    "postinstall": "husky install"
+    "postinstall": "husky"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -38,12 +38,12 @@ const MagicLinkForm = () => {
 
   const {
     mutateAsync: signIn,
-    isLoading: isLoadingSignIn,
+    isPending: isLoadingSignIn,
     error: webSignInError,
   } = mutations.useSignIn();
   const {
     mutateAsync: mobileSignIn,
-    isLoading: isLoadingMobileSignIn,
+    isPending: isLoadingMobileSignIn,
     error: mobileSignInError,
   } = mutations.useMobileSignIn();
 
