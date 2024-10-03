@@ -1,4 +1,3 @@
-import { UserRound } from 'lucide-react';
 import { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -10,13 +9,7 @@ import {
 import { GraaspLogo } from '@graasp/ui';
 
 import { LoadingButton } from '@mui/lab';
-import {
-  FormControl,
-  InputAdornment,
-  LinearProgress,
-  Stack,
-  useTheme,
-} from '@mui/material';
+import { FormControl, LinearProgress, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
@@ -34,12 +27,13 @@ import { useRedirection } from '../hooks/searchParams';
 import { useAgreementForm } from '../hooks/useAgreementForm';
 import { AUTH } from '../langs/constants';
 import { emailValidator, nameValidator } from '../utils/validation';
-import { AgreementForm } from './AgreementForm';
-import EmailInput from './EmailInput';
-import { EnableAnalyticsForm } from './EnableAnalyticsForm';
+import { EmailInput } from './EmailInput';
 import LeftContentContainer from './LeftContentContainer';
-import StyledTextField from './StyledTextField';
+import { EmailAdornment } from './common/EmailAdornment';
 import ErrorDisplay from './common/ErrorDisplay';
+import StyledTextField from './common/StyledTextField';
+import { AgreementForm } from './register/AgreementForm';
+import { EnableAnalyticsForm } from './register/EnableAnalyticsForm';
 
 const {
   SIGN_IN_LINK_TEXT,
@@ -171,11 +165,7 @@ const SignUp = () => {
         <Stack direction="column" spacing={1}>
           <StyledTextField
             InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <UserRound />
-                </InputAdornment>
-              ),
+              startAdornment: EmailAdornment,
             }}
             required
             placeholder={t(NAME_FIELD_LABEL)}

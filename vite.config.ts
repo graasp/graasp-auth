@@ -18,7 +18,7 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
       port: parseInt(process.env.VITE_PORT || '3001', 10),
       open: shouldOpen,
       watch: {
-        ignored: ['**/coverage/**', 'cypress/downloads/**'],
+        ignored: ['**/coverage/**', '**/cypress/downloads/**'],
       },
     },
     preview: {
@@ -27,22 +27,24 @@ const config = ({ mode }: { mode: string }): UserConfigExport => {
     },
     build: {
       outDir: 'build',
+      sourcemap: true,
     },
     plugins: [
-      mode !== 'test'
-        ? checker({
+      mode === 'test'
+        ? // in test mode we instrument the code
+          istanbul({
+            include: 'src/*',
+            exclude: ['node_modules', 'test/'],
+            extension: ['.js', '.ts', '.tsx'],
+            cypress: true,
+            forceBuildInstrument: true,
+          })
+        : // in dev mode we run the checker
+          checker({
             typescript: true,
             eslint: { lintCommand: 'eslint "./**/*.{ts,tsx}"' },
-          })
-        : undefined,
+          }),
       react(),
-      istanbul({
-        include: 'src/*',
-        exclude: ['node_modules', 'test/'],
-        extension: ['.js', '.ts', '.tsx'],
-        requireEnv: false,
-        checkProd: true,
-      }),
     ],
     resolve: {
       alias: {

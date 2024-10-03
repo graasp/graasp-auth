@@ -14,12 +14,14 @@ export const useMobileAppLogin = () => {
   const challenge = searchParams.get(MobileSearchParams.CHALLENGE);
   if (challenge) {
     return {
+      // using const is necessary for type to be inferred as `true` instead of `boolean`
       isMobile: true as const,
       challenge,
     };
   }
   return {
+    // using const is necessary for type to be inferred as `false` instead of `boolean`
     isMobile: false as const,
-    challenge,
+    challenge: null,
   };
 };

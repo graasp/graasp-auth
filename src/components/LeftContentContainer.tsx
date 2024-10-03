@@ -10,11 +10,13 @@ import { Box, Stack } from '@mui/material';
 
 import { BACKGROUND_PATTERN } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
+import { PLATFORM_ADVERTISEMENT_CONTAINER_ID } from '../config/selectors';
 import { AUTH } from '../langs/constants';
 import APIChecker from './APIChecker';
 import { BrandingLogo } from './BrandingLogo';
 import Footer from './Footer';
 import { PlatformContent } from './leftContent/PlatformContent';
+import { styledBox } from './styles';
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -51,9 +53,10 @@ const LeftContentContainer = ({ children }: Props): JSX.Element => {
           width="100%"
           justifyContent="center"
           alignItems="center"
+          px={3}
         >
           <APIChecker />
-          <Stack spacing={3}>
+          <Stack spacing={3} id={PLATFORM_ADVERTISEMENT_CONTAINER_ID}>
             <PlatformContent
               Icon={BuildIcon}
               text={t(AUTH.BUILDER_BACKGROUND_TEXT)}
@@ -81,15 +84,14 @@ const LeftContentContainer = ({ children }: Props): JSX.Element => {
           </Stack>
         </Stack>
         <Stack
+          {...styledBox}
           flexGrow={1}
           justifyContent="space-between"
           alignItems="flex-end"
           width={{ xs: '100%', sm: 'inherit' }}
-          bgcolor="white"
-          border="1px solid #eaeaf7"
           px={{ xs: 2, sm: 8 }}
           py={{ xs: 2, sm: 2 }}
-          boxShadow="0px 0px 20px 5px rgba(44, 47, 240, 0.08)"
+          spacing={2}
         >
           <Stack
             alignItems="center"

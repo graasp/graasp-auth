@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { GraaspLogo } from '@graasp/ui';
 
-import { Divider, Stack, useTheme } from '@mui/material';
+import { Button, Divider, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { useAuthTranslation } from '../config/i18n';
@@ -10,10 +10,8 @@ import { SIGN_UP_PATH } from '../config/paths';
 import { SIGN_IN_HEADER_ID } from '../config/selectors';
 import { AUTH } from '../langs/constants';
 import LeftContentContainer from './LeftContentContainer';
-import MagicLinkForm from './MagicLinkForm';
-import SignInPasswordForm from './SignInPasswordForm';
-
-const { SIGN_UP_LINK_TEXT, SIGN_IN_HEADER } = AUTH;
+import MagicLinkForm from './signIn/MagicLinkForm';
+import PasswordForm from './signIn/PasswordForm';
 
 const SignIn = () => {
   const { t } = useAuthTranslation();
@@ -24,7 +22,7 @@ const SignIn = () => {
   return (
     <LeftContentContainer>
       {
-        <Stack direction="column" alignItems="center" spacing={2}>
+        <Stack direction="column" alignItems="center" spacing={3}>
           <Stack spacing={1}>
             <GraaspLogo height={90} sx={{ fill: theme.palette.primary.main }} />
             <Typography
@@ -33,16 +31,29 @@ const SignIn = () => {
               component="h2"
               id={SIGN_IN_HEADER_ID}
             >
-              {t(SIGN_IN_HEADER)}
+              {t(AUTH.SIGN_IN_HEADER)}
             </Typography>
           </Stack>
 
-          <MagicLinkForm />
-          <Divider sx={{ width: '100%' }}>or</Divider>
-          <SignInPasswordForm />
-
-          <Divider sx={{ width: '100%' }}>or</Divider>
-          <Link to={`${SIGN_UP_PATH}${search}`}>{t(SIGN_UP_LINK_TEXT)}</Link>
+          <Stack
+            direction="column"
+            alignItems="center"
+            divider={
+              <Divider flexItem>{t(AUTH.LOGIN_METHODS_DIVIDER)}</Divider>
+            }
+            gap={3}
+          >
+            <MagicLinkForm />
+            <PasswordForm />
+            <Button
+              variant="contained"
+              fullWidth
+              component={Link}
+              to={`${SIGN_UP_PATH}${search}`}
+            >
+              {t(AUTH.SIGN_UP_LINK_TEXT)}
+            </Button>
+          </Stack>
         </Stack>
       }
     </LeftContentContainer>

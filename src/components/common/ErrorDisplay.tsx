@@ -7,16 +7,15 @@ const ErrorDisplay = ({
   error,
 }: {
   error: Error | null;
-}): JSX.Element | false => {
+}): JSX.Element | null => {
   const { t: translateMessages } = useMessagesTranslation();
 
-  if (error) {
-    return (
-      <Alert severity="error">
-        {translateMessages(getErrorMessage(error))}
-      </Alert>
-    );
+  if (!error) {
+    return null;
   }
-  return false;
+
+  return (
+    <Alert severity="error">{translateMessages(getErrorMessage(error))}</Alert>
+  );
 };
 export default ErrorDisplay;

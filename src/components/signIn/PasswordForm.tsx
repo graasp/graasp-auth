@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
 
 import { Alert, LoadingButton } from '@mui/lab';
+import { Stack, Typography } from '@mui/material';
 
-import { useAuthTranslation } from '../config/i18n';
-import { mutations } from '../config/queryClient';
+import { useAuthTranslation } from '../../config/i18n';
+import { REQUEST_PASSWORD_RESET_PATH } from '../../config/paths';
+import { mutations } from '../../config/queryClient';
 import {
   EMAIL_SIGN_IN_FIELD_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
   PASSWORD_SUCCESS_ALERT,
-} from '../config/selectors';
-import { useRecaptcha } from '../context/RecaptchaContext';
-import { useMobileAppLogin } from '../hooks/mobile';
-import { useRedirection } from '../hooks/searchParams';
-import { AUTH } from '../langs/constants';
-import { emailValidator, passwordValidator } from '../utils/validation';
-import EmailInput from './EmailInput';
-import ErrorDisplay from './common/ErrorDisplay';
-import PasswordInput from './common/PasswordInput';
+} from '../../config/selectors';
+import { useRecaptcha } from '../../context/RecaptchaContext';
+import { useMobileAppLogin } from '../../hooks/mobile';
+import { useRedirection } from '../../hooks/searchParams';
+import { AUTH } from '../../langs/constants';
+import { emailValidator, passwordValidator } from '../../utils/validation';
+import { EmailInput } from '../EmailInput';
+import ErrorDisplay from '../common/ErrorDisplay';
+import PasswordInput from '../common/PasswordInput';
 
 const { SIGN_IN_PASSWORD_BUTTON } = AUTH;
 
@@ -106,7 +109,7 @@ const SignInPasswordForm = () => {
   };
 
   return (
-    <>
+    <Stack component="form" direction="column" spacing={1} alignItems="center">
       <EmailInput
         value={email}
         setValue={setEmail}
@@ -114,13 +117,24 @@ const SignInPasswordForm = () => {
         onKeyPress={handleKeypress}
         shouldValidate={shouldValidate}
       />
-      <PasswordInput
-        value={password}
-        error={passwordError}
-        onChange={handleOnChangePassword}
-        id={PASSWORD_SIGN_IN_FIELD_ID}
-        onKeyDown={handleKeypress}
-      />
+      <Stack direction="column" alignItems="flex-end">
+        <PasswordInput
+          value={password}
+          error={passwordError}
+          onChange={handleOnChangePassword}
+          id={PASSWORD_SIGN_IN_FIELD_ID}
+          onKeyDown={handleKeypress}
+        />
+        <Typography
+          component={Link}
+          color="textSecondary"
+          variant="caption"
+          sx={{ textDecoration: 'none' }}
+          to={REQUEST_PASSWORD_RESET_PATH}
+        >
+          {t(AUTH.REQUEST_PASSWORD_RESET_LINK)}
+        </Typography>
+      </Stack>
       <ErrorDisplay error={passwordSignInError} />
       <LoadingButton
         disabled={!(password && email)}
@@ -134,12 +148,13 @@ const SignInPasswordForm = () => {
       >
         {t(SIGN_IN_PASSWORD_BUTTON)}
       </LoadingButton>
+
       {(signInWithPasswordSuccess || mobileSignInWithPasswordSuccess) && (
         <Alert severity="success" id={PASSWORD_SUCCESS_ALERT}>
           {t(AUTH.PASSWORD_SUCCESS_ALERT)}
         </Alert>
       )}
-    </>
+    </Stack>
   );
 };
 

@@ -1,5 +1,10 @@
 import * as Sentry from '@sentry/react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from 'react-router-dom';
 
 import ErrorFallback from './components/ErrorFallback';
 import MagicLinkSuccessContent from './components/MagicLinkSuccessContent';
@@ -7,9 +12,13 @@ import MobileAuth from './components/MobileAuth';
 import Redirection from './components/Redirection';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import { RequestPasswordReset } from './components/requestPasswordReset/RequestPasswordReset';
+import ResetPassword from './components/requestPasswordReset/ResetPassword';
 import {
   HOME_PATH,
   MOBILE_AUTH_PATH,
+  REQUEST_PASSWORD_RESET_PATH,
+  RESET_PASSWORD_PATH,
   SIGN_IN_MAGIC_LINK_SUCCESS_PATH,
   SIGN_IN_PATH,
   SIGN_UP_PATH,
@@ -26,8 +35,16 @@ const App = () => (
             element={<MagicLinkSuccessContent />}
           />
           <Route path={SIGN_UP_PATH} element={<SignUp />} />
+          <Route
+            path={REQUEST_PASSWORD_RESET_PATH}
+            element={<RequestPasswordReset />}
+          />
+          <Route path={RESET_PASSWORD_PATH} element={<ResetPassword />} />
           <Route path={HOME_PATH} element={<SignIn />} />
           <Route path={MOBILE_AUTH_PATH} element={<MobileAuth />} />
+
+          {/* Fallback route */}
+          <Route path="*" element={<Navigate to={SIGN_IN_PATH} />} />
         </Routes>
       </Redirection>
     </Router>

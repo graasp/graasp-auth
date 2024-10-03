@@ -25,15 +25,16 @@ jobs:
           cypress: true
 
       # type check
-      - name: Type-check code
-        run: tsc --noEmit
+      - name: Check code
+        run: yarn check
 
       #  use the Cypress GitHub Action to run Cypress tests within the chrome browser
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           install: false
-          start: yarn dev
+          build: yarn build:test
+          start: yarn preview:test
           browser: chrome
           quiet: true
           config-file: cypress.config.ts
@@ -43,7 +44,6 @@ jobs:
           VITE_VERSION: ${{ vars.VITE_VERSION }}
           VITE_GRAASP_DOMAIN: ${{ vars.VITE_GRAASP_DOMAIN }}
           VITE_GRAASP_API_HOST: ${{ vars.VITE_GRAASP_API_HOST }}
-          VITE_GRAASP_AUTH_HOST: ${{ vars.VITE_GRAASP_AUTH_HOST }}
           VITE_GRAASP_BUILDER_HOST: ${{ vars.VITE_GRAASP_BUILDER_HOST }}
           VITE_SHOW_NOTIFICATIONS: ${{ vars.VITE_SHOW_NOTIFICATIONS }}
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
