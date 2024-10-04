@@ -40,3 +40,10 @@ cypress/downloads/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+tmp
+
+# api generation
+src/client
+openapi-ts-error-*
+src/mock
