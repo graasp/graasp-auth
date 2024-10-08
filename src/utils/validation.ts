@@ -4,6 +4,7 @@ import validator from 'validator';
 import {
   MAX_USERNAME_LENGTH,
   MIN_USERNAME_LENGTH,
+  MemberConstants,
   isPasswordStrong,
 } from '@graasp/sdk';
 
@@ -12,12 +13,15 @@ import { AUTH } from '../langs/constants';
 const {
   USERNAME_TOO_LONG_ERROR,
   USERNAME_TOO_SHORT_ERROR,
+  USERNAME_SPECIAL_CHARACTERS_ERROR,
   INVALID_EMAIL_ERROR,
   PASSWORD_EMPTY_ERROR,
   PASSWORD_WEAK_ERROR,
   PASSWORD_DO_NOT_MATCH_ERROR,
   EMPTY_EMAIL_ERROR,
 } = AUTH;
+
+const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
 
 export const nameValidator = (name: string) => {
   const trimmedName = name.trim();
@@ -26,6 +30,9 @@ export const nameValidator = (name: string) => {
   }
   if (trimmedName.length < MIN_USERNAME_LENGTH) {
     return USERNAME_TOO_SHORT_ERROR;
+  }
+  if (USER_NAME_REGEX.test(trimmedName)) {
+    return USERNAME_SPECIAL_CHARACTERS_ERROR;
   }
   return null;
 };
