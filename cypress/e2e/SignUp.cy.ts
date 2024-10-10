@@ -4,6 +4,8 @@ import { API_ROUTES } from '@graasp/query-client';
 
 import { SIGN_UP_PATH } from '../../src/config/paths';
 import {
+  EMAIL_SIGN_UP_FIELD_ID,
+  NAME_SIGN_UP_FIELD_ID,
   SIGN_UP_BUTTON_ID,
   SIGN_UP_SAVE_ACTIONS_ID,
   SUCCESS_CONTENT_ID,
@@ -100,6 +102,24 @@ describe('SignUp', () => {
       search.set('invitationId', invitation.id);
       cy.visit(`${SIGN_UP_PATH}?${search.toString()}`);
       cy.get(`#${SIGN_UP_BUTTON_ID}`).should('be.visible');
+    });
+
+    it('Username can not contain special characters', () => {
+      const badUsername = '<<div>%^\'"';
+
+      cy.visit(SIGN_UP_PATH);
+      cy.get(`#${NAME_SIGN_UP_FIELD_ID}`).clear();
+      cy.get(`#${NAME_SIGN_UP_FIELD_ID}`).type(badUsername);
+      cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).clear();
+      cy.get(`#${EMAIL_SIGN_UP_FIELD_ID}`).type('test@test.lol');
+      cy.agreeWithAllTerms();
+      cy.get(`#${SIGN_UP_BUTTON_ID}`).click();
+
+      // The helper text should display the message about special characters
+      cy.get('[id$=-helper-text]').should(
+        'have.text',
+        'User name must not contain " ", ", <, >, ^, %, \\',
+      );
     });
   });
 

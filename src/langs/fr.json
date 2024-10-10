@@ -35,6 +35,7 @@
   "INVITATIONS_LOADING_MESSAGE": "Nous recherchons votre invitation, veuillez patienter quelques instants…",
   "USERNAME_TOO_SHORT_ERROR": "Veuillez saisir un nom d'utilisateur comportant au moins {{min}} caractères",
   "USERNAME_TOO_LONG_ERROR": "Veuillez saisir un nom d'utilisateur de moins de {{max}} caractères",
+  "USERNAME_SPECIAL_CHARACTERS_ERROR": "Le nom d'utilisateur ne doit pas contenir \" \", \", <, >, ^, %, \\",
   "INVALID_EMAIL_ERROR": "Cela ne ressemble pas à une adresse e-mail valide",
   "EMPTY_EMAIL_ERROR": "Une adresse email est obligatoire, ce champ ne peut pas être vide",
   "PASSWORD_EMPTY_ERROR": "Le mot de passe ne peut pas être vide",

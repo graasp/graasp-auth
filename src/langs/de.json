@@ -35,6 +35,7 @@
   "INVITATIONS_LOADING_MESSAGE": "Wir warten auf Ihre Einladung, bitte warten …",
   "USERNAME_TOO_SHORT_ERROR": "Bitte geben Sie einen Benutzernamen mit mehr als {{min}} Zeichen ein",
   "USERNAME_TOO_LONG_ERROR": "Bitte geben Sie einen Benutzernamen mit weniger als {{max}} Zeichen ein.",
+  "USERNAME_SPECIAL_CHARACTERS_ERROR": "Der Benutzername darf nicht enthalten \" \", \", <, >, ^, %, \\",
   "INVALID_EMAIL_ERROR": "Dies scheint keine gültige E-Mail-Adresse zu sein",
   "EMPTY_EMAIL_ERROR": "Eine E-Mail-Adresse ist erforderlich, dieses Feld darf nicht leer sein",
   "PASSWORD_EMPTY_ERROR": "Das Passwort darf nicht leer sein"
