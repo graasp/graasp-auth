@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.1](https://github.com/graasp/graasp-auth/compare/v2.7.0...v2.7.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lucide-react to v0.451.0 ([#469](https://github.com/graasp/graasp-auth/issues/469)) ([708ef82](https://github.com/graasp/graasp-auth/commit/708ef8258fe412763704bc045d7adaf70a953414))
+* do not allow special characters in username ([#457](https://github.com/graasp/graasp-auth/issues/457)) ([8fa9316](https://github.com/graasp/graasp-auth/commit/8fa9316b21e409f90e43cf7f1474e436bcc0d51e))
+
 ## [2.7.0](https://github.com/graasp/graasp-auth/compare/v2.6.0...v2.7.0) (2024-10-03)
 
 
