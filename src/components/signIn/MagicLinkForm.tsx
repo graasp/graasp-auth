@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -6,6 +7,7 @@ import { RecaptchaAction } from '@graasp/sdk';
 import { LoadingButton } from '@mui/lab';
 import { Stack } from '@mui/material';
 
+import { postLoginMutation } from '../../client/@tanstack/react-query.gen';
 import { useAuthTranslation } from '../../config/i18n';
 import { SIGN_IN_MAGIC_LINK_SUCCESS_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
@@ -40,7 +42,7 @@ const MagicLinkForm = () => {
     mutateAsync: signIn,
     isPending: isLoadingSignIn,
     error: webSignInError,
-  } = mutations.useSignIn();
+  } = useMutation(postLoginMutation());
   const {
     mutateAsync: mobileSignIn,
     isPending: isLoadingMobileSignIn,
@@ -62,9 +64,11 @@ const MagicLinkForm = () => {
         await (isMobile
           ? mobileSignIn({ email: lowercaseEmail, captcha: token, challenge })
           : signIn({
-              email: lowercaseEmail,
-              captcha: token,
-              url: redirect.url,
+              body: {
+                email: lowercaseEmail,
+                captcha: token,
+                url: redirect.url,
+              },
             }));
 
         // navigate to success path
