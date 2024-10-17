@@ -2513,10 +2513,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:9.0.1":
-  version: 9.0.1
-  resolution: "@faker-js/faker@npm:9.0.1"
-  checksum: 10/708629605392fdbe06887ca9b083d73801c64b47917f790870b240858ab65cada14b52dddf2cb7e471ad0f6ddf66ea30e7ffda741c5ba9bd5c27318b47262279
+"@faker-js/faker@npm:9.0.3":
+  version: 9.0.3
+  resolution: "@faker-js/faker@npm:9.0.3"
+  checksum: 10/60ea71c31d6bd6317184736de17daee415e229cab5e10a4146a19622f3eb22f49f42345ff339dc9261f0214ca1f9b019c63fd9aac842a2d359f135102788ec90
   languageName: node
   linkType: hard
 
@@ -2574,18 +2574,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/sdk@npm:4.32.0":
-  version: 4.32.0
-  resolution: "@graasp/sdk@npm:4.32.0"
+"@graasp/sdk@npm:4.32.1":
+  version: 4.32.1
+  resolution: "@graasp/sdk@npm:4.32.1"
   dependencies:
-    "@faker-js/faker": "npm:9.0.1"
+    "@faker-js/faker": "npm:9.0.3"
     filesize: "npm:10.1.6"
     js-cookie: "npm:3.0.5"
     validator: "npm:13.12.0"
   peerDependencies:
     date-fns: ^3 || ^4.0.0
     uuid: ^9 || ^10
-  checksum: 10/76f56a3e10e61ee59d8f778903126ff9e07b7a0512c0b42ff63a8735c2bd263c0ee5abb1a74320ab3c8632689b8e359ad63e9b9dbaed63dbeffeb0bc2066d676
+  checksum: 10/74125fa4c2aed104142cccc77e8a8a90d2ae303dcaae83e40198f7d30d6615ad3136532789b0d1c2f7034847937f238c046b9aee5fcee5d319bbe7be8cb4f257
   languageName: node
   linkType: hard
 
@@ -2609,9 +2609,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graasp/ui@npm:5.2.1":
-  version: 5.2.1
-  resolution: "@graasp/ui@npm:5.2.1"
+"@graasp/ui@npm:5.2.2":
+  version: 5.2.2
+  resolution: "@graasp/ui@npm:5.2.2"
   dependencies:
     http-status-codes: "npm:2.3.0"
     interweave: "npm:13.1.0"
@@ -2620,7 +2620,7 @@ __metadata:
     react-dnd: "npm:16.0.1"
     react-dnd-html5-backend: "npm:16.0.1"
     react-quill: "npm:2.0.0"
-    react-rnd: "npm:10.4.12"
+    react-rnd: "npm:10.4.13"
     uuid: "npm:10.0.0"
   peerDependencies:
     "@emotion/cache": ~11.10.7 || ~11.11.0 || ~11.13.0
@@ -2634,13 +2634,13 @@ __metadata:
     "@mui/material": ~5.14.0 || ~5.15.0 || ~5.16.0
     i18next: ^22.4.15 || ^23.0.0
     katex: 0.16.11
-    lucide-react: ^0.417.0 || ^0.429.0 || ^0.436.0 || ^0.439.0 || ^0.441.0 || ^0.446.0
+    lucide-react: ^0.417.0 || ^0.429.0 || ^0.436.0 || ^0.439.0 || ^0.441.0 || ^0.446.0 || ^0.447.0 || ^0.451.0
     react: ^18.0.0
     react-dom: ^18.0.0
     react-i18next: ^13.0.0 || ^14.0.0 || ^15.0.0
     react-router-dom: ^6.11.0
     stylis: ^4.1.3
-  checksum: 10/35c2596b5e5cdee10224e6f65a846278653428a0aeaef48ff8a00c92326be0e20596d8c438d21247d6b1d554aa72497f2481b6e9b6483a023126eb5c1f196bf6
+  checksum: 10/717d2a0d282dfc4fa7de61f6b132765bdf933870d13ff0570caa713c40281ca96690af7566f41ceff94c7c49a7f22489b0ddddd83329bb5537a5f0f46542af1a
   languageName: node
   linkType: hard
 
@@ -7132,10 +7132,10 @@ __metadata:
     "@emotion/react": "npm:11.13.3"
     "@emotion/styled": "npm:11.13.0"
     "@graasp/query-client": "npm:3.26.0"
-    "@graasp/sdk": "npm:4.32.0"
+    "@graasp/sdk": "npm:4.32.1"
     "@graasp/stylis-plugin-rtl": "npm:2.2.0"
     "@graasp/translations": "npm:1.39.0"
-    "@graasp/ui": "npm:5.2.1"
+    "@graasp/ui": "npm:5.2.2"
     "@mui/icons-material": "npm:5.16.7"
     "@mui/lab": "npm:5.0.0-alpha.170"
     "@mui/material": "npm:5.16.7"
@@ -9684,13 +9684,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re-resizable@npm:6.9.17":
-  version: 6.9.17
-  resolution: "re-resizable@npm:6.9.17"
+"re-resizable@npm:6.10.0":
+  version: 6.10.0
+  resolution: "re-resizable@npm:6.10.0"
   peerDependencies:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
-  checksum: 10/768c3a0fe39d6916caf4e003240d326d62c4d7512c7d3115cc2a98085416fdba80097afdbb93df57b69543c41ce56b33589f2fea6987cd5149faa83cf11c8ba1
+  checksum: 10/303e582feffdfd3e491e2b51dc75c8641c726882e2d8e3ec249b2bc1d23bfffa73bd4a982ed5456bcab9ec25f52b5430e8c632f32647295ed773679691a961a2
   languageName: node
   linkType: hard
 
@@ -9833,17 +9833,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-rnd@npm:10.4.12":
-  version: 10.4.12
-  resolution: "react-rnd@npm:10.4.12"
+"react-rnd@npm:10.4.13":
+  version: 10.4.13
+  resolution: "react-rnd@npm:10.4.13"
   dependencies:
-    re-resizable: "npm:6.9.17"
+    re-resizable: "npm:6.10.0"
     react-draggable: "npm:4.4.6"
     tslib: "npm:2.6.2"
   peerDependencies:
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
-  checksum: 10/f29429a9ceafdf19c3b50571882c36eee29430a22d526fe2aaf641e38146e1bf5a1337639e0c9eba7c6ddaa85721cff9f390cf8d807a62634a27a77e49e2653c
+  checksum: 10/3a343d71117c37e105286eeee38e244d9dc62e0e4b2efa929128995056408cf7fda15f5100f66b8548370ae63f886b94c7851e862fd90dd0b543ec382f43c4f1
   languageName: node
   linkType: hard
 
