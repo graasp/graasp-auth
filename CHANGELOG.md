@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.1](https://github.com/graasp/graasp-auth/compare/v2.7.0...v2.7.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency i18next to v23.15.2 ([#467](https://github.com/graasp/graasp-auth/issues/467)) ([99fdae4](https://github.com/graasp/graasp-auth/commit/99fdae419209569c3a9a8b643ace48878a9cf1d9))
+* **deps:** update dependency lucide-react to v0.451.0 ([#469](https://github.com/graasp/graasp-auth/issues/469)) ([708ef82](https://github.com/graasp/graasp-auth/commit/708ef8258fe412763704bc045d7adaf70a953414))
+* **deps:** update graasp packages ([#471](https://github.com/graasp/graasp-auth/issues/471)) ([f82a97f](https://github.com/graasp/graasp-auth/commit/f82a97f8b28372165437b7347d4454d528476c63))
+* do not allow special characters in username ([#457](https://github.com/graasp/graasp-auth/issues/457)) ([8fa9316](https://github.com/graasp/graasp-auth/commit/8fa9316b21e409f90e43cf7f1474e436bcc0d51e))
+
 ## [2.7.0](https://github.com/graasp/graasp-auth/compare/v2.6.0...v2.7.0) (2024-10-03)
 
 
