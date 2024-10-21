@@ -11,8 +11,8 @@ import { CompleteMember, Member } from '@graasp/sdk';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
-  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
+  MAGIC_LINK_EMAIL_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
   SIGN_UP_AGREEMENTS_CHECKBOX_ID,
@@ -28,6 +28,7 @@ import {
 import {
   mockGetCurrentMember,
   mockGetStatus,
+  mockLogin,
   mockRequestPasswordReset,
   mockResetPassword,
 } from './server';
@@ -40,6 +41,7 @@ declare global {
         currentMember?: CompleteMember | null;
         shouldFailRequestPasswordReset?: boolean;
         shouldFailResetPassword?: boolean;
+        shouldFailLogin?: boolean;
       }): Chainable<JQuery<HTMLElement>>;
 
       checkErrorTextField(
@@ -84,11 +86,13 @@ Cypress.Commands.add(
     currentMember = null,
     shouldFailRequestPasswordReset = false,
     shouldFailResetPassword = false,
+    shouldFailLogin = false,
   } = {}) => {
     mockGetCurrentMember(currentMember);
     mockGetStatus();
     mockRequestPasswordReset(shouldFailRequestPasswordReset);
     mockResetPassword(shouldFailResetPassword);
+    mockLogin(shouldFailLogin);
   },
 );
 
@@ -117,7 +121,7 @@ Cypress.Commands.add('signUpAndCheck', (user, acceptAllTerms) => {
 Cypress.Commands.add('signInByMailAndCheck', (user) => {
   fillSignInByMailLayout(user);
   submitSignIn();
-  cy.checkErrorTextField(EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID, user.emailValid);
+  cy.checkErrorTextField(MAGIC_LINK_EMAIL_FIELD_ID, user.emailValid);
 });
 
 Cypress.Commands.add('signInPasswordAndCheck', (user) => {

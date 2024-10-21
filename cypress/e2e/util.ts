@@ -2,8 +2,8 @@ import { SignJWT } from 'jose/jwt/sign';
 
 import {
   EMAIL_SIGN_IN_FIELD_ID,
-  EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID,
   EMAIL_SIGN_UP_FIELD_ID,
+  MAGIC_LINK_EMAIL_FIELD_ID,
   NAME_SIGN_UP_FIELD_ID,
   PASSWORD_SIGN_IN_BUTTON_ID,
   PASSWORD_SIGN_IN_FIELD_ID,
@@ -43,7 +43,7 @@ export const checkInvitationFields = ({
 
 export const fillSignInByMailLayout = ({ email }: { email?: string }) => {
   if (email) {
-    cy.get(`#${EMAIL_SIGN_IN_MAGIC_LINK_FIELD_ID}`).clear().type(email);
+    cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).clear().type(email);
   }
 };
 

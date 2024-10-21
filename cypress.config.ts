@@ -19,6 +19,6 @@ export default defineConfig({
       setupEvents(on, newConfig);
       return newConfig;
     },
-    baseUrl: 'http://localhost:3001',
+    baseUrl: `http://localhost:${process.env.VITE_PORT || '3001'}`,
   },
 });

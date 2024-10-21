@@ -23,7 +23,7 @@ const {
 
 const USER_NAME_REGEX = MemberConstants.USERNAME_FORBIDDEN_CHARS_REGEX;
 
-export const nameValidator = (name: string) => {
+export const isNameValid = (name: string) => {
   const trimmedName = name.trim();
   if (trimmedName.length > MAX_USERNAME_LENGTH) {
     return USERNAME_TOO_LONG_ERROR;
@@ -34,7 +34,7 @@ export const nameValidator = (name: string) => {
   if (USER_NAME_REGEX.test(trimmedName)) {
     return USERNAME_SPECIAL_CHARACTERS_ERROR;
   }
-  return null;
+  return true;
 };
 
 export const emailValidator = (email?: string) => {
