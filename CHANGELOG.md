@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.2](https://github.com/graasp/graasp-auth/compare/v2.7.1...v2.7.2) (2024-10-21)
+
+
+### Bug Fixes
+
+* update message show on password reset error ([#480](https://github.com/graasp/graasp-auth/issues/480)) ([32964da](https://github.com/graasp/graasp-auth/commit/32964da10da9faadbd1a92e73a022cb7098ab0b8))
+
 ## [2.7.1](https://github.com/graasp/graasp-auth/compare/v2.7.0...v2.7.1) (2024-10-18)
 
 
