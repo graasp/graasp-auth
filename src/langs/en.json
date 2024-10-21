@@ -73,7 +73,7 @@
   "RESET_PASSWORD_BUTTON": "Reset Password",
   "RESET_PASSWORD_MISSING_TOKEN": "Error: The current page is missing some required information.",
   "RESET_PASSWORD_SUCCESS_MESSAGE": "The password was successfully set. You can now log in with this new password.",
-  "RESET_PASSWORD_ERROR_MESSAGE": "An error prevented the password reset operation. Ensure you used a fresh link (links are valid for 24h only) and that you followed the password requirements. Please retry the forgot password procedure again. If the issue persists contact us: {{email}}",
+  "RESET_PASSWORD_ERROR_MESSAGE": "An error prevented the password reset operation. Ensure you used a fresh link (links are valid for 24h and can be used only once) and that you followed the password requirements. Please retry the forgot password procedure again. If the issue persists contact us: {{email}}",
   "RESET_PASSWORD_ERROR_TRY_AGAIN": "Try requesting the password reset again",
   "RESET_PASSWORD_REQUIREMENTS_TITLE": "Password requirements:",
   "RESET_PASSWORD_REQUIREMENTS_LENGTH": "At least {{length}} characters long",
