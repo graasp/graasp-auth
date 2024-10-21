@@ -9,7 +9,7 @@ import { AUTH } from '../../langs/constants';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 
-export const InvalidTokenScreen = () => {
+export function InvalidTokenScreen() {
   const { t } = useAuthTranslation();
   return (
     <CenteredContent
@@ -29,4 +29,4 @@ export const InvalidTokenScreen = () => {
       </Button>
     </CenteredContent>
   );
-};
+}

@@ -17,7 +17,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Redirection = ({ children }: Props) => {
+export function Redirection({ children }: Props) {
   const theme = useTheme();
   const { data: member } = hooks.useCurrentMember();
   const { t } = useAuthTranslation();
@@ -67,6 +67,4 @@ const Redirection = ({ children }: Props) => {
   }
 
   return children;
-};
-
-export default Redirection;
+}

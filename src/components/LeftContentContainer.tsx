@@ -12,9 +12,9 @@ import { BACKGROUND_PATTERN } from '../config/constants';
 import { useAuthTranslation } from '../config/i18n';
 import { PLATFORM_ADVERTISEMENT_CONTAINER_ID } from '../config/selectors';
 import { AUTH } from '../langs/constants';
-import APIChecker from './APIChecker';
+import { APIChecker } from './APIChecker';
 import { BrandingLogo } from './BrandingLogo';
-import Footer from './Footer';
+import { Footer } from './Footer';
 import { PlatformContent } from './leftContent/PlatformContent';
 import { styledBox } from './styles';
 
@@ -22,7 +22,7 @@ type Props = {
   children: JSX.Element | JSX.Element[];
 };
 
-const LeftContentContainer = ({ children }: Props): JSX.Element => {
+export function LeftContentContainer({ children }: Props): JSX.Element {
   const { t } = useAuthTranslation();
 
   return (
@@ -106,6 +106,4 @@ const LeftContentContainer = ({ children }: Props): JSX.Element => {
       </Stack>
     </>
   );
-};
-
-export default LeftContentContainer;
+}

@@ -7,7 +7,7 @@ import { ThemeProvider } from '@graasp/ui';
 
 import { CssBaseline } from '@mui/material';
 
-import App from './App';
+import { App } from './App';
 import { RECAPTCHA_SITE_KEY, SHOW_NOTIFICATIONS } from './config/env';
 import i18nConfig, { useCommonTranslation } from './config/i18n';
 import {
@@ -17,7 +17,7 @@ import {
 } from './config/queryClient';
 import { RecaptchaProvider } from './context/RecaptchaContext';
 
-const Content = () => {
+function Content() {
   const { i18n } = useCommonTranslation();
 
   return (
@@ -33,15 +33,15 @@ const Content = () => {
       </RecaptchaProvider>
     </ThemeProvider>
   );
-};
+}
 
-const Root = () => (
-  <QueryClientProvider client={queryClient}>
-    <I18nextProvider i18n={i18nConfig}>
-      <Content />
-    </I18nextProvider>
-    {import.meta.env.DEV && <ReactQueryDevtools />}
-  </QueryClientProvider>
-);
-
-export default Root;
+export function Root() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <I18nextProvider i18n={i18nConfig}>
+        <Content />
+      </I18nextProvider>
+      {import.meta.env.DEV && <ReactQueryDevtools />}
+    </QueryClientProvider>
+  );
+}

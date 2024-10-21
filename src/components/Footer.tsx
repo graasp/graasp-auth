@@ -2,7 +2,7 @@ import { useTheme } from '@graasp/ui';
 
 import { Box, Typography } from '@mui/material';
 
-const Footer = () => {
+export function Footer() {
   const { languageSelect } = useTheme();
 
   return (
@@ -19,6 +19,4 @@ const Footer = () => {
       </Typography>
     </Box>
   );
-};
-
-export default Footer;
+}

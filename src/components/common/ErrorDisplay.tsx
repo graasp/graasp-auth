@@ -3,11 +3,11 @@ import { Alert } from '@mui/material';
 import { useMessagesTranslation } from '../../config/i18n';
 import { getErrorMessage } from '../../config/notifier';
 
-const ErrorDisplay = ({
+export function ErrorDisplay({
   error,
 }: {
   error: Error | null;
-}): JSX.Element | null => {
+}): JSX.Element | null {
   const { t: translateMessages } = useMessagesTranslation();
 
   if (!error) {
@@ -17,5 +17,4 @@ const ErrorDisplay = ({
   return (
     <Alert severity="error">{translateMessages(getErrorMessage(error))}</Alert>
   );
-};
-export default ErrorDisplay;
+}

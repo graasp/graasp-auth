@@ -27,7 +27,7 @@ type Props = {
   siteKey: string;
 };
 
-export const RecaptchaProvider = ({ children, siteKey }: Props) => {
+export function RecaptchaProvider({ children, siteKey }: Props) {
   const executeCaptcha = (action: string): Promise<string> => {
     return new Promise<string>((resolve) => {
       if (!window.grecaptcha) {
@@ -48,7 +48,7 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
               err instanceof Error &&
               (err.toString().includes('Invalid reCAPTCHA client id') ||
                 err.toString().includes('No reCAPTCHA clients exist')) &&
-              import.meta.env.DEV
+              (import.meta.env.DEV || import.meta.env.MODE === 'test')
             ) {
               console.debug('No recaptcha key set-up, using mock value');
               resolve(MOCK_RECAPTCHA_TOKEN);
@@ -66,6 +66,6 @@ export const RecaptchaProvider = ({ children, siteKey }: Props) => {
       {children}
     </RecaptchaContext.Provider>
   );
-};
+}
 
 export const useRecaptcha = () => useContext(RecaptchaContext);

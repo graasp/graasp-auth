@@ -31,7 +31,7 @@ type Inputs = {
   email: string;
 };
 
-export const RequestPasswordReset = () => {
+export function RequestPasswordReset() {
   const { t } = useAuthTranslation();
   const {
     register,
@@ -126,4 +126,4 @@ export const RequestPasswordReset = () => {
       </Typography>
     </CenteredContent>
   );
-};
+}

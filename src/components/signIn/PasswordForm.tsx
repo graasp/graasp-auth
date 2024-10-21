@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { RecaptchaAction } from '@graasp/sdk';
@@ -19,24 +19,28 @@ import { useRecaptcha } from '../../context/RecaptchaContext';
 import { useMobileAppLogin } from '../../hooks/mobile';
 import { useRedirection } from '../../hooks/searchParams';
 import { AUTH } from '../../langs/constants';
-import { emailValidator, passwordValidator } from '../../utils/validation';
-import { EmailInput } from '../EmailInput';
-import ErrorDisplay from '../common/ErrorDisplay';
-import PasswordInput from '../common/PasswordInput';
+import { getValidationMessage, isEmailValid } from '../../utils/validation';
+import { ErrorDisplay } from '../common/ErrorDisplay';
+import { PasswordInput } from '../common/PasswordInput';
+import { EmailInput } from './EmailInput';
 
 const { SIGN_IN_PASSWORD_BUTTON } = AUTH;
 
-const SignInPasswordForm = () => {
+type Inputs = {
+  email: string;
+  password: string;
+};
+
+export function PasswordForm() {
   const { t } = useAuthTranslation();
   const redirect = useRedirection();
   const { isMobile, challenge } = useMobileAppLogin();
   const { executeCaptcha } = useRecaptcha();
-
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [passwordError, setPasswordError] = useState<string | null>(null);
-  // enable validation after first click
-  const [shouldValidate, setShouldValidate] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
   const {
     mutateAsync: signInWithPassword,
@@ -54,76 +58,63 @@ const SignInPasswordForm = () => {
   const passwordSignInError =
     webPasswordSignInError || mobilePasswordSignInError;
 
-  const handlePasswordSignIn = async () => {
-    const lowercaseEmail = email.toLowerCase();
-    const checkingEmail = emailValidator(lowercaseEmail);
-    const checkingPassword = passwordValidator(password);
-    if (checkingEmail || checkingPassword) {
-      setShouldValidate(true);
-      if (checkingPassword) {
-        setPasswordError(checkingPassword);
+  const handlePasswordSignIn = async (data: Inputs) => {
+    const lowercaseEmail = data.email.toLowerCase();
+
+    const token = await executeCaptcha(
+      isMobile
+        ? RecaptchaAction.SignInWithPasswordMobile
+        : RecaptchaAction.SignInWithPassword,
+    );
+    try {
+      const result = await (isMobile
+        ? mobileSignInWithPassword({
+            ...data,
+            email: lowercaseEmail,
+            captcha: token,
+            challenge,
+          })
+        : signInWithPassword({
+            ...data,
+            email: lowercaseEmail,
+            captcha: token,
+            url: redirect.url,
+          }));
+      // successful redirect
+      if (result?.resource) {
+        window.location.href = result.resource;
       }
-    } else {
-      const token = await executeCaptcha(
-        isMobile
-          ? RecaptchaAction.SignInWithPasswordMobile
-          : RecaptchaAction.SignInWithPassword,
-      );
-      try {
-        const result = await (isMobile
-          ? mobileSignInWithPassword({
-              email: lowercaseEmail,
-              password,
-              captcha: token,
-              challenge,
-            })
-          : signInWithPassword({
-              email: lowercaseEmail,
-              password,
-              captcha: token,
-              url: redirect.url,
-            }));
-        // successful redirect
-        if (result?.resource) {
-          window.location.href = result.resource;
-        }
-      } catch (e) {
-        // show error from react-query's error
-        console.error(e);
-      }
+    } catch (e) {
+      // show error from react-query's error
+      console.error(e);
     }
   };
 
-  const handleOnChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newPassword = e.target.value;
-    setPassword(newPassword);
-    setPasswordError(passwordValidator(newPassword));
-  };
-
-  const handleKeypress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // signInMethod email when true
-    // sign in by pressing the enter key
-    if (e.key === 'Enter') {
-      handlePasswordSignIn();
-    }
-  };
+  const emailError = getValidationMessage(errors.email);
+  const passwordError = getValidationMessage(errors.password);
 
   return (
-    <Stack component="form" direction="column" spacing={1} alignItems="center">
+    <Stack
+      component="form"
+      onSubmit={handleSubmit(handlePasswordSignIn)}
+      direction="column"
+      spacing={1}
+      alignItems="center"
+    >
       <EmailInput
-        value={email}
-        setValue={setEmail}
         id={EMAIL_SIGN_IN_FIELD_ID}
-        onKeyPress={handleKeypress}
-        shouldValidate={shouldValidate}
+        form={register('email', {
+          required: true,
+          validate: (v) => isEmailValid(v) || AUTH.INVALID_EMAIL_ERROR,
+        })}
+        placeholder={t(AUTH.EMAIL_INPUT_PLACEHOLDER)}
+        error={emailError}
       />
       <Stack direction="column" alignItems="flex-end">
         <PasswordInput
-          value={password}
-          error={passwordError}
-          onChange={handleOnChangePassword}
           id={PASSWORD_SIGN_IN_FIELD_ID}
-          onKeyDown={handleKeypress}
+          error={passwordError}
+          form={register('password', { required: true })}
         />
         <Typography
           component={Link}
@@ -137,11 +128,11 @@ const SignInPasswordForm = () => {
       </Stack>
       <ErrorDisplay error={passwordSignInError} />
       <LoadingButton
-        disabled={!(password && email)}
+        type="submit"
+        disabled={Boolean(passwordError) || Boolean(emailError)}
         id={PASSWORD_SIGN_IN_BUTTON_ID}
         variant="contained"
         color="primary"
-        onClick={handlePasswordSignIn}
         sx={{ textTransform: 'none' }}
         fullWidth
         loading={isLoadingMobilePasswordSignIn || isLoadingPasswordSignIn}
@@ -156,6 +147,4 @@ const SignInPasswordForm = () => {
       )}
     </Stack>
   );
-};
-
-export default SignInPasswordForm;
+}

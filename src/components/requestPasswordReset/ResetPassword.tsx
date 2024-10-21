@@ -42,7 +42,7 @@ type Inputs = {
   password: string;
   confirmPassword: string;
 };
-const ResetPassword = () => {
+export function ResetPassword() {
   const { t } = useAuthTranslation();
   const [searchParams] = useSearchParams();
   const { isValid, token } = useValidateJWTToken(searchParams.get('t'));
@@ -234,6 +234,4 @@ const ResetPassword = () => {
       }
     </CenteredContent>
   );
-};
-
-export default ResetPassword;
+}

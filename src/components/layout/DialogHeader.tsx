@@ -8,7 +8,7 @@ type DialogHeaderProps = {
   title: string;
   description?: string | ReactNode;
 };
-export const DialogHeader = ({ title, description }: DialogHeaderProps) => {
+export function DialogHeader({ title, description }: DialogHeaderProps) {
   const theme = useTheme();
 
   return (
@@ -25,4 +25,4 @@ export const DialogHeader = ({ title, description }: DialogHeaderProps) => {
         ))}
     </Stack>
   );
-};
+}

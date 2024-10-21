@@ -10,9 +10,8 @@ import ReactGA from 'react-ga4';
 import { hasAcceptedCookies } from '@graasp/sdk';
 
 import pkg from '../package.json';
-import Root from './Root';
+import { Root } from './Root';
 import {
-  API_HOST,
   APP_VERSION,
   GA_MEASUREMENT_ID,
   SENTRY_DSN,
@@ -30,9 +29,7 @@ SentryInit({
     browserTracingIntegration(),
     replayIntegration({
       maskAllText: false,
-      maskAllInputs: false,
-      // allows to capture details for requests to the api
-      networkDetailAllowUrls: [API_HOST],
+      maskAllInputs: true,
     }),
   ],
   release: `${pkg.name}@${APP_VERSION}`,
