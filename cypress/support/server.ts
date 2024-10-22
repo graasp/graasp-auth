@@ -95,5 +95,5 @@ export const mockRedirection = () => {
         body: '<h1>Content</h1>',
         headers: { 'content-type': 'text/html' },
       }),
-  ).as('resetPassword');
+  ).as('redirectionContent');
 };

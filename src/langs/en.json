@@ -84,6 +84,6 @@
   "INVALID_TOKEN_PROVIDED_TITLE": "Invalid token provided",
   "INVALID_TOKEN_PROVIDED_DESCRIPTION": "No token was provided or the provided token is expired. Click the button below to generate a request to reset your password.",
   "REDIRECTION_TITLE": "Welcome back, {{name}}",
-  "REDIRECTION_DESCRIPTION": "You should be redirected to your content shortly. You can navigate directly by clicking the button below.",
-  "REDIRECTION_BUTTON": "Go to content"
+  "REDIRECTION_DESCRIPTION": "You are logged in.",
+  "REDIRECTION_BUTTON": "Go to Graasp"
 }

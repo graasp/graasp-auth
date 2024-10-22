@@ -22,11 +22,12 @@ describe('Already signed in', () => {
   beforeEach(() => {
     cy.setUpApi({ currentMember: MEMBERS.BOB });
   });
-  it('Should show redirection content', () => {
+
+  it('Should show logged in', () => {
     cy.visit('/');
     cy.get(`#${REDIRECTION_CONTENT_CONTAINER_ID}`);
     cy.get(`[role="button"]`).click();
-    cy.get('h1').should('contain', 'Content');
     cy.url().should('contain', DEFAULT_REDIRECTION_URL);
+    cy.get('h1').should('contain', 'Content');
   });
 });
