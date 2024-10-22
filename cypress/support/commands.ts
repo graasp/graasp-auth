@@ -28,6 +28,7 @@ import {
 import {
   mockGetCurrentMember,
   mockGetStatus,
+  mockRedirection,
   mockRequestPasswordReset,
   mockResetPassword,
 } from './server';
@@ -89,6 +90,7 @@ Cypress.Commands.add(
     mockGetStatus();
     mockRequestPasswordReset(shouldFailRequestPasswordReset);
     mockResetPassword(shouldFailResetPassword);
+    mockRedirection();
   },
 );
 

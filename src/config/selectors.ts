@@ -45,3 +45,5 @@ export const PASSWORD_SUCCESS_ALERT = 'passwordSuccessAlert';
 
 export const PLATFORM_ADVERTISEMENT_CONTAINER_ID =
   'platformAdvertisementContainer';
+
+export const REDIRECTION_CONTENT_CONTAINER_ID = 'redirectionContentContainer';

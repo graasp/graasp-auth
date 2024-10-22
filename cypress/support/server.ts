@@ -6,6 +6,7 @@ import { CompleteMember, HttpMethod } from '@graasp/sdk';
 const { buildGetCurrentMemberRoute } = API_ROUTES;
 
 const API_HOST = Cypress.env('VITE_GRAASP_API_HOST');
+const DEFAULT_REDIRECTION_URL = Cypress.env('VITE_DEFAULT_REDIRECTION_URL');
 
 export const redirectionReply = {
   headers: { 'content-type': 'application/json' },
@@ -80,5 +81,19 @@ export const mockResetPassword = (shouldThrowServerError = false) => {
       }
       return reply({ statusCode: StatusCodes.NO_CONTENT });
     },
+  ).as('resetPassword');
+};
+
+export const mockRedirection = () => {
+  cy.intercept(
+    {
+      method: HttpMethod.Get,
+      url: DEFAULT_REDIRECTION_URL,
+    },
+    ({ reply }) =>
+      reply({
+        body: '<h1>Content</h1>',
+        headers: { 'content-type': 'text/html' },
+      }),
   ).as('resetPassword');
 };

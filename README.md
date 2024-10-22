@@ -13,6 +13,7 @@ VITE_GRAASP_LANDING_PAGE_ORIGIN=https://graasp.org
 VITE_SHOW_NOTIFICATIONS=true
 
 VITE_RECAPTCHA_SITE_KEY=
+VITE_DEFAULT_REDIRECTION_URL=http://localhost:3111
 ```
 
 Generate your recaptcha key from [the reCAPTCHA admin console](https://www.google.com/recaptcha/admin/create)
@@ -28,4 +29,5 @@ VITE_GRAASP_LANDING_PAGE_ORIGIN=https://graasp.org
 VITE_SHOW_NOTIFICATIONS=true
 
 VITE_RECAPTCHA_SITE_KEY=
+VITE_DEFAULT_REDIRECTION_URL=http://localhost:4444
 ```
