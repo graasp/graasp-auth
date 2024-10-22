@@ -19,7 +19,7 @@
     "@graasp/translations": "1.40.0",
     "@graasp/ui": "5.3.1",
     "@mui/icons-material": "5.16.7",
-    "@mui/lab": "5.0.0-alpha.170",
+    "@mui/lab": "5.0.0-alpha.173",
     "@mui/material": "5.16.7",
     "@sentry/react": "7.119.2",
     "date-fns": "4.1.0",
