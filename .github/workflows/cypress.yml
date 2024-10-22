@@ -47,6 +47,7 @@ jobs:
           VITE_GRAASP_BUILDER_HOST: ${{ vars.VITE_GRAASP_BUILDER_HOST }}
           VITE_SHOW_NOTIFICATIONS: ${{ vars.VITE_SHOW_NOTIFICATIONS }}
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
+          VITE_DEFAULT_REDIRECTION_URL: ${{ vars.VITE_DEFAULT_REDIRECTION_URL }}
 
       # after the test run completes
       # store any screenshots

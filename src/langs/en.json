@@ -82,5 +82,8 @@
   "RESET_PASSWORD_REQUIREMENTS_NUMBER": "Contain at least {{count}} number",
   "SHOW_PASSWORD": "Show passwords",
   "INVALID_TOKEN_PROVIDED_TITLE": "Invalid token provided",
-  "INVALID_TOKEN_PROVIDED_DESCRIPTION": "No token was provided or the provided token is expired. Click the button below to generate a request to reset your password."
+  "INVALID_TOKEN_PROVIDED_DESCRIPTION": "No token was provided or the provided token is expired. Click the button below to generate a request to reset your password.",
+  "REDIRECTION_TITLE": "Welcome back, {{name}}",
+  "REDIRECTION_DESCRIPTION": "You are logged in.",
+  "REDIRECTION_BUTTON": "Go to Graasp"
 }

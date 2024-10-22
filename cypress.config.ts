@@ -14,11 +14,13 @@ export default defineConfig({
         ...config,
         env: {
           VITE_GRAASP_API_HOST: process.env.VITE_GRAASP_API_HOST,
+          VITE_DEFAULT_REDIRECTION_URL:
+            process.env.VITE_DEFAULT_REDIRECTION_URL,
         },
       };
       setupEvents(on, newConfig);
       return newConfig;
     },
-    baseUrl: 'http://localhost:3001',
+    baseUrl: `http://localhost:${process.env.VITE_PORT ?? '3002'}`,
   },
 });
