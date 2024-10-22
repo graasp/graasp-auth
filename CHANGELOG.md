@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.3](https://github.com/graasp/graasp-auth/compare/v2.7.2...v2.7.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.173 ([#426](https://github.com/graasp/graasp-auth/issues/426)) ([0f98ab9](https://github.com/graasp/graasp-auth/commit/0f98ab98577324ca60164df95b64f449d4c9eaa8))
+* make redirection screen more user friendly ([#485](https://github.com/graasp/graasp-auth/issues/485)) ([a71ded4](https://github.com/graasp/graasp-auth/commit/a71ded4b8d3d5062463b43f8d4554daf32e15970))
+* update deps ([71caa56](https://github.com/graasp/graasp-auth/commit/71caa5668beb948cb6214cbef7f841a38ffcec7d))
+
 ## [2.7.2](https://github.com/graasp/graasp-auth/compare/v2.7.1...v2.7.2) (2024-10-21)
 
 
