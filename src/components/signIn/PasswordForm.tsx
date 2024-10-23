@@ -24,8 +24,6 @@ import { ErrorDisplay } from '../common/ErrorDisplay';
 import { PasswordInput } from '../common/PasswordInput';
 import { EmailInput } from './EmailInput';
 
-const { SIGN_IN_PASSWORD_BUTTON } = AUTH;
-
 type Inputs = {
   email: string;
   password: string;
@@ -139,7 +137,7 @@ export function PasswordForm() {
         fullWidth
         loading={isLoadingMobilePasswordSignIn || isLoadingPasswordSignIn}
       >
-        {t(SIGN_IN_PASSWORD_BUTTON)}
+        {t(AUTH.SIGN_IN_PASSWORD_BUTTON)}
       </LoadingButton>
 
       {(signInWithPasswordSuccess || mobileSignInWithPasswordSuccess) && (
