@@ -20,6 +20,7 @@ import { useAuthTranslation } from '../../config/i18n';
 import { REQUEST_PASSWORD_RESET_PATH, SIGN_IN_PATH } from '../../config/paths';
 import { mutations } from '../../config/queryClient';
 import {
+  RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID,
   RESET_PASSWORD_ERROR_MESSAGE_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID,
@@ -200,8 +201,9 @@ const ResetPassword = () => {
               fullWidth
               component={Link}
               to={SIGN_IN_PATH}
+              id={RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID}
             >
-              {t(AUTH.RESET_PASSWORD_ERROR_TRY_AGAIN)}
+              {t(AUTH.BACK_TO_SIGN_IN_BUTTON)}
             </Button>
           </>
         ) : (

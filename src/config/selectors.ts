@@ -26,6 +26,8 @@ export const RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID =
   'resetPasswordNewPasswordErrorText';
 export const RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID =
   'resetPasswordNewPasswordConfirmationErrorText';
+export const RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID =
+  'resetPasswordBackToLoginButton';
 
 export const PASSWORD_SIGN_IN_FIELD_ID = 'passwordSignInField';
 export const PASSWORD_SIGN_IN_BUTTON_ID = 'passwordSignInButton';
