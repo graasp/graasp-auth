@@ -3,8 +3,15 @@ import { StatusCodes } from 'http-status-codes';
 import { API_ROUTES } from '@graasp/query-client';
 
 import { SIGN_IN_PATH } from '../../src/config/paths';
-import { PASSWORD_SUCCESS_ALERT } from '../../src/config/selectors';
+import {
+  EMAIL_SIGN_IN_FIELD_ID,
+  ERROR_DISPLAY_ID,
+  PASSWORD_SIGN_IN_BUTTON_ID,
+  PASSWORD_SIGN_IN_FIELD_ID,
+  PASSWORD_SUCCESS_ALERT,
+} from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
+import { fillPasswordSignInLayout } from './util';
 
 describe('Email and Password Validation', () => {
   it('Sign In With Password', () => {
@@ -47,7 +54,10 @@ describe('Email and Password Validation', () => {
         pathname: API_ROUTES.SIGN_IN_WITH_PASSWORD_ROUTE,
       },
       (req) => {
-        req.reply({ statusCode: 500 });
+        req.reply({
+          statusCode: StatusCodes.UNAUTHORIZED,
+          body: { message: 'Unauthorized member' },
+        });
       },
     ).as('signInWithPassword');
 
@@ -55,7 +65,11 @@ describe('Email and Password Validation', () => {
     cy.visit(SIGN_IN_PATH);
 
     // Signing in with a valid email but empty password
-    cy.signInPasswordAndCheck(WRONG_PASSWORD);
+    fillPasswordSignInLayout(WRONG_PASSWORD);
+    cy.get(`#${PASSWORD_SIGN_IN_BUTTON_ID}`).click();
+    cy.get(`#${EMAIL_SIGN_IN_FIELD_ID}-helper-text`).should('not.exist');
+    cy.get(`#${PASSWORD_SIGN_IN_FIELD_ID}-helper-text`).should('not.exist');
+    cy.get(`#${ERROR_DISPLAY_ID}`).should('be.visible');
   });
 
   it('Sign In With Password shows success message if no redirect', () => {

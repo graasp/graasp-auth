@@ -105,7 +105,7 @@ export function PasswordForm() {
         id={EMAIL_SIGN_IN_FIELD_ID}
         form={register('email', {
           required: true,
-          validate: (v) => isEmailValid(v) || AUTH.INVALID_EMAIL_ERROR,
+          validate: isEmailValid,
         })}
         placeholder={t(AUTH.EMAIL_INPUT_PLACEHOLDER)}
         error={emailError}
@@ -114,7 +114,9 @@ export function PasswordForm() {
         <PasswordInput
           id={PASSWORD_SIGN_IN_FIELD_ID}
           error={passwordError}
-          form={register('password', { required: true })}
+          form={register('password', {
+            required: true,
+          })}
         />
         <Typography
           component={Link}

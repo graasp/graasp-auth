@@ -6,7 +6,7 @@ import { IconButton, InputAdornment } from '@mui/material';
 
 import { useAuthTranslation } from '../../config/i18n';
 import { AUTH } from '../../langs/constants';
-import { EmailAdornment } from './EmailAdornment';
+import { PasswordAdornment } from './Adornments';
 import { StyledTextField } from './StyledTextField';
 
 const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
@@ -26,7 +26,7 @@ export function PasswordInput({ id, error, form }: Props): JSX.Element {
   return (
     <StyledTextField
       InputProps={{
-        startAdornment: EmailAdornment,
+        startAdornment: PasswordAdornment,
         endAdornment: (
           <InputAdornment position="end" color="inherit">
             <IconButton

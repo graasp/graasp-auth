@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthTranslation } from '../../config/i18n';
 import { AUTH } from '../../langs/constants';
 import { emailValidator } from '../../utils/validation';
-import { EmailAdornment } from '../common/EmailAdornment';
+import { EmailAdornment } from '../common/Adornments';
 import { StyledTextField } from '../common/StyledTextField';
 
 const { EMAIL_INPUT_PLACEHOLDER } = AUTH;

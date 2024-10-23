@@ -50,3 +50,5 @@ export const PLATFORM_ADVERTISEMENT_CONTAINER_ID =
   'platformAdvertisementContainer';
 
 export const REDIRECTION_CONTENT_CONTAINER_ID = 'redirectionContentContainer';
+
+export const ERROR_DISPLAY_ID = 'errorDisplay';

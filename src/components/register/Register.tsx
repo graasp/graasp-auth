@@ -31,7 +31,7 @@ import { useAgreementForm } from '../../hooks/useAgreementForm';
 import { AUTH } from '../../langs/constants';
 import { emailValidator, nameValidator } from '../../utils/validation';
 import { LeftContentContainer } from '../LeftContentContainer';
-import { EmailAdornment } from '../common/EmailAdornment';
+import { EmailAdornment } from '../common/Adornments';
 import { ErrorDisplay } from '../common/ErrorDisplay';
 import { StyledTextField } from '../common/StyledTextField';
 import { AgreementForm } from '../register/AgreementForm';

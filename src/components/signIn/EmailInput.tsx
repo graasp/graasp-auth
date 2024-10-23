@@ -1,7 +1,7 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { useAuthTranslation } from '../../config/i18n';
-import { EmailAdornment } from '../common/EmailAdornment';
+import { EmailAdornment } from '../common/Adornments';
 import { StyledTextField } from '../common/StyledTextField';
 
 type Props = {
