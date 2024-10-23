@@ -24,8 +24,6 @@ import { EmailInput } from '../EmailInput';
 import ErrorDisplay from '../common/ErrorDisplay';
 import PasswordInput from '../common/PasswordInput';
 
-const { SIGN_IN_PASSWORD_BUTTON } = AUTH;
-
 const SignInPasswordForm = () => {
   const { t } = useAuthTranslation();
   const redirect = useRedirection();
@@ -146,7 +144,7 @@ const SignInPasswordForm = () => {
         fullWidth
         loading={isLoadingMobilePasswordSignIn || isLoadingPasswordSignIn}
       >
-        {t(SIGN_IN_PASSWORD_BUTTON)}
+        {t(AUTH.SIGN_IN_PASSWORD_BUTTON)}
       </LoadingButton>
 
       {(signInWithPasswordSuccess || mobileSignInWithPasswordSuccess) && (
