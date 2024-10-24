@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.4](https://github.com/graasp/graasp-auth/compare/v2.7.3...v2.7.4) (2024-10-24)
+
+
+### Bug Fixes
+
+* **french:** update translations ([#490](https://github.com/graasp/graasp-auth/issues/490)) ([7921e71](https://github.com/graasp/graasp-auth/commit/7921e7168cfcc50b2beb87ab5b246ff3ab2a675e))
+* **german:** update translations ([#491](https://github.com/graasp/graasp-auth/issues/491)) ([9610266](https://github.com/graasp/graasp-auth/commit/961026691bfcba3a2cef0be8e926085458de36ff))
+* message shown on the button when reset is success ([#489](https://github.com/graasp/graasp-auth/issues/489)) ([9018078](https://github.com/graasp/graasp-auth/commit/90180782dbddd5580f26e2997633e4fd91f72e9f))
+* validate email with enter ([#483](https://github.com/graasp/graasp-auth/issues/483)) ([e671a2a](https://github.com/graasp/graasp-auth/commit/e671a2a526f197c4b69076c1148467cd2a714078))
+
 ## [2.7.3](https://github.com/graasp/graasp-auth/compare/v2.7.2...v2.7.3) (2024-10-22)
 
 
