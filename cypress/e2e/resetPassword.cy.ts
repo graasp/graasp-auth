@@ -1,5 +1,6 @@
 import { RESET_PASSWORD_PATH } from '../../src/config/paths';
 import {
+  RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID,
   RESET_PASSWORD_ERROR_MESSAGE_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
   RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID,
@@ -31,6 +32,10 @@ describe('Reset password', () => {
       );
       cy.get(`#${RESET_PASSWORD_SUBMIT_BUTTON_ID}`).click();
       cy.get(`#${RESET_PASSWORD_SUCCESS_MESSAGE_ID}`).should('be.visible');
+      cy.get(`#${RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID}`).should(
+        'contain.text',
+        'Back to login',
+      );
     });
 
     it('With weak password', () => {
