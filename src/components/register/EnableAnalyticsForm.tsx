@@ -15,10 +15,10 @@ type Props = {
   onUpdateSaveActions: (enabled: boolean) => void;
 };
 
-export const EnableAnalyticsForm = ({
+export function EnableAnalyticsForm({
   enableSaveActions,
   onUpdateSaveActions,
-}: Props) => {
+}: Props) {
   const { SIGN_UP_SAVE_ACTIONS_TOOLTIP, SIGN_UP_SAVE_ACTIONS_LABEL } = AUTH;
   const { t } = useAuthTranslation();
 
@@ -43,4 +43,4 @@ export const EnableAnalyticsForm = ({
       </FormGroup>
     </Tooltip>
   );
-};
+}

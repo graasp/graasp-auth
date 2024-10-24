@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useAuthTranslation } from '../config/i18n';
-import { AUTH } from '../langs/constants';
-import { emailValidator } from '../utils/validation';
-import { EmailAdornment } from './common/EmailAdornment';
-import StyledTextField from './common/StyledTextField';
+import { useAuthTranslation } from '../../config/i18n';
+import { AUTH } from '../../langs/constants';
+import { emailValidator } from '../../utils/validation';
+import { EmailAdornment } from '../common/Adornments';
+import { StyledTextField } from '../common/StyledTextField';
 
 const { EMAIL_INPUT_PLACEHOLDER } = AUTH;
 
@@ -19,7 +19,7 @@ type Props = {
   autoFocus?: boolean;
 };
 
-export const EmailInput: FC<Props> = ({
+export function EmailInput({
   required = false,
   value = '',
   id,
@@ -28,7 +28,7 @@ export const EmailInput: FC<Props> = ({
   onKeyPress,
   shouldValidate = true,
   autoFocus = false,
-}) => {
+}: Props) {
   const { t } = useAuthTranslation();
   const [error, setError] = useState<string | null>(null);
 
@@ -67,4 +67,4 @@ export const EmailInput: FC<Props> = ({
       onKeyPress={onKeyPress}
     />
   );
-};
+}

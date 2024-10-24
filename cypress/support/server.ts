@@ -97,3 +97,19 @@ export const mockRedirection = () => {
       }),
   ).as('redirectionContent');
 };
+
+export const mockLogin = (shouldThrowServerError = false) => {
+  cy.intercept(
+    {
+      method: HttpMethod.Post,
+      url: `${API_HOST}/login`,
+    },
+    ({ reply }) => {
+      if (shouldThrowServerError) {
+        // token is not present or password is too weak
+        return reply({ statusCode: StatusCodes.BAD_REQUEST });
+      }
+      return reply({ statusCode: StatusCodes.NO_CONTENT });
+    },
+  ).as('login');
+};

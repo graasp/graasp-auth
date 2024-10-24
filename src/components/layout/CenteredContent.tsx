@@ -3,17 +3,17 @@ import { ReactNode } from 'react';
 import { Stack } from '@mui/material';
 
 import { BACKGROUND_PATTERN } from '../../config/constants';
-import APIChecker from '../APIChecker';
-import Footer from '../Footer';
+import { APIChecker } from '../APIChecker';
+import { Footer } from '../Footer';
 import { styledBox } from '../styles';
 
-export const CenteredContent = ({
+export function CenteredContent({
   children,
   header,
 }: {
   children: ReactNode;
   header: ReactNode;
-}) => {
+}) {
   return (
     <Stack
       direction="column"
@@ -37,4 +37,4 @@ export const CenteredContent = ({
       <Footer />
     </Stack>
   );
-};
+}

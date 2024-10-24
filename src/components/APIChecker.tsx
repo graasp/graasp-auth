@@ -1,4 +1,5 @@
-import { Replay } from '@mui/icons-material';
+import { RotateCcwIcon } from 'lucide-react';
+
 import { LoadingButton } from '@mui/lab';
 import { Alert, AlertTitle, Box, Stack, Typography } from '@mui/material';
 
@@ -7,7 +8,7 @@ import { useAuthTranslation } from '../config/i18n';
 import { axios, useQuery } from '../config/queryClient';
 import { AUTH } from '../langs/constants';
 
-const APIChecker = (): JSX.Element | null => {
+export function APIChecker(): JSX.Element | null {
   const { t } = useAuthTranslation();
   const { isSuccess, isLoading, refetch, isError } = useQuery({
     queryKey: ['apiStatus'],
@@ -33,7 +34,7 @@ const APIChecker = (): JSX.Element | null => {
             <LoadingButton
               loading={isLoading}
               sx={{ maxWidth: 'min-content' }}
-              endIcon={<Replay />}
+              endIcon={<RotateCcwIcon />}
               onClick={() => refetch()}
             >
               {t(AUTH.API_UNAVAILABLE_BUTTON)}
@@ -46,5 +47,4 @@ const APIChecker = (): JSX.Element | null => {
 
   // everything all right, we render nothing if connection is ok.
   return null;
-};
-export default APIChecker;
+}

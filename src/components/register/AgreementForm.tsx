@@ -16,7 +16,7 @@ type Props = {
   useAgreementForm: UseAgreementForm;
 };
 
-export const AgreementForm = ({ useAgreementForm }: Props) => {
+export function AgreementForm({ useAgreementForm }: Props) {
   const { t } = useAuthTranslation();
   const {
     userHasAcceptedAllTerms,
@@ -80,4 +80,4 @@ export const AgreementForm = ({ useAgreementForm }: Props) => {
       />
     </FormGroup>
   );
-};
+}

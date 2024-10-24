@@ -5,15 +5,15 @@ import { GraaspLogo } from '@graasp/ui';
 import { Button, Divider, Stack, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import { useAuthTranslation } from '../config/i18n';
-import { SIGN_UP_PATH } from '../config/paths';
-import { SIGN_IN_HEADER_ID } from '../config/selectors';
-import { AUTH } from '../langs/constants';
-import LeftContentContainer from './LeftContentContainer';
-import MagicLinkForm from './signIn/MagicLinkForm';
-import PasswordForm from './signIn/PasswordForm';
+import { useAuthTranslation } from '../../config/i18n';
+import { SIGN_UP_PATH } from '../../config/paths';
+import { SIGN_IN_HEADER_ID } from '../../config/selectors';
+import { AUTH } from '../../langs/constants';
+import { LeftContentContainer } from '../LeftContentContainer';
+import { MagicLinkForm } from './MagicLinkForm';
+import { PasswordForm } from './PasswordForm';
 
-const SignIn = () => {
+export function SignIn() {
   const { t } = useAuthTranslation();
   const theme = useTheme();
 
@@ -58,6 +58,4 @@ const SignIn = () => {
       }
     </LeftContentContainer>
   );
-};
-
-export default SignIn;
+}

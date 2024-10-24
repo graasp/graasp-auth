@@ -1,5 +1,9 @@
 import { SIGN_IN_PATH } from '../../src/config/paths';
-import { REDIRECTION_CONTENT_CONTAINER_ID } from '../../src/config/selectors';
+import {
+  MAGIC_LINK_EMAIL_FIELD_ID,
+  REDIRECTION_CONTENT_CONTAINER_ID,
+  SUCCESS_CONTENT_ID,
+} from '../../src/config/selectors';
 import { MEMBERS } from '../fixtures/members';
 
 const DEFAULT_REDIRECTION_URL = Cypress.env('VITE_DEFAULT_REDIRECTION_URL');
@@ -29,5 +33,16 @@ describe('Already signed in', () => {
     cy.get(`[role="button"]`).click();
     cy.url().should('contain', DEFAULT_REDIRECTION_URL);
     cy.get('h1').should('contain', 'Content');
+  });
+});
+
+describe('Sign In', () => {
+  beforeEach(() => {
+    cy.setUpApi();
+    cy.visit(SIGN_IN_PATH);
+  });
+  it('Can use Enter to validate email', () => {
+    cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).type(`${MEMBERS.BOB.email}{Enter}`);
+    cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
   });
 });

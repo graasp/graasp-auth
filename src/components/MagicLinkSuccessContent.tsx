@@ -19,11 +19,11 @@ import {
 import { useRecaptcha } from '../context/RecaptchaContext';
 import { useRedirection } from '../hooks/searchParams';
 import { AUTH } from '../langs/constants';
-import LeftContentContainer from './LeftContentContainer';
+import { LeftContentContainer } from './LeftContentContainer';
 
 const NAVIGATE_BACK = -1;
 
-const MagicLinkSuccessContent = () => {
+export function MagicLinkSuccessContent() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { t } = useAuthTranslation();
@@ -108,6 +108,4 @@ const MagicLinkSuccessContent = () => {
       </Box>
     </LeftContentContainer>
   );
-};
-
-export default MagicLinkSuccessContent;
+}

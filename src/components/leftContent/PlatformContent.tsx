@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 type Props = {
   Icon: (args: { size: number; primaryColor: string }) => JSX.Element;
@@ -7,11 +7,11 @@ type Props = {
   color: string;
 };
 
-export const PlatformContent = ({ Icon, name, text, color }: Props) => {
+export function PlatformContent({ Icon, name, text, color }: Props) {
   return (
     <Stack width="100%" direction="row" alignItems="center">
       <Icon primaryColor={color} size={110} />
-      <p>
+      <Box>
         <Typography variant="h5" textAlign="left">
           {text}
         </Typography>
@@ -19,7 +19,7 @@ export const PlatformContent = ({ Icon, name, text, color }: Props) => {
         <Typography variant="h2" component="h2" color={color} width="100%">
           {name}
         </Typography>
-      </p>
+      </Box>
     </Stack>
   );
-};
+}

@@ -1,24 +1,23 @@
+import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useState } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment } from '@mui/material';
 
 import { useAuthTranslation } from '../../config/i18n';
 import { AUTH } from '../../langs/constants';
-import { EmailAdornment } from './EmailAdornment';
-import StyledTextField from './StyledTextField';
+import { PasswordAdornment } from './Adornments';
+import { StyledTextField } from './StyledTextField';
 
 const { PASSWORD_INPUT_PLACEHOLDER } = AUTH;
 
 type Props = {
   id: string;
-  value: string;
-  error: string | null;
-  onKeyDown: (e: any) => void;
-  onChange: (e: any) => void;
+  form: UseFormRegisterReturn<'password'>;
+  error: string | undefined;
 };
 
-const PasswordInput = ({ id, value, error, onKeyDown, onChange }: Props) => {
+export function PasswordInput({ id, error, form }: Props): JSX.Element {
   const { t } = useAuthTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -27,32 +26,32 @@ const PasswordInput = ({ id, value, error, onKeyDown, onChange }: Props) => {
   return (
     <StyledTextField
       InputProps={{
-        startAdornment: EmailAdornment,
+        startAdornment: PasswordAdornment,
         endAdornment: (
-          <InputAdornment position="end">
+          <InputAdornment position="end" color="inherit">
             <IconButton
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
               //   onMouseDown={handleMouseDownPassword}
               edge="end"
+              color="inherit"
             >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
+              {showPassword ? (
+                <EyeOffIcon color="currentColor" />
+              ) : (
+                <EyeIcon color="currentColor" />
+              )}
             </IconButton>
           </InputAdornment>
         ),
       }}
-      required
       variant="outlined"
-      value={value}
       error={Boolean(error)}
       helperText={error && t(error)}
       placeholder={t(PASSWORD_INPUT_PLACEHOLDER)}
-      onChange={onChange}
       id={id}
       type={showPassword ? 'text' : 'password'}
-      onKeyDown={onKeyDown}
+      {...form}
     />
   );
-};
-
-export default PasswordInput;
+}

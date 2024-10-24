@@ -2,7 +2,7 @@ import { GraaspLogo } from '@graasp/ui';
 
 import { Stack, Typography, useTheme } from '@mui/material';
 
-export const BrandingLogo = () => {
+export function BrandingLogo() {
   const theme = useTheme();
 
   return (
@@ -15,4 +15,4 @@ export const BrandingLogo = () => {
       </Stack>
     </div>
   );
-};
+}

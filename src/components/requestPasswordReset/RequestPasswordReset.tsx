@@ -21,7 +21,7 @@ import {
 import { useRecaptcha } from '../../context/RecaptchaContext';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage, isEmailValid } from '../../utils/validation';
-import { EmailAdornment } from '../common/EmailAdornment';
+import { EmailAdornment } from '../common/Adornments';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 
@@ -31,7 +31,7 @@ type Inputs = {
   email: string;
 };
 
-export const RequestPasswordReset = () => {
+export function RequestPasswordReset() {
   const { t } = useAuthTranslation();
   const {
     register,
@@ -126,4 +126,4 @@ export const RequestPasswordReset = () => {
       </Typography>
     </CenteredContent>
   );
-};
+}

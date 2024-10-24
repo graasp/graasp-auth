@@ -6,12 +6,12 @@ import { Button, Stack, Typography } from '@mui/material';
 import { useAuthTranslation } from '../config/i18n';
 import { HOME_PATH } from '../config/paths';
 import { AUTH } from '../langs/constants';
-import LeftContentContainer from './LeftContentContainer';
+import { LeftContentContainer } from './LeftContentContainer';
 
 const PLAY_STORE_LINK =
   'https://play.google.com/store/apps/details?id=org.graasp.mobile';
 
-const MobileAuth = (): JSX.Element => {
+export function MobileAuth(): JSX.Element {
   const { t } = useAuthTranslation();
 
   return (
@@ -58,5 +58,4 @@ const MobileAuth = (): JSX.Element => {
       </Stack>
     </LeftContentContainer>
   );
-};
-export default MobileAuth;
+}
