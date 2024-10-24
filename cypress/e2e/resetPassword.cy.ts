@@ -34,7 +34,7 @@ describe('Reset password', () => {
       cy.get(`#${RESET_PASSWORD_SUCCESS_MESSAGE_ID}`).should('be.visible');
       cy.get(`#${RESET_PASSWORD_BACK_TO_LOGIN_BUTTON_ID}`).should(
         'contain.text',
-        'Back to sign in',
+        'Back to login',
       );
     });
 

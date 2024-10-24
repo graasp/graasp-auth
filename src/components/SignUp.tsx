@@ -37,6 +37,7 @@ import { EnableAnalyticsForm } from './register/EnableAnalyticsForm';
 
 const {
   SIGN_IN_LINK_TEXT,
+  SIGN_IN_LINK_TEXT_BUTTON,
   SIGN_UP_HEADER,
   NAME_FIELD_LABEL,
   SIGN_UP_BUTTON,
@@ -213,8 +214,9 @@ const SignUp = () => {
           </LoadingButton>
         </Stack>
       </FormControl>
+      <Typography>{t(SIGN_IN_LINK_TEXT)}</Typography>
       <Link to={`${SIGN_IN_PATH}?${searchParams.toString()}`}>
-        {t(SIGN_IN_LINK_TEXT)}
+        {t(SIGN_IN_LINK_TEXT_BUTTON)}
       </Link>
     </Stack>
   );
