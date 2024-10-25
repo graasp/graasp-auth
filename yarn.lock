@@ -7163,7 +7163,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:3.6.3"
     http-status-codes: "npm:2.3.0"
     husky: "npm:9.1.6"
-    i18next: "npm:23.16.2"
+    i18next: "npm:23.16.3"
     istanbul-lib-coverage: "npm:3.2.2"
     jose: "npm:5.9.6"
     jwt-decode: "npm:4.0.0"
@@ -7402,12 +7402,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:23.16.2":
-  version: 23.16.2
-  resolution: "i18next@npm:23.16.2"
+"i18next@npm:23.16.3":
+  version: 23.16.3
+  resolution: "i18next@npm:23.16.3"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/38635d5b4530d256055b9b9bc471eddad630060c5fce06a426628487e05ea2ad0ed5dd2cb45e7e7afd16d58ecb8e6d13fad81c2391a07f1313256cf4b58dfb26
+  checksum: 10/648ad77d1564bc7d9a5715bab96ff1d504fef2cba8c3564514e199f5947590d78f0b5296bc3ef7c27b9a61bf8e0b4e44158be1c7cea10d4d822d1ec084023f7d
   languageName: node
   linkType: hard
 

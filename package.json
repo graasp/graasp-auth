@@ -24,7 +24,7 @@
     "@sentry/react": "7.119.2",
     "date-fns": "4.1.0",
     "http-status-codes": "2.3.0",
-    "i18next": "23.16.2",
+    "i18next": "23.16.3",
     "jose": "5.9.6",
     "jwt-decode": "4.0.0",
     "lucide-react": "0.453.0",
