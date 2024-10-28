@@ -1,3 +1,5 @@
+import { langs } from '@graasp/translations';
+
 import { SIGN_IN_PATH } from '../../src/config/paths';
 import {
   MAGIC_LINK_EMAIL_FIELD_ID,
@@ -45,4 +47,22 @@ describe('Sign In', () => {
     cy.get(`#${MAGIC_LINK_EMAIL_FIELD_ID}`).type(`${MEMBERS.BOB.email}{Enter}`);
     cy.get(`#${SUCCESS_CONTENT_ID}`).should('be.visible');
   });
+});
+
+// this test currently fails because the language switch does not update its value when provided in the url.
+describe('Sign In with lang', () => {
+  beforeEach(() => {
+    cy.setUpApi();
+  });
+  Object.entries(langs)
+    .map(([lang, expectedLabel]) => ({
+      lang,
+      expectedLabel,
+    }))
+    .forEach(({ lang, expectedLabel }) => {
+      it(`Got language ${lang} from url`, () => {
+        cy.visit(`${SIGN_IN_PATH}?lang=${lang}`);
+        cy.get(`[role="combobox"]`).should('have.text', expectedLabel);
+      });
+    });
 });
