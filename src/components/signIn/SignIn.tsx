@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { GraaspLogo } from '@graasp/ui';
 
@@ -16,8 +16,7 @@ import { PasswordForm } from './PasswordForm';
 export function SignIn() {
   const { t } = useAuthTranslation();
   const theme = useTheme();
-
-  const { search } = useLocation();
+  const [search] = useSearchParams();
 
   return (
     <LeftContentContainer>
@@ -49,7 +48,7 @@ export function SignIn() {
               variant="contained"
               fullWidth
               component={Link}
-              to={`${SIGN_UP_PATH}${search}`}
+              to={`${SIGN_UP_PATH}?${search}`}
             >
               {t(AUTH.SIGN_UP_LINK_TEXT)}
             </Button>
