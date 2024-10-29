@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.5](https://github.com/graasp/graasp-auth/compare/v2.7.4...v2.7.5) (2024-10-28)
+
+
+### Bug Fixes
+
+* translations ([#498](https://github.com/graasp/graasp-auth/issues/498)) ([07f7fb6](https://github.com/graasp/graasp-auth/commit/07f7fb644ea1f9cfc5f5b8d39a172948966cd01d))
+
 ## [2.7.4](https://github.com/graasp/graasp-auth/compare/v2.7.3...v2.7.4) (2024-10-25)
 
 
