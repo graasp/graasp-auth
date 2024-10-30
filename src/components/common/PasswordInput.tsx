@@ -25,25 +25,26 @@ export function PasswordInput({ id, error, form }: Props): JSX.Element {
 
   return (
     <StyledTextField
-      InputProps={{
-        startAdornment: PasswordAdornment,
-        endAdornment: (
-          <InputAdornment position="end" color="inherit">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={handleClickShowPassword}
-              //   onMouseDown={handleMouseDownPassword}
-              edge="end"
-              color="inherit"
-            >
-              {showPassword ? (
-                <EyeOffIcon color="currentColor" />
-              ) : (
-                <EyeIcon color="currentColor" />
-              )}
-            </IconButton>
-          </InputAdornment>
-        ),
+      slotProps={{
+        input: {
+          startAdornment: PasswordAdornment,
+          endAdornment: (
+            <InputAdornment position="end" color="inherit">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                edge="end"
+                color="inherit"
+              >
+                {showPassword ? (
+                  <EyeOffIcon color="currentColor" />
+                ) : (
+                  <EyeIcon color="currentColor" />
+                )}
+              </IconButton>
+            </InputAdornment>
+          ),
+        },
       }}
       variant="outlined"
       error={Boolean(error)}
