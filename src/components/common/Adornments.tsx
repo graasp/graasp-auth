@@ -1,4 +1,4 @@
-import { MailIcon, RectangleEllipsisIcon } from 'lucide-react';
+import { LockIcon, MailIcon } from 'lucide-react';
 
 import { InputAdornment } from '@mui/material';
 
@@ -9,6 +9,6 @@ export const EmailAdornment = (
 );
 export const PasswordAdornment = (
   <InputAdornment position="start" sx={{ color: 'inherit' }}>
-    <RectangleEllipsisIcon color="currentColor" />
+    <LockIcon color="currentColor" />
   </InputAdornment>
 );
