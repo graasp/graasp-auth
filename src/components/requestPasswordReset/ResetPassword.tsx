@@ -32,6 +32,7 @@ import {
 import { useValidateJWTToken } from '../../hooks/useValidateJWTToken';
 import { AUTH } from '../../langs/constants';
 import { getValidationMessage } from '../../utils/validation';
+import { PasswordAdornment } from '../common/Adornments';
 import { CenteredContent } from '../layout/CenteredContent';
 import { DialogHeader } from '../layout/DialogHeader';
 import { InvalidTokenScreen } from './InvalidTokenScreen';
@@ -124,14 +125,19 @@ export function ResetPassword() {
       >
         <TextField
           id={RESET_PASSWORD_NEW_PASSWORD_FIELD_ID}
+          slotProps={{
+            input: {
+              startAdornment: PasswordAdornment,
+            },
+            formHelperText: {
+              id: RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
+            },
+          }}
           {...register('password', {
             required: true,
             validate: (value) =>
               isPasswordStrong(value) || AUTH.PASSWORD_WEAK_ERROR,
           })}
-          FormHelperTextProps={{
-            id: RESET_PASSWORD_NEW_PASSWORD_FIELD_ERROR_TEXT_ID,
-          }}
           label={t(AUTH.RESET_PASSWORD_NEW_PASSWORD_FIELD_LABEL)}
           variant="outlined"
           error={Boolean(passwordErrorMessage)}
@@ -142,6 +148,14 @@ export function ResetPassword() {
         />
         <TextField
           id={RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ID}
+          slotProps={{
+            input: {
+              startAdornment: PasswordAdornment,
+            },
+            formHelperText: {
+              id: RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
+            },
+          }}
           {...register('confirmPassword', {
             required: true,
             validate: {
@@ -152,9 +166,6 @@ export function ResetPassword() {
                 AUTH.PASSWORD_DO_NOT_MATCH_ERROR,
             },
           })}
-          FormHelperTextProps={{
-            id: RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_ERROR_TEXT_ID,
-          }}
           label={t(AUTH.RESET_PASSWORD_NEW_PASSWORD_CONFIRMATION_FIELD_LABEL)}
           variant="outlined"
           error={Boolean(confirmPasswordErrorMessage)}
