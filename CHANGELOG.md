@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.6](https://github.com/graasp/graasp-auth/compare/v2.7.5...v2.7.6) (2024-11-04)
+
+
+### Bug Fixes
+
+* password icon use lock icon ([#503](https://github.com/graasp/graasp-auth/issues/503)) ([a2bc82c](https://github.com/graasp/graasp-auth/commit/a2bc82cc39a7208cc18a5a12dd4bf7e594ccb5ad))
+
 ## [2.7.5](https://github.com/graasp/graasp-auth/compare/v2.7.4...v2.7.5) (2024-10-28)
 
 
