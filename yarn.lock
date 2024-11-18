@@ -7321,7 +7321,7 @@ __metadata:
     istanbul-lib-coverage: "npm:3.2.2"
     jose: "npm:5.9.6"
     jwt-decode: "npm:4.0.0"
-    lucide-react: "npm:0.454.0"
+    lucide-react: "npm:0.460.0"
     nyc: "npm:17.1.0"
     prettier: "npm:3.3.3"
     react: "npm:18.3.1"
@@ -8748,12 +8748,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:0.454.0":
-  version: 0.454.0
-  resolution: "lucide-react@npm:0.454.0"
+"lucide-react@npm:0.460.0":
+  version: 0.460.0
+  resolution: "lucide-react@npm:0.460.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
-  checksum: 10/90b40271182e15fefc9cbc6aca4645a49691f73b1887daffb0c9d048f61c89a1c1d7eac1096a37ba627bdce91e8aa49fcf43a5cf0ebd255117ce848d71a56dd1
+  checksum: 10/e8be4ce522c2a7cf3a65aeb64142bb26ecba4ce3b06673127d8f141d1f4ffa65c38e58e0ba1fb1af8431063cf3c918657fc6ebaf9c835eda9b9ce4ece6cac96a
   languageName: node
   linkType: hard
 
