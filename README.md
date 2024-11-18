@@ -1,3 +1,7 @@
+>[!WARNING]
+> 2024-11-18  
+> This repo is archived. The contents are now living in [graasp/client](https://github.com/graasp/client) to allow development of a single code base.
+
 # Graasp Auth
 
 [![gitlocalized](https://gitlocalize.com/repo/9425/whole_project/badge.svg)](https://gitlocalize.com/repo/9425?utm_source=badge)
